@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 01/23/2014 23:23:36
+-- Date Created: 01/23/2014 23:27:42
 -- Generated from EDMX file: C:\Users\dimit_000\SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\src\Data\LocalStorage.edmx
 -- --------------------------------------------------
 
@@ -44,6 +44,12 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_FachNotiz]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Notizen] DROP CONSTRAINT [FK_FachNotiz];
 GO
+IF OBJECT_ID(N'[dbo].[FK_AufgabeUnterlage]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Unterlagen] DROP CONSTRAINT [FK_AufgabeUnterlage];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EreignisAufgabe]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Aufgaben] DROP CONSTRAINT [FK_EreignisAufgabe];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -69,6 +75,9 @@ IF OBJECT_ID(N'[dbo].[Schulen]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[Lehrer]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Lehrer];
+GO
+IF OBJECT_ID(N'[dbo].[Aufgaben]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Aufgaben];
 GO
 
 -- --------------------------------------------------
@@ -99,9 +108,7 @@ GO
 CREATE TABLE [dbo].[Unterlagen] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [FachId] int  NOT NULL,
-    [Inhalt] varbinary(max)  NOT NULL,
-    [EreignisId] int  NULL,
-    [AufgabeId] int  NULL
+    [Inhalt] varbinary(max)  NOT NULL
 );
 GO
 
@@ -144,10 +151,24 @@ GO
 -- Creating table 'Aufgaben'
 CREATE TABLE [dbo].[Aufgaben] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [Erledigt] datetime  NOT NULL,
+    [Erledigt] datetime  NULL,
     [Name] nvarchar(max)  NOT NULL,
     [Beschreibung] nvarchar(max)  NULL,
     [EreignisId] int  NOT NULL
+);
+GO
+
+-- Creating table 'EreignisUnterlage'
+CREATE TABLE [dbo].[EreignisUnterlage] (
+    [Ereignis_Id] int  NOT NULL,
+    [Unterlage_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'AufgabeUnterlage'
+CREATE TABLE [dbo].[AufgabeUnterlage] (
+    [Aufgabe_Id] int  NOT NULL,
+    [Unterlage_Id] int  NOT NULL
 );
 GO
 
@@ -201,6 +222,18 @@ GO
 ALTER TABLE [dbo].[Aufgaben]
 ADD CONSTRAINT [PK_Aufgaben]
     PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Ereignis_Id], [Unterlage_Id] in table 'EreignisUnterlage'
+ALTER TABLE [dbo].[EreignisUnterlage]
+ADD CONSTRAINT [PK_EreignisUnterlage]
+    PRIMARY KEY NONCLUSTERED ([Ereignis_Id], [Unterlage_Id] ASC);
+GO
+
+-- Creating primary key on [Aufgabe_Id], [Unterlage_Id] in table 'AufgabeUnterlage'
+ALTER TABLE [dbo].[AufgabeUnterlage]
+ADD CONSTRAINT [PK_AufgabeUnterlage]
+    PRIMARY KEY NONCLUSTERED ([Aufgabe_Id], [Unterlage_Id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -291,20 +324,6 @@ ON [dbo].[Noten]
     ([EreignisId]);
 GO
 
--- Creating foreign key on [EreignisId] in table 'Unterlagen'
-ALTER TABLE [dbo].[Unterlagen]
-ADD CONSTRAINT [FK_EreignisUnterlage]
-    FOREIGN KEY ([EreignisId])
-    REFERENCES [dbo].[Ereignisse]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_EreignisUnterlage'
-CREATE INDEX [IX_FK_EreignisUnterlage]
-ON [dbo].[Unterlagen]
-    ([EreignisId]);
-GO
-
 -- Creating foreign key on [EreignisId] in table 'Notizen'
 ALTER TABLE [dbo].[Notizen]
 ADD CONSTRAINT [FK_EreignisNotiz]
@@ -333,20 +352,6 @@ ON [dbo].[Notizen]
     ([FachId]);
 GO
 
--- Creating foreign key on [AufgabeId] in table 'Unterlagen'
-ALTER TABLE [dbo].[Unterlagen]
-ADD CONSTRAINT [FK_AufgabeUnterlage]
-    FOREIGN KEY ([AufgabeId])
-    REFERENCES [dbo].[Aufgaben]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_AufgabeUnterlage'
-CREATE INDEX [IX_FK_AufgabeUnterlage]
-ON [dbo].[Unterlagen]
-    ([AufgabeId]);
-GO
-
 -- Creating foreign key on [EreignisId] in table 'Aufgaben'
 ALTER TABLE [dbo].[Aufgaben]
 ADD CONSTRAINT [FK_EreignisAufgabe]
@@ -359,6 +364,52 @@ ADD CONSTRAINT [FK_EreignisAufgabe]
 CREATE INDEX [IX_FK_EreignisAufgabe]
 ON [dbo].[Aufgaben]
     ([EreignisId]);
+GO
+
+-- Creating foreign key on [Ereignis_Id] in table 'EreignisUnterlage'
+ALTER TABLE [dbo].[EreignisUnterlage]
+ADD CONSTRAINT [FK_EreignisUnterlage_Ereignis]
+    FOREIGN KEY ([Ereignis_Id])
+    REFERENCES [dbo].[Ereignisse]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Unterlage_Id] in table 'EreignisUnterlage'
+ALTER TABLE [dbo].[EreignisUnterlage]
+ADD CONSTRAINT [FK_EreignisUnterlage_Unterlage]
+    FOREIGN KEY ([Unterlage_Id])
+    REFERENCES [dbo].[Unterlagen]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EreignisUnterlage_Unterlage'
+CREATE INDEX [IX_FK_EreignisUnterlage_Unterlage]
+ON [dbo].[EreignisUnterlage]
+    ([Unterlage_Id]);
+GO
+
+-- Creating foreign key on [Aufgabe_Id] in table 'AufgabeUnterlage'
+ALTER TABLE [dbo].[AufgabeUnterlage]
+ADD CONSTRAINT [FK_AufgabeUnterlage_Aufgabe]
+    FOREIGN KEY ([Aufgabe_Id])
+    REFERENCES [dbo].[Aufgaben]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Unterlage_Id] in table 'AufgabeUnterlage'
+ALTER TABLE [dbo].[AufgabeUnterlage]
+ADD CONSTRAINT [FK_AufgabeUnterlage_Unterlage]
+    FOREIGN KEY ([Unterlage_Id])
+    REFERENCES [dbo].[Unterlagen]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AufgabeUnterlage_Unterlage'
+CREATE INDEX [IX_FK_AufgabeUnterlage_Unterlage]
+ON [dbo].[AufgabeUnterlage]
+    ([Unterlage_Id]);
 GO
 
 -- --------------------------------------------------

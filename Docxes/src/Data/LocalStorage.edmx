@@ -14,6 +14,7 @@
     <EntitySet Name="Schulen" EntityType="LocalStorage.Store.Schulen" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Lehrer" EntityType="LocalStorage.Store.Lehrer" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Aufgaben" EntityType="LocalStorage.Store.Aufgaben" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AufgabeUnterlage" EntityType="LocalStorage.Store.AufgabeUnterlage" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="LehrerFach" Association="LocalStorage.Store.LehrerFach">
       <End Role="Lehrer" EntitySet="Lehrer" />
       <End Role="Fach" EntitySet="Fächer" />
@@ -38,10 +39,6 @@
       <End Role="Ereignis" EntitySet="Ereignisse" />
       <End Role="Note" EntitySet="Noten" />
     </AssociationSet>
-    <AssociationSet Name="EreignisUnterlage" Association="LocalStorage.Store.EreignisUnterlage">
-      <End Role="Ereignis" EntitySet="Ereignisse" />
-      <End Role="Unterlage" EntitySet="Unterlagen" />
-    </AssociationSet>
     <AssociationSet Name="EreignisNotiz" Association="LocalStorage.Store.EreignisNotiz">
       <End Role="Ereignis" EntitySet="Ereignisse" />
       <End Role="Notiz" EntitySet="Notizen" />
@@ -50,13 +47,17 @@
       <End Role="Fach" EntitySet="Fächer" />
       <End Role="Notiz" EntitySet="Notizen" />
     </AssociationSet>
-    <AssociationSet Name="AufgabeUnterlage" Association="LocalStorage.Store.AufgabeUnterlage">
-      <End Role="Aufgabe" EntitySet="Aufgaben" />
-      <End Role="Unterlage" EntitySet="Unterlagen" />
-    </AssociationSet>
     <AssociationSet Name="EreignisAufgabe" Association="LocalStorage.Store.EreignisAufgabe">
       <End Role="Ereignis" EntitySet="Ereignisse" />
       <End Role="Aufgabe" EntitySet="Aufgaben" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AufgabeUnterlage_Aufgabe" Association="LocalStorage.Store.FK_AufgabeUnterlage_Aufgabe">
+      <End Role="Aufgabe" EntitySet="Aufgaben" />
+      <End Role="AufgabeUnterlage" EntitySet="AufgabeUnterlage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AufgabeUnterlage_Unterlage" Association="LocalStorage.Store.FK_AufgabeUnterlage_Unterlage">
+      <End Role="Unterlage" EntitySet="Unterlagen" />
+      <End Role="AufgabeUnterlage" EntitySet="AufgabeUnterlage" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Fächer">
@@ -86,8 +87,6 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FachId" Type="int" Nullable="false" />
     <Property Name="Inhalt" Type="varbinary(max)" Nullable="false" />
-    <Property Name="EreignisId" Type="int" Nullable="true" />
-    <Property Name="AufgabeId" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Ereignisse">
     <Key>
@@ -130,10 +129,18 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Erledigt" Type="datetime" Nullable="false" />
+    <Property Name="Erledigt" Type="datetime" Nullable="true" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Beschreibung" Type="nvarchar(max)" Nullable="true" />
     <Property Name="EreignisId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AufgabeUnterlage">
+    <Key>
+      <PropertyRef Name="Aufgabe_Id" />
+      <PropertyRef Name="Unterlage_Id" />
+    </Key>
+    <Property Name="Aufgabe_Id" Type="int" Nullable="false" />
+    <Property Name="Unterlage_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="LehrerFach">
     <End Role="Lehrer" Type="LocalStorage.Store.Lehrer" Multiplicity="1" />
@@ -207,18 +214,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="EreignisUnterlage">
-    <End Role="Ereignis" Type="LocalStorage.Store.Ereignisse" Multiplicity="0..1" />
-    <End Role="Unterlage" Type="LocalStorage.Store.Unterlagen" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Ereignis">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Unterlage">
-        <PropertyRef Name="EreignisId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="EreignisNotiz">
     <End Role="Ereignis" Type="LocalStorage.Store.Ereignisse" Multiplicity="0..1" />
     <End Role="Notiz" Type="LocalStorage.Store.Notizen" Multiplicity="*" />
@@ -243,18 +238,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="AufgabeUnterlage">
-    <End Role="Aufgabe" Type="LocalStorage.Store.Aufgaben" Multiplicity="0..1" />
-    <End Role="Unterlage" Type="LocalStorage.Store.Unterlagen" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Aufgabe">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Unterlage">
-        <PropertyRef Name="AufgabeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="EreignisAufgabe">
     <End Role="Ereignis" Type="LocalStorage.Store.Ereignisse" Multiplicity="1" />
     <End Role="Aufgabe" Type="LocalStorage.Store.Aufgaben" Multiplicity="*" />
@@ -264,6 +247,30 @@
       </Principal>
       <Dependent Role="Aufgabe">
         <PropertyRef Name="EreignisId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AufgabeUnterlage_Aufgabe">
+    <End Role="Aufgabe" Type="LocalStorage.Store.Aufgaben" Multiplicity="1" />
+    <End Role="AufgabeUnterlage" Type="LocalStorage.Store.AufgabeUnterlage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aufgabe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AufgabeUnterlage">
+        <PropertyRef Name="Aufgabe_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AufgabeUnterlage_Unterlage">
+    <End Role="AufgabeUnterlage" Type="LocalStorage.Store.AufgabeUnterlage" Multiplicity="*" />
+    <End Role="Unterlage" Type="LocalStorage.Store.Unterlagen" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Unterlage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AufgabeUnterlage">
+        <PropertyRef Name="Unterlage_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -303,10 +310,6 @@
             <End Role="Ereignis" EntitySet="Ereignisse" />
             <End Role="Note" EntitySet="Noten" />
           </AssociationSet>
-          <AssociationSet Name="EreignisUnterlage" Association="LocalStorage.EreignisUnterlage">
-            <End Role="Ereignis" EntitySet="Ereignisse" />
-            <End Role="Unterlage" EntitySet="Unterlagen" />
-          </AssociationSet>
           <AssociationSet Name="EreignisNotiz" Association="LocalStorage.EreignisNotiz">
             <End Role="Ereignis" EntitySet="Ereignisse" />
             <End Role="Notiz" EntitySet="Notizen" />
@@ -316,13 +319,17 @@
             <End Role="Notiz" EntitySet="Notizen" />
           </AssociationSet>
           <EntitySet Name="Aufgaben" EntityType="LocalStorage.Aufgabe" />
+          <AssociationSet Name="EreignisAufgabe" Association="LocalStorage.EreignisAufgabe">
+            <End Role="Ereignis" EntitySet="Ereignisse" />
+            <End Role="Aufgabe" EntitySet="Aufgaben" />
+          </AssociationSet>
           <AssociationSet Name="AufgabeUnterlage" Association="LocalStorage.AufgabeUnterlage">
             <End Role="Aufgabe" EntitySet="Aufgaben" />
             <End Role="Unterlage" EntitySet="Unterlagen" />
           </AssociationSet>
-          <AssociationSet Name="EreignisAufgabe" Association="LocalStorage.EreignisAufgabe">
+          <AssociationSet Name="EreignisUnterlage" Association="LocalStorage.EreignisUnterlage">
             <End Role="Ereignis" EntitySet="Ereignisse" />
-            <End Role="Aufgabe" EntitySet="Aufgaben" />
+            <End Role="Unterlage" EntitySet="Unterlagen" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Fach">
@@ -360,10 +367,9 @@
           <NavigationProperty Name="Fach" Relationship="LocalStorage.FachUnterlage" FromRole="Unterlage" ToRole="Fach" />
           <Property Type="Int32" Name="FachId" Nullable="false" />
           <Property Type="Binary" Name="Inhalt" Nullable="false" />
+          <NavigationProperty Name="Aufgabe" Relationship="LocalStorage.AufgabeUnterlage" FromRole="Unterlage" ToRole="Aufgabe" />
           <NavigationProperty Name="Ereignis" Relationship="LocalStorage.EreignisUnterlage" FromRole="Unterlage" ToRole="Ereignis" />
           <Property Type="Int32" Name="EreignisId" Nullable="true" />
-          <NavigationProperty Name="Aufgabe" Relationship="LocalStorage.AufgabeUnterlage" FromRole="Unterlage" ToRole="Aufgabe" />
-          <Property Type="Int32" Name="AufgabeId" Nullable="true" />
         </EntityType>
         <EntityType Name="Ereignis">
           <Key>
@@ -374,10 +380,10 @@
           <Property Type="Int32" Name="FachId" Nullable="false" />
           <Property Type="DateTime" Name="Datum" Nullable="false" />
           <NavigationProperty Name="Note" Relationship="LocalStorage.EreignisNote" FromRole="Ereignis" ToRole="Note" />
-          <NavigationProperty Name="Unterlage" Relationship="LocalStorage.EreignisUnterlage" FromRole="Ereignis" ToRole="Unterlage" />
           <NavigationProperty Name="Notiz" Relationship="LocalStorage.EreignisNotiz" FromRole="Ereignis" ToRole="Notiz" />
           <Property Type="Int32" Name="Typ" Nullable="false" />
           <NavigationProperty Name="Aufgabe" Relationship="LocalStorage.EreignisAufgabe" FromRole="Ereignis" ToRole="Aufgabe" />
+          <NavigationProperty Name="Unterlage" Relationship="LocalStorage.EreignisUnterlage" FromRole="Ereignis" ToRole="Unterlage" />
         </EntityType>
         <EntityType Name="Notiz">
           <Key>
@@ -483,18 +489,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EreignisUnterlage">
-          <End Type="LocalStorage.Ereignis" Role="Ereignis" Multiplicity="0..1" />
-          <End Type="LocalStorage.Unterlage" Role="Unterlage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ereignis">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Unterlage">
-              <PropertyRef Name="EreignisId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="EreignisNotiz">
           <End Type="LocalStorage.Ereignis" Role="Ereignis" Multiplicity="0..1" />
           <End Type="LocalStorage.Notiz" Role="Notiz" Multiplicity="*" />
@@ -527,22 +521,10 @@
           <Property Type="DateTime" Name="Erledigt" Nullable="true" />
           <Property Type="String" Name="Name" Nullable="false" />
           <Property Type="String" Name="Beschreibung" Nullable="true" />
-          <NavigationProperty Name="Unterlage" Relationship="LocalStorage.AufgabeUnterlage" FromRole="Aufgabe" ToRole="Unterlage" />
           <NavigationProperty Name="Ereignis" Relationship="LocalStorage.EreignisAufgabe" FromRole="Aufgabe" ToRole="Ereignis" />
           <Property Type="Int32" Name="EreignisId" Nullable="false" />
+          <NavigationProperty Name="Unterlage" Relationship="LocalStorage.AufgabeUnterlage" FromRole="Aufgabe" ToRole="Unterlage" />
         </EntityType>
-        <Association Name="AufgabeUnterlage">
-          <End Type="LocalStorage.Aufgabe" Role="Aufgabe" Multiplicity="0..1" />
-          <End Type="LocalStorage.Unterlage" Role="Unterlage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Aufgabe">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Unterlage">
-              <PropertyRef Name="AufgabeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="EreignisAufgabe">
           <End Type="LocalStorage.Ereignis" Role="Ereignis" Multiplicity="1" />
           <End Type="LocalStorage.Aufgabe" Role="Aufgabe" Multiplicity="*" />
@@ -551,6 +533,22 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Aufgabe">
+              <PropertyRef Name="EreignisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AufgabeUnterlage">
+          <End Type="LocalStorage.Aufgabe" Role="Aufgabe" Multiplicity="*" />
+          <End Type="LocalStorage.Unterlage" Role="Unterlage" Multiplicity="*" />
+        </Association>
+        <Association Name="EreignisUnterlage">
+          <End Type="LocalStorage.Ereignis" Role="Ereignis" Multiplicity="0..1" />
+          <End Type="LocalStorage.Unterlage" Role="Unterlage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ereignis">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Unterlage">
               <PropertyRef Name="EreignisId" />
             </Dependent>
           </ReferentialConstraint>
@@ -589,8 +587,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FachId" ColumnName="FachId" />
           <ScalarProperty Name="Inhalt" ColumnName="Inhalt" />
-          <ScalarProperty Name="EreignisId" ColumnName="EreignisId" />
-          <ScalarProperty Name="AufgabeId" ColumnName="AufgabeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -645,6 +641,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="AufgabeUnterlage" TypeName="LocalStorage.AufgabeUnterlage" StoreEntitySet="AufgabeUnterlage">
+      <EndProperty Name="Aufgabe">
+        <ScalarProperty Name="Id" ColumnName="Aufgabe_Id" />
+      </EndProperty>
+      <EndProperty Name="Unterlage">
+        <ScalarProperty Name="Id" ColumnName="Unterlage_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

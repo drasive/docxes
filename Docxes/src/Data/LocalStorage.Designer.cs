@@ -25,11 +25,11 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("LocalStorage", "FachNote", "Fach", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VrankenBischof.Docxes.src.Data.Fach), "Note", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Note), true)]
 [assembly: EdmRelationshipAttribute("LocalStorage", "FachEreignis", "Fach", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VrankenBischof.Docxes.src.Data.Fach), "Ereignis", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Ereignis), true)]
 [assembly: EdmRelationshipAttribute("LocalStorage", "EreignisNote", "Ereignis", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(VrankenBischof.Docxes.src.Data.Ereignis), "Note", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Note), true)]
-[assembly: EdmRelationshipAttribute("LocalStorage", "EreignisUnterlage", "Ereignis", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(VrankenBischof.Docxes.src.Data.Ereignis), "Unterlage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Unterlage), true)]
 [assembly: EdmRelationshipAttribute("LocalStorage", "EreignisNotiz", "Ereignis", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(VrankenBischof.Docxes.src.Data.Ereignis), "Notiz", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Notiz), true)]
 [assembly: EdmRelationshipAttribute("LocalStorage", "FachNotiz", "Fach", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VrankenBischof.Docxes.src.Data.Fach), "Notiz", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Notiz), true)]
-[assembly: EdmRelationshipAttribute("LocalStorage", "AufgabeUnterlage", "Aufgabe", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(VrankenBischof.Docxes.src.Data.Aufgabe), "Unterlage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Unterlage), true)]
 [assembly: EdmRelationshipAttribute("LocalStorage", "EreignisAufgabe", "Ereignis", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VrankenBischof.Docxes.src.Data.Ereignis), "Aufgabe", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Aufgabe), true)]
+[assembly: EdmRelationshipAttribute("LocalStorage", "AufgabeUnterlage", "Aufgabe", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Aufgabe), "Unterlage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Unterlage))]
+[assembly: EdmRelationshipAttribute("LocalStorage", "EreignisUnterlage", "Ereignis", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(VrankenBischof.Docxes.src.Data.Ereignis), "Unterlage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Unterlage), true)]
 
 #endregion
 
@@ -448,28 +448,6 @@ namespace VrankenBischof.Docxes.src.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LocalStorage", "AufgabeUnterlage", "Unterlage")]
-        public EntityCollection<Unterlage> Unterlage
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Unterlage>("LocalStorage.AufgabeUnterlage", "Unterlage");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Unterlage>("LocalStorage.AufgabeUnterlage", "Unterlage", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("LocalStorage", "EreignisAufgabe", "Ereignis")]
         public Ereignis Ereignis
         {
@@ -498,6 +476,28 @@ namespace VrankenBischof.Docxes.src.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Ereignis>("LocalStorage.EreignisAufgabe", "Ereignis", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("LocalStorage", "AufgabeUnterlage", "Unterlage")]
+        public EntityCollection<Unterlage> Unterlage
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Unterlage>("LocalStorage.AufgabeUnterlage", "Unterlage");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Unterlage>("LocalStorage.AufgabeUnterlage", "Unterlage", value);
                 }
             }
         }
@@ -707,28 +707,6 @@ namespace VrankenBischof.Docxes.src.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LocalStorage", "EreignisUnterlage", "Unterlage")]
-        public EntityCollection<Unterlage> Unterlage
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Unterlage>("LocalStorage.EreignisUnterlage", "Unterlage");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Unterlage>("LocalStorage.EreignisUnterlage", "Unterlage", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("LocalStorage", "EreignisNotiz", "Notiz")]
         public EntityCollection<Notiz> Notiz
         {
@@ -763,6 +741,28 @@ namespace VrankenBischof.Docxes.src.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Aufgabe>("LocalStorage.EreignisAufgabe", "Aufgabe", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("LocalStorage", "EreignisUnterlage", "Unterlage")]
+        public EntityCollection<Unterlage> Unterlage
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Unterlage>("LocalStorage.EreignisUnterlage", "Unterlage");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Unterlage>("LocalStorage.EreignisUnterlage", "Unterlage", value);
                 }
             }
         }
@@ -1993,30 +1993,6 @@ namespace VrankenBischof.Docxes.src.Data
         private Nullable<global::System.Int32> _EreignisId;
         partial void OnEreignisIdChanging(Nullable<global::System.Int32> value);
         partial void OnEreignisIdChanged();
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> AufgabeId
-        {
-            get
-            {
-                return _AufgabeId;
-            }
-            set
-            {
-                OnAufgabeIdChanging(value);
-                ReportPropertyChanging("AufgabeId");
-                _AufgabeId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("AufgabeId");
-                OnAufgabeIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _AufgabeId;
-        partial void OnAufgabeIdChanging(Nullable<global::System.Int32> value);
-        partial void OnAufgabeIdChanged();
 
         #endregion
 
@@ -2067,6 +2043,28 @@ namespace VrankenBischof.Docxes.src.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("LocalStorage", "AufgabeUnterlage", "Aufgabe")]
+        public EntityCollection<Aufgabe> Aufgabe
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Aufgabe>("LocalStorage.AufgabeUnterlage", "Aufgabe");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Aufgabe>("LocalStorage.AufgabeUnterlage", "Aufgabe", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("LocalStorage", "EreignisUnterlage", "Ereignis")]
         public Ereignis Ereignis
         {
@@ -2095,44 +2093,6 @@ namespace VrankenBischof.Docxes.src.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Ereignis>("LocalStorage.EreignisUnterlage", "Ereignis", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("LocalStorage", "AufgabeUnterlage", "Aufgabe")]
-        public Aufgabe Aufgabe
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Aufgabe>("LocalStorage.AufgabeUnterlage", "Aufgabe").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Aufgabe>("LocalStorage.AufgabeUnterlage", "Aufgabe").Value = value;
-            }
-        }
-        /// <summary>
-        /// Keine Dokumentation für Metadaten verfügbar.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Aufgabe> AufgabeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Aufgabe>("LocalStorage.AufgabeUnterlage", "Aufgabe");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Aufgabe>("LocalStorage.AufgabeUnterlage", "Aufgabe", value);
                 }
             }
         }

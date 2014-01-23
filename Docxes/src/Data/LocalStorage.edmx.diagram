@@ -6,10 +6,10 @@
     <edmx:Diagrams>
       <Diagram DiagramId="51b3ae5b0e4e49beaeac1263812e1e38" Name="Main" DisplayType="true" ShowGrid="true" ZoomLevel="127" >
         <EntityTypeShape EntityType="LocalStorage.Fach" Width="1.625" PointX="2.625" PointY="2.875" />
-        <EntityTypeShape EntityType="LocalStorage.Note" Width="1.625" PointX="9.375" PointY="4.875" />
-        <EntityTypeShape EntityType="LocalStorage.Unterlage" Width="1.5" PointX="7.375" PointY="4.875" />
-        <EntityTypeShape EntityType="LocalStorage.Ereignis" Width="1.75" PointX="6.25" PointY="1" />
-        <EntityTypeShape EntityType="LocalStorage.Notiz" Width="1.5" PointX="5.5" PointY="4.875" />
+        <EntityTypeShape EntityType="LocalStorage.Note" Width="1.625" PointX="9.25" PointY="4.875" />
+        <EntityTypeShape EntityType="LocalStorage.Unterlage" Width="1.5" PointX="7.25" PointY="4.875" />
+        <EntityTypeShape EntityType="LocalStorage.Ereignis" Width="1.75" PointX="6" PointY="1" />
+        <EntityTypeShape EntityType="LocalStorage.Notiz" Width="1.5" PointX="5.25" PointY="4.875" />
         <EntityTypeShape EntityType="LocalStorage.Schule" Width="1.625" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="LocalStorage.Lehrer" Width="1.625" PointX="0.5" PointY="2.875" />
         <AssociationConnector Association="LocalStorage.LehrerFach" />
@@ -18,12 +18,12 @@
         <AssociationConnector Association="LocalStorage.FachNote" />
         <AssociationConnector Association="LocalStorage.FachEreignis" />
         <AssociationConnector Association="LocalStorage.EreignisNote" />
-        <AssociationConnector Association="LocalStorage.EreignisUnterlage" />
         <AssociationConnector Association="LocalStorage.EreignisNotiz" />
         <AssociationConnector Association="LocalStorage.FachNotiz" />
-        <EntityTypeShape EntityType="LocalStorage.Aufgabe" Width="1.75" PointX="8.5" PointY="1" />
-        <AssociationConnector Association="LocalStorage.AufgabeUnterlage" />
+        <EntityTypeShape EntityType="LocalStorage.Aufgabe" Width="1.75" PointX="8.25" PointY="1" />
         <AssociationConnector Association="LocalStorage.EreignisAufgabe" />
+        <AssociationConnector Association="LocalStorage.AufgabeUnterlage" />
+        <AssociationConnector Association="LocalStorage.EreignisUnterlage" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
