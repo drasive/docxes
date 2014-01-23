@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LocalStorage.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="LocalStorageStoreContainer">
+    <EntitySet Name="Fächer" EntityType="LocalStorage.Store.Fächer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Noten" EntityType="LocalStorage.Store.Noten" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Unterlagen" EntityType="LocalStorage.Store.Unterlagen" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ereignisse" EntityType="LocalStorage.Store.Ereignisse" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Notizen" EntityType="LocalStorage.Store.Notizen" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Schulen" EntityType="LocalStorage.Store.Schulen" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Lehrer" EntityType="LocalStorage.Store.Lehrer" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="LehrerFach" Association="LocalStorage.Store.LehrerFach">
+      <End Role="Lehrer" EntitySet="Lehrer" />
+      <End Role="Fach" EntitySet="Fächer" />
+    </AssociationSet>
+    <AssociationSet Name="LehrerSchule" Association="LocalStorage.Store.LehrerSchule">
+      <End Role="Lehrer" EntitySet="Lehrer" />
+      <End Role="Schule" EntitySet="Schulen" />
+    </AssociationSet>
+    <AssociationSet Name="FachUnterlage" Association="LocalStorage.Store.FachUnterlage">
+      <End Role="Fach" EntitySet="Fächer" />
+      <End Role="Unterlage" EntitySet="Unterlagen" />
+    </AssociationSet>
+    <AssociationSet Name="FachNote" Association="LocalStorage.Store.FachNote">
+      <End Role="Fach" EntitySet="Fächer" />
+      <End Role="Note" EntitySet="Noten" />
+    </AssociationSet>
+    <AssociationSet Name="FachEreignis" Association="LocalStorage.Store.FachEreignis">
+      <End Role="Fach" EntitySet="Fächer" />
+      <End Role="Ereignis" EntitySet="Ereignisse" />
+    </AssociationSet>
+    <AssociationSet Name="EreignisNote" Association="LocalStorage.Store.EreignisNote">
+      <End Role="Ereignis" EntitySet="Ereignisse" />
+      <End Role="Note" EntitySet="Noten" />
+    </AssociationSet>
+    <AssociationSet Name="EreignisUnterlage" Association="LocalStorage.Store.EreignisUnterlage">
+      <End Role="Ereignis" EntitySet="Ereignisse" />
+      <End Role="Unterlage" EntitySet="Unterlagen" />
+    </AssociationSet>
+    <AssociationSet Name="EreignisNotiz" Association="LocalStorage.Store.EreignisNotiz">
+      <End Role="Ereignis" EntitySet="Ereignisse" />
+      <End Role="Notiz" EntitySet="Notizen" />
+    </AssociationSet>
+    <AssociationSet Name="FachNotiz" Association="LocalStorage.Store.FachNotiz">
+      <End Role="Fach" EntitySet="Fächer" />
+      <End Role="Notiz" EntitySet="Notizen" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Fächer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Kommentar" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="LehrerId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Noten">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Wert" Type="int" Nullable="false" />
+    <Property Name="Gewicht" Type="int" Nullable="false" />
+    <Property Name="Kommentar" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="FachId" Type="int" Nullable="false" />
+    <Property Name="EreignisId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Unterlagen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FachId" Type="int" Nullable="false" />
+    <Property Name="Inhalt" Type="varbinary(max)" Nullable="false" />
+    <Property Name="EreignisId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Ereignisse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FachId" Type="int" Nullable="false" />
+    <Property Name="Datum" Type="datetime" Nullable="false" />
+    <Property Name="Typ" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notizen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Inhalt" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EreignisId" Type="int" Nullable="true" />
+    <Property Name="FachId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Schulen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Kommentar" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Lehrer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SchuleId" Type="int" Nullable="false" />
+    <Property Name="Vorname" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Nachname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Männlich" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="LehrerFach">
+    <End Role="Lehrer" Type="LocalStorage.Store.Lehrer" Multiplicity="1" />
+    <End Role="Fach" Type="LocalStorage.Store.Fächer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lehrer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fach">
+        <PropertyRef Name="LehrerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LehrerSchule">
+    <End Role="Lehrer" Type="LocalStorage.Store.Lehrer" Multiplicity="*" />
+    <End Role="Schule" Type="LocalStorage.Store.Schulen" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Schule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lehrer">
+        <PropertyRef Name="SchuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FachUnterlage">
+    <End Role="Fach" Type="LocalStorage.Store.Fächer" Multiplicity="1" />
+    <End Role="Unterlage" Type="LocalStorage.Store.Unterlagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fach">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unterlage">
+        <PropertyRef Name="FachId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FachNote">
+    <End Role="Fach" Type="LocalStorage.Store.Fächer" Multiplicity="1" />
+    <End Role="Note" Type="LocalStorage.Store.Noten" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fach">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Note">
+        <PropertyRef Name="FachId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FachEreignis">
+    <End Role="Fach" Type="LocalStorage.Store.Fächer" Multiplicity="1" />
+    <End Role="Ereignis" Type="LocalStorage.Store.Ereignisse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fach">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ereignis">
+        <PropertyRef Name="FachId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EreignisNote">
+    <End Role="Ereignis" Type="LocalStorage.Store.Ereignisse" Multiplicity="0..1" />
+    <End Role="Note" Type="LocalStorage.Store.Noten" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ereignis">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Note">
+        <PropertyRef Name="EreignisId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EreignisUnterlage">
+    <End Role="Ereignis" Type="LocalStorage.Store.Ereignisse" Multiplicity="0..1" />
+    <End Role="Unterlage" Type="LocalStorage.Store.Unterlagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ereignis">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unterlage">
+        <PropertyRef Name="EreignisId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EreignisNotiz">
+    <End Role="Ereignis" Type="LocalStorage.Store.Ereignisse" Multiplicity="0..1" />
+    <End Role="Notiz" Type="LocalStorage.Store.Notizen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ereignis">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notiz">
+        <PropertyRef Name="EreignisId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FachNotiz">
+    <End Role="Fach" Type="LocalStorage.Store.Fächer" Multiplicity="1" />
+    <End Role="Notiz" Type="LocalStorage.Store.Notizen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fach">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notiz">
+        <PropertyRef Name="FachId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="LocalStorage" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" >
+        <EntityContainer Name="LocalStorageContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Fächer" EntityType="LocalStorage.Fach" />
+          <EntitySet Name="Noten" EntityType="LocalStorage.Note" />
+          <EntitySet Name="Unterlagen" EntityType="LocalStorage.Unterlage" />
+          <EntitySet Name="Ereignisse" EntityType="LocalStorage.Ereignis" />
+          <EntitySet Name="Notizen" EntityType="LocalStorage.Notiz" />
+          <EntitySet Name="Schulen" EntityType="LocalStorage.Schule" />
+          <EntitySet Name="Lehrer" EntityType="LocalStorage.Lehrer" />
+          <AssociationSet Name="LehrerFach" Association="LocalStorage.LehrerFach">
+            <End Role="Lehrer" EntitySet="Lehrer" />
+            <End Role="Fach" EntitySet="Fächer" />
+          </AssociationSet>
+          <AssociationSet Name="LehrerSchule" Association="LocalStorage.LehrerSchule">
+            <End Role="Lehrer" EntitySet="Lehrer" />
+            <End Role="Schule" EntitySet="Schulen" />
+          </AssociationSet>
+          <AssociationSet Name="FachUnterlage" Association="LocalStorage.FachUnterlage">
+            <End Role="Fach" EntitySet="Fächer" />
+            <End Role="Unterlage" EntitySet="Unterlagen" />
+          </AssociationSet>
+          <AssociationSet Name="FachNote" Association="LocalStorage.FachNote">
+            <End Role="Fach" EntitySet="Fächer" />
+            <End Role="Note" EntitySet="Noten" />
+          </AssociationSet>
+          <AssociationSet Name="FachEreignis" Association="LocalStorage.FachEreignis">
+            <End Role="Fach" EntitySet="Fächer" />
+            <End Role="Ereignis" EntitySet="Ereignisse" />
+          </AssociationSet>
+          <AssociationSet Name="EreignisNote" Association="LocalStorage.EreignisNote">
+            <End Role="Ereignis" EntitySet="Ereignisse" />
+            <End Role="Note" EntitySet="Noten" />
+          </AssociationSet>
+          <AssociationSet Name="EreignisUnterlage" Association="LocalStorage.EreignisUnterlage">
+            <End Role="Ereignis" EntitySet="Ereignisse" />
+            <End Role="Unterlage" EntitySet="Unterlagen" />
+          </AssociationSet>
+          <AssociationSet Name="EreignisNotiz" Association="LocalStorage.EreignisNotiz">
+            <End Role="Ereignis" EntitySet="Ereignisse" />
+            <End Role="Notiz" EntitySet="Notizen" />
+          </AssociationSet>
+          <AssociationSet Name="FachNotiz" Association="LocalStorage.FachNotiz">
+            <End Role="Fach" EntitySet="Fächer" />
+            <End Role="Notiz" EntitySet="Notizen" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Fach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Kommentar" Nullable="true" />
+          <NavigationProperty Name="Lehrer" Relationship="LocalStorage.LehrerFach" FromRole="Fach" ToRole="Lehrer" />
+          <Property Type="Int32" Name="LehrerId" Nullable="false" />
+          <NavigationProperty Name="Unterlage" Relationship="LocalStorage.FachUnterlage" FromRole="Fach" ToRole="Unterlage" />
+          <NavigationProperty Name="Note" Relationship="LocalStorage.FachNote" FromRole="Fach" ToRole="Note" />
+          <NavigationProperty Name="Ereignis" Relationship="LocalStorage.FachEreignis" FromRole="Fach" ToRole="Ereignis" />
+          <NavigationProperty Name="Notiz" Relationship="LocalStorage.FachNotiz" FromRole="Fach" ToRole="Notiz" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" cg:SetterAccess="Private" />
+          <Property Type="Int32" Name="Wert" Nullable="false" cg:SetterAccess="Public" />
+          <Property Type="Int32" Name="Gewicht" Nullable="false" cg:SetterAccess="Public" />
+          <Property Type="String" Name="Kommentar" Nullable="true" />
+          <NavigationProperty Name="Fach" Relationship="LocalStorage.FachNote" FromRole="Note" ToRole="Fach" />
+          <Property Type="Int32" Name="FachId" Nullable="false" />
+          <NavigationProperty Name="Ereignis" Relationship="LocalStorage.EreignisNote" FromRole="Note" ToRole="Ereignis" />
+          <Property Type="Int32" Name="EreignisId" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Unterlage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Fach" Relationship="LocalStorage.FachUnterlage" FromRole="Unterlage" ToRole="Fach" />
+          <Property Type="Int32" Name="FachId" Nullable="false" />
+          <Property Type="Binary" Name="Inhalt" Nullable="false" />
+          <NavigationProperty Name="Ereignis" Relationship="LocalStorage.EreignisUnterlage" FromRole="Unterlage" ToRole="Ereignis" />
+          <Property Type="Int32" Name="EreignisId" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Ereignis">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Fach" Relationship="LocalStorage.FachEreignis" FromRole="Ereignis" ToRole="Fach" />
+          <Property Type="Int32" Name="FachId" Nullable="false" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <NavigationProperty Name="Note" Relationship="LocalStorage.EreignisNote" FromRole="Ereignis" ToRole="Note" />
+          <NavigationProperty Name="Unterlage" Relationship="LocalStorage.EreignisUnterlage" FromRole="Ereignis" ToRole="Unterlage" />
+          <NavigationProperty Name="Notiz" Relationship="LocalStorage.EreignisNotiz" FromRole="Ereignis" ToRole="Notiz" />
+          <Property Type="Int32" Name="Typ" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notiz">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Inhalt" Nullable="false" />
+          <NavigationProperty Name="Ereignis" Relationship="LocalStorage.EreignisNotiz" FromRole="Notiz" ToRole="Ereignis" />
+          <Property Type="Int32" Name="EreignisId" Nullable="true" />
+          <NavigationProperty Name="Fach" Relationship="LocalStorage.FachNotiz" FromRole="Notiz" ToRole="Fach" />
+          <Property Type="Int32" Name="FachId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Schule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Kommentar" Nullable="true" />
+          <NavigationProperty Name="Lehrer" Relationship="LocalStorage.LehrerSchule" FromRole="Schule" ToRole="Lehrer" />
+        </EntityType>
+        <EntityType Name="Lehrer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Fach" Relationship="LocalStorage.LehrerFach" FromRole="Lehrer" ToRole="Fach" />
+          <NavigationProperty Name="Schule" Relationship="LocalStorage.LehrerSchule" FromRole="Lehrer" ToRole="Schule" />
+          <Property Type="Int32" Name="SchuleId" Nullable="false" />
+          <Property Type="String" Name="Vorname" Nullable="true" />
+          <Property Type="String" Name="Nachname" Nullable="false" />
+          <Property Type="Boolean" Name="Männlich" Nullable="false" />
+        </EntityType>
+        <Association Name="LehrerFach">
+          <End Type="LocalStorage.Lehrer" Role="Lehrer" Multiplicity="1" />
+          <End Type="LocalStorage.Fach" Role="Fach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lehrer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Fach">
+              <PropertyRef Name="LehrerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LehrerSchule">
+          <End Type="LocalStorage.Lehrer" Role="Lehrer" Multiplicity="*" />
+          <End Type="LocalStorage.Schule" Role="Schule" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Schule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Lehrer">
+              <PropertyRef Name="SchuleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FachUnterlage">
+          <End Type="LocalStorage.Fach" Role="Fach" Multiplicity="1" />
+          <End Type="LocalStorage.Unterlage" Role="Unterlage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fach">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Unterlage">
+              <PropertyRef Name="FachId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FachNote">
+          <End Type="LocalStorage.Fach" Role="Fach" Multiplicity="1" />
+          <End Type="LocalStorage.Note" Role="Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fach">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="FachId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FachEreignis">
+          <End Type="LocalStorage.Fach" Role="Fach" Multiplicity="1" />
+          <End Type="LocalStorage.Ereignis" Role="Ereignis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fach">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ereignis">
+              <PropertyRef Name="FachId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EreignisNote">
+          <End Type="LocalStorage.Ereignis" Role="Ereignis" Multiplicity="0..1" />
+          <End Type="LocalStorage.Note" Role="Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ereignis">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="EreignisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EreignisUnterlage">
+          <End Type="LocalStorage.Ereignis" Role="Ereignis" Multiplicity="0..1" />
+          <End Type="LocalStorage.Unterlage" Role="Unterlage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ereignis">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Unterlage">
+              <PropertyRef Name="EreignisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EreignisNotiz">
+          <End Type="LocalStorage.Ereignis" Role="Ereignis" Multiplicity="0..1" />
+          <End Type="LocalStorage.Notiz" Role="Notiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ereignis">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notiz">
+              <PropertyRef Name="EreignisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FachNotiz">
+          <End Type="LocalStorage.Fach" Role="Fach" Multiplicity="1" />
+          <End Type="LocalStorage.Notiz" Role="Notiz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fach">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notiz">
+              <PropertyRef Name="FachId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LocalStorageStoreContainer" CdmEntityContainer="LocalStorageContainer">
+    <EntitySetMapping Name="Fächer">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalStorage.Fach)">
+        <MappingFragment StoreEntitySet="Fächer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Kommentar" ColumnName="Kommentar" />
+          <ScalarProperty Name="LehrerId" ColumnName="LehrerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Noten">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalStorage.Note)">
+        <MappingFragment StoreEntitySet="Noten">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Wert" ColumnName="Wert" />
+          <ScalarProperty Name="Gewicht" ColumnName="Gewicht" />
+          <ScalarProperty Name="Kommentar" ColumnName="Kommentar" />
+          <ScalarProperty Name="FachId" ColumnName="FachId" />
+          <ScalarProperty Name="EreignisId" ColumnName="EreignisId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unterlagen">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalStorage.Unterlage)">
+        <MappingFragment StoreEntitySet="Unterlagen">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FachId" ColumnName="FachId" />
+          <ScalarProperty Name="Inhalt" ColumnName="Inhalt" />
+          <ScalarProperty Name="EreignisId" ColumnName="EreignisId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ereignisse">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalStorage.Ereignis)">
+        <MappingFragment StoreEntitySet="Ereignisse">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FachId" ColumnName="FachId" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="Typ" ColumnName="Typ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notizen">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalStorage.Notiz)">
+        <MappingFragment StoreEntitySet="Notizen">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Inhalt" ColumnName="Inhalt" />
+          <ScalarProperty Name="EreignisId" ColumnName="EreignisId" />
+          <ScalarProperty Name="FachId" ColumnName="FachId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schulen">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalStorage.Schule)">
+        <MappingFragment StoreEntitySet="Schulen">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Kommentar" ColumnName="Kommentar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lehrer">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalStorage.Lehrer)">
+        <MappingFragment StoreEntitySet="Lehrer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SchuleId" ColumnName="SchuleId" />
+          <ScalarProperty Name="Vorname" ColumnName="Vorname" />
+          <ScalarProperty Name="Nachname" ColumnName="Nachname" />
+          <ScalarProperty Name="Männlich" ColumnName="Männlich" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
