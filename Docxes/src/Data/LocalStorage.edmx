@@ -13,6 +13,7 @@
     <EntitySet Name="Notizen" EntityType="LocalStorage.Store.Notizen" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Schulen" EntityType="LocalStorage.Store.Schulen" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Lehrer" EntityType="LocalStorage.Store.Lehrer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Aufgaben" EntityType="LocalStorage.Store.Aufgaben" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="LehrerFach" Association="LocalStorage.Store.LehrerFach">
       <End Role="Lehrer" EntitySet="Lehrer" />
       <End Role="Fach" EntitySet="Fächer" />
@@ -49,6 +50,14 @@
       <End Role="Fach" EntitySet="Fächer" />
       <End Role="Notiz" EntitySet="Notizen" />
     </AssociationSet>
+    <AssociationSet Name="AufgabeUnterlage" Association="LocalStorage.Store.AufgabeUnterlage">
+      <End Role="Aufgabe" EntitySet="Aufgaben" />
+      <End Role="Unterlage" EntitySet="Unterlagen" />
+    </AssociationSet>
+    <AssociationSet Name="EreignisAufgabe" Association="LocalStorage.Store.EreignisAufgabe">
+      <End Role="Ereignis" EntitySet="Ereignisse" />
+      <End Role="Aufgabe" EntitySet="Aufgaben" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Fächer">
     <Key>
@@ -78,6 +87,7 @@
     <Property Name="FachId" Type="int" Nullable="false" />
     <Property Name="Inhalt" Type="varbinary(max)" Nullable="false" />
     <Property Name="EreignisId" Type="int" Nullable="true" />
+    <Property Name="AufgabeId" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Ereignisse">
     <Key>
@@ -114,6 +124,16 @@
     <Property Name="Vorname" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Nachname" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Männlich" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Aufgaben">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Erledigt" Type="datetime" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Beschreibung" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="EreignisId" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="LehrerFach">
     <End Role="Lehrer" Type="LocalStorage.Store.Lehrer" Multiplicity="1" />
@@ -223,6 +243,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="AufgabeUnterlage">
+    <End Role="Aufgabe" Type="LocalStorage.Store.Aufgaben" Multiplicity="0..1" />
+    <End Role="Unterlage" Type="LocalStorage.Store.Unterlagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aufgabe">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unterlage">
+        <PropertyRef Name="AufgabeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EreignisAufgabe">
+    <End Role="Ereignis" Type="LocalStorage.Store.Ereignisse" Multiplicity="1" />
+    <End Role="Aufgabe" Type="LocalStorage.Store.Aufgaben" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ereignis">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Aufgabe">
+        <PropertyRef Name="EreignisId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -271,6 +315,15 @@
             <End Role="Fach" EntitySet="Fächer" />
             <End Role="Notiz" EntitySet="Notizen" />
           </AssociationSet>
+          <EntitySet Name="Aufgaben" EntityType="LocalStorage.Aufgabe" />
+          <AssociationSet Name="AufgabeUnterlage" Association="LocalStorage.AufgabeUnterlage">
+            <End Role="Aufgabe" EntitySet="Aufgaben" />
+            <End Role="Unterlage" EntitySet="Unterlagen" />
+          </AssociationSet>
+          <AssociationSet Name="EreignisAufgabe" Association="LocalStorage.EreignisAufgabe">
+            <End Role="Ereignis" EntitySet="Ereignisse" />
+            <End Role="Aufgabe" EntitySet="Aufgaben" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Fach">
           <Key>
@@ -309,6 +362,8 @@
           <Property Type="Binary" Name="Inhalt" Nullable="false" />
           <NavigationProperty Name="Ereignis" Relationship="LocalStorage.EreignisUnterlage" FromRole="Unterlage" ToRole="Ereignis" />
           <Property Type="Int32" Name="EreignisId" Nullable="true" />
+          <NavigationProperty Name="Aufgabe" Relationship="LocalStorage.AufgabeUnterlage" FromRole="Unterlage" ToRole="Aufgabe" />
+          <Property Type="Int32" Name="AufgabeId" Nullable="true" />
         </EntityType>
         <EntityType Name="Ereignis">
           <Key>
@@ -322,6 +377,7 @@
           <NavigationProperty Name="Unterlage" Relationship="LocalStorage.EreignisUnterlage" FromRole="Ereignis" ToRole="Unterlage" />
           <NavigationProperty Name="Notiz" Relationship="LocalStorage.EreignisNotiz" FromRole="Ereignis" ToRole="Notiz" />
           <Property Type="Int32" Name="Typ" Nullable="false" />
+          <NavigationProperty Name="Aufgabe" Relationship="LocalStorage.EreignisAufgabe" FromRole="Ereignis" ToRole="Aufgabe" />
         </EntityType>
         <EntityType Name="Notiz">
           <Key>
@@ -463,6 +519,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Aufgabe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Erledigt" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Beschreibung" Nullable="true" />
+          <NavigationProperty Name="Unterlage" Relationship="LocalStorage.AufgabeUnterlage" FromRole="Aufgabe" ToRole="Unterlage" />
+          <NavigationProperty Name="Ereignis" Relationship="LocalStorage.EreignisAufgabe" FromRole="Aufgabe" ToRole="Ereignis" />
+          <Property Type="Int32" Name="EreignisId" Nullable="false" />
+        </EntityType>
+        <Association Name="AufgabeUnterlage">
+          <End Type="LocalStorage.Aufgabe" Role="Aufgabe" Multiplicity="0..1" />
+          <End Type="LocalStorage.Unterlage" Role="Unterlage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aufgabe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Unterlage">
+              <PropertyRef Name="AufgabeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EreignisAufgabe">
+          <End Type="LocalStorage.Ereignis" Role="Ereignis" Multiplicity="1" />
+          <End Type="LocalStorage.Aufgabe" Role="Aufgabe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ereignis">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Aufgabe">
+              <PropertyRef Name="EreignisId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -498,6 +590,7 @@
           <ScalarProperty Name="FachId" ColumnName="FachId" />
           <ScalarProperty Name="Inhalt" ColumnName="Inhalt" />
           <ScalarProperty Name="EreignisId" ColumnName="EreignisId" />
+          <ScalarProperty Name="AufgabeId" ColumnName="AufgabeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -538,6 +631,17 @@
           <ScalarProperty Name="Vorname" ColumnName="Vorname" />
           <ScalarProperty Name="Nachname" ColumnName="Nachname" />
           <ScalarProperty Name="Männlich" ColumnName="Männlich" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aufgaben">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalStorage.Aufgabe)">
+        <MappingFragment StoreEntitySet="Aufgaben">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Erledigt" ColumnName="Erledigt" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+          <ScalarProperty Name="EreignisId" ColumnName="EreignisId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

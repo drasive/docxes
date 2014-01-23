@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 01/23/2014 20:50:59
+-- Date Created: 01/23/2014 23:23:36
 -- Generated from EDMX file: C:\Users\dimit_000\SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\src\Data\LocalStorage.edmx
 -- --------------------------------------------------
 
@@ -100,7 +100,8 @@ CREATE TABLE [dbo].[Unterlagen] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [FachId] int  NOT NULL,
     [Inhalt] varbinary(max)  NOT NULL,
-    [EreignisId] int  NULL
+    [EreignisId] int  NULL,
+    [AufgabeId] int  NULL
 );
 GO
 
@@ -137,6 +138,16 @@ CREATE TABLE [dbo].[Lehrer] (
     [Vorname] nvarchar(max)  NULL,
     [Nachname] nvarchar(max)  NOT NULL,
     [Männlich] bit  NOT NULL
+);
+GO
+
+-- Creating table 'Aufgaben'
+CREATE TABLE [dbo].[Aufgaben] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Erledigt] datetime  NOT NULL,
+    [Name] nvarchar(max)  NOT NULL,
+    [Beschreibung] nvarchar(max)  NULL,
+    [EreignisId] int  NOT NULL
 );
 GO
 
@@ -183,6 +194,12 @@ GO
 -- Creating primary key on [Id] in table 'Lehrer'
 ALTER TABLE [dbo].[Lehrer]
 ADD CONSTRAINT [PK_Lehrer]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Aufgaben'
+ALTER TABLE [dbo].[Aufgaben]
+ADD CONSTRAINT [PK_Aufgaben]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -314,6 +331,34 @@ ADD CONSTRAINT [FK_FachNotiz]
 CREATE INDEX [IX_FK_FachNotiz]
 ON [dbo].[Notizen]
     ([FachId]);
+GO
+
+-- Creating foreign key on [AufgabeId] in table 'Unterlagen'
+ALTER TABLE [dbo].[Unterlagen]
+ADD CONSTRAINT [FK_AufgabeUnterlage]
+    FOREIGN KEY ([AufgabeId])
+    REFERENCES [dbo].[Aufgaben]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AufgabeUnterlage'
+CREATE INDEX [IX_FK_AufgabeUnterlage]
+ON [dbo].[Unterlagen]
+    ([AufgabeId]);
+GO
+
+-- Creating foreign key on [EreignisId] in table 'Aufgaben'
+ALTER TABLE [dbo].[Aufgaben]
+ADD CONSTRAINT [FK_EreignisAufgabe]
+    FOREIGN KEY ([EreignisId])
+    REFERENCES [dbo].[Ereignisse]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EreignisAufgabe'
+CREATE INDEX [IX_FK_EreignisAufgabe]
+ON [dbo].[Aufgaben]
+    ([EreignisId]);
 GO
 
 -- --------------------------------------------------

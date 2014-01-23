@@ -28,6 +28,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("LocalStorage", "EreignisUnterlage", "Ereignis", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(VrankenBischof.Docxes.src.Data.Ereignis), "Unterlage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Unterlage), true)]
 [assembly: EdmRelationshipAttribute("LocalStorage", "EreignisNotiz", "Ereignis", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(VrankenBischof.Docxes.src.Data.Ereignis), "Notiz", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Notiz), true)]
 [assembly: EdmRelationshipAttribute("LocalStorage", "FachNotiz", "Fach", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VrankenBischof.Docxes.src.Data.Fach), "Notiz", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Notiz), true)]
+[assembly: EdmRelationshipAttribute("LocalStorage", "AufgabeUnterlage", "Aufgabe", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(VrankenBischof.Docxes.src.Data.Aufgabe), "Unterlage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Unterlage), true)]
+[assembly: EdmRelationshipAttribute("LocalStorage", "EreignisAufgabe", "Ereignis", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(VrankenBischof.Docxes.src.Data.Ereignis), "Aufgabe", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(VrankenBischof.Docxes.src.Data.Aufgabe), true)]
 
 #endregion
 
@@ -190,6 +192,22 @@ namespace VrankenBischof.Docxes.src.Data
             }
         }
         private ObjectSet<Lehrer> _Lehrer;
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        public ObjectSet<Aufgabe> Aufgaben
+        {
+            get
+            {
+                if ((_Aufgaben == null))
+                {
+                    _Aufgaben = base.CreateObjectSet<Aufgabe>("Aufgaben");
+                }
+                return _Aufgaben;
+            }
+        }
+        private ObjectSet<Aufgabe> _Aufgaben;
 
         #endregion
 
@@ -250,6 +268,14 @@ namespace VrankenBischof.Docxes.src.Data
         {
             base.AddObject("Lehrer", lehrer);
         }
+    
+        /// <summary>
+        /// Veraltete Methode zum Hinzufügen eines neuen Objekts zum EntitySet 'Aufgaben'. Verwenden Sie stattdessen die Methode '.Add' der zugeordneten Eigenschaft 'ObjectSet&lt;T&gt;'.
+        /// </summary>
+        public void AddToAufgaben(Aufgabe aufgabe)
+        {
+            base.AddObject("Aufgaben", aufgabe);
+        }
 
         #endregion
 
@@ -258,6 +284,227 @@ namespace VrankenBischof.Docxes.src.Data
     #endregion
 
     #region Entitäten
+    
+    /// <summary>
+    /// Keine Dokumentation für Metadaten verfügbar.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="LocalStorage", Name="Aufgabe")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Aufgabe : EntityObject
+    {
+        #region Factory-Methode
+    
+        /// <summary>
+        /// Erstellt ein neues Aufgabe-Objekt.
+        /// </summary>
+        /// <param name="id">Anfangswert der Eigenschaft Id.</param>
+        /// <param name="name">Anfangswert der Eigenschaft Name.</param>
+        /// <param name="ereignisId">Anfangswert der Eigenschaft EreignisId.</param>
+        public static Aufgabe CreateAufgabe(global::System.Int32 id, global::System.String name, global::System.Int32 ereignisId)
+        {
+            Aufgabe aufgabe = new Aufgabe();
+            aufgabe.Id = id;
+            aufgabe.Name = name;
+            aufgabe.EreignisId = ereignisId;
+            return aufgabe;
+        }
+
+        #endregion
+
+        #region Primitive Eigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Erledigt
+        {
+            get
+            {
+                return _Erledigt;
+            }
+            set
+            {
+                OnErledigtChanging(value);
+                ReportPropertyChanging("Erledigt");
+                _Erledigt = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Erledigt");
+                OnErledigtChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Erledigt;
+        partial void OnErledigtChanging(Nullable<global::System.DateTime> value);
+        partial void OnErledigtChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Beschreibung
+        {
+            get
+            {
+                return _Beschreibung;
+            }
+            set
+            {
+                OnBeschreibungChanging(value);
+                ReportPropertyChanging("Beschreibung");
+                _Beschreibung = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Beschreibung");
+                OnBeschreibungChanged();
+            }
+        }
+        private global::System.String _Beschreibung;
+        partial void OnBeschreibungChanging(global::System.String value);
+        partial void OnBeschreibungChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EreignisId
+        {
+            get
+            {
+                return _EreignisId;
+            }
+            set
+            {
+                OnEreignisIdChanging(value);
+                ReportPropertyChanging("EreignisId");
+                _EreignisId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EreignisId");
+                OnEreignisIdChanged();
+            }
+        }
+        private global::System.Int32 _EreignisId;
+        partial void OnEreignisIdChanging(global::System.Int32 value);
+        partial void OnEreignisIdChanged();
+
+        #endregion
+
+    
+        #region Navigationseigenschaften
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("LocalStorage", "AufgabeUnterlage", "Unterlage")]
+        public EntityCollection<Unterlage> Unterlage
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Unterlage>("LocalStorage.AufgabeUnterlage", "Unterlage");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Unterlage>("LocalStorage.AufgabeUnterlage", "Unterlage", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("LocalStorage", "EreignisAufgabe", "Ereignis")]
+        public Ereignis Ereignis
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Ereignis>("LocalStorage.EreignisAufgabe", "Ereignis").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Ereignis>("LocalStorage.EreignisAufgabe", "Ereignis").Value = value;
+            }
+        }
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Ereignis> EreignisReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Ereignis>("LocalStorage.EreignisAufgabe", "Ereignis");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Ereignis>("LocalStorage.EreignisAufgabe", "Ereignis", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
     
     /// <summary>
     /// Keine Dokumentation für Metadaten verfügbar.
@@ -494,6 +741,28 @@ namespace VrankenBischof.Docxes.src.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Notiz>("LocalStorage.EreignisNotiz", "Notiz", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("LocalStorage", "EreignisAufgabe", "Aufgabe")]
+        public EntityCollection<Aufgabe> Aufgabe
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Aufgabe>("LocalStorage.EreignisAufgabe", "Aufgabe");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Aufgabe>("LocalStorage.EreignisAufgabe", "Aufgabe", value);
                 }
             }
         }
@@ -1724,6 +1993,30 @@ namespace VrankenBischof.Docxes.src.Data
         private Nullable<global::System.Int32> _EreignisId;
         partial void OnEreignisIdChanging(Nullable<global::System.Int32> value);
         partial void OnEreignisIdChanged();
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> AufgabeId
+        {
+            get
+            {
+                return _AufgabeId;
+            }
+            set
+            {
+                OnAufgabeIdChanging(value);
+                ReportPropertyChanging("AufgabeId");
+                _AufgabeId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AufgabeId");
+                OnAufgabeIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _AufgabeId;
+        partial void OnAufgabeIdChanging(Nullable<global::System.Int32> value);
+        partial void OnAufgabeIdChanged();
 
         #endregion
 
@@ -1802,6 +2095,44 @@ namespace VrankenBischof.Docxes.src.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Ereignis>("LocalStorage.EreignisUnterlage", "Ereignis", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("LocalStorage", "AufgabeUnterlage", "Aufgabe")]
+        public Aufgabe Aufgabe
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Aufgabe>("LocalStorage.AufgabeUnterlage", "Aufgabe").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Aufgabe>("LocalStorage.AufgabeUnterlage", "Aufgabe").Value = value;
+            }
+        }
+        /// <summary>
+        /// Keine Dokumentation für Metadaten verfügbar.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Aufgabe> AufgabeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Aufgabe>("LocalStorage.AufgabeUnterlage", "Aufgabe");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Aufgabe>("LocalStorage.AufgabeUnterlage", "Aufgabe", value);
                 }
             }
         }
