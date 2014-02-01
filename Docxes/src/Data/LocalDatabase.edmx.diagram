@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7ac6d267baec44358c508937aacbe2bf" Name="Main" ShowGrid="true" DisplayType="true" ZoomLevel="95" >
+        <EntityTypeShape EntityType="LocalDatabase.School" Width="1.875" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="LocalDatabase.Teacher" Width="1.875" PointX="0.5" PointY="3" />
+        <EntityTypeShape EntityType="LocalDatabase.Subject" Width="1.875" PointX="3" PointY="3" />
+        <EntityTypeShape EntityType="LocalDatabase.Event" Width="1.875" PointX="8" PointY="1.75" />
+        <EntityTypeShape EntityType="LocalDatabase.Grade" Width="1.875" PointX="10.5" PointY="5.125" />
+        <EntityTypeShape EntityType="LocalDatabase.Note" Width="1.875" PointX="8" PointY="5.125" />
+        <EntityTypeShape EntityType="LocalDatabase.Document" Width="1.875" PointX="5.5" PointY="5.125" />
+        <AssociationConnector Association="LocalDatabase.SchoolTeachers" />
+        <AssociationConnector Association="LocalDatabase.TeacherSubjects" />
+        <AssociationConnector Association="LocalDatabase.SubjectEvents" />
+        <AssociationConnector Association="LocalDatabase.SubjectDocuments" />
+        <AssociationConnector Association="LocalDatabase.SubjectNotes" ManuallyRouted="true" >
+          <ConnectorPoint PointX="4.875" PointY="4.8191163176656424" />
+          <ConnectorPoint PointX="6.354166666666667" PointY="4.8191163176656415" />
+          <ConnectorPoint PointX="6.520833333333333" PointY="4.8191163176656424" />
+          <ConnectorPoint PointX="8.5419991093483922" PointY="4.8191163176656424" />
+          <ConnectorPoint PointX="8.5419991093483922" PointY="5.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="LocalDatabase.SubjectGrades" />
+        <AssociationConnector Association="LocalDatabase.EventDocuments" />
+        <AssociationConnector Association="LocalDatabase.EventNotes" />
+        <AssociationConnector Association="LocalDatabase.EventGrades" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

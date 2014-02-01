@@ -9,11 +9,27 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VrankenBischof.Docxes</RootNamespace>
     <AssemblyName>Docxes</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -24,6 +40,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,8 +50,17 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -61,11 +87,64 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\Data\LocalStorage.Designer.cs">
+    <Compile Include="src\Data\Document.cs">
+      <DependentUpon>LocalDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\Data\Event.cs">
+      <DependentUpon>LocalDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\Data\Grade.cs">
+      <DependentUpon>LocalDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\Data\LocalDatabase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LocalStorage.edmx</DependentUpon>
+      <DependentUpon>LocalDatabase.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\Data\LocalDatabase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\Data\LocalDatabase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalDatabase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="src\Data\ManagementObjectController.cs" />
+    <Compile Include="src\Data\Note.cs">
+      <DependentUpon>LocalDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\Data\School.cs">
+      <DependentUpon>LocalDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\SchoolExtension.cs" />
+    <Compile Include="src\Data\SchoolsController.cs" />
+    <Compile Include="src\Data\Subject.cs">
+      <DependentUpon>LocalDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\Data\Teacher.cs">
+      <DependentUpon>LocalDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\InputValidation.cs" />
+    <Compile Include="src\Interface\IManagementObjectInterface.cs" />
+    <Compile Include="src\Interface\ManageSubject.xaml.cs">
+      <DependentUpon>ManageSubject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\ManageTeacher.xaml.cs">
+      <DependentUpon>ManageTeacher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\Common.cs" />
+    <Compile Include="src\Interface\ManageSchool.xaml.cs">
+      <DependentUpon>ManageSchool.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\SchoolOverview.xaml.cs">
+      <DependentUpon>SchoolOverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\ManageSchools.xaml.cs">
+      <DependentUpon>ManageSchools.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\IManagementObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -85,18 +164,29 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Properties\DataSources\VrankenBischof.Docxes.src.Data.LocalStorageContainer.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <EntityDeploy Include="src\Data\LocalStorage.edmx">
+    <EntityDeploy Include="src\Data\LocalDatabase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LocalStorage.Designer.cs</LastGenOutput>
+      <LastGenOutput>LocalDatabase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="src\Data\LocalStorage.edmx.diagram">
-      <DependentUpon>LocalStorage.edmx</DependentUpon>
+    <None Include="src\Data\LocalDatabase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LocalDatabase.Context.cs</LastGenOutput>
+      <DependentUpon>LocalDatabase.edmx</DependentUpon>
+      <CustomToolNamespace>VrankenBischof.Docxes</CustomToolNamespace>
+    </None>
+    <None Include="src\Data\LocalDatabase.edmx.diagram">
+      <DependentUpon>LocalDatabase.edmx</DependentUpon>
+    </None>
+    <None Include="src\Data\LocalDatabase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LocalDatabase.cs</LastGenOutput>
+      <DependentUpon>LocalDatabase.edmx</DependentUpon>
+      <CustomToolNamespace>VrankenBischof.Docxes</CustomToolNamespace>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -109,7 +199,51 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="src\Data\LocalStorage.edmx.sql" />
+    <Page Include="src\Interface\ManageSubject.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\Interface\ManageTeacher.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\Interface\ManageSchool.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Interface\SchoolOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Interface\ManageSchools.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\Data\LocalDatabase.edmx.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

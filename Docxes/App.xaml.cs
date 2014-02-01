@@ -9,9 +9,17 @@ using System.Windows;
 namespace VrankenBischof.Docxes {
 
     /// <summary>
-    /// Interaktionslogik für App.xaml
+    /// Interaction logic for <see cref="App.xaml"/> 
     /// </summary>
     public partial class App : Application {
+
+        protected override void OnStartup(StartupEventArgs e) {
+            base.OnStartup(e);
+
+            Window windowToStart = new Interface.ManageSchools();
+            windowToStart.Show();
+        }
+
     }
 
 }
