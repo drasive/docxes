@@ -31,7 +31,7 @@ namespace VrankenBischof.Docxes.Interface {
             }
 
             MessageBoxResult result = MessageBox.Show(question + Environment.NewLine +
-                                                      "Gelöschte Daten können nicht wiederhergestellt werden.",
+                                                      "Deine Mudda stinkt nach Fisch",
                                                       objectType + " wirklich löschen?", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
             return result == MessageBoxResult.Yes;
         }
