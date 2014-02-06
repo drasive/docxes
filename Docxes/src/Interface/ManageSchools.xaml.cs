@@ -18,40 +18,52 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
-        private void Fill() {
-            Data.ManagementObjectController<School> controller = new Data.SchoolsController();
-            IEnumerable<School> dataSource = new List<School>(); // TODO: Uncomment
-            //IEnumerable<Data.School> dataSource = controller.Get();
+        private IEnumerable<School> GetElements() {
+            Data.ManagementElementController<School> controller = new Data.SchoolsController();
+            return new List<School>();
+
+            // TODO: Use
+            //return controller.Get();
+        }
+
+        private void UpdateElements() {
+            IEnumerable<School> elements = GetElements();
 
             lbSchools.Items.Clear();
-            if (dataSource.Count() > 0) {
-                lbSchools.DataContext = dataSource;
+            if (elements.Count() > 0) {
+                lbSchools.DataContext = elements;
             }
             else {
-                ListBoxItem noObjectsPlaceholder = new ListBoxItem();
-                noObjectsPlaceholder.Content = "Keine Schulen gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Schule zu erstellen.";
-                noObjectsPlaceholder.IsEnabled = false;
-                lbSchools.Items.Add(noObjectsPlaceholder);
+                ListBoxItem noElementsPlaceholder = new ListBoxItem();
+                noElementsPlaceholder.Content = "Keine Schulen gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Schule zu erstellen.";
+                noElementsPlaceholder.FontSize = 10;
+                noElementsPlaceholder.IsEnabled = false;
+                lbSchools.Items.Add(noElementsPlaceholder);
             }
         }
 
 
-        private void OpenAddObjectWindow() {
-            ManageSchool addObjectWindow = new ManageSchool();
-            addObjectWindow.Owner = this;
-            addObjectWindow.ShowDialog();
+        private ManagementElementManagerAction OpenAddElementManager() {
+            ManageSchool addElementManager = new ManageSchool();
+            addElementManager.Owner = this;
+            addElementManager.ShowDialog();
+            return addElementManager.Action;
         }
 
-        private void OpenEditObjectWindow() {
-            ManageSchool editObjectWindow = new ManageSchool(); // TODO: Extend
-            editObjectWindow.Owner = this;
-            editObjectWindow.ShowDialog();
+        private ManagementElementManagerAction OpenEditElementManager() {
+            ManageSchool editElementManager = new ManageSchool(); // TODO: Extend
+            editElementManager.Owner = this;
+            editElementManager.ShowDialog();
+            return editElementManager.Action;
         }
 
-        private void CheckDeleteObject() {
-            if (Common.PromptObjectDeletion("Wollen Sie diese Schule und alle zugehörigen Daten (Lehrer, Fächer, Ereignisse, Dokumente, Notizen und Noten) wirklich löschen?", "Schule")) {
+        private bool CheckForElementDeletion() {
+            if (Common.AskForElementDeletion("Wollen Sie diese Schule und alle zugehörigen Daten (Lehrer, Fächer, Ereignisse, Dokumente, Notizen und Noten) wirklich löschen?", "Schule")) {
 
+                return true;
             }
+
+            return false;
         }
 
         private void UpdateControlsAvailability() {
@@ -67,7 +79,7 @@ namespace VrankenBischof.Docxes.Interface {
         #region Event wiring
 
         private void wManageSchools_Loaded(object sender, RoutedEventArgs e) {
-            Fill(); ;
+            UpdateElements(); ;
             UpdateControlsAvailability();
         }
 
@@ -82,15 +94,21 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e) {
-            OpenAddObjectWindow();
+            if (OpenAddElementManager() == ManagementElementManagerAction.Saved) {
+                UpdateElements();
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e) {
-            OpenEditObjectWindow();
+            if (OpenEditElementManager() == ManagementElementManagerAction.Saved) {
+                UpdateElements();
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e) {
-            CheckDeleteObject();
+            if (CheckForElementDeletion()) {
+                UpdateElements();
+            }
         }
 
         #endregion

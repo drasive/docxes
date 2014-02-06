@@ -5,16 +5,16 @@ using System.Text;
 
 namespace VrankenBischof.Docxes.Data {
 
-    // TODO: Fix
-    sealed class SchoolsController : ManagementObjectController<School> {
+    // TODO: Fix database access
+    sealed class SchoolsController : ManagementElementController<School> {
 
-        public override void Save(School objectToSave) {
-            if (objectToSave == null) {
-                throw new ArgumentNullException("objectToSave");
+        public override void Save(School elementToSave) {
+            if (elementToSave == null) {
+                throw new ArgumentNullException("elementToSave");
             }
 
             using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
-                container.Schools.Add(objectToSave);
+                container.Schools.Add(elementToSave);
                 container.SaveChanges();
             }
         }
@@ -31,27 +31,27 @@ namespace VrankenBischof.Docxes.Data {
         }
 
 
-        public override void Update(School objectToUpdate) {
-            if (objectToUpdate == null) {
-                throw new ArgumentNullException("objectToUpdate");
+        public override void Update(School elementToUpdate) {
+            if (elementToUpdate == null) {
+                throw new ArgumentNullException("elementToUpdate");
             }
 
             using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
-                var objectToUpdateInDatabase = container.Schools.First(i => i.Id == objectToUpdate.Id);
-                objectToUpdateInDatabase = objectToUpdate;
+                var databaseElementToUpdate = container.Schools.First(databaseElement => databaseElement.Id == elementToUpdate.Id);
+                databaseElementToUpdate = elementToUpdate;
                 container.SaveChanges();
             }
         }
 
 
-        public override void Delete(School objectToDelete) {
-            if (objectToDelete == null) {
-                throw new ArgumentNullException("objectToDelete");
+        public override void Delete(School elementToDelete) {
+            if (elementToDelete == null) {
+                throw new ArgumentNullException("elementToDelete");
             }
 
             using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
-                var objectToDeleteInDatabase = container.Schools.First(i => i.Id == objectToDelete.Id);
-                container.Schools.Remove(objectToDeleteInDatabase);
+                var databaseElementToDelete = container.Schools.First(databaseElement => databaseElement.Id == elementToDelete.Id);
+                container.Schools.Remove(databaseElementToDelete);
                 container.SaveChanges();
             }
         }

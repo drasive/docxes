@@ -24,7 +24,7 @@ namespace VrankenBischof.Docxes.Interface {
             Common.ExtendWindowName(this);
         }
 
-        // TODO: Implement
+        // TODO: Implement ManageTeacher logic
 
     }
 }

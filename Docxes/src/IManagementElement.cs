@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace VrankenBischof.Docxes {
 
-    public interface IManagementObject { }
+    public interface IManagementElement { }
 
 }

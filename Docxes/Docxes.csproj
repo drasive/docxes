@@ -111,13 +111,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LocalDatabase.edmx</DependentUpon>
     </Compile>
-    <Compile Include="src\Data\ManagementObjectController.cs" />
+    <Compile Include="src\Data\ManagementElementController.cs" />
     <Compile Include="src\Data\Note.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="src\Data\School.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\Interface\IManagementElementManager.cs" />
+    <Compile Include="src\Interface\ManagementElementManagerAction.cs" />
     <Compile Include="src\SchoolExtension.cs" />
     <Compile Include="src\Data\SchoolsController.cs" />
     <Compile Include="src\Data\Subject.cs">
@@ -127,7 +129,6 @@
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="src\Interface\InputValidation.cs" />
-    <Compile Include="src\Interface\IManagementObjectInterface.cs" />
     <Compile Include="src\Interface\ManageSubject.xaml.cs">
       <DependentUpon>ManageSubject.xaml</DependentUpon>
     </Compile>
@@ -144,7 +145,7 @@
     <Compile Include="src\Interface\ManageSchools.xaml.cs">
       <DependentUpon>ManageSchools.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\IManagementObject.cs" />
+    <Compile Include="src\IManagementElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -163,7 +164,10 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="Project Management\Pflichtenheft.docx" />
+    <None Include="Project Management\Pflichtenheft.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -192,9 +196,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Project Management\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

@@ -22,7 +22,7 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
 
-        public static bool PromptObjectDeletion(string question, string objectType) {
+        public static bool AskForElementDeletion(string question, string objectType) {
             if (String.IsNullOrEmpty(question)) {
                 throw new ArgumentNullException("question");
             }

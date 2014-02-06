@@ -1,5 +1,5 @@
 ﻿namespace VrankenBischof.Docxes {
 
-    public partial class School : IManagementObject { }
+    public partial class School : IManagementElement { }
 
 }

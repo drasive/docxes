@@ -13,14 +13,12 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public static class InputValidation {
 
-        public const String ProvideRequiredInformationMessage = "Füllen Sie alle Pflichtfelder aus und drücken Sie auf \"Speichern\"";
-
         public static bool ValidateTextBoxInput(TextBox textBox) {
             if (textBox == null) {
                 throw new ArgumentNullException("textBox");
             }
 
-            if (String.IsNullOrEmpty(textBox.Text)) {
+            if (String.IsNullOrEmpty(textBox.Text.Trim())) {
                 textBox.BorderBrush = Brushes.Red;
                 return false;
             }

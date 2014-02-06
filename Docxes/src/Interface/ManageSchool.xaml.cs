@@ -1,11 +1,12 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace VrankenBischof.Docxes.Interface {
 
     /// <summary>
     /// Interaction logic for <see cref="ManageSchool.xaml"/>
     /// </summary>
-    public partial class ManageSchool : Window {
+    public sealed partial class ManageSchool : Window, IManagementElementManager {
 
         public ManageSchool() {
             InitializeComponent();
@@ -13,17 +14,24 @@ namespace VrankenBischof.Docxes.Interface {
             Common.ExtendWindowName(this);
         }
 
-        public ManageSchool(School objectToEdit)
+        public ManageSchool(School elementToEdit)
             : this() {
-            MapObjectToInterface(objectToEdit);
+            if (elementToEdit == null) {
+                throw new ArgumentNullException("elementToEdit");
+            }
+
+            MapElementToInterface(elementToEdit);
         }
+
+
+        public ManagementElementManagerAction Action { get; private set; }
 
         #region Control
 
         private bool Save() {
             if (ValidateInput()) {
-                Data.ManagementObjectController<School> controller = new Data.SchoolsController();
-                controller.Save(MapInterfaceToObject());
+                Data.ManagementElementController<School> controller = new Data.SchoolsController();
+                controller.Save(MapInterfaceToElement());
                 return true;
             }
 
@@ -34,17 +42,21 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
-        protected void MapObjectToInterface(School objectToMap) {
-            tbName.Text = objectToMap.Name;
-            tbComment.Text = objectToMap.Comment;
+        private void MapElementToInterface(School elementToMap) {
+            if (elementToMap == null) {
+                throw new ArgumentNullException("elementToMap");
+            }
+
+            tbName.Text = elementToMap.Name;
+            tbComment.Text = elementToMap.Comment;
         }
 
-        protected School MapInterfaceToObject() {
+        private School MapInterfaceToElement() {
             return new School();
         }
 
 
-        protected bool ValidateInput() {
+        private bool ValidateInput() {
             return InputValidation.ValidateTextBoxInput(tbName);
         }
 
@@ -54,11 +66,13 @@ namespace VrankenBischof.Docxes.Interface {
 
         private void btnSave_Click(object sender, RoutedEventArgs e) {
             if (Save()) {
+                Action = ManagementElementManagerAction.Saved;
                 Close();
             }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e) {
+            Action = ManagementElementManagerAction.Canceled;
             Close();
         }
 
