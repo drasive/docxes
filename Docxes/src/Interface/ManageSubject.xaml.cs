@@ -22,6 +22,9 @@ namespace VrankenBischof.Docxes.Interface {
             InitializeComponent();
 
             Common.ExtendWindowName(this);
+
+            Data.ManagementElementController<Teacher> teachersController = new Data.TeachersController();
+            cbTeachers.DataContext = teachersController.Get();
         }
 
         public ManageSubject(Subject elementToEdit)
@@ -62,8 +65,7 @@ namespace VrankenBischof.Docxes.Interface {
             }
 
             tbName.Text = elementToMap.Name;
-            // TODO:
-            // cbTeachers. = elementToMap.;
+            cbTeachers.SelectedItem = elementToMap.Teacher;
         }
 
         private Subject MapInterfaceToElement() {
