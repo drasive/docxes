@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/01/2014 16:29:29
+-- Date Created: 02/06/2014 23:26:26
 -- Generated from EDMX file: C:\Users\dimit_000\SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\src\Data\LocalDatabase.edmx
 -- --------------------------------------------------
 
@@ -89,7 +89,7 @@ CREATE TABLE [dbo].[Teachers] (
     [SchoolId] int  NOT NULL,
     [FirstName] nvarchar(32)  NOT NULL,
     [LastName] nvarchar(32)  NOT NULL,
-    [Male] bit  NOT NULL
+    [IsMale] bit  NOT NULL
 );
 GO
 

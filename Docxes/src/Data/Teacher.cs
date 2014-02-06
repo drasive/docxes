@@ -16,16 +16,16 @@ namespace VrankenBischof.Docxes
     {
         public Teacher()
         {
-            this.Subject = new HashSet<Subject>();
+            this.Subjects = new HashSet<Subject>();
         }
     
-        public int Id { get; set; }
-        public int SchoolId { get; set; }
-        public string FirstName { get; set; }
+        public int Id { get; private set; }
+        public int SchoolId { get; private set; }
+        public string FirstName { get; private set; }
         public string LastName { get; set; }
-        public bool Male { get; set; }
+        public bool IsMale { get; private set; }
     
         public virtual School School { get; set; }
-        public virtual ICollection<Subject> Subject { get; set; }
+        public virtual ICollection<Subject> Subjects { get; set; }
     }
 }

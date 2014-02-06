@@ -16,19 +16,19 @@ namespace VrankenBischof.Docxes
     {
         public Event()
         {
-            this.Document = new HashSet<Document>();
-            this.Note = new HashSet<Note>();
-            this.Grade = new HashSet<Grade>();
+            this.Documents = new HashSet<Document>();
+            this.Notes = new HashSet<Note>();
+            this.Grades = new HashSet<Grade>();
         }
     
-        public int Id { get; set; }
-        public int SubjectId { get; set; }
-        public System.DateTime Date { get; set; }
-        public int Type { get; set; }
+        public int Id { get; private set; }
+        public int SubjectId { get; private set; }
+        public System.DateTime Date { get; private set; }
+        public int Type { get; private set; }
     
         public virtual Subject Subject { get; set; }
-        public virtual ICollection<Document> Document { get; set; }
-        public virtual ICollection<Note> Note { get; set; }
-        public virtual ICollection<Grade> Grade { get; set; }
+        public virtual ICollection<Document> Documents { get; set; }
+        public virtual ICollection<Note> Notes { get; set; }
+        public virtual ICollection<Grade> Grades { get; set; }
     }
 }

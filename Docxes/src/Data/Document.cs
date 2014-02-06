@@ -14,11 +14,11 @@ namespace VrankenBischof.Docxes
     
     public partial class Document
     {
-        public int Id { get; set; }
-        public int SubjectId { get; set; }
-        public Nullable<int> EventId { get; set; }
-        public byte[] Content { get; set; }
-        public string Comment { get; set; }
+        public int Id { get; private set; }
+        public int SubjectId { get; private set; }
+        public Nullable<int> EventId { get; private set; }
+        public byte[] Content { get; private set; }
+        public string Comment { get; private set; }
     
         public virtual Subject Subject { get; set; }
         public virtual Event Event { get; set; }

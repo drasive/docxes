@@ -67,7 +67,7 @@
     <Property Name="SchoolId" Type="int" Nullable="false" />
     <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="32" />
     <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="32" />
-    <Property Name="Male" Type="bit" Nullable="false" />
+    <Property Name="IsMale" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Subjects">
     <Key>
@@ -277,84 +277,84 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" />
-          <Property Name="Comment" Type="String" Nullable="true" MaxLength="128" />
-          <NavigationProperty Name="Teacher" Relationship="LocalDatabase.SchoolTeachers" FromRole="School" ToRole="Teacher" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Comment" Type="String" Nullable="true" MaxLength="128" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="Teachers" Relationship="LocalDatabase.SchoolTeachers" FromRole="School" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="School" Relationship="LocalDatabase.SchoolTeachers" FromRole="Teacher" ToRole="School" />
-          <Property Name="SchoolId" Type="Int32" Nullable="false" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="32" />
+          <Property Name="SchoolId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="32" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="32" />
-          <Property Name="Male" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Subject" Relationship="LocalDatabase.TeacherSubjects" FromRole="Teacher" ToRole="Subject" />
+          <Property Name="IsMale" Type="Boolean" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="Subjects" Relationship="LocalDatabase.TeacherSubjects" FromRole="Teacher" ToRole="Subject" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="Teacher" Relationship="LocalDatabase.TeacherSubjects" FromRole="Subject" ToRole="Teacher" />
-          <Property Name="TeacherId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" />
-          <NavigationProperty Name="Event" Relationship="LocalDatabase.SubjectEvents" FromRole="Subject" ToRole="Event" />
-          <NavigationProperty Name="Document" Relationship="LocalDatabase.SubjectDocuments" FromRole="Subject" ToRole="Document" />
-          <NavigationProperty Name="Note" Relationship="LocalDatabase.SubjectNotes" FromRole="Subject" ToRole="Note" />
-          <NavigationProperty Name="Grade" Relationship="LocalDatabase.SubjectGrades" FromRole="Subject" ToRole="Grade" />
+          <Property Name="TeacherId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="Events" Relationship="LocalDatabase.SubjectEvents" FromRole="Subject" ToRole="Event" />
+          <NavigationProperty Name="Documents" Relationship="LocalDatabase.SubjectDocuments" FromRole="Subject" ToRole="Document" />
+          <NavigationProperty Name="Notes" Relationship="LocalDatabase.SubjectNotes" FromRole="Subject" ToRole="Note" />
+          <NavigationProperty Name="Grades" Relationship="LocalDatabase.SubjectGrades" FromRole="Subject" ToRole="Grade" />
         </EntityType>
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectEvents" FromRole="Event" ToRole="Subject" />
-          <Property Name="SubjectId" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" />
-          <Property Name="Type" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Document" Relationship="LocalDatabase.EventDocuments" FromRole="Event" ToRole="Document" />
-          <NavigationProperty Name="Note" Relationship="LocalDatabase.EventNotes" FromRole="Event" ToRole="Note" />
-          <NavigationProperty Name="Grade" Relationship="LocalDatabase.EventGrades" FromRole="Event" ToRole="Grade" />
+          <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Date" Type="DateTime" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Type" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="Documents" Relationship="LocalDatabase.EventDocuments" FromRole="Event" ToRole="Document" />
+          <NavigationProperty Name="Notes" Relationship="LocalDatabase.EventNotes" FromRole="Event" ToRole="Note" />
+          <NavigationProperty Name="Grades" Relationship="LocalDatabase.EventGrades" FromRole="Event" ToRole="Grade" />
         </EntityType>
         <EntityType Name="Grade">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectGrades" FromRole="Grade" ToRole="Subject" />
-          <Property Name="SubjectId" Type="Int32" Nullable="false" />
+          <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="Event" Relationship="LocalDatabase.EventGrades" FromRole="Grade" ToRole="Event" />
-          <Property Name="EventId" Type="Int32" Nullable="true" />
-          <Property Name="Value" Type="Int32" Nullable="false" />
-          <Property Name="Weight" Type="Int32" Nullable="false" />
-          <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Value" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Weight" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         </EntityType>
         <EntityType Name="Note">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectNotes" FromRole="Note" ToRole="Subject" />
-          <Property Name="SubjectId" Type="Int32" Nullable="false" />
+          <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="Event" Relationship="LocalDatabase.EventNotes" FromRole="Note" ToRole="Event" />
-          <Property Name="EventId" Type="Int32" Nullable="true" />
-          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         </EntityType>
         <EntityType Name="Document">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectDocuments" FromRole="Document" ToRole="Subject" />
-          <Property Name="SubjectId" Type="Int32" Nullable="false" />
+          <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="Event" Relationship="LocalDatabase.EventDocuments" FromRole="Document" ToRole="Event" />
-          <Property Name="EventId" Type="Int32" Nullable="true" />
-          <Property Name="Content" Type="Binary" Nullable="false" MaxLength="Max" />
-          <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Content" Type="Binary" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         </EntityType>
         <Association Name="SchoolTeachers">
           <End Type="LocalDatabase.School" Role="School" Multiplicity="1" />
@@ -487,7 +487,7 @@
           <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="Male" ColumnName="Male" />
+          <ScalarProperty Name="IsMale" ColumnName="IsMale" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

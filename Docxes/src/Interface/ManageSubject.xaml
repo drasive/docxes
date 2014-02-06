@@ -21,23 +21,20 @@
                Margin="0,10,10,0"
                VerticalAlignment="Top"
                HorizontalAlignment="Right" />
-        <Label x:Name="lblComment"
-               Content="Kommentar:"
+        <Label x:Name="lblTeacher"
+               Content="Lehrer:"
                Margin="0,41,10,0"
                VerticalAlignment="Top"
-               HorizontalAlignment="Right"
-               FontStyle="Italic" />
+               HorizontalAlignment="Right" />
         <TextBox x:Name="tbName"
                  Grid.Column="1"
-                 Margin="10,18,10,0"
+                 Margin="10,16,10,0"
                  TextWrapping="Wrap"
                  VerticalAlignment="Top" />
-        <TextBox x:Name="tbComment"
-                 Grid.Column="1"
-                 Margin="10,49,10,0"
-                 TextWrapping="Wrap"
-                 VerticalAlignment="Top"
-                 Height="147" />
+        <ComboBox x:Name="cbTeachers"
+                  Grid.Column="1"
+                  Margin="10,45,10,0"
+                  VerticalAlignment="Top" />
         <Button x:Name="btnSave"
                 Content="Speichern"
                 HorizontalAlignment="Right"
@@ -46,7 +43,8 @@
                 Width="75"
                 Grid.Row="1"
                 Grid.Column="1"
-                Height="25" />
+                Height="25"
+                Click="btnSave_Click" />
         <Button x:Name="btnCancel"
                 Content="Abbrechen"
                 HorizontalAlignment="Right"
@@ -55,6 +53,7 @@
                 Width="75"
                 Grid.Row="1"
                 Grid.Column="1"
-                Height="25" />
+                Height="25"
+                Click="btnCancel_Click" />
     </Grid>
 </Window>

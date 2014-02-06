@@ -33,19 +33,19 @@
                HorizontalAlignment="Right" />
         <TextBox x:Name="tbFirstName"
                  Grid.Column="1"
-                 Margin="10,18,10,0"
+                 Margin="10,15,10,0"
                  TextWrapping="Wrap"
                  VerticalAlignment="Top" />
         <TextBox x:Name="tbLastName"
                  Grid.Column="1"
-                 Margin="10,49,10,0"
+                 Margin="10,46,10,0"
                  TextWrapping="Wrap"
                  VerticalAlignment="Top" />
-        <CheckBox x:Name="cbMale"
+        <CheckBox x:Name="cbIsMale"
                   Content=""
                   Grid.Column="1"
                   HorizontalAlignment="Left"
-                  Margin="10,78,0,0"
+                  Margin="10,79,0,0"
                   VerticalAlignment="Top" />
         <Button x:Name="btnSave"
                 Content="Speichern"
@@ -55,7 +55,8 @@
                 Width="75"
                 Grid.Row="1"
                 Grid.Column="1"
-                Height="25" />
+                Height="25"
+                Click="btnSave_Click" />
         <Button x:Name="btnCancel"
                 Content="Abbrechen"
                 HorizontalAlignment="Right"
@@ -64,6 +65,7 @@
                 Width="75"
                 Grid.Row="1"
                 Grid.Column="1"
-                Height="25" />
+                Height="25"
+                Click="btnCancel_Click" />
     </Grid>
 </Window>

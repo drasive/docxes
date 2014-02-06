@@ -30,14 +30,14 @@
         <TextBox x:Name="tbName"
                  TextWrapping="Wrap"
                  Grid.Column="1"
-                 Margin="10,18,10,0"
+                 Margin="10,16,10,0"
                  VerticalAlignment="Top" />
         <TextBox x:Name="tbComment"
                  Grid.Column="1"
-                 Margin="10,49,10,0"
+                 Margin="10,47,10,0"
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Height="147" />
+                 Height="150" />
         <Button x:Name="btnSave"
                 Content="Speichern"
                 HorizontalAlignment="Right"

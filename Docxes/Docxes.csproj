@@ -118,8 +118,12 @@
     <Compile Include="src\Data\School.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\Data\TeachersController.cs" />
+    <Compile Include="src\Data\SubjectsController.cs" />
     <Compile Include="src\Interface\IManagementElementManager.cs" />
     <Compile Include="src\Interface\ManagementElementManagerAction.cs" />
+    <Compile Include="src\TeacherExtension.cs" />
+    <Compile Include="src\SubjectExtension.cs" />
     <Compile Include="src\SchoolExtension.cs" />
     <Compile Include="src\Data\SchoolsController.cs" />
     <Compile Include="src\Data\Subject.cs">

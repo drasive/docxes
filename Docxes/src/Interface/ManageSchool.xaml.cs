@@ -38,6 +38,10 @@ namespace VrankenBischof.Docxes.Interface {
             return false;
         }
 
+        private void Cancel() {
+            Close();
+        }
+
         #endregion
 
         #region Interface
@@ -67,13 +71,13 @@ namespace VrankenBischof.Docxes.Interface {
         private void btnSave_Click(object sender, RoutedEventArgs e) {
             if (Save()) {
                 Action = ManagementElementManagerAction.Saved;
-                Close();
+                Cancel();
             }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e) {
             Action = ManagementElementManagerAction.Canceled;
-            Close();
+            Cancel();
         }
 
         #endregion
