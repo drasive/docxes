@@ -22,7 +22,7 @@ namespace VrankenBischof.Docxes.Interface
 				throw new ArgumentNullException("window");
 			}
 
-			window.Title = Application.Current.MainWindow.GetType().Assembly.GetName().Name + " - " + window.Title;
+			window.Title = Application.Current.MainWindow.GetType().Assembly.GetName().Name + " | " + window.Title;
 		}
 
 		public static void AddToolTipToControl(Control control, String value)
