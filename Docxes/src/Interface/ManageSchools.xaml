@@ -8,23 +8,23 @@
         Loaded="wManageSchools_Loaded"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
-    <Grid x:Name="gRoot">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="40" />
-        </Grid.RowDefinitions>
-        <TextBlock x:Name="tblInstructions"
+	<Grid x:Name="gRoot">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="41" />
+			<RowDefinition />
+			<RowDefinition Height="40" />
+		</Grid.RowDefinitions>
+		<TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
                    Margin="10,0,0,5"
                    TextWrapping="Wrap"
                    Text="Wählen Sie die Schule aus, die Sie verwalten möchten:"
-                   VerticalAlignment="Bottom" />
-        <ListBox x:Name="lbSchools"
+                   VerticalAlignment="Bottom" Height="16" Width="286" />
+		<ListBox x:Name="lbSchools"
                  Margin="10,5,10,5"
                  Grid.Row="1"
                  SelectionChanged="lbSchools_SelectionChanged" />
-        <Button x:Name="btnSelect"
+		<Button x:Name="btnSelect"
                 Content="Auswählen"
                 HorizontalAlignment="Left"
                 Margin="10,5,0,0"
@@ -33,7 +33,7 @@
                 Grid.Row="2"
                 Click="btnSelect_Click"
                 Height="25" />
-        <Button x:Name="btnAdd"
+		<Button x:Name="btnAdd"
                 Content="Hinzufügen"
                 Margin="0,5,170,0"
                 Grid.Row="2"
@@ -42,7 +42,7 @@
                 Click="btnAdd_Click"
                 HorizontalAlignment="Right"
                 Width="75" />
-        <Button x:Name="btnEdit"
+		<Button x:Name="btnEdit"
                 Content="Bearbeiten"
                 Margin="0,5,90,0"
                 VerticalAlignment="Top"
@@ -51,7 +51,7 @@
                 Height="25"
                 HorizontalAlignment="Right"
                 Width="75" />
-        <Button x:Name="btnDelete"
+		<Button x:Name="btnDelete"
                 Content="Löschen"
                 HorizontalAlignment="Right"
                 Margin="0,5,10,0"
@@ -61,5 +61,11 @@
                 RenderTransformOrigin="0.505,0.333"
                 Click="btnDelete_Click"
                 Height="25" />
-    </Grid>
+		<TextBlock x:Name="tblWelcomeText"
+        	HorizontalAlignment="Left"
+        	Margin="10,0,0,21"
+        	TextWrapping="Wrap"
+        	Text="Willkommen [Name]!"
+        	VerticalAlignment="Bottom" Height="16" Width="286" />
+	</Grid>
 </Window>

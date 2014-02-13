@@ -12,7 +12,7 @@ namespace VrankenBischof.Docxes.Interface {
 
         public ManageSchools() {
             InitializeComponent();
-
+						tblWelcomeText.Text = "Willkommen " + System.Environment.UserName + "!";
             Common.ExtendWindowName(this);
         }
 
