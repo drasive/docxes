@@ -124,6 +124,12 @@
     <Compile Include="src\Data\School.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\Data\Subject.cs">
+      <DependentUpon>LocalDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\Data\Teacher.cs">
+      <DependentUpon>LocalDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="src\Data\TeachersController.cs" />
     <Compile Include="src\Data\SubjectsController.cs" />
     <Compile Include="src\Interface\IManagementElementManager.cs" />
@@ -132,12 +138,6 @@
     <Compile Include="src\SubjectExtension.cs" />
     <Compile Include="src\SchoolExtension.cs" />
     <Compile Include="src\Data\SchoolsController.cs" />
-    <Compile Include="src\Data\Subject.cs">
-      <DependentUpon>LocalDatabase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="src\Data\Teacher.cs">
-      <DependentUpon>LocalDatabase.tt</DependentUpon>
-    </Compile>
     <Compile Include="src\Interface\InputValidation.cs" />
     <Compile Include="src\Interface\ManageSubject.xaml.cs">
       <DependentUpon>ManageSubject.xaml</DependentUpon>
@@ -206,7 +206,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="src\BusinessLogic\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
@@ -234,10 +236,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\Data\LocalDatabase.edmx.sql" />
-    <Resource Include="src\Data\Pictures\SchuleBackground.jpg" />
-    <Resource Include="src\Data\Pictures\NotizenBackground.jpg" />
-    <Resource Include="src\Data\Pictures\DokumenteBackground.png" />
-    <Resource Include="src\Data\Pictures\NotenBackground.jpg" />
+    <Resource Include="Resources\Images\SchoolBackground.jpg" />
+    <Resource Include="Resources\Images\NotesBackground.jpg" />
+    <Resource Include="Resources\Images\DocumentsBackground.png" />
+    <Resource Include="Resources\Images\GradesBackground.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
