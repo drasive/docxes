@@ -20,7 +20,7 @@
 		<TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Management" VerticalAlignment="Top" FontSize="24" Width="188" Height="32"/>
 		<Border Background="#FFE4A141" Margin="12,52,627,438">
 			<Canvas>
-				<Image Source="C:\Users\nbi\Desktop\Doxces\Projekt\Development\Docxes\src\Data\Pictures\NotizenBackground.jpg" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="150"/>
+				<Image Source="/Docxes;component/src/Data/Pictures/NotizenBackground.jpg" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="150"/>
 				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Notizen  [+]" VerticalAlignment="Top" FontSize="14" Width="76" Canvas.Top="31" Height="18" Canvas.Left="100" RenderTransformOrigin="0.5,0.5">
 					<TextBlock.RenderTransform>
 						<TransformGroup>
@@ -35,7 +35,7 @@
 		</Border>
 		<Border Background="#8CA4D4" Margin="182,52,462,438">
 			<Canvas Margin="-2,0,2,0">
-				<Image Source="C:\Users\nbi\Desktop\Doxces\Projekt\Development\Docxes\src\Data\Pictures\DokumenteBackground.png" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="150"/>
+				<Image Source="/Docxes;component/src/Data/Pictures/DokumenteBackground.png" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="150"/>
 				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ablage  [+]" VerticalAlignment="Top" FontSize="14" Width="72" Canvas.Top="31" Height="18" Canvas.Left="101" RenderTransformOrigin="0.5,0.5">
 					<TextBlock.RenderTransform>
 						<TransformGroup>
@@ -50,7 +50,7 @@
 		</Border>
 		<Border Background="#C43533" Margin="12,156,627,334">
 			<Canvas>
-				<Image Source="C:\Users\nbi\Desktop\Doxces\Projekt\Development\Docxes\src\Data\Pictures\NotenBackground.jpg" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="150"/>
+				<Image Source="/Docxes;component/src/Data/Pictures/NotenBackground.jpg" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="150"/>
 				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Noten		  [+]" VerticalAlignment="Top" FontSize="14" Width="82" Canvas.Top="36" Height="18" Canvas.Left="97" RenderTransformOrigin="0.5,0.5">
 					<TextBlock.RenderTransform>
 						<TransformGroup>
@@ -66,7 +66,7 @@
 
 		<Border Background="#8CA4D4" Margin="12,480,627,10">
 			<Canvas>
-				<Image Source="C:\Users\nbi\Desktop\Doxces\Projekt\Development\Docxes\src\Data\Pictures\SchuleBackground.jpg" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="150"/>
+				<Image Source="/Docxes;component/src/Data/Pictures/SchuleBackground.jpg" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="150"/>
 				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Schulen" VerticalAlignment="Top" FontSize="14" Width="90" Canvas.Top="41" Height="18" Canvas.Left="96" RenderTransformOrigin="0.5,0.5">
 					<TextBlock.RenderTransform>
 						<TransformGroup>
