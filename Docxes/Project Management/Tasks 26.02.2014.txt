@@ -1,0 +1,8 @@
+﻿Dimitri/ Nicola
+- Create interface prototype for grades
+- Add grades interface prototype to FDS
+- Hand in the updated FDS
+
+Dimitri
+- Ask Zaugg open questions
+- Make sur existing code for schools can be copied to the other business objects

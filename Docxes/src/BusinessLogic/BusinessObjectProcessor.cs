@@ -10,6 +10,8 @@ namespace VrankenBischof.Docxes.BusinessLogic {
 
         protected BusinessObjectDataManager<T> dataManager;
 
+        // TODO: Rename to Insert?
+        // ASK: Call it "Save" and merge it with "Update"?
         public abstract void Save(T businessObjectToSave);
 
         public abstract IEnumerable<T> Get();

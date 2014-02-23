@@ -10,6 +10,7 @@ namespace VrankenBischof.Docxes {
             Comment = comment;
         }
 
+        // ASK: Is there a better way to update?
         public School(int id, string name, string comment)
             : this(name, comment) {
             Id = id;
