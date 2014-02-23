@@ -16,84 +16,85 @@ namespace VrankenBischof.Docxes.Interface {
     /// <summary>
     /// Interaction logic for <see cref="ManageSubject.xaml"/>
     /// </summary>
-    public partial class ManageSubject : Window, IManagementElementManager {
+    public partial class ManageSubject : Window/*, IBusinessObjectManager*/ {
 
-        public ManageSubject() {
-            InitializeComponent();
+    //    public ManageSubject() {
+    //        InitializeComponent();
 
-            Common.ExtendWindowName(this);
+    //        Common.ExtendWindowName(this);
 
-            Data.ManagementElementController<Teacher> teachersController = new Data.TeachersController();
-            cbTeachers.DataContext = teachersController.Get();
-        }
+    //        Data.ManagementObjectDataManager<Teacher> teachersController = new Data.TeachersDataManager();
+    //        cbTeachers.DataContext = teachersController.Get();
+    //    }
 
-        public ManageSubject(Subject elementToEdit)
-            : this() {
-            if (elementToEdit == null) {
-                throw new ArgumentNullException("elementToEdit");
-            }
+    //    public ManageSubject(Subject elementToEdit)
+    //        : this() {
+    //        if (elementToEdit == null) {
+    //            throw new ArgumentNullException("elementToEdit");
+    //        }
 
-            MapElementToInterface(elementToEdit);
-        }
-
-
-        public ManagementElementManagerAction Action { get; private set; }
-
-        #region Control
-
-        private bool Save() {
-            if (ValidateInput()) {
-                Data.ManagementElementController<Subject> controller = new Data.SubjectsController();
-                controller.Save(MapInterfaceToElement());
-                return true;
-            }
-
-            return false;
-        }
-
-        private void Cancel() {
-            Close();
-        }
-
-        #endregion
-
-        #region Interface
-
-        private void MapElementToInterface(Subject elementToMap) {
-            if (elementToMap == null) {
-                throw new ArgumentNullException("elementToMap");
-            }
-
-            tbName.Text = elementToMap.Name;
-            cbTeachers.SelectedItem = elementToMap.Teacher;
-        }
-
-        private Subject MapInterfaceToElement() {
-            return new Subject();
-        }
+    //        MapElementToInterface(elementToEdit);
+    //    }
 
 
-        private bool ValidateInput() {
-            return InputValidation.ValidateTextBoxInput(tbName);
-        }
+    //    public BusinessObjectManagerAction Action { get; private set; }
 
-        #endregion
+    //    #region Control
 
-        #region Event wiring
+    //    private bool Save() {
+    //        if (ValidateInput()) {
+    //            Data.ManagementObjectDataManager<Subject> controller = new Data.SubjectsController();
+    //            controller.Save(MapInterfaceToElement());
+    //            return true;
+    //        }
+
+    //        return false;
+    //    }
+
+    //    private void Cancel() {
+    //        Close();
+    //    }
+
+    //    #endregion
+
+    //    #region Interface
+
+    //    private void MapElementToInterface(Subject elementToMap) {
+    //        if (elementToMap == null) {
+    //            throw new ArgumentNullException("elementToMap");
+    //        }
+
+    //        tbName.Text = elementToMap.Name;
+    //        cbTeachers.SelectedItem = elementToMap.Teacher;
+    //    }
+
+    //    private Subject MapInterfaceToElement() {
+    //        return new Subject();
+    //    }
+
+
+    //    private bool ValidateInput() {
+    //        return InputValidation.ValidateTextBoxInput(tbName);
+    //    }
+
+    //    #endregion
+
+    //    #region Event wiring
 
         private void btnSave_Click(object sender, RoutedEventArgs e) {
-            if (Save()) {
-                Action = ManagementElementManagerAction.Saved;
-                Cancel();
-            }
+    //        if (Save()) {
+    //            Action = BusinessObjectManagerAction.Saved;
+    //            Cancel();
+    //        }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e) {
-            Action = ManagementElementManagerAction.Canceled;
-            Cancel();
+    //        Action = BusinessObjectManagerAction.Canceled;
+    //        Cancel();
         }
 
-        #endregion
+    //    #endregion
 
     }
+
 }

@@ -57,19 +57,12 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Accessibility" />
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="PresentationFramework" />
-    <Reference Include="ReachFramework" />
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -82,6 +75,7 @@
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -92,8 +86,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="src\BusinessLogic\BusinessObjectProcessor.cs" />
-    <Compile Include="src\BusinessLogic\SchoolProcessor.cs" />
     <Compile Include="src\Data\Document.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
@@ -118,31 +110,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LocalDatabase.edmx</DependentUpon>
     </Compile>
-    <Compile Include="src\Data\BusinessObjectDataManager.cs" />
+    <Compile Include="src\Data\ManagementElementController.cs" />
     <Compile Include="src\Data\Note.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="src\Data\School.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\Data\TeachersController.cs" />
+    <Compile Include="src\Data\SubjectsController.cs" />
+    <Compile Include="src\Interface\IManagementElementManager.cs" />
+    <Compile Include="src\Interface\ManagementElementManagerAction.cs" />
+    <Compile Include="src\TeacherExtension.cs" />
+    <Compile Include="src\SubjectExtension.cs" />
+    <Compile Include="src\SchoolExtension.cs" />
+    <Compile Include="src\Data\SchoolsController.cs" />
     <Compile Include="src\Data\Subject.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="src\Data\Teacher.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="src\Data\TeachersDataManager.cs" />
-    <Compile Include="src\Data\SubjectsDataManager.cs" />
-    <Compile Include="src\DocumentExtension.cs" />
-    <Compile Include="src\NoteExtension.cs" />
-    <Compile Include="src\GradeExtension.cs" />
-    <Compile Include="src\Interface\IBusinessObjectManager.cs" />
-    <Compile Include="src\Interface\BusinessObjectManagerAction.cs" />
-    <Compile Include="src\EventExtension.cs" />
-    <Compile Include="src\TeacherExtension.cs" />
-    <Compile Include="src\SubjectExtension.cs" />
-    <Compile Include="src\SchoolExtension.cs" />
-    <Compile Include="src\Data\SchoolsDataManager.cs" />
     <Compile Include="src\Interface\InputValidation.cs" />
     <Compile Include="src\Interface\ManageSubject.xaml.cs">
       <DependentUpon>ManageSubject.xaml</DependentUpon>
@@ -160,7 +148,7 @@
     <Compile Include="src\Interface\ManageSchools.xaml.cs">
       <DependentUpon>ManageSchools.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\IBusinessObject.cs" />
+    <Compile Include="src\IManagementElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -181,12 +169,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="Project Management\Assembly Dependencies.dgml">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Project Management\FDS.docx" />
-    <None Include="Project Management\FDS.pdf" />
+    <None Include="Project Management\Pflichtenheft.docx" />
+    <None Include="Project Management\Pflichtenheft.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -242,18 +226,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Data\Docxes.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="src\Data\LocalDatabase.edmx.sql">
+      <SubType>Designer</SubType>
     </Content>
-    <Content Include="Resources\Data\Docxes_log.ldf">
-      <DependentUpon>Docxes.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="src\Data\LocalDatabase.edmx.sql" />
-    <Resource Include="Resources\Images\SchoolBackground.jpg" />
-    <Resource Include="Resources\Images\NotesBackground.jpg" />
-    <Resource Include="Resources\Images\DocumentsBackground.png" />
-    <Resource Include="Resources\Images\GradesBackground.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace VrankenBischof.Docxes.Interface {
 
-    public enum ManagementElementManagerAction {
-        Undefined,
-        Canceled,
-        Saved
+    public interface IBusinessObjectManager {
+
+        bool IsEditing { get; }
+
+        BusinessObjectManagerAction Action { get; }
+
     }
 
 }

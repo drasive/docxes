@@ -16,82 +16,83 @@ namespace VrankenBischof.Docxes.Interface {
     /// <summary>
     /// Interaction logic for <see cref="ManageTeacher.xaml"/>
     /// </summary>
-    public partial class ManageTeacher : Window,  IManagementElementManager {
+    public partial class ManageTeacher : Window/*,  IBusinessObjectManager */{
 
-        public ManageTeacher() {
-            InitializeComponent();
+    //    public ManageTeacher() {
+    //        InitializeComponent();
 
-            Common.ExtendWindowName(this);
-        }
+    //        Common.ExtendWindowName(this);
+    //    }
 
-        public ManageTeacher(Teacher elementToEdit)
-            : this() {
-            if (elementToEdit == null) {
-                throw new ArgumentNullException("elementToEdit");
-            }
+    //    public ManageTeacher(Teacher elementToEdit)
+    //        : this() {
+    //        if (elementToEdit == null) {
+    //            throw new ArgumentNullException("elementToEdit");
+    //        }
 
-            MapElementToInterface(elementToEdit);
-        }
-
-
-        public ManagementElementManagerAction Action { get; private set; }
-
-        #region Control
-
-        private bool Save() {
-            if (ValidateInput()) {
-                Data.ManagementElementController<Teacher> controller = new Data.TeachersController();
-                controller.Save(MapInterfaceToElement());
-                return true;
-            }
-
-            return false;
-        }
-
-        private void Cancel() {
-            Close();
-        }
-
-        #endregion
-
-        #region Interface
-
-        private void MapElementToInterface(Teacher elementToMap) {
-            if (elementToMap == null) {
-                throw new ArgumentNullException("elementToMap");
-            }
-
-            tbFirstName.Text = elementToMap.FirstName;
-            tbLastName.Text = elementToMap.LastName;
-            cbIsMale.IsChecked = elementToMap.IsMale;
-        }
-
-        private Teacher MapInterfaceToElement() {
-            return new Teacher();
-        }
+    //        MapElementToInterface(elementToEdit);
+    //    }
 
 
-        private bool ValidateInput() {
-            return InputValidation.ValidateTextBoxInput(tbFirstName) && InputValidation.ValidateTextBoxInput(tbLastName); ;
-        }
+    //    public BusinessObjectManagerAction Action { get; private set; }
 
-        #endregion        
+    //    #region Control
 
-        #region Event wiring
+    //    private bool Save() {
+    //        if (ValidateInput()) {
+    //            Data.ManagementObjectDataManager<Teacher> controller = new Data.TeachersDataManager();
+    //            controller.Save(MapInterfaceToElement());
+    //            return true;
+    //        }
+
+    //        return false;
+    //    }
+
+    //    private void Cancel() {
+    //        Close();
+    //    }
+
+    //    #endregion
+
+    //    #region Interface
+
+    //    private void MapElementToInterface(Teacher elementToMap) {
+    //        if (elementToMap == null) {
+    //            throw new ArgumentNullException("elementToMap");
+    //        }
+
+    //        tbFirstName.Text = elementToMap.FirstName;
+    //        tbLastName.Text = elementToMap.LastName;
+    //        cbIsMale.IsChecked = elementToMap.IsMale;
+    //    }
+
+    //    private Teacher MapInterfaceToElement() {
+    //        return new Teacher();
+    //    }
+
+
+    //    private bool ValidateInput() {
+    //        return InputValidation.ValidateTextBoxInput(tbFirstName) && InputValidation.ValidateTextBoxInput(tbLastName); ;
+    //    }
+
+    //    #endregion        
+
+    //    #region Event wiring
 
         private void btnSave_Click(object sender, RoutedEventArgs e) {
-            if (Save()) {
-                Action = ManagementElementManagerAction.Saved;
-                Cancel();
-            }
+    //        if (Save()) {
+    //            Action = BusinessObjectManagerAction.Saved;
+    //            Cancel();
+    //        }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e) {
-            Action = ManagementElementManagerAction.Canceled;
-            Cancel();
+    //        Action = BusinessObjectManagerAction.Canceled;
+    //        Cancel();
         }
 
-        #endregion
+    //    #endregion
 
     }
+
 }

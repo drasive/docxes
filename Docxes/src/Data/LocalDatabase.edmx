@@ -300,7 +300,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="Teacher" Relationship="LocalDatabase.TeacherSubjects" FromRole="Subject" ToRole="Teacher" />
-          <Property Name="TeacherId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" Name="TeacherId" a:SetterAccess="Private" Nullable="false" Type="Int32" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="64" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
           <NavigationProperty Name="Events" Relationship="LocalDatabase.SubjectEvents" FromRole="Subject" ToRole="Event" />
           <NavigationProperty Name="Documents" Relationship="LocalDatabase.SubjectDocuments" FromRole="Subject" ToRole="Document" />

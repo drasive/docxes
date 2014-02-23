@@ -6,32 +6,55 @@ namespace VrankenBischof.Docxes.Interface {
     /// <summary>
     /// Interaction logic for <see cref="ManageSchool.xaml"/>
     /// </summary>
-    public sealed partial class ManageSchool : Window, IManagementElementManager {
+    public sealed partial class ManageSchool : Window, IBusinessObjectManager {
 
-        public ManageSchool() {
+        private School businessObjectEditing;
+
+        private BusinessLogic.BusinessObjectProcessor<School> businessObjectProcessor = new BusinessLogic.SchoolProcessor();
+
+
+        private void Initialize() {
             InitializeComponent();
 
+            if (IsEditing) {
+                Title = "Schule bearbeiten";
+            }
+            else {
+                Title = "Schule hinzufügen";
+            }
             Common.ExtendWindowName(this);
         }
 
-        public ManageSchool(School elementToEdit)
-            : this() {
-            if (elementToEdit == null) {
-                throw new ArgumentNullException("elementToEdit");
+        public ManageSchool() {
+            Initialize();
+        }
+
+        public ManageSchool(School businessObjectToEdit) {
+            if (businessObjectToEdit == null) {
+                throw new ArgumentNullException("businessObjectToEdit");
             }
 
-            MapElementToInterface(elementToEdit);
+            this.businessObjectEditing = businessObjectToEdit;
+            Initialize();
+
+            MapElementToInterface(businessObjectToEdit);
         }
 
 
-        public ManagementElementManagerAction Action { get; private set; }
+        public bool IsEditing { get { return businessObjectEditing != null; } }
+
+        public BusinessObjectManagerAction Action { get; private set; }
 
         #region Control
 
         private bool Save() {
             if (ValidateInput()) {
-                Data.ManagementElementController<School> controller = new Data.SchoolsController();
-                controller.Save(MapInterfaceToElement());
+                if (IsEditing) {
+                    businessObjectProcessor.Update(MapInterfaceToElement());
+                }
+                else {
+                    businessObjectProcessor.Save(MapInterfaceToElement());
+                }
                 return true;
             }
 
@@ -46,22 +69,27 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
-        private void MapElementToInterface(School elementToMap) {
-            if (elementToMap == null) {
-                throw new ArgumentNullException("elementToMap");
+        private void MapElementToInterface(School businessObjectToMap) {
+            if (businessObjectToMap == null) {
+                throw new ArgumentNullException("businessObjectToMap");
             }
 
-            tbName.Text = elementToMap.Name;
-            tbComment.Text = elementToMap.Comment;
+            tbName.Text = businessObjectToMap.Name;
+            tbComment.Text = businessObjectToMap.Comment;
         }
 
         private School MapInterfaceToElement() {
-            return new School();
+            if (IsEditing) {
+                return new School(businessObjectEditing.Id, tbName.Text, tbComment.Text);
+            }
+            else {
+                return new School(tbName.Text, tbComment.Text);
+            }
         }
 
 
         private bool ValidateInput() {
-            return InputValidation.ValidateTextBoxInput(tbName);
+            return InputValidation.ValidateInput(tbName);
         }
 
         #endregion
@@ -70,13 +98,13 @@ namespace VrankenBischof.Docxes.Interface {
 
         private void btnSave_Click(object sender, RoutedEventArgs e) {
             if (Save()) {
-                Action = ManagementElementManagerAction.Saved;
+                Action = BusinessObjectManagerAction.Saved;
                 Cancel();
             }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e) {
-            Action = ManagementElementManagerAction.Canceled;
+            Action = BusinessObjectManagerAction.Canceled;
             Cancel();
         }
 

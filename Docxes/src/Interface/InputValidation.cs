@@ -13,7 +13,8 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public static class InputValidation {
 
-        public static bool ValidateTextBoxInput(TextBox textBox) {
+        // TODO: Add tooltipp
+        public static bool ValidateInput(TextBox textBox) {
             if (textBox == null) {
                 throw new ArgumentNullException("textBox");
             }

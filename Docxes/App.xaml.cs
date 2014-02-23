@@ -16,8 +16,8 @@ namespace VrankenBischof.Docxes {
         protected override void OnStartup(StartupEventArgs e) {
             base.OnStartup(e);
 
-            Window windowToStart = new Interface.ManageSchools();
-            windowToStart.Show();
+            Window windowToShow = new Interface.ManageSchools();
+            windowToShow.Show();
         }
 
     }
