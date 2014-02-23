@@ -18,7 +18,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
                 throw new ArgumentNullException("objectToSave");
             }
 
-            dataManager.Save(objectToSave);
+            dataManager.Insert(objectToSave);
         }
 
 

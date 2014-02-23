@@ -21,10 +21,14 @@ namespace VrankenBischof.Docxes.Interface {
 
             if (String.IsNullOrEmpty(textBox.Text.Trim())) {
                 textBox.BorderBrush = Brushes.Red;
+                textBox.ToolTip = "Dies ist ein Pflichtfeld";
                 return false;
             }
 
+            // TODO: Check for duplicate?
+
             textBox.BorderBrush = Brushes.DimGray; // The default border brush of a TextBox
+            textBox.ToolTip = string.Empty;
             return true;
         }
 

@@ -7,7 +7,7 @@ namespace VrankenBischof.Docxes.Data {
 
     sealed class TeachersDataManager : BusinessObjectDataManager<Teacher> {
 
-        public override void Save(Teacher objectToSave) {
+        public override void Insert(Teacher objectToSave) {
             if (objectToSave == null) {
                 throw new ArgumentNullException("objectToSave");
             }

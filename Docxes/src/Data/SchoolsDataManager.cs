@@ -7,7 +7,8 @@ namespace VrankenBischof.Docxes.Data {
 
     sealed class SchoolsDataManager : BusinessObjectDataManager<School> {
 
-        public override void Save(School objectToSave) {
+        public override void Insert(School objectToSave) {
+            // ASK: What to do with duplicates? Check during creation?
             if (objectToSave == null) {
                 throw new ArgumentNullException("objectToSave");
             }

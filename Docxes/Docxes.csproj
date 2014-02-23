@@ -242,6 +242,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Project Management\Tasks 26.02.2014.txt" />
+    <Resource Include="Project Management\Tasks 26.02-05.03.2014.txt" />
     <Content Include="Resources\Data\Docxes.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

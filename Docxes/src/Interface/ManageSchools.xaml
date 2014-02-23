@@ -36,7 +36,8 @@
                 Width="75"
                 Grid.Row="2"
                 Click="btnSelect_Click"
-                Height="25" />
+                Height="25"
+                IsDefault="True" />
         <Button x:Name="btnAdd"
                 Content="Hinzufügen"
                 Margin="0,5,170,0"
