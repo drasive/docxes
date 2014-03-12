@@ -20,7 +20,27 @@ namespace VrankenBischof.Docxes.Interface {
 
         public SchoolOverview() {
             InitializeComponent();
+
+            // TODO: Check if there are subjects and ask to create
         }
+
+        #region Control
+
+
+
+        #endregion
+
+        #region Interface
+
+
+
+        #endregion
+
+        #region Event wiring
+
+
+
+        #endregion
 
     }
 

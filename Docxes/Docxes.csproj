@@ -93,6 +93,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="src\BusinessLogic\BusinessObjectProcessor.cs" />
+    <Compile Include="src\BusinessLogic\EventProcessor.cs" />
+    <Compile Include="src\BusinessLogic\NoteProcessor.cs" />
+    <Compile Include="src\BusinessLogic\GradeProcessor.cs" />
+    <Compile Include="src\BusinessLogic\DocumentProcessor.cs" />
+    <Compile Include="src\BusinessLogic\SubjectProcessor.cs" />
+    <Compile Include="src\BusinessLogic\TeacherProcessor.cs" />
     <Compile Include="src\BusinessLogic\SchoolProcessor.cs" />
     <Compile Include="src\Data\Document.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
@@ -125,14 +131,18 @@
     <Compile Include="src\Data\School.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\Data\DocumentsDataManager.cs" />
+    <Compile Include="src\Data\EventsDataManager.cs" />
+    <Compile Include="src\Data\GradesDataManager.cs" />
+    <Compile Include="src\Data\NoteDataManager.cs" />
+    <Compile Include="src\Data\TeacherDataManager.cs" />
+    <Compile Include="src\Data\SubjectDataManager.cs" />
     <Compile Include="src\Data\Subject.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="src\Data\Teacher.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="src\Data\TeachersDataManager.cs" />
-    <Compile Include="src\Data\SubjectsDataManager.cs" />
     <Compile Include="src\DocumentExtension.cs" />
     <Compile Include="src\NoteExtension.cs" />
     <Compile Include="src\GradeExtension.cs" />
@@ -242,8 +252,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Project Management\Tasks 26.02.2014.txt" />
-    <Resource Include="Project Management\Tasks 26.02-05.03.2014.txt" />
     <Content Include="Resources\Data\Docxes.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -6,14 +6,14 @@ using VrankenBischof.Docxes.Data;
 
 namespace VrankenBischof.Docxes.BusinessLogic {
 
-    sealed class SchoolProcessor : BusinessObjectProcessor<School> {
+    sealed class DocumentProcessor : BusinessObjectProcessor<Document> {
 
-        public SchoolProcessor() {
-            dataManager = new SchoolsDataManager();
+        public DocumentProcessor() {
+            dataManager = new DocumentsDataManager();
         }
 
 
-        public override void Create(School objectToSave) {
+        public override void Create(Document objectToSave) {
             if (objectToSave == null) {
                 throw new ArgumentNullException("objectToSave");
             }
@@ -22,16 +22,16 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
-        public override List<School> Get() {
+        public override List<Document> Get() {
             return dataManager.Get();
         }
 
-        public override School Get(int id) {
+        public override Document Get(int id) {
             return dataManager.Get(id);
         }
 
 
-        public override void Update(School objectToUpdate) {
+        public override void Update(Document objectToUpdate) {
             if (objectToUpdate == null) {
                 throw new ArgumentNullException("objectToUpdate");
             }
@@ -40,7 +40,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
-        public override void Delete(School objectToDelete) {
+        public override void Delete(Document objectToDelete) {
             if (objectToDelete == null) {
                 throw new ArgumentNullException("objectToDelete");
             }

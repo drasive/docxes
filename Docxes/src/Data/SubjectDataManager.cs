@@ -7,7 +7,7 @@ namespace VrankenBischof.Docxes.Data {
 
     sealed class SubjectsDataManager : BusinessObjectDataManager<Subject> {
 
-        public override void Insert(Subject objectToSave) {
+        public override void Create(Subject objectToSave) {
             if (objectToSave == null) {
                 throw new ArgumentNullException("objectToSave");
             }
@@ -19,15 +19,22 @@ namespace VrankenBischof.Docxes.Data {
         }
 
 
-        public override IEnumerable<Subject> Get() {
+        private List<Subject> Get(LocalDatabaseContainer container) {
+            return (from Subject Subject
+                    in container.Subjects
+                    select Subject).ToList();
+        }
+
+        public override List<Subject> Get() {
             using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
-                // TODO: Paste from School
-                return container.Set<Subject>();
+                return Get(container);
             }
         }
 
         public override Subject Get(int id) {
-            return new Subject();
+            using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
+                return Get(container).First(databaseElement => databaseElement.Id == id);
+            }
         }
 
 
@@ -37,9 +44,15 @@ namespace VrankenBischof.Docxes.Data {
             }
 
             using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
-                var databaseObjectToUpdate = container.Subjects.First(databaseElement => databaseElement.Id == objectToUpdate.Id);
-                databaseObjectToUpdate = objectToUpdate;
-                container.SaveChanges();
+                // REFACTOR: Replace with Get(container)
+                // BUG
+
+                //var databaseObjectToUpdate = container.Subjects.First(databaseElement => databaseElement.Id == objectToUpdate.Id);
+                //databaseObjectToUpdate = objectToUpdate;
+
+                //container.Subjects.Attach(objectToUpdate);
+                //container.Entry(objectToUpdate).State = System.Data.Entity.EntityState.Modified;
+                //container.SaveChanges();
             }
         }
 
@@ -50,7 +63,7 @@ namespace VrankenBischof.Docxes.Data {
             }
 
             using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
-                var databaseObjectToDelete = container.Subjects.First(databaseElement => databaseElement.Id == objectToDelete.Id);
+                var databaseObjectToDelete = Get(container).First(databaseElement => databaseElement.Id == objectToDelete.Id);
                 container.Subjects.Remove(databaseObjectToDelete);
                 container.SaveChanges();
             }

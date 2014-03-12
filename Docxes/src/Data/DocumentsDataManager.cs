@@ -5,40 +5,40 @@ using System.Text;
 
 namespace VrankenBischof.Docxes.Data {
 
-    sealed class SchoolsDataManager : BusinessObjectDataManager<School> {
+    sealed class DocumentsDataManager : BusinessObjectDataManager<Document> {
 
-        public override void Create(School objectToSave) {
+        public override void Create(Document objectToSave) {
             if (objectToSave == null) {
                 throw new ArgumentNullException("objectToSave");
             }
 
             using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
-                container.Schools.Add(objectToSave);
+                container.Documents.Add(objectToSave);
                 container.SaveChanges();
             }
         }
 
 
-        private List<School> Get(LocalDatabaseContainer container) {
-            return (from School school
-                    in container.Schools
-                    select school).ToList();
+        private List<Document> Get(LocalDatabaseContainer container) {
+            return (from Document Document
+                    in container.Documents
+                    select Document).ToList();
         }
 
-        public override List<School> Get() {
+        public override List<Document> Get() {
             using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
                 return Get(container);
             }
         }
 
-        public override School Get(int id) {
+        public override Document Get(int id) {
             using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
                 return Get(container).First(databaseElement => databaseElement.Id == id);
             }
         }
 
 
-        public override void Update(School objectToUpdate) {
+        public override void Update(Document objectToUpdate) {
             if (objectToUpdate == null) {
                 throw new ArgumentNullException("objectToUpdate");
             }
@@ -47,24 +47,24 @@ namespace VrankenBischof.Docxes.Data {
                 // REFACTOR: Replace with Get(container)
                 // BUG
 
-                //var databaseObjectToUpdate = container.Schools.First(databaseElement => databaseElement.Id == objectToUpdate.Id);
+                //var databaseObjectToUpdate = container.Documents.First(databaseElement => databaseElement.Id == objectToUpdate.Id);
                 //databaseObjectToUpdate = objectToUpdate;
 
-                //container.Schools.Attach(objectToUpdate);
+                //container.Documents.Attach(objectToUpdate);
                 //container.Entry(objectToUpdate).State = System.Data.Entity.EntityState.Modified;
                 //container.SaveChanges();
             }
         }
 
 
-        public override void Delete(School objectToDelete) {
+        public override void Delete(Document objectToDelete) {
             if (objectToDelete == null) {
                 throw new ArgumentNullException("objectToDelete");
             }
 
             using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
                 var databaseObjectToDelete = Get(container).First(databaseElement => databaseElement.Id == objectToDelete.Id);
-                container.Schools.Remove(databaseObjectToDelete);
+                container.Documents.Remove(databaseObjectToDelete);
                 container.SaveChanges();
             }
         }

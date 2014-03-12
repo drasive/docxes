@@ -1,2 +1,0 @@
-﻿Dimitri
-- Copy the code of the schools to other business objects

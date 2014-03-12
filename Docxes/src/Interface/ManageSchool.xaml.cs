@@ -53,7 +53,7 @@ namespace VrankenBischof.Docxes.Interface {
                     businessObjectProcessor.Update(MapInterfaceToElement());
                 }
                 else {
-                    businessObjectProcessor.Save(MapInterfaceToElement());
+                    businessObjectProcessor.Create(MapInterfaceToElement());
                 }
                 return true;
             }
