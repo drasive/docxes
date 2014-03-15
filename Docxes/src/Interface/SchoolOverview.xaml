@@ -1,94 +1,295 @@
-﻿<Window x:Name="wSchoolOverview" x:Class="VrankenBischof.Docxes.Interface.SchoolOverview"
+﻿<Window x:Name="wSchoolOverview"
+        x:Class="VrankenBischof.Docxes.Interface.SchoolOverview"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="SchoolOverview" Height="600" Width="800"
+        Title="SchoolOverview"
+        Height="738.833"
+        Width="927.968"
         WindowStartupLocation="CenterScreen">
-	<Grid x:Name="gRoot">
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition/>
-		</Grid.ColumnDefinitions>
-		<TextBlock HorizontalAlignment="Left" Margin="544,10,0,0" TextWrapping="Wrap" Text="Next events" VerticalAlignment="Top" FontSize="32" Width="188" Height="43"/>
-		<TextBlock HorizontalAlignment="Left" Margin="544,61,0,0" TextWrapping="Wrap" Text="Diese Woche"  VerticalAlignment="Top" FontSize="24" Width="188" Height="32"/>
-		<TextBlock HorizontalAlignment="Left" Margin="544,98,0,0" TextWrapping="Wrap" Text="Abgabe Dokument (M226)" VerticalAlignment="Top" FontSize="14" Width="188" Height="19"/>
-		<TextBlock HorizontalAlignment="Left" Margin="544,116,0,0" TextWrapping="Wrap" Text="Mittwoch, 05.02.2014" VerticalAlignment="Top" FontSize="12" Width="188" Height="16"/>
-		<TextBlock HorizontalAlignment="Left" Margin="544,137,0,0" TextWrapping="Wrap" Text="Do stuff"  VerticalAlignment="Top" FontSize="14" Width="188" Height="19"/>
-		<TextBlock HorizontalAlignment="Left" Margin="544,156,0,0" TextWrapping="Wrap" Text="Freitag, 07.02.2014" VerticalAlignment="Top" FontSize="12" Width="188" Height="16"/>
 
-		<TextBlock HorizontalAlignment="Left" Margin="544,189,0,0" TextWrapping="Wrap" Text="Nächste Woche"  VerticalAlignment="Top" FontSize="24" Width="188" Height="32"/>
-		<TextBlock HorizontalAlignment="Left" Margin="544,226,0,0" TextWrapping="Wrap" Text="Do stuff again"  VerticalAlignment="Top" FontSize="14" Width="188" Height="19"/>
-		<TextBlock HorizontalAlignment="Left" Margin="544,245,0,0" TextWrapping="Wrap" Text="Freitag, 14.02.2014" VerticalAlignment="Top" FontSize="12" Width="188" Height="16"/>
+    <Grid x:Name="gRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
 
-		<TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Management" VerticalAlignment="Top" FontSize="24" Width="188" Height="32"/>
-		<Border Background="#FFE4A141" Margin="12,52,627,438">
-			<Canvas>
-				<Image Source="/Docxes;component/Resources/Images/NotesBackground.jpg" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="150"/>
-				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Notizen  [+]" VerticalAlignment="Top" FontSize="14" Width="76" Canvas.Top="31" Height="18" Canvas.Left="100" RenderTransformOrigin="0.5,0.5">
-					<TextBlock.RenderTransform>
-						<TransformGroup>
-							<ScaleTransform/>
-							<SkewTransform/>
-							<RotateTransform Angle="90"/>
-							<TranslateTransform/>
-						</TransformGroup>
-					</TextBlock.RenderTransform>
-				</TextBlock>
-			</Canvas>
-		</Border>
-		<Border Background="#8CA4D4" Margin="182,52,462,438">
-			<Canvas Margin="-2,0,2,0">
-				<Image Source="/Docxes;component/Resources/Images/DocumentsBackground.png" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="150"/>
-				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ablage  [+]" VerticalAlignment="Top" FontSize="14" Width="72" Canvas.Top="31" Height="18" Canvas.Left="101" RenderTransformOrigin="0.5,0.5">
-					<TextBlock.RenderTransform>
-						<TransformGroup>
-							<ScaleTransform/>
-							<SkewTransform/>
-							<RotateTransform Angle="90"/>
-							<TranslateTransform/>
-						</TransformGroup>
-					</TextBlock.RenderTransform>
-				</TextBlock>
-			</Canvas>
-		</Border>
-		<Border Background="#C43533" Margin="12,156,627,334">
-			<Canvas>
-				<Image Source="/Docxes;component/Resources/Images/GradesBackground.jpg" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="150"/>
-				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Noten		  [+]" VerticalAlignment="Top" FontSize="14" Width="82" Canvas.Top="36" Height="18" Canvas.Left="97" RenderTransformOrigin="0.5,0.5">
-					<TextBlock.RenderTransform>
-						<TransformGroup>
-							<ScaleTransform/>
-							<SkewTransform/>
-							<RotateTransform Angle="90"/>
-							<TranslateTransform/>
-						</TransformGroup>
-					</TextBlock.RenderTransform>
-				</TextBlock>
-			</Canvas>
-		</Border>
+        <TextBlock HorizontalAlignment="Left"
+                   Margin="10,10,0,0"
+                   TextWrapping="Wrap"
+                   Text="Title"
+                   VerticalAlignment="Top"
+                   FontSize="24"
+                   Width="188"
+                   Height="32" />
 
-		<Border Background="#8CA4D4" Margin="12,480,627,10">
-			<Canvas>
-				<Image Source="/Docxes;component/Resources/Images/SchoolBackground.jpg" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="150"/>
-				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Schulen" VerticalAlignment="Top" FontSize="14" Width="90" Canvas.Top="41" Height="18" Canvas.Left="96" RenderTransformOrigin="0.5,0.5">
-					<TextBlock.RenderTransform>
-						<TransformGroup>
-							<ScaleTransform/>
-							<SkewTransform/>
-							<RotateTransform Angle="90"/>
-							<TranslateTransform/>
-						</TransformGroup>
-					</TextBlock.RenderTransform>
-				</TextBlock>
-			</Canvas>
-		</Border>
-		<Border BorderBrush="Black" BorderThickness="1" Height="506" Margin="0,0,260,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="1">
-			<Border.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform ScaleX="-1"/>
-					<SkewTransform/>
-					<RotateTransform/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</Border.RenderTransform>
-		</Border>
-	</Grid>
+        <Grid x:Name="gContent"
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="643*" />
+                <ColumnDefinition Width="278*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="gMenu"
+                  Margin="0,0,5,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="1.5*" />
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid x:Name="gNotes"
+                          Margin="5">
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="22" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="Notizen [Anzahl]"
+                                       FontSize="14" />
+                            <Image Source="/Docxes;component/Resources/Images/NotesBackground.jpg"
+                                   Stretch="UniformToFill"
+                                   Grid.Row="1" />
+                        </Grid>
+                    </Grid>
+                    
+                    <Button x:Name="btnDocuments"
+                            Content="Documents"
+                            Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            Margin="10,10,0,0"
+                            VerticalAlignment="Top"
+                            Width="75" />
+                    <Button x:Name="btnEvents"
+                            Content="Events"
+                            Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            Margin="10,35,0,0"
+                            VerticalAlignment="Top"
+                            Width="75" />
+                    <Button x:Name="btnGrades"
+                            Content="Grades"
+                            Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            Margin="10,60,0,0"
+                            VerticalAlignment="Top"
+                            Width="75" />
+                    <Button x:Name="btnNotes"
+                            Content="Notes"
+                            Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            Margin="10,85,0,0"
+                            VerticalAlignment="Top"
+                            Width="75" />
+                    <Button x:Name="btnSubjects"
+                            Content="Subjects"
+                            Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            Margin="10,110,0,0"
+                            VerticalAlignment="Top"
+                            Width="75" />
+                    <Button x:Name="btnTeachers"
+                            Content="Teachers"
+                            Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            Margin="10,135,0,0"
+                            VerticalAlignment="Top"
+                            Width="75" />
+                </Grid>
+            </Grid>
+
+            <Grid x:Name="gEventPreview"
+                  Grid.Column="1"
+                  Margin="5,0,0,0">
+                <TextBlock HorizontalAlignment="Left"
+                           TextWrapping="Wrap"
+                           Text="Next events"
+                           VerticalAlignment="Top"
+                           FontSize="32"
+                           Width="188"
+                           Height="43" />
+                <TextBlock HorizontalAlignment="Left"
+                           Margin="0,61,0,0"
+                           TextWrapping="Wrap"
+                           Text="Diese Woche"
+                           VerticalAlignment="Top"
+                           FontSize="24"
+                           Width="188"
+                           Height="32" />
+                <TextBlock HorizontalAlignment="Left"
+                           Margin="0,98,0,0"
+                           TextWrapping="Wrap"
+                           Text="Abgabe Dokument (M226)"
+                           VerticalAlignment="Top"
+                           FontSize="14"
+                           Width="188"
+                           Height="19" />
+                <TextBlock HorizontalAlignment="Left"
+                           Margin="0,116,0,0"
+                           TextWrapping="Wrap"
+                           Text="Mittwoch, 05.02.2014"
+                           VerticalAlignment="Top"
+                           FontSize="12"
+                           Width="188"
+                           Height="16" />
+                <TextBlock HorizontalAlignment="Left"
+                           Margin="0,137,0,0"
+                           TextWrapping="Wrap"
+                           Text="Do stuff"
+                           VerticalAlignment="Top"
+                           FontSize="14"
+                           Width="188"
+                           Height="19" />
+                <TextBlock HorizontalAlignment="Left"
+                           Margin="0,156,0,0"
+                           TextWrapping="Wrap"
+                           Text="Freitag, 07.02.2014"
+                           VerticalAlignment="Top"
+                           FontSize="12"
+                           Width="188"
+                           Height="16" />
+
+                <TextBlock HorizontalAlignment="Left"
+                           Margin="0,189,0,0"
+                           TextWrapping="Wrap"
+                           Text="Nächste Woche"
+                           VerticalAlignment="Top"
+                           FontSize="24"
+                           Width="188"
+                           Height="32" />
+                <TextBlock HorizontalAlignment="Left"
+                           Margin="0,226,0,0"
+                           TextWrapping="Wrap"
+                           Text="Do stuff again"
+                           VerticalAlignment="Top"
+                           FontSize="14"
+                           Width="188"
+                           Height="19" />
+                <TextBlock HorizontalAlignment="Left"
+                           Margin="0,245,0,0"
+                           TextWrapping="Wrap"
+                           Text="Freitag, 14.02.2014"
+                           VerticalAlignment="Top"
+                           FontSize="12"
+                           Width="188"
+                           Height="16" />
+
+            </Grid>
+        </Grid>
+
+        <!--<Border Background="#8CA4D4"
+                Margin="182,52,462,438">
+            <Canvas Margin="-2,0,2,0">
+                <Image Source="/Docxes;component/Resources/Images/DocumentsBackground.png"
+                       HorizontalAlignment="Left"
+                       Height="80"
+                       VerticalAlignment="Top"
+                       Width="150" />
+                <TextBlock HorizontalAlignment="Left"
+                           TextWrapping="Wrap"
+                           Text="Ablage  [+]"
+                           VerticalAlignment="Top"
+                           FontSize="14"
+                           Width="72"
+                           Canvas.Top="31"
+                           Height="18"
+                           Canvas.Left="101"
+                           RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform Angle="90" />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </Canvas>
+        </Border>
+        <Border Background="#C43533"
+                Margin="12,156,627,334">
+            <Canvas>
+                <Image Source="/Docxes;component/Resources/Images/GradesBackground.jpg"
+                       HorizontalAlignment="Left"
+                       Height="80"
+                       VerticalAlignment="Top"
+                       Width="150" />
+                <TextBlock HorizontalAlignment="Left"
+                           TextWrapping="Wrap"
+                           Text="Noten		  [+]"
+                           VerticalAlignment="Top"
+                           FontSize="14"
+                           Width="82"
+                           Canvas.Top="36"
+                           Height="18"
+                           Canvas.Left="97"
+                           RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform Angle="90" />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </Canvas>
+        </Border>
+
+        <Border Background="#8CA4D4"
+                Margin="12,480,627,10">
+            <Canvas>
+                <Image Source="/Docxes;component/Resources/Images/SchoolBackground.jpg"
+                       HorizontalAlignment="Left"
+                       Height="80"
+                       VerticalAlignment="Top"
+                       Width="150" />
+                <TextBlock HorizontalAlignment="Left"
+                           TextWrapping="Wrap"
+                           Text="Schulen"
+                           VerticalAlignment="Top"
+                           FontSize="14"
+                           Width="90"
+                           Canvas.Top="41"
+                           Height="18"
+                           Canvas.Left="96"
+                           RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform Angle="90" />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+            </Canvas>
+        </Border>
+        <Border BorderBrush="Black"
+                BorderThickness="1"
+                Height="506"
+                Margin="0,0,260,0"
+                VerticalAlignment="Top"
+                RenderTransformOrigin="0.5,0.5"
+                HorizontalAlignment="Right"
+                Width="1">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1" />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>-->
+    </Grid>
 </Window>

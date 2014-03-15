@@ -252,13 +252,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Data\Docxes.mdf">
+    <Content Include="Data\Docxes.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Data\Docxes_log.ldf">
+    <Content Include="Data\Docxes_log.ldf">
       <DependentUpon>Docxes.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Project Management\Priority ToDos.txt" />
     <Content Include="src\Data\LocalDatabase.edmx.sql" />
     <Resource Include="Resources\Images\SchoolBackground.jpg" />
     <Resource Include="Resources\Images\NotesBackground.jpg" />

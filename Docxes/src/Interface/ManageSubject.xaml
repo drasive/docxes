@@ -31,7 +31,7 @@
                  Margin="10,16,10,0"
                  TextWrapping="Wrap"
                  VerticalAlignment="Top" />
-        <ComboBox x:Name="cbTeachers"
+        <ComboBox x:Name="cbTeacher"
                   Grid.Column="1"
                   Margin="10,45,10,0"
                   VerticalAlignment="Top" />

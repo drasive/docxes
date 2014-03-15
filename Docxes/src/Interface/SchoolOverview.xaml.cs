@@ -24,7 +24,7 @@ namespace VrankenBischof.Docxes.Interface {
             // TODO: Check if there are subjects and ask to create
         }
 
-        #region Control
+        #region Processing
 
 
 
@@ -32,7 +32,23 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
+        private void Open1() {
+            // TODO
+            Window newWindow = new ManageSchools();
+            newWindow.ShowDialog();
+        }
 
+        private void Open2() {
+            // TODO
+            Window newWindow = new ManageSchools();
+            newWindow.ShowDialog();
+        }
+
+        private void OpenManageSchools() {
+            Window newWindow = new ManageSchools();
+            newWindow.Show();
+            Close();
+        }
 
         #endregion
 

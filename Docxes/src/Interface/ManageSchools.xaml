@@ -14,6 +14,13 @@
             <RowDefinition />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
+
+        <TextBlock x:Name="tblWelcomeText"
+                   HorizontalAlignment="Left"
+                   Margin="10,8,0,0"
+                   TextWrapping="Wrap"
+                   Text="Willkommen, [Benutzername]!"
+                   VerticalAlignment="Top" />
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
                    Margin="10,0,0,5"
@@ -27,7 +34,6 @@
                  SelectionChanged="lbSchools_SelectionChanged"
                  ItemsSource="{Binding}"
                  DisplayMemberPath="Name" />
-
         <Button x:Name="btnSelect"
                 Content="Auswählen"
                 HorizontalAlignment="Left"
@@ -66,11 +72,5 @@
                 RenderTransformOrigin="0.505,0.333"
                 Click="btnDelete_Click"
                 Height="25" />
-        <TextBlock x:Name="tblWelcomeText"
-                   HorizontalAlignment="Left"
-                   Margin="10,8,0,0"
-                   TextWrapping="Wrap"
-                   Text="Willkommen, [Benutzername]!"
-                   VerticalAlignment="Top" />
     </Grid>
 </Window>

@@ -16,84 +16,109 @@ namespace VrankenBischof.Docxes.Interface {
     /// <summary>
     /// Interaction logic for <see cref="ManageSubject.xaml"/>
     /// </summary>
-    public partial class ManageSubject : Window/*, IBusinessObjectManager*/ {
+    public partial class ManageSubject : Window, IBusinessObjectManager {
 
-    //    public ManageSubject() {
-    //        InitializeComponent();
+        private Subject businessObjectEditing;
 
-    //        Common.ExtendWindowName(this);
-
-    //        Data.ManagementObjectDataManager<Teacher> teachersController = new Data.TeachersDataManager();
-    //        cbTeachers.DataContext = teachersController.Get();
-    //    }
-
-    //    public ManageSubject(Subject elementToEdit)
-    //        : this() {
-    //        if (elementToEdit == null) {
-    //            throw new ArgumentNullException("elementToEdit");
-    //        }
-
-    //        MapElementToInterface(elementToEdit);
-    //    }
+        private BusinessLogic.BusinessObjectProcessor<Subject> businessObjectProcessor = new BusinessLogic.SubjectProcessor();
 
 
-    //    public BusinessObjectManagerAction Action { get; private set; }
+        private void Initialize() {
+            InitializeComponent();
 
-    //    #region Control
+            if (IsEditing) {
+                Title = "Fach bearbeiten";
+            }
+            else {
+                Title = "Fach hinzufügen";
+            }
+            Common.ExtendWindowName(this);
+        }
 
-    //    private bool Save() {
-    //        if (ValidateInput()) {
-    //            Data.ManagementObjectDataManager<Subject> controller = new Data.SubjectsController();
-    //            controller.Save(MapInterfaceToElement());
-    //            return true;
-    //        }
+        public ManageSubject() {
+            Initialize();
+        }
 
-    //        return false;
-    //    }
+        public ManageSubject(Subject businessObjectToEdit) {
+            if (businessObjectToEdit == null) {
+                throw new ArgumentNullException("businessObjectToEdit");
+            }
 
-    //    private void Cancel() {
-    //        Close();
-    //    }
+            this.businessObjectEditing = businessObjectToEdit;
+            Initialize();
 
-    //    #endregion
-
-    //    #region Interface
-
-    //    private void MapElementToInterface(Subject elementToMap) {
-    //        if (elementToMap == null) {
-    //            throw new ArgumentNullException("elementToMap");
-    //        }
-
-    //        tbName.Text = elementToMap.Name;
-    //        cbTeachers.SelectedItem = elementToMap.Teacher;
-    //    }
-
-    //    private Subject MapInterfaceToElement() {
-    //        return new Subject();
-    //    }
+            MapElementToInterface(businessObjectToEdit);
+        }
 
 
-    //    private bool ValidateInput() {
-    //        return InputValidation.ValidateTextBoxInput(tbName);
-    //    }
+        public bool IsEditing { get { return businessObjectEditing != null; } }
 
-    //    #endregion
+        public BusinessObjectManagerAction Action { get; private set; }
 
-    //    #region Event wiring
+        #region Control
+
+        private bool Save() {
+            if (ValidateInput()) {
+                if (IsEditing) {
+                    businessObjectProcessor.Update(MapInterfaceToElement());
+                }
+                else {
+                    businessObjectProcessor.Create(MapInterfaceToElement());
+                }
+                return true;
+            }
+
+            return false;
+        }
+
+        private void Cancel() {
+            Close();
+        }
+
+        #endregion
+
+        #region Interface
+
+        private void MapElementToInterface(Subject businessObjectToMap) {
+            if (businessObjectToMap == null) {
+                throw new ArgumentNullException("businessObjectToMap");
+            }
+
+            tbName.Text = businessObjectToMap.Name;
+            cbTeacher.SelectedItem = businessObjectToMap.Teacher;
+        }
+
+        private Subject MapInterfaceToElement() {
+            if (IsEditing) {
+                return new Subject(businessObjectEditing, tbName.Text, (Teacher)cbTeacher.SelectedItem);
+            }
+            else {
+                return new Subject(tbName.Text, (Teacher)cbTeacher.SelectedItem);
+            }
+        }
+
+
+        private bool ValidateInput() {
+            return InputValidation.ValidateInput(tbName);
+        }
+
+        #endregion
+
+        #region Event wiring
 
         private void btnSave_Click(object sender, RoutedEventArgs e) {
-    //        if (Save()) {
-    //            Action = BusinessObjectManagerAction.Saved;
-    //            Cancel();
-    //        }
+            if (Save()) {
+                Action = BusinessObjectManagerAction.Saved;
+                Cancel();
+            }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e) {
-    //        Action = BusinessObjectManagerAction.Canceled;
-    //        Cancel();
+            Action = BusinessObjectManagerAction.Canceled;
+            Cancel();
         }
 
-    //    #endregion
+        #endregion
 
     }
 

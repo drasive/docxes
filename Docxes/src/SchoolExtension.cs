@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace VrankenBischof.Docxes {
+﻿namespace VrankenBischof.Docxes {
 
     [System.Diagnostics.DebuggerDisplay("Id: {Id}, Name: {Name}, Comment: {Comment}")]
     public partial class School : IBusinessObject {
@@ -10,11 +8,11 @@ namespace VrankenBischof.Docxes {
             Comment = comment;
         }
 
-        // ASK: Is there a better way to update?
-        public School(int id, string name, string comment)
+        public School(School businessObjectEditing, string name, string comment)
             : this(name, comment) {
-            Id = id;
+            Id = businessObjectEditing.Id;
         }
+
 
         public override string ToString() {
             return Name;

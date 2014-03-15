@@ -40,8 +40,8 @@ namespace VrankenBischof.Docxes.Interface {
 
 
         private void OpenSchoolOverview() {
-            Window schoolOverview = new SchoolOverview();
-            schoolOverview.Show();
+            Window newWindow = new SchoolOverview();
+            newWindow.Show();
             Close();
         }
 
@@ -65,10 +65,10 @@ namespace VrankenBischof.Docxes.Interface {
 
             return false;
         }
-
+        
         private void UpdateControlsAvailability() {
             bool isBusinessObjectSelected = lbSchools.SelectedIndex != -1;
-
+            
             foreach (Button button in new Button[] { btnSelect, btnEdit, btnDelete }) {
                 button.IsEnabled = isBusinessObjectSelected;
             }
@@ -114,4 +114,5 @@ namespace VrankenBischof.Docxes.Interface {
         #endregion
 
     }
+
 }

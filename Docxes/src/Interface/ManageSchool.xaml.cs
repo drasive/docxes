@@ -80,7 +80,7 @@ namespace VrankenBischof.Docxes.Interface {
 
         private School MapInterfaceToElement() {
             if (IsEditing) {
-                return new School(businessObjectEditing.Id, tbName.Text, tbComment.Text);
+                return new School(businessObjectEditing, tbName.Text, tbComment.Text);
             }
             else {
                 return new School(tbName.Text, tbComment.Text);
