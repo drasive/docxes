@@ -1,0 +1,3 @@
+﻿- Design missing interfaces
+- Use database that doesn't required a full SQL Server
+- Fix database updates
