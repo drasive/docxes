@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="b48bfac8-9213-43f7-bb6b-061b3a646a4f" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="f5070dde-a886-49c8-b9ca-0199550888a4" name="BusinessLogic">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="f82bcb57-4520-48e7-88a7-d6be325ae8b0" direction="Forward">
+          <layerMoniker Id="3073c73d-4922-42a5-bd3e-4a2fb3946f13" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="a311de0e-c6a0-4471-95a7-8f7a327db8fc" direction="Forward">
+          <layerMoniker Id="74638b5d-707f-460e-a8ad-c28e5acc9bff" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="457a06ae-8d24-4a37-ac3f-9a8b678ab59e" name="BusinessLogic">
+          <ArtifactNode Label="BusinessLogic" Category="CodeSchema_ProjectItem" Id="(Assembly=../Docxes/Docxes.csproj File=../Docxes/src/BusinessLogic/)">
+            <Category Ref="ProjectFolder" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=(Name=BusinessObjectProcessor GenericParameterCount=1))" Label="BusinessObjectProcessor‎&lt;T‎&gt;" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=DocumentProcessor)" Label="DocumentProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=EventProcessor)" Label="EventProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=GradeProcessor)" Label="GradeProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=NoteProcessor)" Label="NoteProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=SchoolProcessor)" Label="SchoolProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=SubjectProcessor)" Label="SubjectProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=TeacherProcessor)" Label="TeacherProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="3073c73d-4922-42a5-bd3e-4a2fb3946f13" name="Data">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="340859f5-f0bc-466e-88aa-cd0331d49d5d" direction="Forward">
+          <layerMoniker Id="74638b5d-707f-460e-a8ad-c28e5acc9bff" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="cdb0e26c-2dca-409f-a821-88a4c85d4200" name="Data">
+          <ArtifactNode Label="Data" Category="CodeSchema_ProjectItem" Id="(Assembly=../Docxes/Docxes.csproj File=../Docxes/src/Data/)">
+            <Category Ref="ProjectFolder" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=(Name=BusinessObjectDataManager GenericParameterCount=1))" Label="BusinessObjectDataManager‎&lt;T‎&gt;" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=DocumentsDataManager)" Label="DocumentsDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=EventsDataManager)" Label="EventsDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=GradesDataManager)" Label="GradesDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=LocalDatabaseContainer)" Label="LocalDatabaseContainer" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=Document)" Label="Document" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=Event)" Label="Event" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=Grade)" Label="Grade" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=Note)" Label="Note" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=School)" Label="School" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=Subject)" Label="Subject" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=Teacher)" Label="Teacher" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=NotesDataManager)" Label="NotesDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=SchoolsDataManager)" Label="SchoolsDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=SubjectsDataManager)" Label="SubjectsDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=TeachersDataManager)" Label="TeachersDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="9393773e-e8d1-4b9f-b80e-7b863b4e54a0" name="Interface">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="4e7c6061-b9ac-413b-a1fc-b51539d9de32" direction="Forward">
+          <layerMoniker Id="74638b5d-707f-460e-a8ad-c28e5acc9bff" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="a1aaeef7-42ce-42ff-afb6-6030b768e03b" direction="Forward">
+          <layerMoniker Id="f5070dde-a886-49c8-b9ca-0199550888a4" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="47c014e4-d254-479b-a29c-621be25aa2b7" name="Interface">
+          <ArtifactNode Label="Interface" Category="CodeSchema_ProjectItem" Id="(Assembly=../Docxes/Docxes.csproj File=../Docxes/src/Interface/)">
+            <Category Ref="ProjectFolder" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=BusinessObjectManagerAction)" Label="BusinessObjectManagerAction" Category="CodeSchema_Enum">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=Common)" Label="Common" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=IBusinessObjectManager)" Label="IBusinessObjectManager" Category="CodeSchema_Interface">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=InputValidation)" Label="InputValidation" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=ManageSchool)" Label="ManageSchool" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=ManageSchools)" Label="ManageSchools" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=ManageSubject)" Label="ManageSubject" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=ManageTeacher)" Label="ManageTeacher" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=SchoolOverview)" Label="SchoolOverview" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="74638b5d-707f-460e-a8ad-c28e5acc9bff" name="Business Objects">
+      <references>
+        <reference Id="8ac4609e-3a9c-4a68-886a-cc31493c9ba0" name="src">
+          <ArtifactNode Label="src" Category="CodeSchema_ProjectItem" Id="(Assembly=../Docxes/Docxes.csproj File=../Docxes/src/)">
+            <Category Ref="ProjectFolder" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=(Name=BusinessObjectProcessor GenericParameterCount=1))" Label="BusinessObjectProcessor‎&lt;T‎&gt;" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=DocumentProcessor)" Label="DocumentProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=EventProcessor)" Label="EventProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=GradeProcessor)" Label="GradeProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=NoteProcessor)" Label="NoteProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=SchoolProcessor)" Label="SchoolProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=SubjectProcessor)" Label="SubjectProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.BusinessLogic Type=TeacherProcessor)" Label="TeacherProcessor" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=(Name=BusinessObjectDataManager GenericParameterCount=1))" Label="BusinessObjectDataManager‎&lt;T‎&gt;" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=DocumentsDataManager)" Label="DocumentsDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=EventsDataManager)" Label="EventsDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=GradesDataManager)" Label="GradesDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=LocalDatabaseContainer)" Label="LocalDatabaseContainer" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=Document)" Label="Document" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=Event)" Label="Event" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=Grade)" Label="Grade" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=Note)" Label="Note" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=School)" Label="School" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=Subject)" Label="Subject" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=Teacher)" Label="Teacher" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=NotesDataManager)" Label="NotesDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=SchoolsDataManager)" Label="SchoolsDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=SubjectsDataManager)" Label="SubjectsDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Data Type=TeachersDataManager)" Label="TeachersDataManager" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes Type=IBusinessObject)" Label="IBusinessObject" Category="CodeSchema_Interface">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=BusinessObjectManagerAction)" Label="BusinessObjectManagerAction" Category="CodeSchema_Enum">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=Common)" Label="Common" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=IBusinessObjectManager)" Label="IBusinessObjectManager" Category="CodeSchema_Interface">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=InputValidation)" Label="InputValidation" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=ManageSchool)" Label="ManageSchool" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=ManageSchools)" Label="ManageSchools" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=ManageSubject)" Label="ManageSubject" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=ManageTeacher)" Label="ManageTeacher" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Docxes Namespace=VrankenBischof.Docxes.Interface Type=SchoolOverview)" Label="SchoolOverview" Category="CodeSchema_Class">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>
