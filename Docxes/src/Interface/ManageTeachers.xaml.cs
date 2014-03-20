@@ -5,31 +5,33 @@ using System.Windows.Controls;
 
 namespace VrankenBischof.Docxes.Interface {
 
+    // TODO: Interface
+
     /// <summary>
-    /// Interaction logic for <see cref="ManageSchools.xaml"/>
+    /// Interaction logic for <see cref="ManageTeachers.xaml"/>
     /// </summary>
-    public sealed partial class ManageSchools : Window {
+    public sealed partial class ManageTeachers : Window {
 
-        private BusinessLogic.BusinessObjectProcessor<School> businessObjectProcessor = new BusinessLogic.SchoolProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Teacher> businessObjectProcessor = new BusinessLogic.TeacherProcessor();
 
 
-        public ManageSchools() {
+        public ManageTeachers() {
             InitializeComponent();
 
             Common.ExtendWindowName(this);
-            tblWelcomeText.Text = "Willkommen, " + System.Environment.UserName + "!";
         }
 
         #region Interface
 
         private void UpdateBusinessObjects() {
-            IEnumerable<School> businessObjects = businessObjectProcessor.Get();
+            IEnumerable<Teacher> businessObjects = businessObjectProcessor.Get();
 
             if (businessObjects.Count() > 0) {
                 lbSchools.DataContext = businessObjects;
             }
             else {
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
+                    // TODO:
                     Content = "Keine Schulen gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Schule zu erstellen.",
                     FontSize = 10,
                     IsEnabled = false
@@ -39,27 +41,24 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
 
-        private void OpenSchoolOverview() {
-            Window newWindow = new SchoolOverview();
-            newWindow.Show();
-            Close();
-        }
-
         private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
-            ManageSchool addBusinessObjectManager = new ManageSchool() { Owner = this };
-            addBusinessObjectManager.ShowDialog();
+            // TODO:
+            IBusinessObjectManager addBusinessObjectManager = new ManageTeacher() { Owner = this };
+            //addBusinessObjectManager.ShowDialog();
             return addBusinessObjectManager.Action;
         }
 
         private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
-            ManageSchool editBusinessObjectManager = new ManageSchool((School)lbSchools.SelectedItem) { Owner = this };
-            editBusinessObjectManager.ShowDialog();
+            // TODO:
+            IBusinessObjectManager editBusinessObjectManager = new ManageTeacher((Teacher)lbSchools.SelectedItem) { Owner = this };
+            //editBusinessObjectManager.ShowDialog();
             return editBusinessObjectManager.Action;
         }
 
         private bool CheckForElementDeletion() {
+            // TODO:
             if (Common.AskForElementDeletion("Wollen Sie diese Schule und alle zugehörigen Daten (Lehrer, Fächer, Ereignisse, Dokumente, Notizen und Noten) wirklich löschen?", "Schule")) {
-                businessObjectProcessor.Delete((School)lbSchools.SelectedItem);
+                businessObjectProcessor.Delete((Teacher)lbSchools.SelectedItem);
                 return true;
             }
 
@@ -69,7 +68,7 @@ namespace VrankenBischof.Docxes.Interface {
         private void UpdateControlsAvailability() {
             bool isBusinessObjectSelected = lbSchools.SelectedIndex != -1;
             
-            foreach (Button button in new Button[] { btnSelect, btnEdit, btnDelete }) {
+            foreach (Button button in new Button[] { btnEdit, btnDelete }) {
                 button.IsEnabled = isBusinessObjectSelected;
             }
         }
@@ -78,20 +77,17 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Event wiring
 
-        private void wManageSchools_Loaded(object sender, RoutedEventArgs e) {
+        private void wManageTeachers_Loaded(object sender, RoutedEventArgs e) {
             UpdateBusinessObjects();
             UpdateControlsAvailability();
         }
 
 
+        // TODO:
         private void lbSchools_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             UpdateControlsAvailability();
         }
 
-
-        private void btnSelect_Click(object sender, RoutedEventArgs e) {
-            OpenSchoolOverview();
-        }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e) {
             if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
@@ -116,30 +112,30 @@ namespace VrankenBischof.Docxes.Interface {
     }
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageSchools.xaml"/>
+    /// Interaction logic for <see cref="ManageTeachers.xaml"/>
     /// </summary>
-    public sealed partial class CopyOfManageSchools : Window {
+    public sealed partial class CopyOfManageTeachers : Window {
 
-        private BusinessLogic.BusinessObjectProcessor<School> businessObjectProcessor = new BusinessLogic.SchoolProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Teacher> businessObjectProcessor = new BusinessLogic.TeacherProcessor();
 
 
-        public CopyOfManageSchools() {
+        public CopyOfManageTeachers() {
             InitializeComponent();
 
             Common.ExtendWindowName(this);
-            tblWelcomeText.Text = "Willkommen, " + System.Environment.UserName + "!";
         }
 
         #region Interface
 
         private void UpdateBusinessObjects() {
-            IEnumerable<School> businessObjects = businessObjectProcessor.Get();
+            IEnumerable<Teacher> businessObjects = businessObjectProcessor.Get();
 
             if (businessObjects.Count() > 0) {
                 lbSchools.DataContext = businessObjects;
             }
             else {
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
+                    // TODO:
                     Content = "Keine Schulen gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Schule zu erstellen.",
                     FontSize = 10,
                     IsEnabled = false
@@ -149,27 +145,24 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
 
-        private void OpenSchoolOverview() {
-            Window newWindow = new SchoolOverview();
-            newWindow.Show();
-            Close();
-        }
-
         private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
-            ManageSchool addBusinessObjectManager = new ManageSchool() { Owner = this };
-            addBusinessObjectManager.ShowDialog();
+            // TODO:
+            IBusinessObjectManager addBusinessObjectManager = new ManageTeacher() { Owner = this };
+            //addBusinessObjectManager.ShowDialog();
             return addBusinessObjectManager.Action;
         }
 
         private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
-            ManageSchool editBusinessObjectManager = new ManageSchool((School)lbSchools.SelectedItem) { Owner = this };
-            editBusinessObjectManager.ShowDialog();
+            // TODO:
+            IBusinessObjectManager editBusinessObjectManager = new ManageTeacher((Teacher)lbSchools.SelectedItem) { Owner = this };
+            //editBusinessObjectManager.ShowDialog();
             return editBusinessObjectManager.Action;
         }
 
         private bool CheckForElementDeletion() {
+            // TODO:
             if (Common.AskForElementDeletion("Wollen Sie diese Schule und alle zugehörigen Daten (Lehrer, Fächer, Ereignisse, Dokumente, Notizen und Noten) wirklich löschen?", "Schule")) {
-                businessObjectProcessor.Delete((School)lbSchools.SelectedItem);
+                businessObjectProcessor.Delete((Teacher)lbSchools.SelectedItem);
                 return true;
             }
 
@@ -179,7 +172,7 @@ namespace VrankenBischof.Docxes.Interface {
         private void UpdateControlsAvailability() {
             bool isBusinessObjectSelected = lbSchools.SelectedIndex != -1;
 
-            foreach (Button button in new Button[] { btnSelect, btnEdit, btnDelete }) {
+            foreach (Button button in new Button[] { btnEdit, btnDelete }) {
                 button.IsEnabled = isBusinessObjectSelected;
             }
         }
@@ -188,20 +181,17 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Event wiring
 
-        private void wManageSchools_Loaded(object sender, RoutedEventArgs e) {
+        private void wManageTeachers_Loaded(object sender, RoutedEventArgs e) {
             UpdateBusinessObjects();
             UpdateControlsAvailability();
         }
 
 
+        // TODO:
         private void lbSchools_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             UpdateControlsAvailability();
         }
 
-
-        private void btnSelect_Click(object sender, RoutedEventArgs e) {
-            OpenSchoolOverview();
-        }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e) {
             if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {

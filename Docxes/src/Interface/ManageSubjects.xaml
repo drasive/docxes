@@ -1,0 +1,59 @@
+﻿<Window x:Name="wManageSubjects"
+        x:Class="VrankenBischof.Docxes.Interface.ManageSubjects"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Schulen"
+        Height="300"
+        Width="500"
+        Loaded="wManageSubjects_Loaded"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid x:Name="gRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="tblInstructions"
+                   HorizontalAlignment="Left"
+                   Margin="10,0,0,5"
+                   TextWrapping="Wrap"
+                   Text="Wählen Sie die Schule aus, die Sie verwalten möchten:"
+                   Height="16"
+                   VerticalAlignment="Bottom" />
+        <ListBox x:Name="lbSchools"
+                 Margin="10,5,10,5"
+                 Grid.Row="1"
+                 SelectionChanged="lbSchools_SelectionChanged"
+                 ItemsSource="{Binding}"
+                 DisplayMemberPath="Name" />
+        <Button x:Name="btnAdd"
+                Content="Hinzufügen"
+                Margin="0,5,170,0"
+                Grid.Row="2"
+                Height="25"
+                VerticalAlignment="Top"
+                Click="btnAdd_Click"
+                HorizontalAlignment="Right"
+                Width="75" />
+        <Button x:Name="btnEdit"
+                Content="Bearbeiten"
+                Margin="0,5,90,0"
+                VerticalAlignment="Top"
+                Grid.Row="2"
+                Click="btnEdit_Click"
+                Height="25"
+                HorizontalAlignment="Right"
+                Width="75" />
+        <Button x:Name="btnDelete"
+                Content="Löschen"
+                HorizontalAlignment="Right"
+                Margin="0,5,10,0"
+                VerticalAlignment="Top"
+                Width="75"
+                Grid.Row="2"
+                RenderTransformOrigin="0.505,0.333"
+                Click="btnDelete_Click"
+                Height="25" />
+    </Grid>
+</Window>

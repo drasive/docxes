@@ -144,6 +144,37 @@
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="src\DocumentExtension.cs" />
+    <Compile Include="src\Interface\ManageNote.xaml.cs">
+      <DependentUpon>ManageNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\ManageGrade.xaml.cs">
+      <DependentUpon>ManageGrade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\ManageEvent.xaml.cs">
+      <DependentUpon>ManageEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\ManageDocument.xaml.cs">
+      <DependentUpon>ManageDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\ManageSubjects.xaml.cs">
+      <DependentUpon>ManageSubjects.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\ManageTeachers.xaml.cs">
+      <DependentUpon>ManageTeachers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\ManageGrades.xaml.cs">
+      <DependentUpon>ManageGrades.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\ManageNotes.xaml.cs">
+      <DependentUpon>ManageNotes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\ManageDocuments.xaml.cs">
+      <DependentUpon>ManageDocuments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Interface\ManageEvents.xaml.cs">
+      <DependentUpon>ManageEvents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\BusinessLogic\Logging.cs" />
     <Compile Include="src\NoteExtension.cs" />
     <Compile Include="src\GradeExtension.cs" />
     <Compile Include="src\Interface\IBusinessObjectManager.cs" />
@@ -195,6 +226,7 @@
     <None Include="Project Management\Assembly Dependencies.dgml">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Project Management\Class Diagram.cd" />
     <None Include="Project Management\FDS.docx" />
     <None Include="Project Management\FDS.pdf" />
     <None Include="Properties\Settings.settings">
@@ -230,6 +262,46 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="src\Interface\ManageNote.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\Interface\ManageGrade.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\Interface\ManageEvent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\Interface\ManageDocument.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\Interface\ManageSubjects.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\Interface\ManageTeachers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\Interface\ManageGrades.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\Interface\ManageNotes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\Interface\ManageDocuments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="src\Interface\ManageEvents.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="src\Interface\ManageSubject.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

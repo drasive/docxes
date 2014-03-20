@@ -12,6 +12,8 @@ namespace VrankenBischof.Docxes.Interface {
 
         BusinessObjectManagerAction Action { get; }
 
+        // TODO: Some window methods, so explicit conversion to .ShowDialog() isn't needed in the IBusinessObjectManagers
+
     }
 
 }

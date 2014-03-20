@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+  <Class Name="VrankenBischof.Docxes.BusinessLogic.BusinessObjectProcessor&lt;T&gt;">
+    <Position X="10.25" Y="18.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAIEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\BusinessLogic\BusinessObjectProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.BusinessLogic.DocumentProcessor">
+    <Position X="7.25" Y="21.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\BusinessLogic\DocumentProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.BusinessLogic.EventProcessor">
+    <Position X="17.5" Y="21.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\BusinessLogic\EventProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.BusinessLogic.GradeProcessor">
+    <Position X="0.5" Y="21.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\BusinessLogic\GradeProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.BusinessLogic.NoteProcessor">
+    <Position X="10.75" Y="21.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\BusinessLogic\NoteProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.BusinessLogic.SchoolProcessor">
+    <Position X="20.75" Y="21.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\BusinessLogic\SchoolProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.BusinessLogic.SubjectProcessor">
+    <Position X="3.75" Y="21.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\BusinessLogic\SubjectProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.BusinessLogic.TeacherProcessor">
+    <Position X="14" Y="21.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\BusinessLogic\TeacherProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Data.BusinessObjectDataManager&lt;T&gt;">
+    <Position X="10.75" Y="26" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Data\BusinessObjectDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Data.DocumentsDataManager">
+    <Position X="3.75" Y="28.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Data\DocumentsDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Data.EventsDataManager">
+    <Position X="10.5" Y="28.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Data\EventsDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Data.GradesDataManager">
+    <Position X="17.25" Y="28.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Data\GradesDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Data.NotesDataManager">
+    <Position X="0.5" Y="28.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Data\NoteDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Data.SchoolsDataManager">
+    <Position X="7.25" Y="28.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Data\SchoolsDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Data.SubjectsDataManager">
+    <Position X="13.75" Y="28.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Data\SubjectDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Data.TeachersDataManager">
+    <Position X="20.5" Y="28.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Data\TeacherDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.LocalDatabaseContainer">
+    <Position X="39" Y="21" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAEAAAAAAAAAAAAAAAAACEgAAAAACAAAAAgEAAAA=</HashCode>
+      <FileName>src\Data\LocalDatabase.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Document" BaseTypeListCollapsed="true">
+    <Position X="50.5" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAkEgAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Data\Document.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Event" BaseTypeListCollapsed="true">
+    <Position X="47.5" Y="17.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAAAEAAAAAAAAIAAAAAAAAAAAAADAQAAAAEAAAA=</HashCode>
+      <FileName>src\Data\Event.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Grade" BaseTypeListCollapsed="true">
+    <Position X="52.25" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAkEAAAAAAAAIAAAAAAAiAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>src\Data\Grade.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Note" BaseTypeListCollapsed="true">
+    <Position X="54" Y="17.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAgEgAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Data\Note.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.School" BaseTypeListCollapsed="true">
+    <Position X="39" Y="17.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAAAAAEAAAAAAQAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>src\Data\School.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Subject" BaseTypeListCollapsed="true">
+    <Position X="44.5" Y="17.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAEiAAAAAAAAAAAEAAAACAQAAgAAAAACAAAAAAEAAAA=</HashCode>
+      <FileName>src\Data\Subject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Teacher" BaseTypeListCollapsed="true">
+    <Position X="41.75" Y="17.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAgAAEAAAAAAAAAAAAgAAAQAAAAAAAAAg=</HashCode>
+      <FileName>src\Data\Teacher.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.BusinessLogic.Logging">
+    <Position X="39" Y="24.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\BusinessLogic\Logging.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.Common">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Interface\Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.InputValidation">
+    <Position X="3.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Interface\InputValidation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageDocument" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="9" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
+      <FileName>src\Interface\ManageDocument.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageDocuments">
+    <Position X="20.5" Y="2.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCEAAgAAQAAAAAAAQI=</HashCode>
+      <FileName>src\Interface\ManageDocuments.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageEvent" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="9" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
+      <FileName>src\Interface\ManageEvent.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageEvents">
+    <Position X="15.5" Y="2.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCAAAgAAQAAAAgAAQI=</HashCode>
+      <FileName>src\Interface\ManageEvents.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageGrade" BaseTypeListCollapsed="true">
+    <Position X="25.5" Y="9" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
+      <FileName>src\Interface\ManageGrade.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageGrades">
+    <Position X="25.5" Y="2.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCAAAoAAQAAAAAAAQI=</HashCode>
+      <FileName>src\Interface\ManageGrades.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageNote" BaseTypeListCollapsed="true">
+    <Position X="30.5" Y="9" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
+      <FileName>src\Interface\ManageNote.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageNotes">
+    <Position X="30.5" Y="2.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCAAAgAAQAAAAAAgQI=</HashCode>
+      <FileName>src\Interface\ManageNotes.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageSchool" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="9" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
+      <FileName>src\Interface\ManageSchool.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageSchools">
+    <Position X="0.5" Y="2.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAABAAAIAAAAgAABAAgCAAAgAAQAAAAAAAYI=</HashCode>
+      <FileName>src\Interface\ManageSchools.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageSubject" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="9" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
+      <FileName>src\Interface\ManageSubject.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageSubjects">
+    <Position X="10.5" Y="2.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCEAAgAAQAAAAAAAQI=</HashCode>
+      <FileName>src\Interface\ManageSubjects.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageTeacher" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="9" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
+      <FileName>src\Interface\ManageTeacher.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.ManageTeachers">
+    <Position X="5.5" Y="2.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCgAAgAAQAAAAAAAQI=</HashCode>
+      <FileName>src\Interface\ManageTeachers.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.SchoolOverview">
+    <Position X="0.5" Y="13" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>src\Interface\SchoolOverview.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.CopyOfManageSchools">
+    <Position X="0.5" Y="2.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAABAAAIAAAAgAABAAgCAAAgAAQAAAAAAAYI=</HashCode>
+      <FileName>src\Interface\ManageSchools.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrankenBischof.Docxes.Interface.CopyOfManageTeachers">
+    <Position X="5.5" Y="2.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCgAAgAAQAAAAAAAQI=</HashCode>
+      <FileName>src\Interface\ManageTeachers.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="VrankenBischof.Docxes.IBusinessObject">
+    <Position X="39" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\IBusinessObject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="VrankenBischof.Docxes.Interface.IBusinessObjectManager">
+    <Position X="3" Y="7.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>src\Interface\IBusinessObjectManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="VrankenBischof.Docxes.Interface.BusinessObjectManagerAction">
+    <Position X="0.5" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>src\Interface\BusinessObjectManagerAction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
