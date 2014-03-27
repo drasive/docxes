@@ -122,7 +122,7 @@
   <Class Name="VrankenBischof.Docxes.Document" BaseTypeListCollapsed="true">
     <Position X="50.5" Y="17.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAkEgAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAkEgAAAAAEAIAAAAQAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Data\Document.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -130,7 +130,7 @@
   <Class Name="VrankenBischof.Docxes.Event" BaseTypeListCollapsed="true">
     <Position X="47.5" Y="17.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAiAAAAEAAAAAAAAIAAAAAAAAAAAAADAQAAAAEAAAA=</HashCode>
+      <HashCode>AAAiAAAAEAAAAAAEAIAAAAQAAAAAAAADAQAAAAEAAAA=</HashCode>
       <FileName>src\Data\Event.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -138,7 +138,7 @@
   <Class Name="VrankenBischof.Docxes.Grade" BaseTypeListCollapsed="true">
     <Position X="52.25" Y="17.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAkEAAAAAAAAIAAAAAAAiAAAAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAACAAAkEAAAAAAEAIAAAAAAAiAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>src\Data\Grade.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -146,7 +146,7 @@
   <Class Name="VrankenBischof.Docxes.Note" BaseTypeListCollapsed="true">
     <Position X="54" Y="17.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAgEgAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAgEgAAAAAEAIAAAAQAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Data\Note.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -306,20 +306,6 @@
     <TypeIdentifier>
       <HashCode>gAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>src\Interface\SchoolOverview.xaml.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.CopyOfManageSchools">
-    <Position X="0.5" Y="2.5" Width="4.5" />
-    <TypeIdentifier>
-      <HashCode>AAACCAAAAABAAAIAAAAgAABAAgCAAAgAAQAAAAAAAYI=</HashCode>
-      <FileName>src\Interface\ManageSchools.xaml.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.CopyOfManageTeachers">
-    <Position X="5.5" Y="2.5" Width="4.5" />
-    <TypeIdentifier>
-      <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCgAAgAAQAAAAAAAQI=</HashCode>
-      <FileName>src\Interface\ManageTeachers.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="VrankenBischof.Docxes.IBusinessObject">

@@ -23,6 +23,7 @@ namespace VrankenBischof.Docxes
     
         public int Id { get; private set; }
         public int SubjectId { get; private set; }
+        public string Name { get; private set; }
         public System.DateTime Date { get; private set; }
         public int Type { get; private set; }
     

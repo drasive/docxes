@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/22/2014 16:04:55
+-- Date Created: 03/27/2014 22:59:29
 -- Generated from EDMX file: C:\Users\dimit_000\SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\src\Data\LocalDatabase.edmx
 -- --------------------------------------------------
 
@@ -105,6 +105,7 @@ GO
 CREATE TABLE [dbo].[Events] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [SubjectId] int  NOT NULL,
+    [Name] nvarchar(64)  NOT NULL,
     [Date] datetime  NOT NULL,
     [Type] int  NOT NULL
 );
@@ -126,6 +127,7 @@ CREATE TABLE [dbo].[Notes] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [SubjectId] int  NOT NULL,
     [EventId] int  NULL,
+    [Name] nvarchar(64)  NOT NULL,
     [Content] nvarchar(max)  NOT NULL
 );
 GO
@@ -135,6 +137,7 @@ CREATE TABLE [dbo].[Documents] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [SubjectId] int  NOT NULL,
     [EventId] int  NULL,
+    [Name] nvarchar(64)  NOT NULL,
     [Content] varbinary(max)  NOT NULL,
     [Comment] nvarchar(max)  NOT NULL
 );

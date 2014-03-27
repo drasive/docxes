@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Docxes", "Docxes\Docxes.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonthViewCalendar", "MonthViewCalendar\MonthViewCalendar.csproj", "{3D99A95B-2115-41D2-82C2-AFB27D917EBA}"
 EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Modelling", "Modelling\Modelling.modelproj", "{1C7990F7-8250-41EA-8921-6EF0ED9737E3}"
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Docxes Modelling", "Docxes Modelling\Docxes Modelling.modelproj", "{1C7990F7-8250-41EA-8921-6EF0ED9737E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

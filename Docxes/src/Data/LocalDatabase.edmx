@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
-  <!-- EF Runtime content -->
-  <edmx:Runtime>
-    <!-- SSDL content -->
-    <edmx:StorageModels>
-      
-    <Schema Namespace="LocalDatabase.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <!-- EF Runtime content -->
+    <edmx:Runtime>
+        <!-- SSDL content -->
+        <edmx:StorageModels>
+        <Schema Namespace="LocalDatabase.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="LocalDatabaseStoreContainer">
     <EntitySet Name="Schools" EntityType="LocalDatabase.Store.Schools" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Teachers" EntityType="LocalDatabase.Store.Teachers" store:Type="Tables" Schema="dbo" />
@@ -83,6 +82,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SubjectId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="Type" Type="int" Nullable="false" />
   </EntityType>
@@ -104,6 +104,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SubjectId" Type="int" Nullable="false" />
     <Property Name="EventId" Type="int" Nullable="true" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Documents">
@@ -113,6 +114,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SubjectId" Type="int" Nullable="false" />
     <Property Name="EventId" Type="int" Nullable="true" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="Content" Type="varbinary(max)" Nullable="false" />
     <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
@@ -225,251 +227,253 @@
     </ReferentialConstraint>
   </Association>
 </Schema></edmx:StorageModels>
-    <!-- CSDL content -->
-    <edmx:ConceptualModels>
-      <Schema Namespace="LocalDatabase" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityContainer Name="LocalDatabaseContainer" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-          <EntitySet Name="Schools" EntityType="LocalDatabase.School" />
-          <EntitySet Name="Teachers" EntityType="LocalDatabase.Teacher" />
-          <EntitySet Name="Subjects" EntityType="LocalDatabase.Subject" />
-          <EntitySet Name="Events" EntityType="LocalDatabase.Event" />
-          <EntitySet Name="Grades" EntityType="LocalDatabase.Grade" />
-          <EntitySet Name="Notes" EntityType="LocalDatabase.Note" />
-          <EntitySet Name="Documents" EntityType="LocalDatabase.Document" />
-          <AssociationSet Name="SchoolTeachers" Association="LocalDatabase.SchoolTeachers">
-            <End Role="School" EntitySet="Schools" />
-            <End Role="Teacher" EntitySet="Teachers" />
-          </AssociationSet>
-          <AssociationSet Name="TeacherSubjects" Association="LocalDatabase.TeacherSubjects">
-            <End Role="Teacher" EntitySet="Teachers" />
-            <End Role="Subject" EntitySet="Subjects" />
-          </AssociationSet>
-          <AssociationSet Name="SubjectEvents" Association="LocalDatabase.SubjectEvents">
-            <End Role="Subject" EntitySet="Subjects" />
-            <End Role="Event" EntitySet="Events" />
-          </AssociationSet>
-          <AssociationSet Name="SubjectDocuments" Association="LocalDatabase.SubjectDocuments">
-            <End Role="Subject" EntitySet="Subjects" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
-          <AssociationSet Name="SubjectNotes" Association="LocalDatabase.SubjectNotes">
-            <End Role="Subject" EntitySet="Subjects" />
-            <End Role="Note" EntitySet="Notes" />
-          </AssociationSet>
-          <AssociationSet Name="SubjectGrades" Association="LocalDatabase.SubjectGrades">
-            <End Role="Subject" EntitySet="Subjects" />
-            <End Role="Grade" EntitySet="Grades" />
-          </AssociationSet>
-          <AssociationSet Name="EventDocuments" Association="LocalDatabase.EventDocuments">
-            <End Role="Event" EntitySet="Events" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
-          <AssociationSet Name="EventNotes" Association="LocalDatabase.EventNotes">
-            <End Role="Event" EntitySet="Events" />
-            <End Role="Note" EntitySet="Notes" />
-          </AssociationSet>
-          <AssociationSet Name="EventGrades" Association="LocalDatabase.EventGrades">
-            <End Role="Event" EntitySet="Events" />
-            <End Role="Grade" EntitySet="Grades" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="School">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <Property Name="Comment" Type="String" Nullable="true" MaxLength="128" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Teachers" Relationship="LocalDatabase.SchoolTeachers" FromRole="School" ToRole="Teacher" />
-        </EntityType>
-        <EntityType Name="Teacher">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="School" Relationship="LocalDatabase.SchoolTeachers" FromRole="Teacher" ToRole="School" />
-          <Property Name="SchoolId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="32" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="32" />
-          <Property Name="IsMale" Type="Boolean" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Subjects" Relationship="LocalDatabase.TeacherSubjects" FromRole="Teacher" ToRole="Subject" />
-        </EntityType>
-        <EntityType Name="Subject">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Teacher" Relationship="LocalDatabase.TeacherSubjects" FromRole="Subject" ToRole="Teacher" />
-          <Property xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" Name="TeacherId" a:SetterAccess="Private" Nullable="false" Type="Int32" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Events" Relationship="LocalDatabase.SubjectEvents" FromRole="Subject" ToRole="Event" />
-          <NavigationProperty Name="Documents" Relationship="LocalDatabase.SubjectDocuments" FromRole="Subject" ToRole="Document" />
-          <NavigationProperty Name="Notes" Relationship="LocalDatabase.SubjectNotes" FromRole="Subject" ToRole="Note" />
-          <NavigationProperty Name="Grades" Relationship="LocalDatabase.SubjectGrades" FromRole="Subject" ToRole="Grade" />
-        </EntityType>
-        <EntityType Name="Event">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectEvents" FromRole="Event" ToRole="Subject" />
-          <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <Property Name="Date" Type="DateTime" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <Property Name="Type" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Documents" Relationship="LocalDatabase.EventDocuments" FromRole="Event" ToRole="Document" />
-          <NavigationProperty Name="Notes" Relationship="LocalDatabase.EventNotes" FromRole="Event" ToRole="Note" />
-          <NavigationProperty Name="Grades" Relationship="LocalDatabase.EventGrades" FromRole="Event" ToRole="Grade" />
-        </EntityType>
-        <EntityType Name="Grade">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectGrades" FromRole="Grade" ToRole="Subject" />
-          <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Event" Relationship="LocalDatabase.EventGrades" FromRole="Grade" ToRole="Event" />
-          <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <Property Name="Value" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <Property Name="Weight" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-        </EntityType>
-        <EntityType Name="Note">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectNotes" FromRole="Note" ToRole="Subject" />
-          <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Event" Relationship="LocalDatabase.EventNotes" FromRole="Note" ToRole="Event" />
-          <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-        </EntityType>
-        <EntityType Name="Document">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectDocuments" FromRole="Document" ToRole="Subject" />
-          <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Event" Relationship="LocalDatabase.EventDocuments" FromRole="Document" ToRole="Event" />
-          <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <Property Name="Content" Type="Binary" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-        </EntityType>
-        <Association Name="SchoolTeachers">
-          <End Type="LocalDatabase.School" Role="School" Multiplicity="1" />
-          <End Type="LocalDatabase.Teacher" Role="Teacher" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="School">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Teacher">
-              <PropertyRef Name="SchoolId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="TeacherSubjects">
-          <End Type="LocalDatabase.Teacher" Role="Teacher" Multiplicity="1" />
-          <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teacher">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Subject">
-              <PropertyRef Name="TeacherId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="SubjectEvents">
-          <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" />
-          <End Type="LocalDatabase.Event" Role="Event" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Event">
-              <PropertyRef Name="SubjectId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="SubjectDocuments">
-          <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" />
-          <End Type="LocalDatabase.Document" Role="Document" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Document">
-              <PropertyRef Name="SubjectId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="SubjectNotes">
-          <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" />
-          <End Type="LocalDatabase.Note" Role="Note" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Note">
-              <PropertyRef Name="SubjectId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="SubjectGrades">
-          <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" />
-          <End Type="LocalDatabase.Grade" Role="Grade" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Grade">
-              <PropertyRef Name="SubjectId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="EventDocuments">
-          <End Type="LocalDatabase.Event" Role="Event" Multiplicity="0..1" />
-          <End Type="LocalDatabase.Document" Role="Document" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Event">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Document">
-              <PropertyRef Name="EventId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="EventNotes">
-          <End Type="LocalDatabase.Event" Role="Event" Multiplicity="0..1" />
-          <End Type="LocalDatabase.Note" Role="Note" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Event">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Note">
-              <PropertyRef Name="EventId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="EventGrades">
-          <End Type="LocalDatabase.Event" Role="Event" Multiplicity="0..1" />
-          <End Type="LocalDatabase.Grade" Role="Grade" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Event">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Grade">
-              <PropertyRef Name="EventId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
-    </edmx:ConceptualModels>
-    <!-- C-S mapping content -->
-    <edmx:Mappings>
-      
-    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <!-- CSDL content -->
+        <edmx:ConceptualModels>
+            <Schema Namespace="LocalDatabase" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+                <EntityContainer Name="LocalDatabaseContainer" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+                    <EntitySet Name="Schools" EntityType="LocalDatabase.School" />
+                    <EntitySet Name="Teachers" EntityType="LocalDatabase.Teacher" />
+                    <EntitySet Name="Subjects" EntityType="LocalDatabase.Subject" />
+                    <EntitySet Name="Events" EntityType="LocalDatabase.Event" />
+                    <EntitySet Name="Grades" EntityType="LocalDatabase.Grade" />
+                    <EntitySet Name="Notes" EntityType="LocalDatabase.Note" />
+                    <EntitySet Name="Documents" EntityType="LocalDatabase.Document" />
+                    <AssociationSet Name="SchoolTeachers" Association="LocalDatabase.SchoolTeachers">
+                        <End Role="School" EntitySet="Schools" />
+                        <End Role="Teacher" EntitySet="Teachers" />
+                    </AssociationSet>
+                    <AssociationSet Name="TeacherSubjects" Association="LocalDatabase.TeacherSubjects">
+                        <End Role="Teacher" EntitySet="Teachers" />
+                        <End Role="Subject" EntitySet="Subjects" />
+                    </AssociationSet>
+                    <AssociationSet Name="SubjectEvents" Association="LocalDatabase.SubjectEvents">
+                        <End Role="Subject" EntitySet="Subjects" />
+                        <End Role="Event" EntitySet="Events" />
+                    </AssociationSet>
+                    <AssociationSet Name="SubjectDocuments" Association="LocalDatabase.SubjectDocuments">
+                        <End Role="Subject" EntitySet="Subjects" />
+                        <End Role="Document" EntitySet="Documents" />
+                    </AssociationSet>
+                    <AssociationSet Name="SubjectNotes" Association="LocalDatabase.SubjectNotes">
+                        <End Role="Subject" EntitySet="Subjects" />
+                        <End Role="Note" EntitySet="Notes" />
+                    </AssociationSet>
+                    <AssociationSet Name="SubjectGrades" Association="LocalDatabase.SubjectGrades">
+                        <End Role="Subject" EntitySet="Subjects" />
+                        <End Role="Grade" EntitySet="Grades" />
+                    </AssociationSet>
+                    <AssociationSet Name="EventDocuments" Association="LocalDatabase.EventDocuments">
+                        <End Role="Event" EntitySet="Events" />
+                        <End Role="Document" EntitySet="Documents" />
+                    </AssociationSet>
+                    <AssociationSet Name="EventNotes" Association="LocalDatabase.EventNotes">
+                        <End Role="Event" EntitySet="Events" />
+                        <End Role="Note" EntitySet="Notes" />
+                    </AssociationSet>
+                    <AssociationSet Name="EventGrades" Association="LocalDatabase.EventGrades">
+                        <End Role="Event" EntitySet="Events" />
+                        <End Role="Grade" EntitySet="Grades" />
+                    </AssociationSet>
+                </EntityContainer>
+                <EntityType Name="School">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Name" Type="String" Nullable="false" MaxLength="64" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Comment" Type="String" Nullable="true" MaxLength="128" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <NavigationProperty Name="Teachers" Relationship="LocalDatabase.SchoolTeachers" FromRole="School" ToRole="Teacher" />
+                </EntityType>
+                <EntityType Name="Teacher">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <NavigationProperty Name="School" Relationship="LocalDatabase.SchoolTeachers" FromRole="Teacher" ToRole="School" />
+                    <Property Name="SchoolId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="32" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="LastName" Type="String" Nullable="false" MaxLength="32" />
+                    <Property Name="IsMale" Type="Boolean" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <NavigationProperty Name="Subjects" Relationship="LocalDatabase.TeacherSubjects" FromRole="Teacher" ToRole="Subject" />
+                </EntityType>
+                <EntityType Name="Subject">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <NavigationProperty Name="Teacher" Relationship="LocalDatabase.TeacherSubjects" FromRole="Subject" ToRole="Teacher" />
+                    <Property xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" Name="TeacherId" a:SetterAccess="Private" Nullable="false" Type="Int32" />
+                    <Property Name="Name" Type="String" Nullable="false" MaxLength="64" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <NavigationProperty Name="Events" Relationship="LocalDatabase.SubjectEvents" FromRole="Subject" ToRole="Event" />
+                    <NavigationProperty Name="Documents" Relationship="LocalDatabase.SubjectDocuments" FromRole="Subject" ToRole="Document" />
+                    <NavigationProperty Name="Notes" Relationship="LocalDatabase.SubjectNotes" FromRole="Subject" ToRole="Note" />
+                    <NavigationProperty Name="Grades" Relationship="LocalDatabase.SubjectGrades" FromRole="Subject" ToRole="Grade" />
+                </EntityType>
+                <EntityType Name="Event">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectEvents" FromRole="Event" ToRole="Subject" />
+                    <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Name" Type="String" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="64" />
+                    <Property Name="Date" Type="DateTime" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Type" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <NavigationProperty Name="Documents" Relationship="LocalDatabase.EventDocuments" FromRole="Event" ToRole="Document" />
+                    <NavigationProperty Name="Notes" Relationship="LocalDatabase.EventNotes" FromRole="Event" ToRole="Note" />
+                    <NavigationProperty Name="Grades" Relationship="LocalDatabase.EventGrades" FromRole="Event" ToRole="Grade" />
+                </EntityType>
+                <EntityType Name="Grade">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectGrades" FromRole="Grade" ToRole="Subject" />
+                    <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <NavigationProperty Name="Event" Relationship="LocalDatabase.EventGrades" FromRole="Grade" ToRole="Event" />
+                    <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Value" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Weight" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                </EntityType>
+                <EntityType Name="Note">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectNotes" FromRole="Note" ToRole="Subject" />
+                    <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <NavigationProperty Name="Event" Relationship="LocalDatabase.EventNotes" FromRole="Note" ToRole="Event" />
+                    <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Name" Type="String" Nullable="false" MaxLength="64" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                </EntityType>
+                <EntityType Name="Document">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectDocuments" FromRole="Document" ToRole="Subject" />
+                    <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <NavigationProperty Name="Event" Relationship="LocalDatabase.EventDocuments" FromRole="Document" ToRole="Event" />
+                    <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Name" Type="String" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="64" />
+                    <Property Name="Content" Type="Binary" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                </EntityType>
+                <Association Name="SchoolTeachers">
+                    <End Type="LocalDatabase.School" Role="School" Multiplicity="1" />
+                    <End Type="LocalDatabase.Teacher" Role="Teacher" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="School">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="Teacher">
+                            <PropertyRef Name="SchoolId" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="TeacherSubjects">
+                    <End Type="LocalDatabase.Teacher" Role="Teacher" Multiplicity="1" />
+                    <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="Teacher">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="Subject">
+                            <PropertyRef Name="TeacherId" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="SubjectEvents">
+                    <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" />
+                    <End Type="LocalDatabase.Event" Role="Event" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="Subject">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="Event">
+                            <PropertyRef Name="SubjectId" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="SubjectDocuments">
+                    <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" />
+                    <End Type="LocalDatabase.Document" Role="Document" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="Subject">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="Document">
+                            <PropertyRef Name="SubjectId" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="SubjectNotes">
+                    <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" />
+                    <End Type="LocalDatabase.Note" Role="Note" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="Subject">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="Note">
+                            <PropertyRef Name="SubjectId" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="SubjectGrades">
+                    <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" />
+                    <End Type="LocalDatabase.Grade" Role="Grade" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="Subject">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="Grade">
+                            <PropertyRef Name="SubjectId" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="EventDocuments">
+                    <End Type="LocalDatabase.Event" Role="Event" Multiplicity="0..1" />
+                    <End Type="LocalDatabase.Document" Role="Document" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="Event">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="Document">
+                            <PropertyRef Name="EventId" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="EventNotes">
+                    <End Type="LocalDatabase.Event" Role="Event" Multiplicity="0..1" />
+                    <End Type="LocalDatabase.Note" Role="Note" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="Event">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="Note">
+                            <PropertyRef Name="EventId" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="EventGrades">
+                    <End Type="LocalDatabase.Event" Role="Event" Multiplicity="0..1" />
+                    <End Type="LocalDatabase.Grade" Role="Grade" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="Event">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="Grade">
+                            <PropertyRef Name="EventId" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+            </Schema>
+        </edmx:ConceptualModels>
+        <!-- C-S mapping content -->
+        <edmx:Mappings>
+        <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="LocalDatabaseStoreContainer" CdmEntityContainer="LocalDatabaseContainer">
     <EntitySetMapping Name="Schools">
       <EntityTypeMapping TypeName="IsTypeOf(LocalDatabase.School)">
@@ -505,6 +509,7 @@
         <MappingFragment StoreEntitySet="Events">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Type" ColumnName="Type" />
         </MappingFragment>
@@ -528,6 +533,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
           <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Content" ColumnName="Content" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -538,6 +544,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
           <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Content" ColumnName="Content" />
           <ScalarProperty Name="Comment" ColumnName="Comment" />
         </MappingFragment>
@@ -545,24 +552,24 @@
     </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
-  </edmx:Runtime>
-  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <edmx:Designer>
-    <edmx:Connection>
-      <edmx:DesignerInfoPropertySet>
-        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
-      </edmx:DesignerInfoPropertySet>
-    </edmx:Connection>
-    <edmx:Options>
-      <edmx:DesignerInfoPropertySet>
-        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <edmx:DesignerProperty Name="EnablePluralization" Value="False" />
-        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
-        <edmx:DesignerProperty Name="UseLegacyProvider" Value="False" />
-      </edmx:DesignerInfoPropertySet>
-    </edmx:Options>
-    <!-- Diagram content (shape and connector positions) -->
-    <edmx:Diagrams>
-    </edmx:Diagrams>
-  </edmx:Designer>
+    </edmx:Runtime>
+    <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+    <edmx:Designer>
+        <edmx:Connection>
+            <edmx:DesignerInfoPropertySet>
+                <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+            </edmx:DesignerInfoPropertySet>
+        </edmx:Connection>
+        <edmx:Options>
+            <edmx:DesignerInfoPropertySet>
+                <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+                <edmx:DesignerProperty Name="EnablePluralization" Value="False" />
+                <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+                <edmx:DesignerProperty Name="UseLegacyProvider" Value="False" />
+            </edmx:DesignerInfoPropertySet>
+        </edmx:Options>
+        <!-- Diagram content (shape and connector positions) -->
+        <edmx:Diagrams>
+        </edmx:Diagrams>
+    </edmx:Designer>
 </edmx:Edmx>

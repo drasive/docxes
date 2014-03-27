@@ -1,5 +1,26 @@
 ﻿namespace VrankenBischof.Docxes {
 
-    public partial class Grade : IBusinessObject { }
+    [System.Diagnostics.DebuggerDisplay("Id: {Id}, Value: {Value}, Weight: {Weight}, Comment: {Comment}, Subject: {Subject}, Event: {Event}")]
+    public partial class Grade : IBusinessObject {
+
+        public Grade(int value, int weight, string comment, Subject subject, Event @event) {
+            Value = value;
+            Weight = weight;
+            Comment = comment;
+            Subject = subject;
+            Event = @event;
+        }
+
+        public Grade(Grade businessObjectEditing, int value, int weight, string comment, Subject subject, Event @event)
+            : this(value, weight, comment, subject, @event) {
+            Id = businessObjectEditing.Id;
+        }
+
+
+        public override string ToString() {
+            return Value.ToString();
+        }
+
+    }
 
 }

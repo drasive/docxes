@@ -100,7 +100,7 @@ namespace VrankenBischof.Docxes.Interface {
             //    return new Grade(tbName.Text, (Teacher)cbTeacher.SelectedItem);
             //}
 
-            return new Grade();
+            return null;
         }
 
 
