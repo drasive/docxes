@@ -262,10 +262,6 @@
                         <End Role="Subject" EntitySet="Subjects" />
                         <End Role="Grade" EntitySet="Grades" />
                     </AssociationSet>
-                    <AssociationSet Name="EventDocuments" Association="LocalDatabase.EventDocuments">
-                        <End Role="Event" EntitySet="Events" />
-                        <End Role="Document" EntitySet="Documents" />
-                    </AssociationSet>
                     <AssociationSet Name="EventNotes" Association="LocalDatabase.EventNotes">
                         <End Role="Event" EntitySet="Events" />
                         <End Role="Note" EntitySet="Notes" />
@@ -319,7 +315,6 @@
                     <Property Name="Name" Type="String" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="64" />
                     <Property Name="Date" Type="DateTime" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Type" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <NavigationProperty Name="Documents" Relationship="LocalDatabase.EventDocuments" FromRole="Event" ToRole="Document" />
                     <NavigationProperty Name="Notes" Relationship="LocalDatabase.EventNotes" FromRole="Event" ToRole="Note" />
                     <NavigationProperty Name="Grades" Relationship="LocalDatabase.EventGrades" FromRole="Event" ToRole="Grade" />
                 </EntityType>
@@ -355,8 +350,6 @@
                     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectDocuments" FromRole="Document" ToRole="Subject" />
                     <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <NavigationProperty Name="Event" Relationship="LocalDatabase.EventDocuments" FromRole="Document" ToRole="Event" />
-                    <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Name" Type="String" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="64" />
                     <Property Name="Content" Type="Binary" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
@@ -430,18 +423,6 @@
                         </Principal>
                         <Dependent Role="Grade">
                             <PropertyRef Name="SubjectId" />
-                        </Dependent>
-                    </ReferentialConstraint>
-                </Association>
-                <Association Name="EventDocuments">
-                    <End Type="LocalDatabase.Event" Role="Event" Multiplicity="0..1" />
-                    <End Type="LocalDatabase.Document" Role="Document" Multiplicity="*" />
-                    <ReferentialConstraint>
-                        <Principal Role="Event">
-                            <PropertyRef Name="Id" />
-                        </Principal>
-                        <Dependent Role="Document">
-                            <PropertyRef Name="EventId" />
                         </Dependent>
                     </ReferentialConstraint>
                 </Association>
@@ -543,7 +524,6 @@
         <MappingFragment StoreEntitySet="Documents">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
-          <ScalarProperty Name="EventId" ColumnName="EventId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Content" ColumnName="Content" />
           <ScalarProperty Name="Comment" ColumnName="Comment" />
