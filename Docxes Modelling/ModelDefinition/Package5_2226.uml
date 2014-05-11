@@ -489,8 +489,8 @@
       <class
         Id="7d68dfd9-9689-4365-a149-deed0faff333"
         name="BusinessObjectProcessor&lt;Teacher‎&gt;"
-        visibility="Package"
-        isAbstract="true"
+        visibility="Private"
+        isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
         <appliedStereotypesInternal>
@@ -568,8 +568,8 @@
       <class
         Id="c973b92e-81c7-4b53-9e76-e55c245d4c25"
         name="BusinessObjectProcessor"
-        visibility="Package"
-        isAbstract="true"
+        visibility="Private"
+        isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
         <referencesInternal>
@@ -648,6 +648,567 @@
             </ownedParameters>
           </redefinableTemplateSignature>
         </ownedRedefinableTemplateSignatureInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5498c036-b87c-44e2-b775-f4a920769065"
+        name="SubjectProcessor"
+        visibility="Package"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="95913690-92d0-4e99-894e-2c0ff7a53b60"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes.BusinessLogic Type%3DSubjectProcessor"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="9d8e8e89-5eb3-4733-8137-42c87d2071c8"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1053dc01-eaac-4b79-acbc-f1185d6e4b96">
+                <propertyInstance
+                  Id="c13b43e4-6b66-4769-9515-398126deb548"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d0a8e223-897c-4f65-98fe-ca6402981734">
+                <propertyInstance
+                  Id="bdf733e3-1d38-4f72-91b6-65dc01e1fbe1"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e4d02812-2f62-4c02-a405-cbdfc12657c2">
+                <propertyInstance
+                  Id="13c1e843-f389-485d-8dfb-6036c0a3fd3d"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1f970a3a-d490-4546-863a-4b1811fbd2c0">
+                <propertyInstance
+                  Id="c40e018b-94d9-4787-8cc1-a49b285e891a"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="78d9f44c-b1cb-4eab-9e21-0acc6edc49ad">
+                <propertyInstance
+                  Id="05dfc56a-6d1f-49a6-99f9-49788fc0d820"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="df4ed8af-80c2-4314-b2ed-d8855cfba0b8"
+            name="SubjectProcessor"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="6c6359af-1614-45e8-9254-942f402785b5"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes.BusinessLogic Type%3DSubjectProcessor Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="502cf38d-63cc-40fc-a4ef-765340b17f46"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cf999824-a515-40a9-bd3f-10f632d97eb3">
+                    <propertyInstance
+                      Id="2278400f-0677-472a-bcdb-aefa11070950"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5ca3506c-85e6-462f-bc38-ffb55c4b4622">
+                    <propertyInstance
+                      Id="2c283497-41fa-4909-bd99-d4cafbb40723"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0e821ddd-8f5c-46c1-8ab9-9f8841722b48">
+                    <propertyInstance
+                      Id="3d981ff4-d99b-4b5b-a733-f6e9e5a6630a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c0f9fc9f-0035-4332-ba85-dac98e3eec1f">
+                    <propertyInstance
+                      Id="01f2d43f-05a3-4316-8506-f1d21edc2288"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="831acedc-4b21-44fc-887d-5a456ebde2c9">
+                    <propertyInstance
+                      Id="41a60c04-2ea3-4d76-8e30-bf57e39a5cb5"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="765dba3c-2c5f-42ce-be70-3a7ab4fbdbbd">
+                    <propertyInstance
+                      Id="07fc5595-d3f5-434c-8967-b2557a172224"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="5cd86ab8-827b-433e-936c-fa09650838c5"
+            name="Create"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="c514d367-d3d0-488f-92c6-5d8184146668"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes.BusinessLogic Type%3DSubjectProcessor Member%3D(Name%3DCreate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes Type%3DSubject)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="15a39ab2-6469-4e89-a6e3-1653bf997f28"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0fe0a534-cb13-40f5-b798-3721ca865b3a">
+                    <propertyInstance
+                      Id="4327c7c6-3ecd-458d-a0ac-ee225569f95d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa443599-1a3f-4d3e-aa15-480501e7ace6">
+                    <propertyInstance
+                      Id="3062ea63-5b99-4401-937c-cde7609c73c7"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8cb58ae-070c-42f3-af3b-fa05d364fa75">
+                    <propertyInstance
+                      Id="c852f86b-2fd2-4104-9b6b-9045df65e4bc"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="467eabac-7e26-447d-b26c-2f908dfe4268">
+                    <propertyInstance
+                      Id="16dd4ec1-4244-446c-9a37-ef13634a3f7a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="221480b8-8a4c-4ad5-a6ee-29fb59b59802">
+                    <propertyInstance
+                      Id="cc1c6875-8470-4f5f-bd1b-ee3875898b2d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5b106a41-31a0-4c8f-a9bc-2da7cf6898b0">
+                    <propertyInstance
+                      Id="d9424d47-349b-45fc-a18e-a289708fd113"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c33f2e5f-8f22-4e30-9f48-7053386882f1"
+                  name="objectToSave"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f4536b68-4255-4e0e-95e4-88228de91cf9"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes.BusinessLogic Type%3DSubjectProcessor Member%3D(Name%3DCreate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes Type%3DSubject)]) ParameterIdentifier%3DobjectToSave"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="aea6d6c8-7956-428e-9202-4b5cf12dbdbb"
+                      LastKnownName="Subject"
+                      LastKnownLocation="Package1_2226.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="bf84afb8-c7d2-43ce-a167-74c9dcdd56e5"
+            name="Get"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="3ebd5eca-9293-45b4-a58e-23ebe3284f02"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes.BusinessLogic Type%3DSubjectProcessor Member%3DGet"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8417a8ff-a2f5-48cd-bdad-b7d661fcbd97"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b4727ebf-8873-43c7-9d64-0fc0b34f1f69">
+                    <propertyInstance
+                      Id="31d62399-342e-4f38-a0de-edcde4ab2f37"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5774b775-c6dd-4ecd-8a50-1ee1031d020c">
+                    <propertyInstance
+                      Id="e821a9bd-1c9d-4eeb-8cd6-7cf22629eaac"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61463e5d-4588-4aa9-a627-5551495d6066">
+                    <propertyInstance
+                      Id="b3c8850c-9f72-406a-bc38-a8c0ad966558"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="50287df7-bfec-4a3e-8ca4-73fd0bbdb77a">
+                    <propertyInstance
+                      Id="954f493d-c4c0-43ec-9810-b8789cf2309a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="972dd79e-1495-4064-84bd-00095c42cb15">
+                    <propertyInstance
+                      Id="9b2f5aae-ea26-455d-a1ca-296b7dc2c1fd"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dd1f3229-a453-475f-ae50-5aa371d8734c">
+                    <propertyInstance
+                      Id="b88314d2-e516-4d4d-b758-80e3a4b09beb"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a1345d6b-993f-42af-9018-e56a98728259"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="bfa470eb-1a5f-4d96-8a12-d4a1df4ce8e8"
+                      LastKnownName="List&lt;Subject‎&gt;"
+                      LastKnownLocation="Package4_2226.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="106bd062-bbd2-496b-a0b3-80c793f8a57e"
+            name="Get"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="2803ce1d-8421-4459-936c-882bddf26995"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes.BusinessLogic Type%3DSubjectProcessor Member%3D(Name%3DGet OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="dafb97d7-ad3e-446a-aab7-c440b14ceb06"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="13733f7f-aff3-45c3-b294-98c0db9c0883">
+                    <propertyInstance
+                      Id="cea70e3d-1c8b-48a9-b067-521914ae389f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6ad4c2fb-e55e-48ce-8ff7-7b1ad495f731">
+                    <propertyInstance
+                      Id="08d544ed-38dc-49e0-88f7-06dca5bb0a33"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8421e6ee-4a6c-4424-ab5f-60cecee92223">
+                    <propertyInstance
+                      Id="740c4757-b12b-4c29-8db1-953cb3a2e6c1"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3792806c-96d7-4cc6-8757-bba5ac0a6833">
+                    <propertyInstance
+                      Id="e81b25aa-e380-4702-9d7a-58b6089ac6eb"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6cdcf6dc-3b8c-4e56-b987-aadc1ccf8ac1">
+                    <propertyInstance
+                      Id="9b389f4b-9c61-4f47-bca3-cfb255f03a3c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="351e3384-edba-44a6-be41-49ac594a378e">
+                    <propertyInstance
+                      Id="55fb73a5-dc74-4a25-bf45-3a4b61873c39"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="53ee20a1-9c72-4e7b-ac2a-45851eb61e47"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="aea6d6c8-7956-428e-9202-4b5cf12dbdbb"
+                      LastKnownName="Subject"
+                      LastKnownLocation="Package1_2226.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f30119e4-7d76-4480-a885-f7d54002e0b6"
+                  name="id"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="71f7c02c-6bc4-43aa-887e-014c6298e23a"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes.BusinessLogic Type%3DSubjectProcessor Member%3D(Name%3DGet OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Did"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="Modelling.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c477f389-91ee-42ea-9de3-5de8463878e2"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="5c73e471-130e-464c-8fd7-6187056747dc"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes.BusinessLogic Type%3DSubjectProcessor Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes Type%3DSubject)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2a8aa153-92d1-435f-96c2-cd1194f6998b"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e1fa186b-b5b4-40f4-9ac8-9ceee1e6b28e">
+                    <propertyInstance
+                      Id="e0768d12-8397-47dd-970d-8235cc658d88"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4743755a-b1c3-497e-9392-8f90d8f8dbe1">
+                    <propertyInstance
+                      Id="e5cbbd28-3241-4ee8-a6ce-bdb9f5e8c98b"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ce19acbe-17f8-417f-9cb5-5dbe799ca702">
+                    <propertyInstance
+                      Id="527dafec-f131-48ef-9f11-854ed5ea664e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3945ad12-c6cf-43f2-9c35-d0a088100582">
+                    <propertyInstance
+                      Id="2a39b44e-44a7-4b1e-8e33-ccbfd03bc282"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a8302934-7681-4ada-a922-819357aa3bb0">
+                    <propertyInstance
+                      Id="3559e8dc-1027-4ef6-82f5-4861811a7658"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="14cee5c5-c023-4ed4-ab81-c8ce5be63b9b">
+                    <propertyInstance
+                      Id="58cfed2c-739d-46f0-b6b0-649d37aa9a2e"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9dc10803-9ed9-4e2e-b0d3-6f549e149314"
+                  name="objectToUpdate"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="0ede8545-aece-40d8-9ea6-2f20e07e2b5d"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes.BusinessLogic Type%3DSubjectProcessor Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes Type%3DSubject)]) ParameterIdentifier%3DobjectToUpdate"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="aea6d6c8-7956-428e-9202-4b5cf12dbdbb"
+                      LastKnownName="Subject"
+                      LastKnownLocation="Package1_2226.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2169d724-1dbb-4c4e-8f7a-b97cb8a55ed4"
+            name="Delete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="648a9c73-301d-44d7-9b3f-df8895b6840a"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes.BusinessLogic Type%3DSubjectProcessor Member%3D(Name%3DDelete OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes Type%3DSubject)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f6c3f727-49f7-4deb-9b7f-83f5b296efea"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ff668ea0-c4c1-4df3-ab2c-70dc623a7846">
+                    <propertyInstance
+                      Id="5ce67213-1bda-424b-ba6b-db614973d7d5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6894fa8c-20f5-4212-ae54-95cd8d2944b9">
+                    <propertyInstance
+                      Id="9e42c81c-da91-4552-be7a-19ab39cf65f5"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2edfdb6c-a416-4f0d-852c-7781763b1406">
+                    <propertyInstance
+                      Id="d2ffb862-cdb5-436e-adc4-6daec8546efb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee81de79-4cb3-415b-a6ca-f47440a71370">
+                    <propertyInstance
+                      Id="2fe5caee-c18b-4bcb-bdaa-5711f34ae70a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d9159de-3a7b-46cf-a995-66060c0a4cc9">
+                    <propertyInstance
+                      Id="b0bade45-76ee-4938-8dde-10920a923117"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0e219a79-7061-4f92-abde-3bfe8e6be4c6">
+                    <propertyInstance
+                      Id="d90a7ccc-94e7-4e64-9752-8e52db3a6c14"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6d1aff34-4c41-4722-aedd-6349f303a618"
+                  name="objectToDelete"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="5c9e117a-b928-4b48-9572-e1f54a8987f3"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes.BusinessLogic Type%3DSubjectProcessor Member%3D(Name%3DDelete OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2Fdimit_000%2FSkyDrive%2FProgramming%2FWindows Desktop%2FDocxes%2FDevelopment%2FDocxes%2Fbin%2FDebug%2FDocxes.exe&quot; Namespace%3DVrankenBischof.Docxes Type%3DSubject)]) ParameterIdentifier%3DobjectToDelete"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="aea6d6c8-7956-428e-9202-4b5cf12dbdbb"
+                      LastKnownName="Subject"
+                      LastKnownLocation="Package1_2226.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
   </packagedElements>

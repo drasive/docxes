@@ -3,6 +3,12 @@
   dslVersion="1.0.0.0"
   Id="8457c4d7-4158-472c-8fd8-6ef6233eab94"
   name="Docxes" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="6ae523d1-f035-48b3-9d58-fd2304f69e55">
+      <body>Durch den Weg wie das Entity Framework *:n Beziehungen handhabt, gibt es hier nur "*"- und keine "0..*"-Beziehungen.</body>
+    </comment>
+  </ownedCommentsInternal>
   <packagedElements>
     <packageHasNamedElement>
       <class

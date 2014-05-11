@@ -133,5 +133,11 @@
         </appliedStereotypesInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="f8ca2c0c-a62b-4937-8bb4-0d36b200f6c0"
+        LastKnownName="Markup"
+        LastKnownLocation="Package_2123.uml" />
+    </packageHasNamedElement>
   </packagedElements>
 </package>

@@ -361,13 +361,22 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="f42632a2-a8b4-4870-a76d-cacff15dc466"
+            isSubstitutable="false">
+            <classMoniker
+              Id="04b4de1d-39d0-45f2-97aa-c72e04670420"
+              LastKnownName="RoutedEventArgs"
+              LastKnownLocation="Package1_2322.uml" />
+          </generalization>
+        </generalsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
         Id="ad1de504-5092-4c7b-b5f2-9b29aa00f8ea"
         name="TextBlock"
-        visibility="Private"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -473,6 +482,65 @@
                 Id="dddb8ee8-155d-41e8-be3a-89951ce0fe39">
                 <propertyInstance
                   Id="8243fcd4-6816-4eb6-b2c7-c93aa8f17cb2"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f3f857ae-e8d3-4a27-ada4-34f9e21dc718"
+        name="CheckBox"
+        visibility="Private"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="44f6f383-605e-4b94-b846-9f3f80bfcc9a"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FPresentationFramework.dll&quot; Namespace%3DSystem.Windows.Controls Type%3DCheckBox"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="c38738d3-4ee6-4a5d-884c-d1e09a72fc79"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="626be59f-606e-4974-8025-bd42bad5626f">
+                <propertyInstance
+                  Id="41f1daa1-0436-4ead-a163-4493bf6dae2f"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1f4b8a31-f2c8-4c74-9c25-578bc755f75c">
+                <propertyInstance
+                  Id="7ecc52e7-6aba-44ed-a7b5-9fbc173c3f0f"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b7695487-f3c5-424a-9147-991d165a7f31">
+                <propertyInstance
+                  Id="7cde6bbe-497d-46cb-af14-5ea0cd2c6002"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="db1461aa-8dae-409b-ab44-144f2ba858ac">
+                <propertyInstance
+                  Id="840f4104-f703-4bab-bc25-c2bc8798c2cb"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f359a5e0-e847-4b55-a283-ae139c1f61dc">
+                <propertyInstance
+                  Id="6c25fd6d-7421-4960-b731-b774d3bd71e8"
                   name="PackageVisibility"
                   value="internal" />
               </stereotypeInstanceHasPropertyInstances>

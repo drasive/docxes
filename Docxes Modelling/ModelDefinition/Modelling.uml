@@ -74,6 +74,12 @@
         LastKnownName="Docxes.Interface"
         LastKnownLocation="Package_2241.uml" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="aa5a7a68-cf96-4d9b-b424-feee41aedbb1"
+        LastKnownName="*"
+        LastKnownLocation="Package_2137.uml" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
