@@ -2,7 +2,7 @@
         x:Class="VrankenBischof.Docxes.Interface.ManageSubjects"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Schulen"
+        Title="Fächer"
         Height="300"
         Width="500"
         Loaded="wManageSubjects_Loaded"
@@ -10,23 +10,21 @@
         WindowStartupLocation="CenterScreen">
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="45" />
             <RowDefinition />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        <TextBlock x:Name="tblInstructions"
-                   HorizontalAlignment="Left"
-                   Margin="10,0,0,5"
-                   TextWrapping="Wrap"
-                   Text="Wählen Sie die Schule aus, die Sie verwalten möchten:"
-                   Height="16"
-                   VerticalAlignment="Bottom" />
-        <ListBox x:Name="lbSchools"
-                 Margin="10,5,10,5"
-                 Grid.Row="1"
-                 SelectionChanged="lbSchools_SelectionChanged"
+        <ComboBox Margin="61,13,0,0"
+                  Height="20"
+                  VerticalAlignment="Top"
+                  Width="150"
+                  HorizontalAlignment="Left" />
+        <ListBox x:Name="lbSubjects"
+                 Margin="10"
+                 SelectionChanged="lbSubjects_SelectionChanged"
                  ItemsSource="{Binding}"
-                 DisplayMemberPath="Name" />
+                 DisplayMemberPath="Name"
+                 Grid.Row="1" />
         <Button x:Name="btnAdd"
                 Content="Hinzufügen"
                 Margin="0,5,170,0"
@@ -55,5 +53,12 @@
                 RenderTransformOrigin="0.505,0.333"
                 Click="btnDelete_Click"
                 Height="25" />
+        <Label x:Name="lblTeacher"
+               Content="Lehrer:"
+               HorizontalAlignment="Left"
+               Margin="10,9,0,0"
+               Height="26"
+               VerticalAlignment="Top"
+               RenderTransformOrigin="1.819,2.949" />
     </Grid>
 </Window>

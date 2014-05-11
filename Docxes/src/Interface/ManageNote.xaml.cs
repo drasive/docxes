@@ -22,7 +22,8 @@ namespace VrankenBischof.Docxes.Interface {
 
         private Note businessObjectEditing;
 
-        private BusinessLogic.BusinessObjectProcessor<Note> businessObjectProcessor = new BusinessLogic.NoteProcessor();
+        // TODO:_
+        //private BusinessLogic.BusinessObjectProcessor<Note> businessObjectProcessor = new BusinessLogic.NoteProcessor();
 
 
         private void Initialize() {
@@ -62,10 +63,10 @@ namespace VrankenBischof.Docxes.Interface {
         private bool Save() {
             if (ValidateInput()) {
                 if (IsEditing) {
-                    businessObjectProcessor.Update(MapInterfaceToElement());
+                    //businessObjectProcessor.Update(MapInterfaceToElement());
                 }
                 else {
-                    businessObjectProcessor.Create(MapInterfaceToElement());
+                    //businessObjectProcessor.Create(MapInterfaceToElement());
                 }
                 return true;
             }

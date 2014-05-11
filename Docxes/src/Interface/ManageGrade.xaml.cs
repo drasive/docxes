@@ -22,7 +22,8 @@ namespace VrankenBischof.Docxes.Interface {
 
         private Grade businessObjectEditing;
 
-        private BusinessLogic.BusinessObjectProcessor<Grade> businessObjectProcessor = new BusinessLogic.GradeProcessor();
+        // TODO:_
+        //private BusinessLogic.BusinessObjectProcessor<Grade> businessObjectProcessor = new BusinessLogic.GradeProcessor();
 
 
         private void Initialize() {
@@ -62,10 +63,10 @@ namespace VrankenBischof.Docxes.Interface {
         private bool Save() {
             if (ValidateInput()) {
                 if (IsEditing) {
-                    businessObjectProcessor.Update(MapInterfaceToElement());
+                    //businessObjectProcessor.Update(MapInterfaceToElement());
                 }
                 else {
-                    businessObjectProcessor.Create(MapInterfaceToElement());
+                    //businessObjectProcessor.Create(MapInterfaceToElement());
                 }
                 return true;
             }

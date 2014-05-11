@@ -66,10 +66,14 @@
       <HintPath>..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -80,6 +84,8 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
   </ItemGroup>
@@ -152,9 +158,6 @@
     </Compile>
     <Compile Include="src\Interface\ManageEvent.xaml.cs">
       <DependentUpon>ManageEvent.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="src\Interface\ManageDocument.xaml.cs">
-      <DependentUpon>ManageDocument.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\Interface\ManageSubjects.xaml.cs">
       <DependentUpon>ManageSubjects.xaml</DependentUpon>
@@ -274,10 +277,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\Interface\ManageDocument.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="src\Interface\ManageSubjects.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -324,14 +323,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\Docxes.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\Docxes_log.ldf">
-      <DependentUpon>Docxes.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Project Management\Priority ToDos.txt" />
+    <Content Include="Data\Docxes.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="src\Data\LocalDatabase.edmx.sql" />
     <Resource Include="Resources\Images\SchoolBackground.jpg" />
     <Resource Include="Resources\Images\NotesBackground.jpg" />
@@ -353,6 +348,11 @@
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.4.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 4.0 SP1</ProductName>
+      <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
       <Visible>False</Visible>

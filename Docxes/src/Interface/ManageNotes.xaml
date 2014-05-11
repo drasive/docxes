@@ -14,6 +14,8 @@
             <RowDefinition />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
+        <ComboBox x:Name="cbNotes"
+                  Margin="10,10,296,21" />
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
                    Margin="10,0,0,5"

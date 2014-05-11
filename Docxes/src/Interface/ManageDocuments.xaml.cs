@@ -56,8 +56,7 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private bool CheckForElementDeletion() {
-            // TODO:
-            if (Common.AskForElementDeletion("Wollen Sie diese Schule und alle zugehörigen Daten (Lehrer, Fächer, Ereignisse, Dokumente, Notizen und Noten) wirklich löschen?", "Schule")) {
+            if (Common.AskForElementDeletion("Wollen Sie dieses Dokument wirklich löschen?", "Dokument")) {
                 businessObjectProcessor.Delete((Document)lbSchools.SelectedItem);
                 return true;
             }
@@ -83,7 +82,7 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
 
-        // TODO:
+        // TODO
         private void lbSchools_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             UpdateControlsAvailability();
         }
