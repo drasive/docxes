@@ -11,7 +11,7 @@ namespace VrankenBischof.Docxes.Interface {
     public sealed partial class ManageSchools : Window {
 
         // TODO:_
-        //private BusinessLogic.BusinessObjectProcessor<School> businessObjectProcessor = new BusinessLogic.SchoolProcessor();
+        private BusinessLogic.BusinessObjectProcessor<School> businessObjectProcessor = new BusinessLogic.SchoolProcessor();
 
 
         public ManageSchools() {
@@ -24,7 +24,8 @@ namespace VrankenBischof.Docxes.Interface {
         #region Interface
 
         private void UpdateBusinessObjects() {
-            IEnumerable<School> businessObjects = null; //businessObjectProcessor.Get();
+            IEnumerable<School> businessObjects = businessObjectProcessor.Get();
+            //IEnumerable<School> businessObjects = new List<School>();
 
             if (businessObjects.Count() > 0) {
                 lbSchools.DataContext = businessObjects;

@@ -8,7 +8,8 @@
             Content = content;
             Comment = comment;
             Subject = subject;
-            Event = @event;
+            // TODO:
+            //Event = @event;
         }
 
         public Document(Document businessObjectEditing, string name, byte[] content, string comment, Subject subject, Event @event)

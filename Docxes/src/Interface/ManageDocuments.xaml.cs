@@ -43,16 +43,20 @@ namespace VrankenBischof.Docxes.Interface {
 
         private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
             //TODO:
-            IBusinessObjectManager addBusinessObjectManager = new ManageDocument() { Owner = this };
+            //IBusinessObjectManager addBusinessObjectManager = new ManageDocument() { Owner = this };
             //addBusinessObjectManager.ShowDialog();
-            return addBusinessObjectManager.Action;
+            //return addBusinessObjectManager.Action;
+
+            return BusinessObjectManagerAction.Undefined;
         }
 
         private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
             // TODO:
-            IBusinessObjectManager editBusinessObjectManager = new ManageDocument((Document)lbSchools.SelectedItem) { Owner = this };
+            //IBusinessObjectManager editBusinessObjectManager = new ManageDocument((Document)lbSchools.SelectedItem) { Owner = this };
             //editBusinessObjectManager.ShowDialog();
-            return editBusinessObjectManager.Action;
+            //return editBusinessObjectManager.Action;
+
+            return BusinessObjectManagerAction.Undefined;
         }
 
         private bool CheckForElementDeletion() {
@@ -67,9 +71,10 @@ namespace VrankenBischof.Docxes.Interface {
         private void UpdateControlsAvailability() {
             bool isBusinessObjectSelected = lbSchools.SelectedIndex != -1;
             
-            foreach (Button button in new Button[] { btnEdit, btnDelete }) {
-                button.IsEnabled = isBusinessObjectSelected;
-            }
+            // TODO:
+            //foreach (Button button in new Button[] { btnEdit, btnDelete }) {
+            //    button.IsEnabled = isBusinessObjectSelected;
+            //}
         }
 
         #endregion

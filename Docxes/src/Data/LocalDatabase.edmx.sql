@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/27/2014 22:59:29
--- Generated from EDMX file: C:\Users\dimit_000\SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\src\Data\LocalDatabase.edmx
+-- Date Created: 05/14/2014 08:52:12
+-- Generated from EDMX file: C:\Users\Dimitri\SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\src\Data\LocalDatabase.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [Docxes];
+USE [DocxesDB];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -34,9 +34,6 @@ IF OBJECT_ID(N'[dbo].[FK_SubjectNotes]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_SubjectGrades]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Grades] DROP CONSTRAINT [FK_SubjectGrades];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EventDocuments]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Documents] DROP CONSTRAINT [FK_EventDocuments];
 GO
 IF OBJECT_ID(N'[dbo].[FK_EventNotes]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Notes] DROP CONSTRAINT [FK_EventNotes];
@@ -136,7 +133,6 @@ GO
 CREATE TABLE [dbo].[Documents] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [SubjectId] int  NOT NULL,
-    [EventId] int  NULL,
     [Name] nvarchar(64)  NOT NULL,
     [Content] varbinary(max)  NOT NULL,
     [Comment] nvarchar(max)  NOT NULL
@@ -275,20 +271,6 @@ ADD CONSTRAINT [FK_SubjectGrades]
 CREATE INDEX [IX_FK_SubjectGrades]
 ON [dbo].[Grades]
     ([SubjectId]);
-GO
-
--- Creating foreign key on [EventId] in table 'Documents'
-ALTER TABLE [dbo].[Documents]
-ADD CONSTRAINT [FK_EventDocuments]
-    FOREIGN KEY ([EventId])
-    REFERENCES [dbo].[Events]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_EventDocuments'
-CREATE INDEX [IX_FK_EventDocuments]
-ON [dbo].[Documents]
-    ([EventId]);
 GO
 
 -- Creating foreign key on [EventId] in table 'Notes'

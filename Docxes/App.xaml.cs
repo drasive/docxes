@@ -16,6 +16,9 @@ namespace VrankenBischof.Docxes {
         protected override void OnStartup(StartupEventArgs e) {
             base.OnStartup(e);
 
+            var userprofile = Environment.GetEnvironmentVariable("Userprofile");
+            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(userprofile, @"SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\Data\"));
+
             Window windowToShow = new Interface.ManageSchools();
             windowToShow.Show();
         }

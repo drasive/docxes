@@ -37,10 +37,6 @@
       <End Role="Subject" EntitySet="Subjects" />
       <End Role="Grade" EntitySet="Grades" />
     </AssociationSet>
-    <AssociationSet Name="EventDocuments" Association="LocalDatabase.Store.EventDocuments">
-      <End Role="Event" EntitySet="Events" />
-      <End Role="Document" EntitySet="Documents" />
-    </AssociationSet>
     <AssociationSet Name="EventNotes" Association="LocalDatabase.Store.EventNotes">
       <End Role="Event" EntitySet="Events" />
       <End Role="Note" EntitySet="Notes" />
@@ -113,7 +109,6 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SubjectId" Type="int" Nullable="false" />
-    <Property Name="EventId" Type="int" Nullable="true" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="Content" Type="varbinary(max)" Nullable="false" />
     <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
@@ -187,18 +182,6 @@
       </Principal>
       <Dependent Role="Grade">
         <PropertyRef Name="SubjectId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="EventDocuments">
-    <End Role="Event" Type="LocalDatabase.Store.Events" Multiplicity="0..1" />
-    <End Role="Document" Type="LocalDatabase.Store.Documents" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Event">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Document">
-        <PropertyRef Name="EventId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
