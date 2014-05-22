@@ -72,9 +72,9 @@ namespace VrankenBischof.Docxes.Interface {
             bool isBusinessObjectSelected = lbSchools.SelectedIndex != -1;
             
             // TODO:
-            //foreach (Button button in new Button[] { btnEdit, btnDelete }) {
-            //    button.IsEnabled = isBusinessObjectSelected;
-            //}
+           //foreach (Button button in new Button[] { btnEdit, btnDelete }) {
+           //    button.IsEnabled = isBusinessObjectSelected;
+           //}
         }
 
         #endregion

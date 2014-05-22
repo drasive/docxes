@@ -12,8 +12,7 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public sealed partial class ManageGrades : Window {
 
-        // TODO:_
-        //private BusinessLogic.BusinessObjectProcessor<Grade> businessObjectProcessor = new BusinessLogic.GradeProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Grade> businessObjectProcessor = new BusinessLogic.GradeProcessor();
 
 
         public ManageGrades() {
@@ -25,7 +24,7 @@ namespace VrankenBischof.Docxes.Interface {
         #region Interface
 
         private void UpdateBusinessObjects() {
-            IEnumerable<Grade> businessObjects = null; //businessObjectProcessor.Get();
+            IEnumerable<Grade> businessObjects = businessObjectProcessor.Get();
 
             if (businessObjects.Count() > 0) {
                 lbSchools.DataContext = businessObjects;
@@ -59,7 +58,7 @@ namespace VrankenBischof.Docxes.Interface {
         private bool CheckForElementDeletion() {
             // TODO:
             if (Common.AskForElementDeletion("Wollen Sie diese Schule und alle zugehörigen Daten (Lehrer, Fächer, Ereignisse, Dokumente, Notizen und Graden) wirklich löschen?", "Schule")) {
-                //businessObjectProcessor.Delete((Grade)lbSchools.SelectedItem);
+                businessObjectProcessor.Delete((Grade)lbSchools.SelectedItem);
                 return true;
             }
 

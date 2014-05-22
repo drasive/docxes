@@ -20,8 +20,7 @@ namespace VrankenBischof.Docxes.Interface {
 
         private Teacher businessObjectEditing;
 
-        // TODO:_
-        //private BusinessLogic.BusinessObjectProcessor<Teacher> businessObjectProcessor = new BusinessLogic.TeacherProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Teacher> businessObjectProcessor = new BusinessLogic.TeacherProcessor();
 
 
         private void Initialize() {
@@ -61,10 +60,10 @@ namespace VrankenBischof.Docxes.Interface {
         private bool Save() {
             if (ValidateInput()) {
                 if (IsEditing) {
-                    //businessObjectProcessor.Update(MapInterfaceToElement());
+                    businessObjectProcessor.Update(MapInterfaceToElement());
                 }
                 else {
-                    //businessObjectProcessor.Create(MapInterfaceToElement());
+                    businessObjectProcessor.Create(MapInterfaceToElement());
                 }
                 return true;
             }
