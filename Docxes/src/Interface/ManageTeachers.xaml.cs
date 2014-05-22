@@ -10,11 +10,16 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public sealed partial class ManageTeachers : Window {
 
+        // TODO: Rename
+        private School businessObjectParent;
+
         private BusinessLogic.BusinessObjectProcessor<Teacher> businessObjectProcessor = new BusinessLogic.TeacherProcessor();
 
 
-        public ManageTeachers() {
+        public ManageTeachers(School businessObjectParent) {
             InitializeComponent();
+
+            this.businessObjectParent = businessObjectParent;
 
             Common.ExtendWindowName(this);
         }
@@ -39,13 +44,13 @@ namespace VrankenBischof.Docxes.Interface {
 
 
         private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
-            Window addBusinessObjectManager = new ManageTeacher() { Owner = this };
+            Window addBusinessObjectManager = new ManageTeacher(businessObjectParent) { Owner = this };
             addBusinessObjectManager.ShowDialog();
             return ((IBusinessObjectManager)addBusinessObjectManager).Action;
         }
 
         private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
-            Window editBusinessObjectManager = new ManageTeacher((Teacher)lbTeachers.SelectedItem) { Owner = this };
+            Window editBusinessObjectManager = new ManageTeacher(businessObjectParent, (Teacher)lbTeachers.SelectedItem) { Owner = this };
             editBusinessObjectManager.ShowDialog();
             return ((IBusinessObjectManager)editBusinessObjectManager).Action;
         }

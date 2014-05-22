@@ -18,8 +18,12 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public partial class SchoolOverview : Window {
 
-        public SchoolOverview() {
+        private School school;
+
+        public SchoolOverview(School school) {
             InitializeComponent();
+
+            this.school = school;
 
             // TODO: Check if there are subjects and ask to create
         }
@@ -82,7 +86,7 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private void btnTeachers_Click(object sender, RoutedEventArgs e) {
-            var window = new ManageTeachers();
+            var window = new ManageTeachers(school);
             window.ShowDialog();
         }
 

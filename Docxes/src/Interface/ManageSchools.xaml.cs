@@ -39,8 +39,8 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
 
-        private void OpenSchoolOverview() {
-            Window newWindow = new SchoolOverview();
+        private void OpenSchoolOverview(School school) {
+            Window newWindow = new SchoolOverview(school);
             newWindow.Show();
             Close();
         }
@@ -90,7 +90,7 @@ namespace VrankenBischof.Docxes.Interface {
 
 
         private void btnSelect_Click(object sender, RoutedEventArgs e) {
-            OpenSchoolOverview();
+            OpenSchoolOverview((School)lbSchools.SelectedItem);
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e) {
