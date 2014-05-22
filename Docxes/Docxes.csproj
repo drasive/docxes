@@ -226,9 +226,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Project Management\Assembly Dependencies.dgml">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Project Management\Assembly Dependencies.dgml" />
     <None Include="Project Management\Class Diagram.cd" />
     <None Include="Project Management\FDS.docx" />
     <None Include="Project Management\FDS.pdf" />
@@ -323,7 +321,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Project Management\Priority ToDos.txt" />
     <Content Include="Data\DocxesDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -332,6 +329,7 @@
       <DependentUpon>DocxesDB.mdf</DependentUpon>
     </Content>
     <Resource Include="Project Management\Class Diagram.png" />
+    <Resource Include="Project Management\Priority ToDos.txt" />
     <Content Include="src\Data\LocalDatabase.edmx.sql" />
     <Resource Include="Resources\Images\SchoolBackground.jpg" />
     <Resource Include="Resources\Images\NotesBackground.jpg" />
