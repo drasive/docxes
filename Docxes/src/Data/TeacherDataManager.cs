@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Entity;
 
 namespace VrankenBischof.Docxes.Data {
 
@@ -12,28 +13,31 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("objectToSave");
             }
 
-            var container = GetDatabaseContainer();
-            container.Teachers.Add(objectToSave);
-            container.SaveChanges();
+            using (var databaseContainer = GetDatabaseContainer()) {
+                databaseContainer.Teachers.Add(objectToSave);
+                databaseContainer.SaveChanges();
+            }
         }
 
 
         private List<Teacher> Get(LocalDatabaseContainer container) {
             return (from Teacher Teacher
-                    in container.Teachers
+                    in container.Teachers.Include<Func<Subject, Subject>>
                     select Teacher).ToList();
         }
 
         public override List<Teacher> Get() {
-            var container = GetDatabaseContainer();
-            return Get(container);
+            using (var databaseContainer = GetDatabaseContainer()) {
+                return Get(databaseContainer);
+            }
         }
 
         public override Teacher Get(int id) {
             // TODO: Use a functional style condition as the parameter in all of these classes
 
-            var container = GetDatabaseContainer();
-            return Get(container).First(databaseElement => databaseElement.Id == id);
+            using (var databaseContainer = GetDatabaseContainer()) {
+                return Get(databaseContainer).First(databaseElement => databaseElement.Id == id);
+            }
         }
 
 
@@ -42,7 +46,7 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("objectToUpdate");
             }
 
-            using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
+            using (var databaseContainer = GetDatabaseContainer()) {
                 // REFACTOR: Replace with Get(container)
                 // BUG
 
@@ -61,10 +65,11 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("objectToDelete");
             }
 
-            var container = GetDatabaseContainer();
-            var databaseObjectToDelete = Get(container).First(databaseElement => databaseElement.Id == objectToDelete.Id);
-            container.Teachers.Remove(databaseObjectToDelete);
-            container.SaveChanges();
+            using (var databaseContainer = GetDatabaseContainer()) {
+                var databaseObjectToDelete = Get(databaseContainer).First(databaseElement => databaseElement.Id == objectToDelete.Id);
+                databaseContainer.Teachers.Remove(databaseObjectToDelete);
+                databaseContainer.SaveChanges();
+            }
         }
 
     }

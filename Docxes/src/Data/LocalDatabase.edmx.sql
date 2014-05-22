@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/22/2014 09:22:08
+-- Date Created: 05/22/2014 17:40:56
 -- Generated from EDMX file: C:\Privat\Versionsverwaltung\Docxes\Development\Docxes\src\Data\LocalDatabase.edmx
 -- --------------------------------------------------
 
@@ -104,7 +104,8 @@ CREATE TABLE [dbo].[Events] (
     [SubjectId] int  NOT NULL,
     [Name] nvarchar(64)  NOT NULL,
     [Date] datetime  NOT NULL,
-    [Type] int  NOT NULL
+    [Type] int  NOT NULL,
+    [Comment] nvarchar(max)  NULL
 );
 GO
 
@@ -115,7 +116,7 @@ CREATE TABLE [dbo].[Grades] (
     [EventId] int  NULL,
     [Value] int  NOT NULL,
     [Weight] int  NOT NULL,
-    [Comment] nvarchar(max)  NOT NULL
+    [Comment] nvarchar(max)  NULL
 );
 GO
 
@@ -123,7 +124,6 @@ GO
 CREATE TABLE [dbo].[Notes] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [SubjectId] int  NOT NULL,
-    [EventId] int  NULL,
     [Name] nvarchar(64)  NOT NULL,
     [Content] nvarchar(max)  NOT NULL
 );
@@ -135,7 +135,7 @@ CREATE TABLE [dbo].[Documents] (
     [SubjectId] int  NOT NULL,
     [Name] nvarchar(64)  NOT NULL,
     [Content] varbinary(max)  NOT NULL,
-    [Comment] nvarchar(max)  NOT NULL
+    [Comment] nvarchar(max)  NULL
 );
 GO
 
@@ -277,21 +277,6 @@ GO
 CREATE INDEX [IX_FK_SubjectGrades]
 ON [dbo].[Grades]
     ([SubjectId]);
-GO
-
--- Creating foreign key on [EventId] in table 'Notes'
-ALTER TABLE [dbo].[Notes]
-ADD CONSTRAINT [FK_EventNotes]
-    FOREIGN KEY ([EventId])
-    REFERENCES [dbo].[Events]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_EventNotes'
-CREATE INDEX [IX_FK_EventNotes]
-ON [dbo].[Notes]
-    ([EventId]);
 GO
 
 -- Creating foreign key on [EventId] in table 'Grades'

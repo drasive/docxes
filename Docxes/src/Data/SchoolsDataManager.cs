@@ -12,9 +12,10 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("objectToSave");
             }
 
-            var container = GetDatabaseContainer();
-            container.Schools.Add(objectToSave);
-            container.SaveChanges();
+            using (var databaseContainer = GetDatabaseContainer()) {
+                databaseContainer.Schools.Add(objectToSave);
+                databaseContainer.SaveChanges();
+            }
         }
 
 
@@ -25,13 +26,15 @@ namespace VrankenBischof.Docxes.Data {
         }
 
         public override List<School> Get() {
-            var container = GetDatabaseContainer();
-            return Get(container);
+            using (var databaseContainer = GetDatabaseContainer()) {
+                return Get(databaseContainer);
+            }
         }
 
         public override School Get(int id) {
-            var container = GetDatabaseContainer();
-            return Get(container).First(databaseElement => databaseElement.Id == id);
+            using (var databaseContainer = GetDatabaseContainer()) {
+                return Get(databaseContainer).First(databaseElement => databaseElement.Id == id);
+            }
         }
 
 
@@ -40,7 +43,7 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("objectToUpdate");
             }
 
-            using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
+            using (var databaseContainer = GetDatabaseContainer()) {
                 // REFACTOR: Replace with Get(container)
                 // BUG
 
@@ -59,10 +62,11 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("objectToDelete");
             }
 
-            var container = GetDatabaseContainer();
-            var databaseObjectToDelete = Get(container).First(databaseElement => databaseElement.Id == objectToDelete.Id);
-            container.Schools.Remove(databaseObjectToDelete);
-            container.SaveChanges();
+            using (var databaseContainer = GetDatabaseContainer()) {
+                var databaseObjectToDelete = Get(databaseContainer).First(databaseElement => databaseElement.Id == objectToDelete.Id);
+                databaseContainer.Schools.Remove(databaseObjectToDelete);
+                databaseContainer.SaveChanges();
+            }
         }
 
     }

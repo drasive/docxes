@@ -37,10 +37,6 @@
       <End Role="Subject" EntitySet="Subjects" />
       <End Role="Grade" EntitySet="Grades" />
     </AssociationSet>
-    <AssociationSet Name="EventNotes" Association="LocalDatabase.Store.EventNotes">
-      <End Role="Event" EntitySet="Events" />
-      <End Role="Note" EntitySet="Notes" />
-    </AssociationSet>
     <AssociationSet Name="EventGrades" Association="LocalDatabase.Store.EventGrades">
       <End Role="Event" EntitySet="Events" />
       <End Role="Grade" EntitySet="Grades" />
@@ -81,6 +77,7 @@
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="Grades">
     <Key>
@@ -91,7 +88,7 @@
     <Property Name="EventId" Type="int" Nullable="true" />
     <Property Name="Value" Type="int" Nullable="false" />
     <Property Name="Weight" Type="int" Nullable="false" />
-    <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="Notes">
     <Key>
@@ -99,7 +96,6 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SubjectId" Type="int" Nullable="false" />
-    <Property Name="EventId" Type="int" Nullable="true" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
@@ -111,7 +107,7 @@
     <Property Name="SubjectId" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="Content" Type="varbinary(max)" Nullable="false" />
-    <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <Association Name="SchoolTeachers">
     <End Role="School" Type="LocalDatabase.Store.Schools" Multiplicity="1" />
@@ -185,18 +181,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="EventNotes">
-    <End Role="Event" Type="LocalDatabase.Store.Events" Multiplicity="0..1" />
-    <End Role="Note" Type="LocalDatabase.Store.Notes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Event">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Note">
-        <PropertyRef Name="EventId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="EventGrades">
     <End Role="Event" Type="LocalDatabase.Store.Events" Multiplicity="0..1" />
     <End Role="Grade" Type="LocalDatabase.Store.Grades" Multiplicity="*" />
@@ -244,10 +228,6 @@
                     <AssociationSet Name="SubjectGrades" Association="LocalDatabase.SubjectGrades">
                         <End Role="Subject" EntitySet="Subjects" />
                         <End Role="Grade" EntitySet="Grades" />
-                    </AssociationSet>
-                    <AssociationSet Name="EventNotes" Association="LocalDatabase.EventNotes">
-                        <End Role="Event" EntitySet="Events" />
-                        <End Role="Note" EntitySet="Notes" />
                     </AssociationSet>
                     <AssociationSet Name="EventGrades" Association="LocalDatabase.EventGrades">
                         <End Role="Event" EntitySet="Events" />
@@ -298,8 +278,8 @@
                     <Property Name="Name" Type="String" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="64" />
                     <Property Name="Date" Type="DateTime" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Type" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <NavigationProperty Name="Notes" Relationship="LocalDatabase.EventNotes" FromRole="Event" ToRole="Note" />
                     <NavigationProperty Name="Grades" Relationship="LocalDatabase.EventGrades" FromRole="Event" ToRole="Grade" />
+          <Property Name="Comment" Type="String" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="Max" />
                 </EntityType>
                 <EntityType Name="Grade">
                     <Key>
@@ -312,7 +292,7 @@
                     <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Value" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Weight" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Comment" Type="String" Nullable="true" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                 </EntityType>
                 <EntityType Name="Note">
                     <Key>
@@ -321,8 +301,6 @@
                     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectNotes" FromRole="Note" ToRole="Subject" />
                     <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <NavigationProperty Name="Event" Relationship="LocalDatabase.EventNotes" FromRole="Note" ToRole="Event" />
-                    <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Name" Type="String" Nullable="false" MaxLength="64" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                 </EntityType>
@@ -335,7 +313,7 @@
                     <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Name" Type="String" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="64" />
                     <Property Name="Content" Type="Binary" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Comment" Type="String" Nullable="true" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                 </EntityType>
                 <Association Name="SchoolTeachers">
                     <End Type="LocalDatabase.School" Role="School" Multiplicity="1" />
@@ -409,18 +387,6 @@
                         </Dependent>
                     </ReferentialConstraint>
                 </Association>
-                <Association Name="EventNotes">
-                    <End Type="LocalDatabase.Event" Role="Event" Multiplicity="0..1" />
-                    <End Type="LocalDatabase.Note" Role="Note" Multiplicity="*" />
-                    <ReferentialConstraint>
-                        <Principal Role="Event">
-                            <PropertyRef Name="Id" />
-                        </Principal>
-                        <Dependent Role="Note">
-                            <PropertyRef Name="EventId" />
-                        </Dependent>
-                    </ReferentialConstraint>
-                </Association>
                 <Association Name="EventGrades">
                     <End Type="LocalDatabase.Event" Role="Event" Multiplicity="0..1" />
                     <End Type="LocalDatabase.Grade" Role="Grade" Multiplicity="*" />
@@ -476,6 +442,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -496,7 +463,6 @@
         <MappingFragment StoreEntitySet="Notes">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
-          <ScalarProperty Name="EventId" ColumnName="EventId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Content" ColumnName="Content" />
         </MappingFragment>

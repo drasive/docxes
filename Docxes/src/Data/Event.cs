@@ -16,7 +16,6 @@ namespace VrankenBischof.Docxes
     {
         public Event()
         {
-            this.Notes = new HashSet<Note>();
             this.Grades = new HashSet<Grade>();
         }
     
@@ -25,9 +24,9 @@ namespace VrankenBischof.Docxes
         public string Name { get; private set; }
         public System.DateTime Date { get; private set; }
         public int Type { get; private set; }
+        public string Comment { get; private set; }
     
         public virtual Subject Subject { get; set; }
-        public virtual ICollection<Note> Notes { get; set; }
         public virtual ICollection<Grade> Grades { get; set; }
     }
 }

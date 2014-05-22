@@ -49,6 +49,13 @@ namespace VrankenBischof.Docxes.BusinessLogic {
                 throw new ArgumentNullException("objectToDelete");
             }
 
+            // Delete dependencies
+            var teacherProcessor = new TeacherProcessor();
+            foreach (Teacher dependencyToDelete in objectToDelete.Teachers) {
+                teacherProcessor.Delete(dependencyToDelete);
+            }
+
+            // Delete object
             dataManager.Delete(objectToDelete);
         }
 

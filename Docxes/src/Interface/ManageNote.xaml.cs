@@ -106,10 +106,10 @@ namespace VrankenBischof.Docxes.Interface {
 
         private Note MapInterfaceToElement() {
             if (IsEditing) {
-                return new Note(businessObjectEditing, tbName.Text, tbContent.Text, businessObjectParent, null);
+                return new Note(businessObjectEditing, tbName.Text, tbContent.Text, businessObjectParent);
             }
             else {
-                return new Note(tbName.Text, tbContent.Text, businessObjectParent , null);
+                return new Note(tbName.Text, tbContent.Text, businessObjectParent);
             }
         }
 

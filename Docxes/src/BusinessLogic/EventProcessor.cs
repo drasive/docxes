@@ -50,7 +50,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             }
 
             // Remove dependencies
-            // TODO: Remove dependencies from Notes and 
+            // TODO: Remove dependencies from Notes and Grades
 
             // Delete object
             dataManager.Delete(objectToDelete);

@@ -16,11 +16,9 @@ namespace VrankenBischof.Docxes
     {
         public int Id { get; private set; }
         public int SubjectId { get; private set; }
-        public Nullable<int> EventId { get; private set; }
         public string Name { get; private set; }
         public string Content { get; private set; }
     
         public virtual Subject Subject { get; set; }
-        public virtual Event Event { get; set; }
     }
 }

@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="LocalDatabase.School" Width="1.875" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="LocalDatabase.Teacher" Width="1.875" PointX="0.5" PointY="3" />
         <EntityTypeShape EntityType="LocalDatabase.Subject" Width="1.875" PointX="3" PointY="3" />
-        <EntityTypeShape EntityType="LocalDatabase.Event" Width="1.875" PointX="8" PointY="1.75" />
+        <EntityTypeShape EntityType="LocalDatabase.Event" Width="1.875" PointX="8" PointY="1.5" />
         <EntityTypeShape EntityType="LocalDatabase.Grade" Width="1.875" PointX="10.5" PointY="5.125" />
         <EntityTypeShape EntityType="LocalDatabase.Note" Width="1.875" PointX="8" PointY="5.125" />
         <EntityTypeShape EntityType="LocalDatabase.Document" Width="1.875" PointX="5.5" PointY="5.125" />
@@ -17,16 +17,13 @@
         <AssociationConnector Association="LocalDatabase.SubjectEvents" />
         <AssociationConnector Association="LocalDatabase.SubjectDocuments" />
         <AssociationConnector Association="LocalDatabase.SubjectNotes" ManuallyRouted="true" >
-          <ConnectorPoint PointX="4.875" PointY="2.9999999999999902" />
+          <ConnectorPoint PointX="4.875" PointY="2.9999999999997997" />
           <ConnectorPoint PointX="5.25" PointY="2.625" />
           <ConnectorPoint PointX="5.25" PointY="4.75" />
-          <ConnectorPoint PointX="6.354166666666667" PointY="4.7499999999999991" />
-          <ConnectorPoint PointX="6.520833333333333" PointY="4.75" />
           <ConnectorPoint PointX="7.625" PointY="4.75" />
           <ConnectorPoint PointX="8" PointY="5.125" />
         </AssociationConnector>
         <AssociationConnector Association="LocalDatabase.SubjectGrades" />
-        <AssociationConnector Association="LocalDatabase.EventNotes" />
         <AssociationConnector Association="LocalDatabase.EventGrades" />
       </Diagram>
     </edmx:Diagrams>
