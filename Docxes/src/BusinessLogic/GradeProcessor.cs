@@ -22,6 +22,10 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
+        public override bool AreRequirementsMetToCreate() {
+            return true;
+        }
+
         public override List<Grade> Get() {
             return dataManager.Get();
         }

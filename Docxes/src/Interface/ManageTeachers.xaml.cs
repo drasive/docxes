@@ -17,6 +17,8 @@ namespace VrankenBischof.Docxes.Interface {
 
 
         public ManageTeachers(School businessObjectParent) {
+            // TODO: Rename parameters
+
             InitializeComponent();
 
             this.businessObjectParent = businessObjectParent;

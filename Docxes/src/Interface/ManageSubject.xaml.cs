@@ -18,13 +18,21 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public partial class ManageSubject : Window, IBusinessObjectManager {
 
+        private Teacher businessObjectParent;
         private Subject businessObjectEditing;
 
         private BusinessLogic.BusinessObjectProcessor<Subject> businessObjectProcessor = new BusinessLogic.SubjectProcessor();
 
 
-        private void Initialize() {
+        private void Initialize(Teacher businessObjectParent, Subject businessObjectToEdit) {
+            if (businessObjectParent == null) {
+                throw new ArgumentNullException("businessObjectParent");
+            }
+
             InitializeComponent();
+
+            this.businessObjectParent = businessObjectParent;
+            this.businessObjectEditing = businessObjectToEdit;
 
             if (IsEditing) {
                 Title = "Fach bearbeiten";
@@ -35,17 +43,23 @@ namespace VrankenBischof.Docxes.Interface {
             Common.ExtendWindowName(this);
         }
 
-        public ManageSubject() {
-            Initialize();
+        public ManageSubject(Teacher businessObjectToAddParent) {
+            if (businessObjectToAddParent == null) {
+                throw new ArgumentNullException("businessObjectToAddParent");
+            }
+
+            Initialize(businessObjectToAddParent, null);
         }
 
-        public ManageSubject(Subject businessObjectToEdit) {
+        public ManageSubject(Teacher businessObjectToEditParent, Subject businessObjectToEdit) {
+            if (businessObjectToEditParent == null) {
+                throw new ArgumentNullException("businessObjectToEditParent");
+            }
             if (businessObjectToEdit == null) {
                 throw new ArgumentNullException("businessObjectToEdit");
             }
 
-            this.businessObjectEditing = businessObjectToEdit;
-            Initialize();
+            Initialize(businessObjectToEditParent, businessObjectToEdit);
 
             MapElementToInterface(businessObjectToEdit);
         }

@@ -20,6 +20,11 @@ namespace VrankenBischof.Docxes.Interface {
 
         private School school;
 
+        // ASK: Better solution than to create instances everywhere but have inheritance?
+        private BusinessLogic.BusinessObjectProcessor<Teacher> teacherProcessor = new BusinessLogic.TeacherProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Subject> subjectProcessor = new BusinessLogic.SubjectProcessor();
+
+
         public SchoolOverview(School school) {
             InitializeComponent();
 
@@ -81,8 +86,13 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private void btnSubjects_Click(object sender, RoutedEventArgs e) {
-            var window = new ManageSubjects();
-            window.ShowDialog();
+            if (subjectProcessor.AreRequirementsMetToCreate()) {
+                var window = new ManageSubjects();
+                window.ShowDialog();
+            }
+            else {
+                MessageBox.Show("Nici, muesch zerscht e Lehrer erstelle!");
+            }            
         }
 
         private void btnTeachers_Click(object sender, RoutedEventArgs e) {

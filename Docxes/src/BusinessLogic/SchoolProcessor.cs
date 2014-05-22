@@ -13,6 +13,10 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
+        public override bool AreRequirementsMetToCreate() {
+            return true;
+        }
+
         public override void Create(School objectToSave) {
             if (objectToSave == null) {
                 throw new ArgumentNullException("objectToSave");

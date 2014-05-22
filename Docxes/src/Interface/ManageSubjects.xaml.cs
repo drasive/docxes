@@ -10,6 +10,7 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public sealed partial class ManageSubjects : Window {
 
+        private BusinessLogic.BusinessObjectProcessor<Teacher> businessObjectParentProcessor = new BusinessLogic.TeacherProcessor();
         private BusinessLogic.BusinessObjectProcessor<Subject> businessObjectProcessor = new BusinessLogic.SubjectProcessor();
 
 
@@ -21,6 +22,17 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
+        // ASK: Use property or method?
+        private Teacher SelectedBusinessObjectParent { get { return (Teacher)lbTeachers.SelectedItem; } }
+
+        private void UpdateBusinessObjectParents() {
+            IEnumerable<Teacher> businessObjectParents = businessObjectParentProcessor.Get();
+            lbTeachers.DataContext = businessObjectParents;
+            // TODO: _
+            //lbTeachers.SelectedIndex = 0;
+        }
+
+
         private void UpdateBusinessObjects() {
             IEnumerable<Subject> businessObjects = businessObjectProcessor.Get();
 
@@ -29,7 +41,7 @@ namespace VrankenBischof.Docxes.Interface {
             }
             else {
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
-                    Content = "Keine Fächer vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Fach zu erstellen.",
+                    Content = "Keine Fächer für diesen Lehrer vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Fach zu erstellen.",
                     FontSize = 10,
                     IsEnabled = false
                 };
@@ -39,13 +51,13 @@ namespace VrankenBischof.Docxes.Interface {
 
 
         private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
-            Window addBusinessObjectManager = new ManageSubject() { Owner = this };
+            Window addBusinessObjectManager = new ManageSubject(SelectedBusinessObjectParent) { Owner = this };
             addBusinessObjectManager.ShowDialog();
             return ((IBusinessObjectManager)addBusinessObjectManager).Action;
         }
 
         private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
-            Window editBusinessObjectManager = new ManageSubject((Subject)lbSubjects.SelectedItem) { Owner = this };
+            Window editBusinessObjectManager = new ManageSubject(SelectedBusinessObjectParent, (Subject)lbSubjects.SelectedItem) { Owner = this };
             editBusinessObjectManager.ShowDialog();
             return ((IBusinessObjectManager)editBusinessObjectManager).Action;
         }
@@ -58,10 +70,10 @@ namespace VrankenBischof.Docxes.Interface {
 
             return false;
         }
-        
+
         private void UpdateControlsAvailability() {
             bool isBusinessObjectSelected = lbSubjects.SelectedIndex != -1;
-            
+
             foreach (Button button in new Button[] { btnEdit, btnDelete }) {
                 button.IsEnabled = isBusinessObjectSelected;
             }
@@ -72,6 +84,7 @@ namespace VrankenBischof.Docxes.Interface {
         #region Event wiring
 
         private void wManageSubjects_Loaded(object sender, RoutedEventArgs e) {
+            UpdateBusinessObjectParents();
             UpdateBusinessObjects();
             UpdateControlsAvailability();
         }

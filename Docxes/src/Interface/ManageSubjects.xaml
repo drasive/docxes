@@ -14,7 +14,8 @@
             <RowDefinition />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        <ComboBox Margin="61,13,0,0"
+        <ComboBox x:Name="lbTeachers"
+                  Margin="61,13,0,0"
                   Height="20"
                   VerticalAlignment="Top"
                   Width="150"

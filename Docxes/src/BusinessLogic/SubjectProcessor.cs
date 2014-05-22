@@ -13,6 +13,12 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
+        public override bool AreRequirementsMetToCreate() {
+            // ASK Is this legit?
+            var teacherProcessor = new BusinessLogic.TeacherProcessor();
+            return teacherProcessor.Get().Count > 0;
+        }
+        
         public override void Create(Subject objectToSave) {
             if (objectToSave == null) {
                 throw new ArgumentNullException("objectToSave");
