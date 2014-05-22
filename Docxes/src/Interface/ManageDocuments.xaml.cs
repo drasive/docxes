@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Diagnostics;
+using System;
 
 namespace VrankenBischof.Docxes.Interface {
-
-    // TODO: Interface
 
     /// <summary>
     /// Interaction logic for <see cref="ManageDocuments.xaml"/>
     /// </summary>
     public sealed partial class ManageDocuments : Window {
 
+        private BusinessLogic.BusinessObjectProcessor<Subject> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
         private BusinessLogic.BusinessObjectProcessor<Document> businessObjectProcessor = new BusinessLogic.DocumentProcessor();
 
 
@@ -23,58 +24,40 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
+        private Subject SelectedBusinessObjectParent { get { return (Subject)cbSubject.SelectedItem; } }
+        // TODO: Use in all classes like this
+        private Document SelectedBusinessObject { get { return (Document)lbDocuments.SelectedItem; } }
+
         private void UpdateBusinessObjects() {
             IEnumerable<Document> businessObjects = businessObjectProcessor.Get();
 
             if (businessObjects.Count() > 0) {
-                lbSchools.ItemsSource = businessObjects;
+                lbDocuments.ItemsSource = businessObjects;
             }
             else {
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
-                    // TODO:
-                    Content = "Keine Schulen gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Schule zu erstellen.",
+                    Content = "Keine Dokumente gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neues Dokument zu erstellen.",
                     FontSize = 10,
                     IsEnabled = false
                 };
-                lbSchools.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
+                lbDocuments.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
         }
 
 
-        private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
-            //TODO:
-            //IBusinessObjectManager addBusinessObjectManager = new ManageDocument() { Owner = this };
-            //addBusinessObjectManager.ShowDialog();
-            //return addBusinessObjectManager.Action;
-
-            return BusinessObjectManagerAction.Undefined;
-        }
-
-        private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
-            // TODO:
-            //IBusinessObjectManager editBusinessObjectManager = new ManageDocument((Document)lbSchools.SelectedItem) { Owner = this };
-            //editBusinessObjectManager.ShowDialog();
-            //return editBusinessObjectManager.Action;
-
-            return BusinessObjectManagerAction.Undefined;
-        }
-
         private bool CheckForElementDeletion() {
-            if (Common.AskForElementDeletion("Wollen Sie dieses Dokument wirklich löschen?", "Dokument")) {
-                businessObjectProcessor.Delete((Document)lbSchools.SelectedItem);
+            if (Common.AskForElementDeletion("Wollen Sie die Verknüpfung zu diesem Dokument wirklich löschen? Das Dokument selbst wird dabei nicht gelöscht.", "Verknüpfung zu Dokument")) {
+                businessObjectProcessor.Delete((Document)lbDocuments.SelectedItem);
                 return true;
             }
 
             return false;
         }
-        
+
         private void UpdateControlsAvailability() {
-            bool isBusinessObjectSelected = lbSchools.SelectedIndex != -1;
-            
-            // TODO:
-           //foreach (Button button in new Button[] { btnEdit, btnDelete }) {
-           //    button.IsEnabled = isBusinessObjectSelected;
-           //}
+            foreach (Button button in new Button[] { btnOpen, btnDelete }) {
+                button.IsEnabled = SelectedBusinessObject != null;
+            }
         }
 
         #endregion
@@ -87,28 +70,47 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
 
-        // TODO
-        private void lbSchools_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+        private void lbDocuments_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             UpdateControlsAvailability();
         }
 
 
+        private void btnOpenFolder_Click(object sender, RoutedEventArgs e) {
+            if (SelectedBusinessObject != null) {
+                // TODO:
+                Process.Start("explorer.exe", "/select," + "FILESTOSELECT");
+            }
+            else {
+                // TODO: 
+                Process.Start("explorer.exe", "FOLDER");
+            }            
+        }
+
         private void btnAdd_Click(object sender, RoutedEventArgs e) {
-            if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
-                UpdateBusinessObjects();
+            var openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            openFileDialog.DefaultExt = ".docx";
+            openFileDialog.Filter = @"Word documents (.docx)|*.docx
+                                     |Text documents (.txt)|*.txt
+                                     |All (.*)|*.*";
+            openFileDialog.CheckFileExists = true;
+            openFileDialog.CheckPathExists = true;
+            openFileDialog.ValidateNames = true;
+
+            Nullable<bool> result = openFileDialog.ShowDialog();
+            if (result == true) {
+                // TODO:
+                string filename = openFileDialog.FileName;
+                
             }
         }
 
-        private void btnEdit_Click(object sender, RoutedEventArgs e) {
-            if (OpenEditBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
-                UpdateBusinessObjects();
-            }
+        private void btnOpen_Click(object sender, RoutedEventArgs e) {
+            // TODO:
+            Process.Start("FILENAME");
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e) {
-            if (CheckForElementDeletion()) {
-                UpdateBusinessObjects();
-            }
+            // TODO:
         }
 
         #endregion
