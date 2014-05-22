@@ -20,9 +20,13 @@ namespace VrankenBischof.Docxes.Data {
 
 
         private List<Grade> Get(LocalDatabaseContainer container) {
-            return (from Grade grade
-                    in container.Grades
-                    select grade).ToList();
+            return (from
+                        Grade grade
+                    in
+                        container.Grades
+                    select
+                        grade
+                    ).ToList();
         }
 
         public override List<Grade> Get() {

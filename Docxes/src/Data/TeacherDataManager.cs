@@ -21,9 +21,14 @@ namespace VrankenBischof.Docxes.Data {
 
 
         private List<Teacher> Get(LocalDatabaseContainer container) {
-            return (from Teacher Teacher
-                    in container.Teachers.Include<Func<Subject, Subject>>
-                    select Teacher).ToList();
+            return (from
+                        Teacher teacher
+                    in
+                        container.Teachers
+                            .Include(businessObject => businessObject.Subjects)
+                    select
+                        teacher
+                    ).ToList();
         }
 
         public override List<Teacher> Get() {

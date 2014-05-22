@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Entity;
 
 namespace VrankenBischof.Docxes.Data {
 
@@ -20,9 +21,17 @@ namespace VrankenBischof.Docxes.Data {
 
 
         private List<Subject> Get(LocalDatabaseContainer container) {
-            return (from Subject Subject
-                    in container.Subjects
-                    select Subject).ToList();
+            return (from
+                        Subject subject
+                    in
+                        container.Subjects
+                            .Include(businessObject => businessObject.Documents)
+                            .Include(businessObject => businessObject.Notes)
+                            .Include(businessObject => businessObject.Grades)
+                            .Include(businessObject => businessObject.Events)
+                    select
+                        subject
+                    ).ToList();
         }
 
         public override List<Subject> Get() {

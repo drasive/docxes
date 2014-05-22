@@ -20,9 +20,13 @@ namespace VrankenBischof.Docxes.Data {
 
 
         private List<Event> Get(LocalDatabaseContainer container) {
-            return (from Event Event
-                    in container.Events
-                    select Event).ToList();
+            return (from
+                        Event @event
+                    in
+                        container.Events
+                    select
+                        @event
+                    ).ToList();
         }
 
         public override List<Event> Get() {
