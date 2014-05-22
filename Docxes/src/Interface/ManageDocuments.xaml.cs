@@ -36,7 +36,7 @@ namespace VrankenBischof.Docxes.Interface {
             }
             else {
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
-                    Content = "Keine Dokumente gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neues Dokument zu erstellen.",
+                    Content = "Keine Dokumente gefunden.\nKlicken Sie auf \"Hinzufügen\" um ein Dokument hinzuzufügen.",
                     FontSize = 10,
                     IsEnabled = false
                 };

@@ -1,29 +1,29 @@
 ﻿namespace VrankenBischof.Docxes {
 
-    [System.Diagnostics.DebuggerDisplay("Id: {Id}, Name: {Name}, Comment: {Comment}, Subject: {Subject}, Event: {Event}")]
+    [System.Diagnostics.DebuggerDisplay("Id: {Id}, FilePath: {FilePath}, Subject: {Subject}")]
     public partial class Document : IBusinessObject {
 
         public Document() {
             // Required for LINQ
-        }   
-
-        public Document(string name, byte[] content, string comment, Subject subject, Event @event) {
-            Name = name;
-            Content = content;
-            Comment = comment;
-            Subject = subject;
-            // TODO:
-            //Event = @event;
         }
 
-        public Document(Document businessObjectEditing, string name, byte[] content, string comment, Subject subject, Event @event)
-            : this(name, content, comment, subject, @event) {
+        public Document(string filePath, Subject subject) {
+            FilePath = filePath;
+            Subject = subject;
+        }
+
+        public Document(Document businessObjectEditing, string filePath, Subject subject)
+            : this(filePath, subject) {
             Id = businessObjectEditing.Id;
         }
 
 
         public override string ToString() {
-            return Name;
+            // TODO:
+
+            //return Name;
+
+            return FilePath;
         }
 
     }
