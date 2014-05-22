@@ -6,7 +6,12 @@ using System.Text;
 namespace VrankenBischof.Docxes.Data {
 
     abstract class BusinessObjectDataManager<T> where T: Docxes.IBusinessObject {
-        
+
+        protected LocalDatabaseContainer GetDatabaseContainer() {
+            return new LocalDatabaseContainer();
+        }
+
+
         public abstract void Create(T businessObjectToSave);
 
         public abstract List<T> Get();

@@ -13,8 +13,6 @@ using System.Windows.Shapes;
 
 namespace VrankenBischof.Docxes.Interface {
 
-    // TODO: Interface
-
     /// <summary>
     /// Interaction logic for <see cref="ManageNote.xaml"/>
     /// </summary>

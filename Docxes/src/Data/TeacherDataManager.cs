@@ -12,10 +12,9 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("objectToSave");
             }
 
-            using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
-                container.Teachers.Add(objectToSave);
-                container.SaveChanges();
-            }
+            var container = GetDatabaseContainer();
+            container.Teachers.Add(objectToSave);
+            container.SaveChanges();
         }
 
 
@@ -26,15 +25,15 @@ namespace VrankenBischof.Docxes.Data {
         }
 
         public override List<Teacher> Get() {
-            using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
-                return Get(container);
-            }
+            var container = GetDatabaseContainer();
+            return Get(container);
         }
 
         public override Teacher Get(int id) {
-            using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
-                return Get(container).First(databaseElement => databaseElement.Id == id);
-            }
+            // TODO: Use a functional style condition as the parameter in all of these classes
+
+            var container = GetDatabaseContainer();
+            return Get(container).First(databaseElement => databaseElement.Id == id);
         }
 
 
@@ -62,11 +61,10 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("objectToDelete");
             }
 
-            using (LocalDatabaseContainer container = new LocalDatabaseContainer()) {
-                var databaseObjectToDelete = Get(container).First(databaseElement => databaseElement.Id == objectToDelete.Id);
-                container.Teachers.Remove(databaseObjectToDelete);
-                container.SaveChanges();
-            }
+            var container = GetDatabaseContainer();
+            var databaseObjectToDelete = Get(container).First(databaseElement => databaseElement.Id == objectToDelete.Id);
+            container.Teachers.Remove(databaseObjectToDelete);
+            container.SaveChanges();
         }
 
     }

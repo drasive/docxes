@@ -27,6 +27,7 @@ namespace VrankenBischof.Docxes.Interface {
         private void UpdateBusinessObjectParents() {
             IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get();
             cbSubjects.ItemsSource = businessObjectParents;
+            cbSubjects.SelectedIndex = 0;
         }
 
 

@@ -49,6 +49,10 @@ namespace VrankenBischof.Docxes.BusinessLogic {
                 throw new ArgumentNullException("objectToDelete");
             }
 
+            // Remove dependencies
+            // TODO: Remove dependencies from Notes and 
+
+            // Delete object
             dataManager.Delete(objectToDelete);
         }
 
