@@ -13,7 +13,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
-        public override bool AreRequirementsMetToCreate() {
+        public override bool CanCreate() {
             var subjectProcessor = new BusinessLogic.SubjectProcessor();
             return subjectProcessor.Get().Count > 0;
         }

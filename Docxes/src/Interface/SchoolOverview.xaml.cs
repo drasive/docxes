@@ -70,7 +70,7 @@ namespace VrankenBischof.Docxes.Interface {
         // TODO: Enhance this temporary solution
 
         private void btnDocuments_Click(object sender, RoutedEventArgs e) {
-            if (documentProcessor.AreRequirementsMetToCreate()) {
+            if (documentProcessor.CanCreate()) {
                 var window = new ManageDocuments();
                 window.ShowDialog();
             }
@@ -85,7 +85,7 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private void btnGrades_Click(object sender, RoutedEventArgs e) {
-            if (gradeProcessor.AreRequirementsMetToCreate()) {
+            if (gradeProcessor.CanCreate()) {
                 var window = new ManageGrades();
                 window.ShowDialog();
             }
@@ -95,7 +95,7 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private void btnNotes_Click(object sender, RoutedEventArgs e) {
-            if (noteProcessor.AreRequirementsMetToCreate()) {
+            if (noteProcessor.CanCreate()) {
                 var window = new ManageNotes();
                 window.ShowDialog();
             }
@@ -105,7 +105,7 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private void btnSubjects_Click(object sender, RoutedEventArgs e) {
-            if (subjectProcessor.AreRequirementsMetToCreate()) {
+            if (subjectProcessor.CanCreate()) {
                 var window = new ManageSubjects();
                 window.ShowDialog();
             }

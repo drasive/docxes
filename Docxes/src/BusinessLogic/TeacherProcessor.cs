@@ -13,7 +13,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
-        public override bool AreRequirementsMetToCreate() {
+        public override bool CanCreate() {
             return true;
         }
 

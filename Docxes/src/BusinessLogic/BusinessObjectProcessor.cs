@@ -10,7 +10,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
 
         protected BusinessObjectDataManager<T> dataManager;
 
-        public abstract bool AreRequirementsMetToCreate();
+        public abstract bool CanCreate();
         public abstract void Create(T businessObjectToSave);
 
         public abstract List<T> Get();
