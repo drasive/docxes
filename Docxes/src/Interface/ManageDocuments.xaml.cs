@@ -27,7 +27,7 @@ namespace VrankenBischof.Docxes.Interface {
             IEnumerable<Document> businessObjects = businessObjectProcessor.Get();
 
             if (businessObjects.Count() > 0) {
-                lbSchools.DataContext = businessObjects;
+                lbSchools.ItemsSource = businessObjects;
             }
             else {
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
@@ -36,7 +36,7 @@ namespace VrankenBischof.Docxes.Interface {
                     FontSize = 10,
                     IsEnabled = false
                 };
-                lbSchools.DataContext = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
+                lbSchools.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
         }
 

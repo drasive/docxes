@@ -10,24 +10,19 @@
         WindowStartupLocation="CenterScreen">
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="35" />
             <RowDefinition />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        <ComboBox x:Name="cbSubject" Margin="10,10,296,21"/>
-        <TextBlock x:Name="tblInstructions"
-                   HorizontalAlignment="Left"
-                   Margin="10,0,0,5"
-                   TextWrapping="Wrap"
-                   Text="Wählen Sie das Dokument aus, die Sie verwalten möchten:"
-                   Height="16"
-                   VerticalAlignment="Bottom" />
+        <ComboBox x:Name="cbSubject"
+                  Margin="78,10,228,0"
+                  Height="19"
+                  VerticalAlignment="Top" />
         <ListBox x:Name="lbSchools"
-                 Margin="10,5,10,5"
+                 Margin="10,31,10,5"
                  Grid.Row="1"
                  SelectionChanged="lbSchools_SelectionChanged"
-                 ItemsSource="{Binding}"
-                 DisplayMemberPath="Name" />
+                 ItemsSource="{Binding}" />
         <Button x:Name="btnAdd"
                 Content="Hinzufügen"
                 Margin="0,5,90,0"
@@ -47,5 +42,14 @@
                 RenderTransformOrigin="0.505,0.333"
                 Click="btnDelete_Click"
                 Height="25" />
+        <TextBlock x:Name="tblInstructions"
+                   HorizontalAlignment="Left"
+                   Margin="10,0,0,170"
+                   TextWrapping="Wrap"
+                   Text="Wählen Sie das Dokument aus, die Sie verwalten möchten:"
+                   Height="16"
+                   VerticalAlignment="Bottom"
+                   Grid.Row="1"
+                   Width="309" />
     </Grid>
 </Window>

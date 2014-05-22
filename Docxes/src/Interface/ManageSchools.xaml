@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen">
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="30" />
             <RowDefinition />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
@@ -23,17 +23,17 @@
                    VerticalAlignment="Top" />
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
-                   Margin="10,0,0,5"
+                   Margin="10,0,0,175"
                    TextWrapping="Wrap"
                    Text="Wählen Sie die Schule aus, die Sie verwalten möchten:"
                    Height="16"
-                   VerticalAlignment="Bottom" />
+                   VerticalAlignment="Bottom"
+                   Grid.Row="1" />
         <ListBox x:Name="lbSchools"
-                 Margin="10,5,10,5"
+                 Margin="10,31,10,5"
                  Grid.Row="1"
                  SelectionChanged="lbSchools_SelectionChanged"
-                 ItemsSource="{Binding}"
-                 DisplayMemberPath="Name" />
+                 ItemsSource="{Binding}" />
         <Button x:Name="btnSelect"
                 Content="Auswählen"
                 HorizontalAlignment="Left"

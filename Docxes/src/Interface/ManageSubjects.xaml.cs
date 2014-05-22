@@ -22,14 +22,13 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
-        // ASK: Use property or method?
-        private Teacher SelectedBusinessObjectParent { get { return (Teacher)lbTeachers.SelectedItem; } }
+        // ASK: Use property or method? Change for all classes this is used in
+        private Teacher SelectedBusinessObjectParent { get { return (Teacher)cbTeachers.SelectedItem; } }
 
         private void UpdateBusinessObjectParents() {
             IEnumerable<Teacher> businessObjectParents = businessObjectParentProcessor.Get();
-            lbTeachers.DataContext = businessObjectParents;
-            // TODO: _
-            //lbTeachers.SelectedIndex = 0;
+            cbTeachers.ItemsSource = businessObjectParents;
+            cbTeachers.SelectedIndex = 0;
         }
 
 
@@ -37,7 +36,7 @@ namespace VrankenBischof.Docxes.Interface {
             IEnumerable<Subject> businessObjects = businessObjectProcessor.Get();
 
             if (businessObjects.Count() > 0) {
-                lbSubjects.DataContext = businessObjects;
+                lbSubjects.ItemsSource = businessObjects;
             }
             else {
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
@@ -45,7 +44,7 @@ namespace VrankenBischof.Docxes.Interface {
                     FontSize = 10,
                     IsEnabled = false
                 };
-                lbSubjects.DataContext = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
+                lbSubjects.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
         }
 

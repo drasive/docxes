@@ -5,13 +5,12 @@ using System.Windows.Controls;
 
 namespace VrankenBischof.Docxes.Interface {
 
-    // TODO: Interface
-
     /// <summary>
     /// Interaction logic for <see cref="ManageNotes.xaml"/>
     /// </summary>
     public sealed partial class ManageNotes : Window {
 
+        private BusinessLogic.BusinessObjectProcessor<Subject> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
         private BusinessLogic.BusinessObjectProcessor<Note> businessObjectProcessor = new BusinessLogic.NoteProcessor();
 
 
@@ -23,51 +22,55 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
+        private Subject SelectedBusinessObjectParent { get { return (Subject)cbSubjects.SelectedItem; } }
+
+        private void UpdateBusinessObjectParents() {
+            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get();
+            cbSubjects.ItemsSource = businessObjectParents;
+        }
+
+
         private void UpdateBusinessObjects() {
             IEnumerable<Note> businessObjects = businessObjectProcessor.Get();
 
             if (businessObjects.Count() > 0) {
-                lbSchools.DataContext = businessObjects;
+                lbNotes.ItemsSource = businessObjects;
             }
             else {
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
-                    // TODO:
-                    Content = "Keine Schulen gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Schule zu erstellen.",
+                    Content = "Keine Notizen für dieses Fach gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Notiz zu erstellen.",
                     FontSize = 10,
                     IsEnabled = false
                 };
-                lbSchools.DataContext = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
+                lbNotes.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
         }
 
 
         private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
-            //TODO:
-            IBusinessObjectManager addBusinessObjectManager = new ManageNote() { Owner = this };
-            //addBusinessObjectManager.ShowDialog();
-            return addBusinessObjectManager.Action;
+            Window addBusinessObjectManager = new ManageNote(SelectedBusinessObjectParent) { Owner = this };
+            addBusinessObjectManager.ShowDialog();
+            return ((IBusinessObjectManager)addBusinessObjectManager).Action;
         }
 
         private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
-            // TODO:
-            IBusinessObjectManager editBusinessObjectManager = new ManageNote((Note)lbSchools.SelectedItem) { Owner = this };
-            //editBusinessObjectManager.ShowDialog();
-            return editBusinessObjectManager.Action;
+            Window editBusinessObjectManager = new ManageNote(SelectedBusinessObjectParent, (Note)lbNotes.SelectedItem) { Owner = this };
+            editBusinessObjectManager.ShowDialog();
+            return ((IBusinessObjectManager)editBusinessObjectManager).Action;
         }
 
         private bool CheckForElementDeletion() {
-            // TODO:
-            if (Common.AskForElementDeletion("Wollen Sie diese Schule und alle zugehörigen Daten (Lehrer, Fächer, Ereignisse, Dokumente, Notizen und Noten) wirklich löschen?", "Schule")) {
-                businessObjectProcessor.Delete((Note)lbSchools.SelectedItem);
+            if (Common.AskForElementDeletion("Wollen Sie diese Notiz wirklich löschen?", "Notiz")) {
+                businessObjectProcessor.Delete((Note)lbNotes.SelectedItem);
                 return true;
             }
 
             return false;
         }
-        
+
         private void UpdateControlsAvailability() {
-            bool isBusinessObjectSelected = lbSchools.SelectedIndex != -1;
-            
+            bool isBusinessObjectSelected = lbNotes.SelectedIndex != -1;
+
             foreach (Button button in new Button[] { btnEdit, btnDelete }) {
                 button.IsEnabled = isBusinessObjectSelected;
             }
@@ -78,13 +81,13 @@ namespace VrankenBischof.Docxes.Interface {
         #region Event wiring
 
         private void wManageNotes_Loaded(object sender, RoutedEventArgs e) {
+            UpdateBusinessObjectParents();
             UpdateBusinessObjects();
             UpdateControlsAvailability();
         }
 
 
-        // TODO:
-        private void lbSchools_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+        private void lbNotes_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             UpdateControlsAvailability();
         }
 

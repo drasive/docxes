@@ -26,7 +26,8 @@ namespace VrankenBischof.Docxes.Interface {
             IEnumerable<School> businessObjects = businessObjectProcessor.Get();
 
             if (businessObjects.Count() > 0) {
-                lbSchools.DataContext = businessObjects;
+                lbSchools.ItemsSource = businessObjects;
+                lbSchools.SelectedIndex = 0;
             }
             else {
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
@@ -34,7 +35,7 @@ namespace VrankenBischof.Docxes.Interface {
                     FontSize = 10,
                     IsEnabled = false
                 };
-                lbSchools.DataContext = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
+                lbSchools.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
         }
 
@@ -65,10 +66,10 @@ namespace VrankenBischof.Docxes.Interface {
 
             return false;
         }
-        
+
         private void UpdateControlsAvailability() {
             bool isBusinessObjectSelected = lbSchools.SelectedIndex != -1;
-            
+
             foreach (Button button in new Button[] { btnSelect, btnEdit, btnDelete }) {
                 button.IsEnabled = isBusinessObjectSelected;
             }

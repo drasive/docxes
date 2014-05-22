@@ -21,6 +21,7 @@ namespace VrankenBischof.Docxes.Interface {
         private Teacher businessObjectParent;
         private Subject businessObjectEditing;
 
+        private BusinessLogic.BusinessObjectProcessor<Teacher> businessObjectParentProcessor = new BusinessLogic.TeacherProcessor();
         private BusinessLogic.BusinessObjectProcessor<Subject> businessObjectProcessor = new BusinessLogic.SubjectProcessor();
 
 
@@ -41,6 +42,8 @@ namespace VrankenBischof.Docxes.Interface {
                 Title = "Fach hinzufügen";
             }
             Common.ExtendWindowName(this);
+
+            UpdateBusinessObjectParants();
         }
 
         public ManageSubject(Teacher businessObjectToAddParent) {
@@ -49,6 +52,10 @@ namespace VrankenBischof.Docxes.Interface {
             }
 
             Initialize(businessObjectToAddParent, null);
+
+            // TODO: Fix
+            //cbTeacher.SelectedItem = businessObjectParent;
+            cbTeacher.SelectedIndex = 0;
         }
 
         public ManageSubject(Teacher businessObjectToEditParent, Subject businessObjectToEdit) {
@@ -73,11 +80,13 @@ namespace VrankenBischof.Docxes.Interface {
 
         private bool Save() {
             if (ValidateInput()) {
+                var businessObjectToSave = MapInterfaceToElement();
+
                 if (IsEditing) {
-                    businessObjectProcessor.Update(MapInterfaceToElement());
+                    businessObjectProcessor.Update(businessObjectToSave);
                 }
                 else {
-                    businessObjectProcessor.Create(MapInterfaceToElement());
+                    businessObjectProcessor.Create(businessObjectToSave);
                 }
                 return true;
             }
@@ -92,6 +101,12 @@ namespace VrankenBischof.Docxes.Interface {
         #endregion
 
         #region Interface
+
+        private void UpdateBusinessObjectParants() {
+            IEnumerable<Teacher> businessObjectParents = businessObjectParentProcessor.Get();
+            cbTeacher.ItemsSource = businessObjectParents;
+        }
+
 
         private void MapElementToInterface(Subject businessObjectToMap) {
             if (businessObjectToMap == null) {

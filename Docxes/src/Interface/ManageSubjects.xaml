@@ -10,21 +10,19 @@
         WindowStartupLocation="CenterScreen">
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
-            <RowDefinition Height="45" />
+            <RowDefinition Height="40" />
             <RowDefinition />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        <ComboBox x:Name="lbTeachers"
+        <ComboBox x:Name="cbTeachers"
                   Margin="61,13,0,0"
                   Height="20"
                   VerticalAlignment="Top"
                   Width="150"
                   HorizontalAlignment="Left" />
         <ListBox x:Name="lbSubjects"
-                 Margin="10"
+                 Margin="10,31,10,10"
                  SelectionChanged="lbSubjects_SelectionChanged"
-                 ItemsSource="{Binding}"
-                 DisplayMemberPath="Name"
                  Grid.Row="1" />
         <Button x:Name="btnAdd"
                 Content="Hinzufügen"
@@ -61,5 +59,14 @@
                Height="26"
                VerticalAlignment="Top"
                RenderTransformOrigin="1.819,2.949" />
+        <TextBlock x:Name="tblInstructions"
+                   HorizontalAlignment="Left"
+                   TextWrapping="Wrap"
+                   Text="Wählen Sie das Fach aus, die Sie verwalten möchten:"
+                   Width="286"
+                   Height="16"
+                   VerticalAlignment="Top"
+                   Margin="10,10,0,0"
+                   Grid.Row="1" />
     </Grid>
 </Window>

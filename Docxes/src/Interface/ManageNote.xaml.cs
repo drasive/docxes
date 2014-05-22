@@ -20,34 +20,48 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public partial class ManageNote : Window, IBusinessObjectManager {
 
+        private Subject businessObjectParent;
         private Note businessObjectEditing;
 
         private BusinessLogic.BusinessObjectProcessor<Note> businessObjectProcessor = new BusinessLogic.NoteProcessor();
 
 
-        private void Initialize() {
+        private void Initialize(Subject businessObjectParent, Note businessObjectToEdit) {
+            if (businessObjectParent == null) {
+                throw new ArgumentNullException("businessObjectParent");
+            }
+
+            this.businessObjectParent = businessObjectParent;
+            this.businessObjectEditing = businessObjectToEdit;
+
             InitializeComponent();
 
             if (IsEditing) {
-                Title = "Fach bearbeiten";
+                Title = "Notiz bearbeiten";
             }
             else {
-                Title = "Fach hinzufügen";
+                Title = "Notiz hinzufügen";
             }
             Common.ExtendWindowName(this);
         }
 
-        public ManageNote() {
-            Initialize();
+        public ManageNote(Subject businessObjectToAddParent) {
+            if (businessObjectToAddParent == null) {
+                throw new ArgumentNullException("businessObjectToAddParent");
+            }
+
+            Initialize(businessObjectToAddParent, null);
         }
 
-        public ManageNote(Note businessObjectToEdit) {
+        public ManageNote(Subject businessObjectToEditParent, Note businessObjectToEdit) {
+            if (businessObjectToEditParent == null) {
+                throw new ArgumentNullException("businessObjectToEditParent");
+            }
             if (businessObjectToEdit == null) {
                 throw new ArgumentNullException("businessObjectToEdit");
             }
 
-            this.businessObjectEditing = businessObjectToEdit;
-            Initialize();
+            Initialize(businessObjectToEditParent, businessObjectToEdit);
 
             MapElementToInterface(businessObjectToEdit);
         }
@@ -61,11 +75,13 @@ namespace VrankenBischof.Docxes.Interface {
 
         private bool Save() {
             if (ValidateInput()) {
+                var BusinessObjectToSave = MapInterfaceToElement();
+
                 if (IsEditing) {
-                    //businessObjectProcessor.Update(MapInterfaceToElement());
+                    businessObjectProcessor.Update(BusinessObjectToSave);
                 }
                 else {
-                    //businessObjectProcessor.Create(MapInterfaceToElement());
+                    businessObjectProcessor.Create(BusinessObjectToSave);
                 }
                 return true;
             }
@@ -86,26 +102,22 @@ namespace VrankenBischof.Docxes.Interface {
                 throw new ArgumentNullException("businessObjectToMap");
             }
 
-            // TODO:
-            //tbName.Text = businessObjectToMap.Name;
-            //cbTeacher.SelectedItem = businessObjectToMap.Teacher;
+            tbName.Text = businessObjectToMap.Name;
+            tbContent.Text = businessObjectToMap.Content;
         }
 
         private Note MapInterfaceToElement() {
-            // TODO:
             if (IsEditing) {
-                //return new Note(businessObjectEditing, tbName.Text, (Teacher)cbTeacher.SelectedItem);
+                return new Note(businessObjectEditing, tbName.Text, tbContent.Text, businessObjectParent, null);
             }
             else {
-                //return new Note(tbName.Text, (Teacher)cbTeacher.SelectedItem);
+                return new Note(tbName.Text, tbContent.Text, businessObjectParent , null);
             }
-
-            return null;
         }
 
 
         private bool ValidateInput() {
-            return InputValidation.ValidateInput(tbName);
+            return InputValidation.ValidateInput(tbName) & InputValidation.ValidateInput(tbContent);
         }
 
         #endregion

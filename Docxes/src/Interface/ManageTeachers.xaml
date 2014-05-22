@@ -16,8 +16,7 @@
         <ListBox x:Name="lbTeachers"
                  Margin="10,5,10,5"
                  SelectionChanged="lbTeachers_SelectionChanged"
-                 ItemsSource="{Binding}"
-                 DisplayMemberPath="Name" />
+                 ItemsSource="{Binding}" />
         <Button x:Name="btnAdd"
                 Content="Hinzufügen"
                 Margin="0,5,170,0"

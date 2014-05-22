@@ -32,7 +32,7 @@ namespace VrankenBischof.Docxes.Interface {
             IEnumerable<Teacher> businessObjects = businessObjectProcessor.Get();
 
             if (businessObjects.Count() > 0) {
-                lbTeachers.DataContext = businessObjects;
+                lbTeachers.ItemsSource = businessObjects;
             }
             else {
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
@@ -40,7 +40,7 @@ namespace VrankenBischof.Docxes.Interface {
                     FontSize = 10,
                     IsEnabled = false
                 };
-                lbTeachers.DataContext = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
+                lbTeachers.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
         }
 
