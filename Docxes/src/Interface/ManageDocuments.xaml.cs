@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Diagnostics;
 using System;
+using System.IO;
 
 namespace VrankenBischof.Docxes.Interface {
 
@@ -25,6 +26,14 @@ namespace VrankenBischof.Docxes.Interface {
         #region Interface
 
         private Subject SelectedBusinessObjectParent { get { return (Subject)cbSubject.SelectedItem; } }
+
+        private void UpdateBusinessObjectParents() {
+            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get();
+            cbSubject.ItemsSource = businessObjectParents;
+            cbSubject.SelectedIndex = 0;
+        }
+
+
         // TODO: Use in all classes like this
         private Document SelectedBusinessObject { get { return (Document)lbDocuments.SelectedItem; } }
 
@@ -45,6 +54,18 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
 
+        private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
+            ManageDocument addBusinessObjectManager = new ManageDocument(SelectedBusinessObjectParent);
+            addBusinessObjectManager.Add();
+            return ((IBusinessObjectManager)addBusinessObjectManager).Action;
+        }
+
+        private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
+            ManageDocument editBusinessObjectManager = new ManageDocument(SelectedBusinessObjectParent, SelectedBusinessObject);
+            editBusinessObjectManager.Edit();
+            return ((IBusinessObjectManager)editBusinessObjectManager).Action;
+        }
+
         private bool CheckForElementDeletion() {
             if (Common.AskForElementDeletion("Wollen Sie die Verknüpfung zu diesem Dokument wirklich löschen? Das Dokument selbst wird dabei nicht gelöscht.", "Verknüpfung zu Dokument")) {
                 businessObjectProcessor.Delete((Document)lbDocuments.SelectedItem);
@@ -55,7 +76,7 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private void UpdateControlsAvailability() {
-            foreach (Button button in new Button[] { btnOpen, btnDelete }) {
+            foreach (Button button in new Button[] { btnOpen, btnOpenFolder, btnEdit, btnDelete }) {
                 button.IsEnabled = SelectedBusinessObject != null;
             }
         }
@@ -65,6 +86,7 @@ namespace VrankenBischof.Docxes.Interface {
         #region Event wiring
 
         private void wManageDocuments_Loaded(object sender, RoutedEventArgs e) {
+            UpdateBusinessObjectParents();
             UpdateBusinessObjects();
             UpdateControlsAvailability();
         }
@@ -75,42 +97,30 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
 
-        private void btnOpenFolder_Click(object sender, RoutedEventArgs e) {
-            if (SelectedBusinessObject != null) {
-                // TODO:
-                Process.Start("explorer.exe", "/select," + "FILESTOSELECT");
-            }
-            else {
-                // TODO: 
-                Process.Start("explorer.exe", "FOLDER");
-            }            
-        }
-
         private void btnAdd_Click(object sender, RoutedEventArgs e) {
-            var openFileDialog = new Microsoft.Win32.OpenFileDialog();
-            openFileDialog.DefaultExt = ".docx";
-            openFileDialog.Filter = @"Word documents (.docx)|*.docx
-                                     |Text documents (.txt)|*.txt
-                                     |All (.*)|*.*";
-            openFileDialog.CheckFileExists = true;
-            openFileDialog.CheckPathExists = true;
-            openFileDialog.ValidateNames = true;
-
-            Nullable<bool> result = openFileDialog.ShowDialog();
-            if (result == true) {
-                // TODO:
-                string filename = openFileDialog.FileName;
-                
+            if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                UpdateBusinessObjects();
             }
         }
 
         private void btnOpen_Click(object sender, RoutedEventArgs e) {
-            // TODO:
-            Process.Start("FILENAME");
+            Process.Start(SelectedBusinessObject.FilePath);
+        }
+
+        private void btnOpenFolder_Click(object sender, RoutedEventArgs e) {
+            Process.Start("explorer.exe", "/select," + SelectedBusinessObject.FilePath);
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e) {
+            if (OpenEditBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                UpdateBusinessObjects();
+            }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e) {
-            // TODO:
+            if (CheckForElementDeletion()) {
+                UpdateBusinessObjects();
+            }
         }
 
         #endregion

@@ -151,6 +151,10 @@
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="src\DocumentExtension.cs" />
+    <Compile Include="src\Interface\ManageDocument.cs" />
+    <Compile Include="src\Interface\ManageDocuments.xaml.cs">
+      <DependentUpon>ManageDocuments.xaml</DependentUpon>
+    </Compile>
     <Compile Include="src\Interface\ManageNote.xaml.cs">
       <DependentUpon>ManageNote.xaml</DependentUpon>
     </Compile>
@@ -171,9 +175,6 @@
     </Compile>
     <Compile Include="src\Interface\ManageNotes.xaml.cs">
       <DependentUpon>ManageNotes.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="src\Interface\ManageDocuments.xaml.cs">
-      <DependentUpon>ManageDocuments.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\Interface\ManageEvents.xaml.cs">
       <DependentUpon>ManageEvents.xaml</DependentUpon>
@@ -264,6 +265,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="src\Interface\ManageDocuments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="src\Interface\ManageNote.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -289,10 +294,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="src\Interface\ManageNotes.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="src\Interface\ManageDocuments.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

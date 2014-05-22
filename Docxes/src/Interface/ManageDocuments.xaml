@@ -32,7 +32,7 @@
                   HorizontalAlignment="Left" />
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
-                   Margin="10,0,0,170"
+                   Margin="10,0,0,165"
                    TextWrapping="Wrap"
                    Text="Wählen Sie das Dokument aus, die Sie verwalten möchten:"
                    Height="16"
@@ -40,22 +40,22 @@
                    Grid.Row="1"
                    Width="309" />
         <ListBox x:Name="lbDocuments"
-                 Margin="10,26,10,5"
+                 Margin="10,31,10,5"
                  Grid.Row="1"
                  SelectionChanged="lbDocuments_SelectionChanged"
                  ItemsSource="{Binding}" />
         <Button x:Name="btnOpenFolder"
                 Content="Ordner öffnen"
-                Margin="10,5,0,0"
+                Margin="0,5,170,0"
                 Grid.Row="2"
                 Height="25"
                 VerticalAlignment="Top"
                 Click="btnOpenFolder_Click"
-                HorizontalAlignment="Left"
+                HorizontalAlignment="Right"
                 Width="100" />
         <Button x:Name="btnAdd"
                 Content="Hinzufügen"
-                Margin="0,5,170,0"
+                Margin="0,5,355,0"
                 Grid.Row="2"
                 Height="25"
                 VerticalAlignment="Top"
@@ -64,7 +64,7 @@
                 Width="75" />
         <Button x:Name="btnOpen"
                 Content="Öffnen"
-                Margin="0,5,90,0"
+                Margin="0,5,275,0"
                 Grid.Row="2"
                 Height="25"
                 VerticalAlignment="Top"
@@ -80,6 +80,16 @@
                 Grid.Row="2"
                 RenderTransformOrigin="0.505,0.333"
                 Click="btnDelete_Click"
+                Height="25" />
+        <Button x:Name="btnEdit"
+                Content="Bearbeiten"
+                HorizontalAlignment="Right"
+                Margin="0,5,90,0"
+                VerticalAlignment="Top"
+                Width="75"
+                Grid.Row="2"
+                RenderTransformOrigin="0.505,0.333"
+                Click="btnEdit_Click"
                 Height="25" />
     </Grid>
 </Window>
