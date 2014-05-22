@@ -14,7 +14,8 @@ namespace VrankenBischof.Docxes.BusinessLogic {
 
 
         public override bool AreRequirementsMetToCreate() {
-            return true;
+            var subjectProcessor = new BusinessLogic.SubjectProcessor();
+            return subjectProcessor.Get().Count > 0;
         }
 
         public override void Create(Document objectToSave) {

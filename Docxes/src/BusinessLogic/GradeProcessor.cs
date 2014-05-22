@@ -13,6 +13,11 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
+        public override bool AreRequirementsMetToCreate() {
+            var subjectProcessor = new BusinessLogic.SubjectProcessor();
+            return subjectProcessor.Get().Count > 0;
+        }
+
         public override void Create(Grade objectToSave) {
             if (objectToSave == null) {
                 throw new ArgumentNullException("objectToSave");
@@ -21,10 +26,6 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             dataManager.Create(objectToSave);
         }
 
-
-        public override bool AreRequirementsMetToCreate() {
-            return true;
-        }
 
         public override List<Grade> Get() {
             return dataManager.Get();

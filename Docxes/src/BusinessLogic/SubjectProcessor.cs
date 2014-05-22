@@ -14,7 +14,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
 
 
         public override bool AreRequirementsMetToCreate() {
-            // ASK Is this legit?
+            // ASK Is this legit? If not, update in all Processors
             var teacherProcessor = new BusinessLogic.TeacherProcessor();
             return teacherProcessor.Get().Count > 0;
         }
