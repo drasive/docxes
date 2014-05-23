@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
+// TODO: Use MVVM?
 namespace VrankenBischof.Docxes.Interface {
 
     /// <summary>

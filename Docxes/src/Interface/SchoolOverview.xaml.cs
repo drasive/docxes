@@ -28,10 +28,10 @@ namespace VrankenBischof.Docxes.Interface {
         private BusinessLogic.BusinessObjectProcessor<Note, Subject> noteProcessor = new BusinessLogic.NoteProcessor();
         private BusinessLogic.BusinessObjectProcessor<Grade, Subject> gradeProcessor = new BusinessLogic.GradeProcessor();
 
-        
+
         public SchoolOverview(School school) {
             InitializeComponent();
-            
+
             this.school = school;
 
             // TODO: Check if there are subjects and ask to create
@@ -45,6 +45,30 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
+        private void UpdateBusinessObjects() {
+            // Get business objects
+            var businessObjects = new List<Subject>();
+            var businessObjectParantes = teacherProcessor.Get(ApplicationPropertyManager.Workspace.School);
+            foreach (var teacher in businessObjectParantes) {
+                businessObjects.AddRange(subjectProcessor.Get(teacher));
+            }
+
+            // Display business objects
+            if (businessObjects.Count() > 0) {
+                icSubjects.ItemsSource = businessObjects;
+            }
+            else {
+                // ASK: Move into BusinessLogic somehow?
+                ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
+                    Content = "Es sind noch keine Fächer vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Fach zu erstellen.",
+                    FontSize = 10,
+                    IsEnabled = false
+                };
+                icSubjects.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
+            }
+        }
+
+
         private void OpenManageSchools() {
             Window newWindow = new ManageSchools();
             newWindow.Show();
@@ -55,12 +79,35 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Event wiring
 
-        // TODO: Enhance this temporary solution
+        private void wSchoolOverview_Loaded(object sender, RoutedEventArgs e) {
+            UpdateBusinessObjects();
+        }
 
+
+        // TODO: Do some work, bitch.ItemsSource
+        private void btnAddDocument_Click(object sender, RoutedEventArgs e) {
+            var a = (Button)sender;
+            var b = a.DataContext;
+        }
+
+        private void btnAddNote_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void btnAddGrade_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+        private void btnAddEvent_Click(object sender, RoutedEventArgs e) {
+
+        }
+
+
+        // TODO: Enhance this temporary solution
         private void btnDocuments_Click(object sender, RoutedEventArgs e) {
             //if (documentProcessor.CanCreate()) {
-                var window = new ManageDocuments();
-                window.ShowDialog();
+            var window = new ManageDocuments();
+            window.ShowDialog();
             //}
             //else {
             //    MessageBox.Show("Mindestens ein Fach muss existieren, um Dokumente verwalten zu können!", "Keine existierenden Fächer", MessageBoxButton.OK, MessageBoxImage.Hand);
@@ -74,8 +121,8 @@ namespace VrankenBischof.Docxes.Interface {
 
         private void btnGrades_Click(object sender, RoutedEventArgs e) {
             //if (gradeProcessor.CanCreate()) {
-                var window = new ManageGrades();
-                window.ShowDialog();
+            var window = new ManageGrades();
+            window.ShowDialog();
             //}
             //else {
             //    MessageBox.Show("Mindestens ein Fach muss existieren, um Noten verwalten zu können!", "Keine existierenden Fächer", MessageBoxButton.OK, MessageBoxImage.Hand);
@@ -84,8 +131,8 @@ namespace VrankenBischof.Docxes.Interface {
 
         private void btnNotes_Click(object sender, RoutedEventArgs e) {
             //if (noteProcessor.CanCreate()) {
-                var window = new ManageNotes();
-                window.ShowDialog();
+            var window = new ManageNotes();
+            window.ShowDialog();
             //}
             //else {
             //    MessageBox.Show("Mindestens ein Fach muss existieren, um Notizen verwalten zu können!", "Keine existierenden Fächer", MessageBoxButton.OK, MessageBoxImage.Hand);
@@ -94,17 +141,23 @@ namespace VrankenBischof.Docxes.Interface {
 
         private void btnSubjects_Click(object sender, RoutedEventArgs e) {
             //if (subjectProcessor.CanCreate()) {
-                var window = new ManageSubjects();
-                window.ShowDialog();
+            var window = new ManageSubjects();
+            window.ShowDialog();
             //}
             //else {
             //    MessageBox.Show("Mindestens ein Lehrer muss existieren, um Fächer verwalten zu können!", "Keine existierenden Lehrer", MessageBoxButton.OK, MessageBoxImage.Hand);
-            //}            
+            //}
+
+
+            UpdateBusinessObjects();
         }
 
         private void btnTeachers_Click(object sender, RoutedEventArgs e) {
             var window = new ManageTeachers();
             window.ShowDialog();
+
+
+            UpdateBusinessObjects();
         }
 
         #endregion
