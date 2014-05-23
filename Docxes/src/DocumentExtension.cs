@@ -1,7 +1,23 @@
-﻿namespace VrankenBischof.Docxes {
+﻿using System;
+using System.IO;
+
+namespace VrankenBischof.Docxes {
 
     [System.Diagnostics.DebuggerDisplay("Id: {Id}, FilePath: {FilePath}, Subject: {Subject}")]
     public partial class Document : IBusinessObject {
+
+        // TODO:
+        private Cache<FileInfo> fileInfo = new Cache<FileInfo>(() => new System.IO.FileInfo("" /*FilePath*/));
+
+
+        public bool Exists { get { return fileInfo.Value.Exists; } }
+        public string Name { get { return fileInfo.Value.Name; } }
+        public long Size { get { return fileInfo.Value.Length / 1024; } }
+
+        public DateTime LastWriteTime { get { return fileInfo.Value.LastWriteTime; } }
+        public DateTime CreationTime { get { return fileInfo.Value.CreationTime; } }
+        public DateTime LastAccessTime { get { return fileInfo.Value.LastAccessTime; } }
+
 
         public Document() {
             // Required for LINQ
@@ -19,11 +35,7 @@
 
 
         public override string ToString() {
-            // TODO:
-
-            //return Name;
-
-            return FilePath;
+            return Name;
         }
 
     }
