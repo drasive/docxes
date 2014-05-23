@@ -22,7 +22,7 @@ namespace VrankenBischof.Docxes.Interface {
 
         private Event businessObjectEditing;
 
-        private BusinessLogic.BusinessObjectProcessor<Event> businessObjectProcessor = new BusinessLogic.EventProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Event, Subject> businessObjectProcessor = new BusinessLogic.EventProcessor();
 
 
         private void Initialize() {

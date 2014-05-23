@@ -5,7 +5,7 @@ using System.Text;
 
 namespace VrankenBischof.Docxes.Data {
 
-    sealed class DocumentsDataManager : BusinessObjectDataManager<Document> {
+    sealed class DocumentsDataManager : BusinessObjectDataManager<Document, Subject> {
 
         public override void Create(Document objectToSave) {
             if (objectToSave == null) {
@@ -29,15 +29,9 @@ namespace VrankenBischof.Docxes.Data {
                     ).ToList();
         }
 
-        public override List<Document> Get() {
+        public override List<Document> Get(Subject objectsParent) {
             using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer);
-            }
-        }
-
-        public override Document Get(int id) {
-            using (var databaseContainer = GetDatabaseContainer()) {
-                return Get(databaseContainer).First(databaseElement => databaseElement.Id == id);
             }
         }
 

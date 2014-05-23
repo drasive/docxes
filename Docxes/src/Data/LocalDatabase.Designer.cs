@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\dimit_000\SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\src\Data\LocalDatabase.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Privat\Versionsverwaltung\Docxes\Development\Docxes\src\Data\LocalDatabase.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace VrankenBischof.Docxes.Data {
 
-    sealed class EventsDataManager : BusinessObjectDataManager<Event> {
+    sealed class EventsDataManager : BusinessObjectDataManager<Event, Subject> {
 
         public override void Create(Event objectToSave) {
             if (objectToSave == null) {
@@ -29,15 +29,9 @@ namespace VrankenBischof.Docxes.Data {
                     ).ToList();
         }
 
-        public override List<Event> Get() {
+        public override List<Event> Get(Subject objectsParent) {
             using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer);
-            }
-        }
-
-        public override Event Get(int id) {
-            using (var databaseContainer = GetDatabaseContainer()) {
-                return Get(databaseContainer).First(databaseElement => databaseElement.Id == id);
             }
         }
 

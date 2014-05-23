@@ -10,8 +10,8 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public sealed partial class ManageSubjects : Window {
 
-        private BusinessLogic.BusinessObjectProcessor<Teacher> businessObjectParentProcessor = new BusinessLogic.TeacherProcessor();
-        private BusinessLogic.BusinessObjectProcessor<Subject> businessObjectProcessor = new BusinessLogic.SubjectProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Teacher, School> businessObjectParentProcessor = new BusinessLogic.TeacherProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> businessObjectProcessor = new BusinessLogic.SubjectProcessor();
 
 
         public ManageSubjects() {
@@ -22,23 +22,25 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
-        // ASK: Use property or method? Change for all classes this is used in
         private Teacher SelectedBusinessObjectParent { get { return (Teacher)cbTeachers.SelectedItem; } }
 
         private void UpdateBusinessObjectParents() {
-            IEnumerable<Teacher> businessObjectParents = businessObjectParentProcessor.Get();
+            IEnumerable<Teacher> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.School);
             cbTeachers.ItemsSource = businessObjectParents;
             cbTeachers.SelectedIndex = 0;
         }
 
 
+        private Subject SelectedBusinessObject { get { return (Subject)lbSubjects.SelectedItem; } }
+
         private void UpdateBusinessObjects() {
-            IEnumerable<Subject> businessObjects = businessObjectProcessor.Get();
+            IEnumerable<Subject> businessObjects = businessObjectProcessor.Get(SelectedBusinessObjectParent);
 
             if (businessObjects.Count() > 0) {
                 lbSubjects.ItemsSource = businessObjects;
             }
             else {
+                // ASK: Move into BusinessLogic somehow?
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
                     Content = "Keine Fächer für diesen Lehrer vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Fach zu erstellen.",
                     FontSize = 10,
@@ -71,10 +73,8 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private void UpdateControlsAvailability() {
-            bool isBusinessObjectSelected = lbSubjects.SelectedIndex != -1;
-
             foreach (Button button in new Button[] { btnEdit, btnDelete }) {
-                button.IsEnabled = isBusinessObjectSelected;
+                button.IsEnabled = SelectedBusinessObject != null; ;
             }
         }
 
@@ -86,6 +86,11 @@ namespace VrankenBischof.Docxes.Interface {
             UpdateBusinessObjectParents();
             UpdateBusinessObjects();
             UpdateControlsAvailability();
+        }
+
+
+        private void cbTeachers_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            UpdateBusinessObjects();
         }
 
 

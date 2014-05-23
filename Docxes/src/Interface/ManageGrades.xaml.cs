@@ -12,7 +12,7 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public sealed partial class ManageGrades : Window {
 
-        private BusinessLogic.BusinessObjectProcessor<Grade> businessObjectProcessor = new BusinessLogic.GradeProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Grade, Subject> businessObjectProcessor = new BusinessLogic.GradeProcessor();
 
 
         public ManageGrades() {
@@ -24,7 +24,7 @@ namespace VrankenBischof.Docxes.Interface {
         #region Interface
 
         private void UpdateBusinessObjects() {
-            IEnumerable<Grade> businessObjects = businessObjectProcessor.Get();
+            IEnumerable<Grade> businessObjects = null; //businessObjectProcessor.Get();
 
             if (businessObjects.Count() > 0) {
                 lbSchools.ItemsSource = businessObjects;

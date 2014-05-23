@@ -13,10 +13,6 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
-        public override bool CanCreate() {
-            return true;
-        }
-
         public override void Create(School objectToSave) {
             if (objectToSave == null) {
                 throw new ArgumentNullException("objectToSave");
@@ -28,10 +24,6 @@ namespace VrankenBischof.Docxes.BusinessLogic {
 
         public override List<School> Get() {
             return dataManager.Get();
-        }
-
-        public override School Get(int id) {
-            return dataManager.Get(id);
         }
 
 

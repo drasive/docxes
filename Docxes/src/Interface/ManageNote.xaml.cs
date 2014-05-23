@@ -21,7 +21,7 @@ namespace VrankenBischof.Docxes.Interface {
         private Subject businessObjectParent;
         private Note businessObjectEditing;
 
-        private BusinessLogic.BusinessObjectProcessor<Note> businessObjectProcessor = new BusinessLogic.NoteProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Note, Subject> businessObjectProcessor = new BusinessLogic.NoteProcessor();
 
 
         private void Initialize(Subject businessObjectParent, Note businessObjectToEdit) {

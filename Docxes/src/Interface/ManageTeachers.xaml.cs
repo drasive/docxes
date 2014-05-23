@@ -10,26 +10,23 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public sealed partial class ManageTeachers : Window {
 
-        // TODO: Rename
-        private School businessObjectParent;
+        private School businessObjectParent { get { return ApplicationPropertyManager.Workspace.School; } }
 
-        private BusinessLogic.BusinessObjectProcessor<Teacher> businessObjectProcessor = new BusinessLogic.TeacherProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Teacher, School> businessObjectProcessor = new BusinessLogic.TeacherProcessor();
 
 
-        public ManageTeachers(School businessObjectParent) {
-            // TODO: Rename parameters
-
+        public ManageTeachers() {
             InitializeComponent();
-
-            this.businessObjectParent = businessObjectParent;
 
             Common.ExtendWindowName(this);
         }
 
         #region Interface
 
+        private Teacher SelectedBusinessObject { get { return (Teacher)lbTeachers.SelectedItem; } }
+
         private void UpdateBusinessObjects() {
-            IEnumerable<Teacher> businessObjects = businessObjectProcessor.Get();
+            IEnumerable<Teacher> businessObjects = businessObjectProcessor.Get(businessObjectParent);
 
             if (businessObjects.Count() > 0) {
                 lbTeachers.ItemsSource = businessObjects;
@@ -46,31 +43,29 @@ namespace VrankenBischof.Docxes.Interface {
 
 
         private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
-            Window addBusinessObjectManager = new ManageTeacher(businessObjectParent) { Owner = this };
+            Window addBusinessObjectManager = new ManageTeacher() { Owner = this };
             addBusinessObjectManager.ShowDialog();
             return ((IBusinessObjectManager)addBusinessObjectManager).Action;
         }
 
         private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
-            Window editBusinessObjectManager = new ManageTeacher(businessObjectParent, (Teacher)lbTeachers.SelectedItem) { Owner = this };
+            Window editBusinessObjectManager = new ManageTeacher(SelectedBusinessObject) { Owner = this };
             editBusinessObjectManager.ShowDialog();
             return ((IBusinessObjectManager)editBusinessObjectManager).Action;
         }
 
         private bool CheckForElementDeletion() {
             if (Common.AskForElementDeletion("Wollen Sie diesen Lehrer und alle zugehörigen Daten (Fächer, Ereignisse, Dokumente, Notizen und Noten) wirklich löschen?", "Lehrer")) {
-                businessObjectProcessor.Delete((Teacher)lbTeachers.SelectedItem);
+                businessObjectProcessor.Delete(SelectedBusinessObject);
                 return true;
             }
 
             return false;
         }
-        
+
         private void UpdateControlsAvailability() {
-            bool isBusinessObjectSelected = lbTeachers.SelectedIndex != -1;
-            
             foreach (Button button in new Button[] { btnEdit, btnDelete }) {
-                button.IsEnabled = isBusinessObjectSelected;
+                button.IsEnabled = SelectedBusinessObject != null;
             }
         }
 

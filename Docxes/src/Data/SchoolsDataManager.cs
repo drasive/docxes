@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Entity;
 
 namespace VrankenBischof.Docxes.Data {
 
@@ -24,6 +25,26 @@ namespace VrankenBischof.Docxes.Data {
                         School school
                     in
                         container.Schools
+                            .Include(school => school.Teachers
+                                .Select(teacher => teacher.Subjects
+                                    .Select(subject => subject.Documents)
+                                )
+                            )
+                            .Include(school => school.Teachers
+                                .Select(teacher => teacher.Subjects
+                                    .Select(subject => subject.Notes)
+                                )
+                            )
+                            .Include(school => school.Teachers
+                                .Select(teacher => teacher.Subjects
+                                    .Select(subject => subject.Grades)
+                                )
+                            )
+                            .Include(school => school.Teachers
+                                .Select(teacher => teacher.Subjects
+                                    .Select(subject => subject.Events)
+                                )
+                            )
                     select
                         school
                     ).ToList();
@@ -32,12 +53,6 @@ namespace VrankenBischof.Docxes.Data {
         public override List<School> Get() {
             using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer);
-            }
-        }
-
-        public override School Get(int id) {
-            using (var databaseContainer = GetDatabaseContainer()) {
-                return Get(databaseContainer).First(databaseElement => databaseElement.Id == id);
             }
         }
 

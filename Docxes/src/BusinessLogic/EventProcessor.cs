@@ -6,16 +6,16 @@ using VrankenBischof.Docxes.Data;
 
 namespace VrankenBischof.Docxes.BusinessLogic {
 
-    sealed class EventProcessor : BusinessObjectProcessor<Event> {
+    sealed class EventProcessor : BusinessObjectProcessor<Event, Subject> {
 
         public EventProcessor() {
             dataManager = new EventsDataManager();
         }
 
 
-        public override bool CanCreate() {
-            return true;
-        }
+        //public override bool CanCreate() {
+        //    return true;
+        //}
 
         public override void Create(Event objectToSave) {
             if (objectToSave == null) {
@@ -26,12 +26,8 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
-        public override List<Event> Get() {
-            return dataManager.Get();
-        }
-
-        public override Event Get(int id) {
-            return dataManager.Get(id);
+        public override List<Event> Get(Subject objectsParent) {
+            return dataManager.Get(objectsParent);
         }
 
 

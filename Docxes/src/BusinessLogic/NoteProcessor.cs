@@ -6,17 +6,17 @@ using VrankenBischof.Docxes.Data;
 
 namespace VrankenBischof.Docxes.BusinessLogic {
 
-    sealed class NoteProcessor : BusinessObjectProcessor<Note> {
+    sealed class NoteProcessor : BusinessObjectProcessor<Note, Subject> {
 
         public NoteProcessor() {
             dataManager = new NotesDataManager();
         }
 
 
-        public override bool CanCreate() {
-            var subjectProcessor = new BusinessLogic.SubjectProcessor();
-            return subjectProcessor.Get().Count > 0;
-        }
+        //public override bool CanCreate() {
+        //    var subjectProcessor = new BusinessLogic.SubjectProcessor();
+        //    return subjectProcessor.Get().Count > 0;
+        //}
 
         public override void Create(Note objectToSave) {
             if (objectToSave == null) {
@@ -27,12 +27,8 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
-        public override List<Note> Get() {
-            return dataManager.Get();
-        }
-
-        public override Note Get(int id) {
-            return dataManager.Get(id);
+        public override List<Note> Get(Subject objectsParent) {
+            return dataManager.Get(objectsParent);
         }
 
 

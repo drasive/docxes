@@ -22,7 +22,7 @@ namespace VrankenBischof.Docxes.Interface {
 
         private Grade businessObjectEditing;
 
-        private BusinessLogic.BusinessObjectProcessor<Grade> businessObjectProcessor = new BusinessLogic.GradeProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Grade, Subject> businessObjectProcessor = new BusinessLogic.GradeProcessor();
 
 
         private void Initialize() {

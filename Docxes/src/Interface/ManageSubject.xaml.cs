@@ -21,8 +21,8 @@ namespace VrankenBischof.Docxes.Interface {
         private Teacher businessObjectParent;
         private Subject businessObjectEditing;
 
-        private BusinessLogic.BusinessObjectProcessor<Teacher> businessObjectParentProcessor = new BusinessLogic.TeacherProcessor();
-        private BusinessLogic.BusinessObjectProcessor<Subject> businessObjectProcessor = new BusinessLogic.SubjectProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Teacher, School> businessObjectParentProcessor = new BusinessLogic.TeacherProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> businessObjectProcessor = new BusinessLogic.SubjectProcessor();
 
 
         private void Initialize(Teacher businessObjectParent, Subject businessObjectToEdit) {
@@ -43,7 +43,7 @@ namespace VrankenBischof.Docxes.Interface {
             }
             Common.ExtendWindowName(this);
 
-            UpdateBusinessObjectParants();
+            UpdateBusinessObjectParents();
         }
 
         public ManageSubject(Teacher businessObjectToAddParent) {
@@ -102,8 +102,8 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
-        private void UpdateBusinessObjectParants() {
-            IEnumerable<Teacher> businessObjectParents = businessObjectParentProcessor.Get();
+        private void UpdateBusinessObjectParents() {
+            IEnumerable<Teacher> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.School);
             cbTeacher.ItemsSource = businessObjectParents;
         }
 

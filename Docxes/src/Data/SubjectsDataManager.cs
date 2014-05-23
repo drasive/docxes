@@ -6,47 +6,42 @@ using System.Data.Entity;
 
 namespace VrankenBischof.Docxes.Data {
 
-    sealed class TeachersDataManager : BusinessObjectDataManager<Teacher> {
+    sealed class SubjectsDataManager : BusinessObjectDataManager<Subject, Teacher> {
 
-        public override void Create(Teacher objectToSave) {
+        public override void Create(Subject objectToSave) {
             if (objectToSave == null) {
                 throw new ArgumentNullException("objectToSave");
             }
 
             using (var databaseContainer = GetDatabaseContainer()) {
-                databaseContainer.Teachers.Add(objectToSave);
+                databaseContainer.Subjects.Add(objectToSave);
                 databaseContainer.SaveChanges();
             }
         }
 
 
-        private List<Teacher> Get(LocalDatabaseContainer container) {
+        private List<Subject> Get(LocalDatabaseContainer container) {
             return (from
-                        Teacher teacher
+                        Subject subject
                     in
-                        container.Teachers
-                            .Include(businessObject => businessObject.Subjects)
+                        container.Subjects
+                            .Include(businessObject => businessObject.Documents)
+                            .Include(businessObject => businessObject.Notes)
+                            .Include(businessObject => businessObject.Grades)
+                            .Include(businessObject => businessObject.Events)
                     select
-                        teacher
+                        subject
                     ).ToList();
         }
 
-        public override List<Teacher> Get() {
+        public override List<Subject> Get(Teacher objectsParent) {
             using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer);
             }
         }
 
-        public override Teacher Get(int id) {
-            // TODO: Use a functional style condition as the parameter in all of these classes
 
-            using (var databaseContainer = GetDatabaseContainer()) {
-                return Get(databaseContainer).First(databaseElement => databaseElement.Id == id);
-            }
-        }
-
-
-        public override void Update(Teacher objectToUpdate) {
+        public override void Update(Subject objectToUpdate) {
             if (objectToUpdate == null) {
                 throw new ArgumentNullException("objectToUpdate");
             }
@@ -55,24 +50,24 @@ namespace VrankenBischof.Docxes.Data {
                 // REFACTOR: Replace with Get(container)
                 // BUG
 
-                //var databaseObjectToUpdate = container.Teachers.First(databaseElement => databaseElement.Id == objectToUpdate.Id);
+                //var databaseObjectToUpdate = container.Subjects.First(databaseElement => databaseElement.Id == objectToUpdate.Id);
                 //databaseObjectToUpdate = objectToUpdate;
 
-                //container.Teachers.Attach(objectToUpdate);
+                //container.Subjects.Attach(objectToUpdate);
                 //container.Entry(objectToUpdate).State = System.Data.Entity.EntityState.Modified;
                 //container.SaveChanges();
             }
         }
 
 
-        public override void Delete(Teacher objectToDelete) {
+        public override void Delete(Subject objectToDelete) {
             if (objectToDelete == null) {
                 throw new ArgumentNullException("objectToDelete");
             }
 
             using (var databaseContainer = GetDatabaseContainer()) {
                 var databaseObjectToDelete = Get(databaseContainer).First(databaseElement => databaseElement.Id == objectToDelete.Id);
-                databaseContainer.Teachers.Remove(databaseObjectToDelete);
+                databaseContainer.Subjects.Remove(databaseObjectToDelete);
                 databaseContainer.SaveChanges();
             }
         }

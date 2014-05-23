@@ -10,8 +10,8 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public sealed partial class ManageNotes : Window {
 
-        private BusinessLogic.BusinessObjectProcessor<Subject> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
-        private BusinessLogic.BusinessObjectProcessor<Note> businessObjectProcessor = new BusinessLogic.NoteProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Note, Subject> businessObjectProcessor = new BusinessLogic.NoteProcessor();
 
 
         public ManageNotes() {
@@ -25,14 +25,17 @@ namespace VrankenBischof.Docxes.Interface {
         private Subject SelectedBusinessObjectParent { get { return (Subject)cbSubjects.SelectedItem; } }
 
         private void UpdateBusinessObjectParents() {
-            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get();
+            //TODO: ! Requires teacher to be set (in Overview)
+            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.Teacher);
             cbSubjects.ItemsSource = businessObjectParents;
             cbSubjects.SelectedIndex = 0;
         }
 
 
+        private Note SelectedBusinessObject { get { return (Note)lbNotes.SelectedItem; } }
+
         private void UpdateBusinessObjects() {
-            IEnumerable<Note> businessObjects = businessObjectProcessor.Get();
+            IEnumerable<Note> businessObjects = businessObjectProcessor.Get(SelectedBusinessObjectParent);
 
             if (businessObjects.Count() > 0) {
                 lbNotes.ItemsSource = businessObjects;
@@ -55,14 +58,14 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
-            Window editBusinessObjectManager = new ManageNote(SelectedBusinessObjectParent, (Note)lbNotes.SelectedItem) { Owner = this };
+            Window editBusinessObjectManager = new ManageNote(SelectedBusinessObjectParent, SelectedBusinessObject) { Owner = this };
             editBusinessObjectManager.ShowDialog();
             return ((IBusinessObjectManager)editBusinessObjectManager).Action;
         }
 
         private bool CheckForElementDeletion() {
             if (Common.AskForElementDeletion("Wollen Sie diese Notiz wirklich löschen?", "Notiz")) {
-                businessObjectProcessor.Delete((Note)lbNotes.SelectedItem);
+                businessObjectProcessor.Delete(SelectedBusinessObject);
                 return true;
             }
 
@@ -70,10 +73,8 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private void UpdateControlsAvailability() {
-            bool isBusinessObjectSelected = lbNotes.SelectedIndex != -1;
-
             foreach (Button button in new Button[] { btnEdit, btnDelete }) {
-                button.IsEnabled = isBusinessObjectSelected;
+                button.IsEnabled = SelectedBusinessObject != null;
             }
         }
 

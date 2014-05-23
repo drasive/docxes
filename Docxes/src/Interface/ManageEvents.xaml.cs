@@ -12,7 +12,7 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public sealed partial class ManageEvents : Window {
 
-        private BusinessLogic.BusinessObjectProcessor<Event> businessObjectProcessor = new BusinessLogic.EventProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Event, Subject> businessObjectProcessor = new BusinessLogic.EventProcessor();
 
 
         public ManageEvents() {
@@ -24,7 +24,7 @@ namespace VrankenBischof.Docxes.Interface {
         #region Interface
 
         private void UpdateBusinessObjects() {
-            IEnumerable<Event> businessObjects = businessObjectProcessor.Get();
+            IEnumerable<Event> businessObjects = null; // businessObjectProcessor.Get();
 
             if (businessObjects.Count() > 0) {
                 lbSchools.ItemsSource = businessObjects;

@@ -141,9 +141,9 @@
     <Compile Include="src\Data\DocumentsDataManager.cs" />
     <Compile Include="src\Data\EventsDataManager.cs" />
     <Compile Include="src\Data\GradesDataManager.cs" />
-    <Compile Include="src\Data\NoteDataManager.cs" />
-    <Compile Include="src\Data\TeacherDataManager.cs" />
-    <Compile Include="src\Data\SubjectDataManager.cs" />
+    <Compile Include="src\Data\NotesDataManager.cs" />
+    <Compile Include="src\Data\TeachersDataManager.cs" />
+    <Compile Include="src\Data\SubjectsDataManager.cs" />
     <Compile Include="src\Data\Subject.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
@@ -185,6 +185,7 @@
     <Compile Include="src\Interface\IBusinessObjectManager.cs" />
     <Compile Include="src\Interface\BusinessObjectManagerAction.cs" />
     <Compile Include="src\EventExtension.cs" />
+    <Compile Include="src\ApplicationPropertyManager.cs" />
     <Compile Include="src\TeacherExtension.cs" />
     <Compile Include="src\SubjectExtension.cs" />
     <Compile Include="src\SchoolExtension.cs" />
@@ -207,6 +208,7 @@
       <DependentUpon>ManageSchools.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\IBusinessObject.cs" />
+    <Compile Include="src\Workspace.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

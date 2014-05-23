@@ -5,21 +5,35 @@ using System.Text;
 
 namespace VrankenBischof.Docxes.Data {
 
-    abstract class BusinessObjectDataManager<T> where T: Docxes.IBusinessObject {
+    // TODO: Set to "private"
+    abstract class BusinessObjectDataManagerBase<BusinessObject>
+        where BusinessObject : Docxes.IBusinessObject {
 
         protected LocalDatabaseContainer GetDatabaseContainer() {
             return new LocalDatabaseContainer();
         }
 
 
-        public abstract void Create(T businessObjectToSave);
+        public abstract void Create(BusinessObject objectToSave);
 
-        public abstract List<T> Get();
-        public abstract T Get(int id);
+        public abstract void Update(BusinessObject objectToUpdate);
 
-        public abstract void Update(T businessObjectToUpdate);
+        public abstract void Delete(BusinessObject objectToDelete);
 
-        public abstract void Delete(T businessObjectToDelete);
+    }
+
+    abstract class BusinessObjectDataManager<BusinessObject> : BusinessObjectDataManagerBase<BusinessObject>
+        where BusinessObject : Docxes.IBusinessObject {
+
+        public abstract List<BusinessObject> Get();
+
+    }
+
+    abstract class BusinessObjectDataManager<BusinessObject, BusinessObjectParent> : BusinessObjectDataManagerBase<BusinessObject>
+        where BusinessObject : Docxes.IBusinessObject
+        where BusinessObjectParent : Docxes.IBusinessObject {
+
+        public abstract List<BusinessObject> Get(BusinessObjectParent objectsParent);
 
     }
 

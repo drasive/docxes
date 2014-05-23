@@ -19,7 +19,8 @@
                   Height="20"
                   VerticalAlignment="Top"
                   Width="150"
-                  HorizontalAlignment="Left" />
+                  HorizontalAlignment="Left"
+                  SelectionChanged="cbTeachers_SelectionChanged" />
         <ListBox x:Name="lbSubjects"
                  Margin="10,31,10,10"
                  SelectionChanged="lbSubjects_SelectionChanged"

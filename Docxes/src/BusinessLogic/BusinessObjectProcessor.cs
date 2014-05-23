@@ -6,19 +6,38 @@ using VrankenBischof.Docxes.Data;
 
 namespace VrankenBischof.Docxes.BusinessLogic {
 
-    abstract class BusinessObjectProcessor<T> where T : Docxes.IBusinessObject {
+    // TODO: Change this stuff to an interface (no common functionality)?
 
-        protected BusinessObjectDataManager<T> dataManager;
+    // TODO: Mark as "private"
+    abstract class BusinessObjectProcessorBase<BusinessObject>
+        where BusinessObject : Docxes.IBusinessObject {
 
-        public abstract bool CanCreate();
-        public abstract void Create(T businessObjectToSave);
+        public abstract void Create(BusinessObject objectToSave);
 
-        public abstract List<T> Get();
-        public abstract T Get(int id);
+        public abstract void Update(BusinessObject objectToUpdate);
 
-        public abstract void Update(T businessObjectToUpdate);
+        public abstract void Delete(BusinessObject objectToDelete);
 
-        public abstract void Delete(T businessObjectToDelete);
+    }
+
+    abstract class BusinessObjectProcessor<BusinessObject> : BusinessObjectProcessorBase<BusinessObject>
+        where BusinessObject : Docxes.IBusinessObject {
+
+        protected BusinessObjectDataManager<BusinessObject> dataManager;
+
+        public abstract List<BusinessObject> Get();
+
+    }
+
+    abstract class BusinessObjectProcessor<BusinessObject, BusinessObjectParent> : BusinessObjectProcessorBase<BusinessObject>
+        where BusinessObject : Docxes.IBusinessObject
+        where BusinessObjectParent : Docxes.IBusinessObject {
+
+        protected BusinessObjectDataManager<BusinessObject, BusinessObjectParent> dataManager;
+
+        //public abstract bool CanCreate();
+
+        public abstract List<BusinessObject> Get(BusinessObjectParent objectsParent);
 
     }
 

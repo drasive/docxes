@@ -10,7 +10,8 @@ namespace VrankenBischof.Docxes.Interface {
         private Subject businessObjectParent;
         private Document businessObjectEditing;
 
-        private BusinessLogic.BusinessObjectProcessor<Document> businessObjectProcessor = new BusinessLogic.DocumentProcessor();
+        // TODO: Use explicity (or exact if not possible otherwise?) typing for these members
+        private BusinessLogic.BusinessObjectProcessor<Document, Subject> businessObjectProcessor = new BusinessLogic.DocumentProcessor();
 
 
         private void Initialize(Subject businessObjectParent, Document businessObjectToEdit) {
@@ -48,7 +49,7 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Control
 
-        protected Microsoft.Win32.OpenFileDialog GetOpenFileDialog() {
+        private Microsoft.Win32.OpenFileDialog GetOpenFileDialog() {
             var openFileDialog = new Microsoft.Win32.OpenFileDialog();
             openFileDialog.Filter = "Word documents|*.docx" +
                                     "|Text documents|*.txt" +
@@ -59,13 +60,9 @@ namespace VrankenBischof.Docxes.Interface {
 
             return openFileDialog;
         }
-
-
-        public void Add() {
-            if (Action != BusinessObjectManagerAction.Undefined) {
-                throw new InvalidOperationException("Already executed an action");
-            }
-
+        
+        // TODO: Split up Add and Edit into "MapInterfaceToObject" and "Save" like the others of these classes
+        private void Add() {
             var openFileDialog = GetOpenFileDialog();
             openFileDialog.DefaultExt = ".docx";
             Nullable<bool> fileSelected = openFileDialog.ShowDialog();
@@ -83,11 +80,7 @@ namespace VrankenBischof.Docxes.Interface {
             }            
         }
 
-        public void Edit() {
-            if (Action != BusinessObjectManagerAction.Undefined) {
-                throw new InvalidOperationException("Already executed an action");
-            }
-
+        private void Edit() {
             var openFileDialog = GetOpenFileDialog();            
             openFileDialog.FileName = businessObjectEditing.FilePath;
             // TODO: Desn't work, is still .docx
@@ -105,6 +98,20 @@ namespace VrankenBischof.Docxes.Interface {
             else {
                 Action = BusinessObjectManagerAction.Canceled;
             }            
+        }
+
+
+        public void ShowDialog() {
+            if (Action != BusinessObjectManagerAction.Undefined) {
+                throw new InvalidOperationException("Already executed");
+            }
+
+            if (IsEditing) {
+                Edit();
+            }
+            else {
+                Add();
+            }
         }
 
         #endregion

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace VrankenBischof.Docxes.Data {
 
-    sealed class NotesDataManager : BusinessObjectDataManager<Note> {
+    sealed class NotesDataManager : BusinessObjectDataManager<Note, Subject> {
 
         public override void Create(Note objectToSave) {
             if (objectToSave == null) {
@@ -29,15 +29,9 @@ namespace VrankenBischof.Docxes.Data {
                     ).ToList();
         }
 
-        public override List<Note> Get() {
+        public override List<Note> Get(Subject objectsParent) {
             using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer);
-            }
-        }
-
-        public override Note Get(int id) {
-            using (var databaseContainer = GetDatabaseContainer()) {
-                return Get(databaseContainer).First(databaseElement => databaseElement.Id == id);
             }
         }
 

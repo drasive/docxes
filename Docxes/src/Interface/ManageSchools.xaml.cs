@@ -22,6 +22,8 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
+        private School SelectedBusinessObject { get { return (School)lbSchools.SelectedItem;} }
+
         private void UpdateBusinessObjects() {
             IEnumerable<School> businessObjects = businessObjectProcessor.Get();
 
@@ -53,14 +55,14 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
-            ManageSchool editBusinessObjectManager = new ManageSchool((School)lbSchools.SelectedItem) { Owner = this };
+            ManageSchool editBusinessObjectManager = new ManageSchool(SelectedBusinessObject) { Owner = this };
             editBusinessObjectManager.ShowDialog();
             return editBusinessObjectManager.Action;
         }
 
         private bool CheckForElementDeletion() {
             if (Common.AskForElementDeletion("Wollen Sie diese Schule und alle zugehörigen Daten (Lehrer, Fächer, Ereignisse, Dokumente, Notizen und Noten) wirklich löschen?", "Schule")) {
-                //businessObjectProcessor.Delete((School)lbSchools.SelectedItem);
+                businessObjectProcessor.Delete(SelectedBusinessObject);
                 return true;
             }
 
@@ -68,10 +70,8 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private void UpdateControlsAvailability() {
-            bool isBusinessObjectSelected = lbSchools.SelectedIndex != -1;
-
             foreach (Button button in new Button[] { btnSelect, btnEdit, btnDelete }) {
-                button.IsEnabled = isBusinessObjectSelected;
+                button.IsEnabled = SelectedBusinessObject != null;
             }
         }
 
@@ -91,7 +91,9 @@ namespace VrankenBischof.Docxes.Interface {
 
 
         private void btnSelect_Click(object sender, RoutedEventArgs e) {
-            OpenSchoolOverview((School)lbSchools.SelectedItem);
+            ApplicationPropertyManager.Workspace = new Workspace(SelectedBusinessObject);
+
+            OpenSchoolOverview(SelectedBusinessObject);
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e) {

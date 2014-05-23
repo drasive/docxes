@@ -13,8 +13,8 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public sealed partial class ManageDocuments : Window {
 
-        private BusinessLogic.BusinessObjectProcessor<Subject> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
-        private BusinessLogic.BusinessObjectProcessor<Document> businessObjectProcessor = new BusinessLogic.DocumentProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Document, Subject> businessObjectProcessor = new BusinessLogic.DocumentProcessor();
 
 
         public ManageDocuments() {
@@ -28,7 +28,9 @@ namespace VrankenBischof.Docxes.Interface {
         private Subject SelectedBusinessObjectParent { get { return (Subject)cbSubject.SelectedItem; } }
 
         private void UpdateBusinessObjectParents() {
-            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get();
+            //TODO: ! Requires teacher to be set (in Overview)
+
+            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.Teacher);
             cbSubject.ItemsSource = businessObjectParents;
             cbSubject.SelectedIndex = 0;
         }
@@ -38,7 +40,7 @@ namespace VrankenBischof.Docxes.Interface {
         private Document SelectedBusinessObject { get { return (Document)lbDocuments.SelectedItem; } }
 
         private void UpdateBusinessObjects() {
-            IEnumerable<Document> businessObjects = businessObjectProcessor.Get();
+            IEnumerable<Document> businessObjects = businessObjectProcessor.Get(SelectedBusinessObjectParent);
 
             if (businessObjects.Count() > 0) {
                 lbDocuments.ItemsSource = businessObjects;
@@ -56,19 +58,19 @@ namespace VrankenBischof.Docxes.Interface {
 
         private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
             ManageDocument addBusinessObjectManager = new ManageDocument(SelectedBusinessObjectParent);
-            addBusinessObjectManager.Add();
+            addBusinessObjectManager.ShowDialog();
             return ((IBusinessObjectManager)addBusinessObjectManager).Action;
         }
 
         private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
             ManageDocument editBusinessObjectManager = new ManageDocument(SelectedBusinessObjectParent, SelectedBusinessObject);
-            editBusinessObjectManager.Edit();
+            editBusinessObjectManager.ShowDialog();
             return ((IBusinessObjectManager)editBusinessObjectManager).Action;
         }
 
         private bool CheckForElementDeletion() {
             if (Common.AskForElementDeletion("Wollen Sie die Verknüpfung zu diesem Dokument wirklich löschen? Das Dokument selbst wird dabei nicht gelöscht.", "Verknüpfung zu Dokument")) {
-                businessObjectProcessor.Delete((Document)lbDocuments.SelectedItem);
+                businessObjectProcessor.Delete(SelectedBusinessObject);
                 return true;
             }
 

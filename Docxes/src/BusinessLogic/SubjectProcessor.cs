@@ -6,18 +6,19 @@ using VrankenBischof.Docxes.Data;
 
 namespace VrankenBischof.Docxes.BusinessLogic {
 
-    sealed class SubjectProcessor : BusinessObjectProcessor<Subject> {
+    // TODO: Make it possible to move to another teachers
+    sealed class SubjectProcessor : BusinessObjectProcessor<Subject, Teacher> {
 
         public SubjectProcessor() {
             dataManager = new SubjectsDataManager();
         }
 
 
-        public override bool CanCreate() {
-            // ASK Is this legit? If not, update in all Processors
-            var teacherProcessor = new BusinessLogic.TeacherProcessor();
-            return teacherProcessor.Get().Count > 0;
-        }
+        //public override bool CanCreate() {
+        //    // ASK Is this legit? If not, update all processors
+        //    var teacherProcessor = new BusinessLogic.TeacherProcessor();
+        //    return teacherProcessor.Get(ApplicationManager.Workspace.School).Count > 0;
+        //}
         
         public override void Create(Subject objectToSave) {
             if (objectToSave == null) {
@@ -28,12 +29,8 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
-        public override List<Subject> Get() {
-            return dataManager.Get();
-        }
-
-        public override Subject Get(int id) {
-            return dataManager.Get(id);
+        public override List<Subject> Get(Teacher objectsParent) {
+            return dataManager.Get(objectsParent);
         }
 
 

@@ -18,20 +18,15 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public partial class ManageTeacher : Window, IBusinessObjectManager {
 
-        private School businessObjectParent;
+        private School businessObjectParent { get { return ApplicationPropertyManager.Workspace.School; } }
         private Teacher businessObjectEditing;
 
-        private BusinessLogic.BusinessObjectProcessor<Teacher> businessObjectProcessor = new BusinessLogic.TeacherProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Teacher, School> businessObjectProcessor = new BusinessLogic.TeacherProcessor();
 
 
-        private void Initialize(School businessObjectParent, Teacher businessObjectToEdit) {
-            if (businessObjectParent == null) {
-                throw new ArgumentNullException("businessObjectParent");
-            }
-
+        private void Initialize(Teacher businessObjectToEdit) {
             InitializeComponent();
 
-            this.businessObjectParent = businessObjectParent;
             this.businessObjectEditing = businessObjectToEdit;
 
             if (IsEditing) {
@@ -43,23 +38,16 @@ namespace VrankenBischof.Docxes.Interface {
             Common.ExtendWindowName(this);
         }
 
-        public ManageTeacher(School businessObjectToAddParent) {
-            if (businessObjectToAddParent == null) {
-                throw new ArgumentNullException("businessObjectToAddParent");
-            }
-
-            Initialize(businessObjectToAddParent, null);
+        public ManageTeacher() {
+            Initialize(null);
         }
 
-        public ManageTeacher(School businessObjectToEditParent, Teacher businessObjectToEdit) {
-            if (businessObjectToEditParent == null) {
-                throw new ArgumentNullException("businessObjectToEditParent");
-            }
+        public ManageTeacher(Teacher businessObjectToEdit) {
             if (businessObjectToEdit == null) {
                 throw new ArgumentNullException("businessObjectToEdit");
             }
 
-            Initialize(businessObjectToEditParent, businessObjectToEdit);
+            Initialize(businessObjectToEdit);
 
             MapElementToInterface(businessObjectToEdit);
         }
@@ -73,11 +61,13 @@ namespace VrankenBischof.Docxes.Interface {
 
         private bool Save() {
             if (ValidateInput()) {
+                var businessObjectToSave = MapInterfaceToElement();
+
                 if (IsEditing) {
-                    businessObjectProcessor.Update(MapInterfaceToElement());
+                    businessObjectProcessor.Update(businessObjectToSave);
                 }
                 else {
-                    businessObjectProcessor.Create(MapInterfaceToElement());
+                    businessObjectProcessor.Create(businessObjectToSave);
                 }
                 return true;
             }
@@ -104,7 +94,6 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private Teacher MapInterfaceToElement() {
-            // TODO: Use real school
             if (IsEditing) {
                 return new Teacher(businessObjectEditing, tbFirstName.Text, tbLastName.Text, cbIsMale.IsChecked.GetValueOrDefault(), businessObjectParent);
             }

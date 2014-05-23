@@ -6,17 +6,17 @@ using VrankenBischof.Docxes.Data;
 
 namespace VrankenBischof.Docxes.BusinessLogic {
 
-    sealed class GradeProcessor : BusinessObjectProcessor<Grade> {
+    sealed class GradeProcessor : BusinessObjectProcessor<Grade, Subject> {
 
         public GradeProcessor() {
             dataManager = new GradesDataManager();
         }
 
 
-        public override bool CanCreate() {
-            var subjectProcessor = new BusinessLogic.SubjectProcessor();
-            return subjectProcessor.Get().Count > 0;
-        }
+        //public override bool CanCreate(Teacher teacher) {
+        //    var subjectProcessor = new BusinessLogic.SubjectProcessor();
+        //    return subjectProcessor.Get(teacher).Count > 0;
+        //}
 
         public override void Create(Grade objectToSave) {
             if (objectToSave == null) {
@@ -27,12 +27,8 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
-        public override List<Grade> Get() {
-            return dataManager.Get();
-        }
-
-        public override Grade Get(int id) {
-            return dataManager.Get(id);
+        public override List<Grade> Get(Subject objectsParent) {
+            return dataManager.Get(objectsParent);
         }
 
 
