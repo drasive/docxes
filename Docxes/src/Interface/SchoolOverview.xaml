@@ -6,7 +6,7 @@
         Title="SchoolOverview"
         Height="738.833"
         Width="927.968"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterOwner"
         Loaded="wSchoolOverview_Loaded">
 
     <Grid x:Name="gRoot">
@@ -118,49 +118,85 @@
 
                 <ItemsControl x:Name="icSubjects"
                               Margin="10,255,10,10">
+                    <ItemsControl.DataContext>
+                        <Docxes:Subject />
+                    </ItemsControl.DataContext>
+
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
+
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="5">
-                                <Grid.DataContext>
-                                    <Docxes:Subject />
-                                </Grid.DataContext>
+                                <Grid.Resources>
+                                    <Style x:Key="Buttons"
+                                           TargetType="Button">
+                                        <!-- Placeholder -->
+                                    </Style>
+                                </Grid.Resources>
 
-                                <TextBlock Text="{Binding Id, Mode=OneWay}"
+                                <TextBlock Text="{Binding Name, Mode=OneWay}"
                                            FontSize="18" />
 
                                 <Grid Margin="0,20,0,0">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition />
                                         <ColumnDefinition Width="3" />
-                                        <ColumnDefinition Width="20" />
+                                        <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
 
                                     <StackPanel>
                                         <StackPanel.Resources>
-                                            <Style x:Key="StackPanelPadding"
+                                            <Style x:Key="ChildButtons"
+                                                   BasedOn="{StaticResource Buttons}"
                                                    TargetType="Button">
                                                 <Setter Property="Margin"
                                                         Value="0,5,0,0" />
                                             </Style>
-                                            <Style BasedOn="{StaticResource StackPanelPadding}"
+                                            <Style x:Key="ButtonText"
+                                                   TargetType="TextBlock">
+                                                <Setter Property="Width"
+                                                        Value="100" />
+                                                <Setter Property="TextAlignment"
+                                                        Value="Left" />
+                                            </Style>
+
+                                            <Style BasedOn="{StaticResource ChildButtons}"
                                                    TargetType="Button" />
+                                            <Style BasedOn="{StaticResource ButtonText}"
+                                                   TargetType="TextBlock" />
                                         </StackPanel.Resources>
 
-                                        <Button Content="{Binding Documents.Count, Mode=OneWay}" />
-                                        <Button Content="{Binding Notes.Count, Mode=OneWay}" />
-                                        <Button Content="{Binding Grades.Count, Mode=OneWay}" />
-                                        <Button Content="{Binding Events.Count, Mode=OneWay}" />
+                                        <Button x:Name="btnManageDocuments"
+                                                Click="btnManageDocuments_Click">
+                                            <TextBlock Text="{Binding Documents.Count, Mode=OneWay}" />
+                                        </Button>
+                                        <Button x:Name="btnManageNotes"
+                                                Click="btnManageNotes_Click">
+                                            <TextBlock Text="{Binding Notes.Count, Mode=OneWay}" />
+                                        </Button>
+                                        <Button x:Name="btnManageGrades"
+                                                Click="btnManageGrades_Click"
+                                                IsEnabled="False">
+                                            <TextBlock Text="{Binding Grades.Count, Mode=OneWay}" />
+                                        </Button>
+                                        <Button x:Name="btnManageEvents"
+                                                Click="btnManageEvents_Click"
+                                                IsEnabled="False">
+                                            <TextBlock Text="{Binding Events.Count, Mode=OneWay}" />
+                                        </Button>
                                     </StackPanel>
 
                                     <StackPanel Grid.Column="2">
                                         <StackPanel.Resources>
                                             <Style x:Key="StackPanelPadding"
+                                                   BasedOn="{StaticResource Buttons}"
                                                    TargetType="Button">
+                                                <Setter Property="Width"
+                                                        Value="20" />
                                                 <Setter Property="Margin"
                                                         Value="0,5,0,0" />
                                                 <Setter Property="Content"
@@ -175,9 +211,11 @@
                                         <Button x:Name="btnAddNote"
                                                 Click="btnAddNote_Click" />
                                         <Button x:Name="btnAddGrade"
-                                                Click="btnAddGrade_Click" />
+                                                Click="btnAddGrade_Click"
+                                                IsEnabled="False" />
                                         <Button x:Name="btnAddEvent"
-                                                Click="btnAddEvent_Click" />
+                                                Click="btnAddEvent_Click"
+                                                IsEnabled="False" />
                                     </StackPanel>
                                 </Grid>
                             </Grid>

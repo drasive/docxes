@@ -37,9 +37,16 @@ namespace VrankenBischof.Docxes.Interface {
             // TODO: Check if there are subjects and ask to create
         }
 
-        #region Processing
+        #region Control
 
+        // TODO: Business logic
+        private void UpdateWorkspace(Teacher teacher) {
+            ApplicationPropertyManager.Workspace.Teacher = teacher;
+        }
 
+        private void UpdateWorkspace(Subject subject) {
+            ApplicationPropertyManager.Workspace.Subject = subject;
+        }
 
         #endregion
 
@@ -69,9 +76,53 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
 
+        private void OpenManageDocuments() {
+            var managementWindow = new ManageDocuments();
+            managementWindow.ShowDialog();
+        }
+
+        private void OpenManageNotes() {
+            var managementWindow = new ManageNotes();
+            managementWindow.ShowDialog();
+        }
+
+        private void OpenManageGrades() {
+            var managementWindow = new ManageGrades();
+            managementWindow.ShowDialog();
+        }
+
+        private void OpenManageEvents() {
+            var managementWindow = new ManageEvents();
+            managementWindow.ShowDialog();
+        }
+
+
+        private void OpenManageDocument() {
+            var managementWindow = new ManageDocument(ApplicationPropertyManager.Workspace.Subject);
+            managementWindow.ShowDialog();
+        }
+
+        private void OpenManageNote() {
+            var managementWindow = new ManageNote(ApplicationPropertyManager.Workspace.Subject);
+            managementWindow.ShowDialog();
+        }
+
+        private void OpenManageGrade() {
+            // TODO:
+            //var managementWindow = new ManageGrade(ApplicationPropertyManager.Workspace.Subject);
+            //managementWindow.ShowDialog();
+        }
+
+        private void OpenManageEvent() {
+            // TODO:
+            //var managementWindow = new ManageEvent(ApplicationPropertyManager.Workspace.Subject);
+            //managementWindow.ShowDialog();
+        }
+
+
         private void OpenManageSchools() {
-            Window newWindow = new ManageSchools();
-            newWindow.Show();
+            Window managementWindow = new ManageSchools();
+            managementWindow.Show();
             Close();
         }
 
@@ -84,26 +135,83 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
 
-        // TODO: Do some work, bitch.ItemsSource
+        private void btnManageDocuments_Click(object sender, RoutedEventArgs e) {
+            var senderControl = (Control)sender;
+            var businessObject = (Subject)senderControl.DataContext;
+
+            UpdateWorkspace(businessObject.Teacher);
+            UpdateWorkspace(businessObject);
+            OpenManageDocuments();
+        }
+
+        private void btnManageNotes_Click(object sender, RoutedEventArgs e) {
+            var senderControl = (Control)sender;
+            var businessObject = (Subject)senderControl.DataContext;
+
+            UpdateWorkspace(businessObject.Teacher);
+            UpdateWorkspace(businessObject);
+            OpenManageNotes();
+        }
+
+        private void btnManageGrades_Click(object sender, RoutedEventArgs e) {
+            var senderControl = (Control)sender;
+            var businessObject = (Subject)senderControl.DataContext;
+
+            UpdateWorkspace(businessObject.Teacher);
+            UpdateWorkspace(businessObject);
+            OpenManageGrades();
+        }
+
+        private void btnManageEvents_Click(object sender, RoutedEventArgs e) {
+            var senderControl = (Control)sender;
+            var businessObject = (Subject)senderControl.DataContext;
+
+            UpdateWorkspace(businessObject.Teacher);
+            UpdateWorkspace(businessObject);
+            OpenManageEvents();
+        }
+
+
         private void btnAddDocument_Click(object sender, RoutedEventArgs e) {
-            var a = (Button)sender;
-            var b = a.DataContext;
+            var senderControl = (Control)sender;
+            var businessObject = (Subject)senderControl.DataContext;
+
+            UpdateWorkspace(businessObject.Teacher);
+            UpdateWorkspace(businessObject);
+            OpenManageDocument();
         }
 
         private void btnAddNote_Click(object sender, RoutedEventArgs e) {
+            var senderControl = (Control)sender;
+            var businessObject = (Subject)senderControl.DataContext;
 
+            UpdateWorkspace(businessObject.Teacher);
+            UpdateWorkspace(businessObject);
+            OpenManageNote();
         }
 
         private void btnAddGrade_Click(object sender, RoutedEventArgs e) {
+            var senderControl = (Control)sender;
+            var businessObject = (Subject)senderControl.DataContext;
 
+            UpdateWorkspace(businessObject.Teacher);
+            UpdateWorkspace(businessObject);
+            OpenManageGrade();
         }
 
         private void btnAddEvent_Click(object sender, RoutedEventArgs e) {
+            var senderControl = (Control)sender;
+            var businessObject = (Subject)senderControl.DataContext;
 
+            UpdateWorkspace(businessObject.Teacher);
+            UpdateWorkspace(businessObject);
+            OpenManageEvent();
         }
 
 
         // TODO: Enhance this temporary solution
+        #region Temp
+
         private void btnDocuments_Click(object sender, RoutedEventArgs e) {
             //if (documentProcessor.CanCreate()) {
             var window = new ManageDocuments();
@@ -159,6 +267,8 @@ namespace VrankenBischof.Docxes.Interface {
 
             UpdateBusinessObjects();
         }
+
+        #endregion
 
         #endregion
 

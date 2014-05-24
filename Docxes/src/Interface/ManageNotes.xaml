@@ -7,7 +7,7 @@
         Width="500"
         Loaded="wManageNotes_Loaded"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterOwner">
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
@@ -29,7 +29,8 @@
                   Height="23"
                   VerticalAlignment="Top"
                   Width="200"
-                  HorizontalAlignment="Left">
+                  HorizontalAlignment="Left"
+                  SelectedValuePath="Id">
         </ComboBox>
 
         <TextBlock x:Name="tblInstructions"

@@ -18,7 +18,8 @@ namespace VrankenBischof.Docxes {
 
             ApplicationPropertyManager.Application = Application.Current;
 
-            AppDomain.CurrentDomain.SetData("DataDirectory", @"C:\Privat\Versionsverwaltung\Docxes\Development\Docxes\Data\");
+            var userprofile = Environment.GetEnvironmentVariable("Userprofile");
+            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(userprofile, @"SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\Data\"));
 
             Window windowToShow = new Interface.ManageSchools();
             windowToShow.Show();

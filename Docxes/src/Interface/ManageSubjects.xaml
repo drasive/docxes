@@ -7,7 +7,7 @@
         Width="500"
         Loaded="wManageSubjects_Loaded"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterOwner">
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
@@ -20,7 +20,8 @@
                   VerticalAlignment="Top"
                   Width="150"
                   HorizontalAlignment="Left"
-                  SelectionChanged="cbTeachers_SelectionChanged" />
+                  SelectionChanged="cbTeachers_SelectionChanged"
+                  SelectedValuePath="Id" />
         <ListBox x:Name="lbSubjects"
                  Margin="10,31,10,10"
                  SelectionChanged="lbSubjects_SelectionChanged"

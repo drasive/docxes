@@ -26,8 +26,14 @@ namespace VrankenBischof.Docxes.Interface {
 
         private void UpdateBusinessObjectParents() {
             IEnumerable<Teacher> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.School);
+
             cbTeachers.ItemsSource = businessObjectParents;
-            cbTeachers.SelectedIndex = 0;
+            if (ApplicationPropertyManager.Workspace.Teacher == null) {
+                cbTeachers.SelectedIndex = 0;
+            }
+            else {
+                cbTeachers.SelectedValue = ApplicationPropertyManager.Workspace.Teacher.Id;
+            }            
         }
 
 

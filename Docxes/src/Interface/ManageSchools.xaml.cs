@@ -43,6 +43,8 @@ namespace VrankenBischof.Docxes.Interface {
 
 
         private void OpenSchoolOverview(School school) {
+            ApplicationPropertyManager.Workspace = new Workspace(SelectedBusinessObject);
+
             Window newWindow = new SchoolOverview(school);
             newWindow.Show();
             Close();
@@ -91,8 +93,6 @@ namespace VrankenBischof.Docxes.Interface {
 
 
         private void btnSelect_Click(object sender, RoutedEventArgs e) {
-            ApplicationPropertyManager.Workspace = new Workspace(SelectedBusinessObject);
-
             OpenSchoolOverview(SelectedBusinessObject);
         }
 

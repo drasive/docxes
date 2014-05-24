@@ -25,10 +25,15 @@ namespace VrankenBischof.Docxes.Interface {
         private Subject SelectedBusinessObjectParent { get { return (Subject)cbSubjects.SelectedItem; } }
 
         private void UpdateBusinessObjectParents() {
-            //TODO: ! Requires teacher to be set (in Overview)
             IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.Teacher);
+
             cbSubjects.ItemsSource = businessObjectParents;
-            cbSubjects.SelectedIndex = 0;
+            if (ApplicationPropertyManager.Workspace.Subject == null) {
+                cbSubjects.SelectedIndex = 0;
+            }
+            else {
+                cbSubjects.SelectedValue = ApplicationPropertyManager.Workspace.Subject.Id;
+            }     
         }
 
 

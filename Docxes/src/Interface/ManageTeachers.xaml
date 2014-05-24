@@ -7,7 +7,7 @@
         Width="500"
         Loaded="wManageTeachers_Loaded"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterOwner">
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
             <RowDefinition />

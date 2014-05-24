@@ -25,6 +25,8 @@ namespace VrankenBischof.Docxes.Data {
                         Subject subject
                     in
                         container.Subjects
+                            .Include(businessObject => businessObject.Teacher)
+
                             .Include(businessObject => businessObject.Documents)
                             .Include(businessObject => businessObject.Notes)
                             .Include(businessObject => businessObject.Grades)

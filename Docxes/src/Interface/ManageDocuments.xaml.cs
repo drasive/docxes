@@ -25,18 +25,21 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
-        private Subject SelectedBusinessObjectParent { get { return (Subject)cbSubject.SelectedItem; } }
+        private Subject SelectedBusinessObjectParent { get { return (Subject)cbSubjects.SelectedItem; } }
 
         private void UpdateBusinessObjectParents() {
-            //TODO: ! Requires teacher to be set (in Overview)
-
             IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.Teacher);
-            cbSubject.ItemsSource = businessObjectParents;
-            cbSubject.SelectedIndex = 0;
+
+            cbSubjects.ItemsSource = businessObjectParents;
+            if (ApplicationPropertyManager.Workspace.Subject == null) {
+                cbSubjects.SelectedIndex = 0;
+            }
+            else {
+                cbSubjects.SelectedValue = ApplicationPropertyManager.Workspace.Subject.Id;
+            }            
         }
 
 
-        // TODO: Use in all classes like this
         private Document SelectedBusinessObject { get { return (Document)lbDocuments.SelectedItem; } }
 
         private void UpdateBusinessObjects() {

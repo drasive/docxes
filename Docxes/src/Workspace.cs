@@ -28,7 +28,7 @@ namespace VrankenBischof.Docxes {
             }
         }
 
-        public Subject Subject { get; private set; }
+        public Subject Subject { get; set; }
 
 
         public Workspace(School school) {
