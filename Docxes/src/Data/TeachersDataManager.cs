@@ -20,6 +20,10 @@ namespace VrankenBischof.Docxes.Data {
         }
 
 
+        private List<Teacher> Get(LocalDatabaseContainer databaseContainer) {
+            return Get(databaseContainer, entity => true);
+        }
+
         private List<Teacher> Get(LocalDatabaseContainer container, Predicate<Teacher> predicate) {
             return (from
                         Teacher entity
@@ -40,6 +44,12 @@ namespace VrankenBischof.Docxes.Data {
                     select
                         entity
                     ).ToList().Where(entity => predicate(entity)).ToList();
+        }
+
+        public override List<Teacher> Get() {
+            using (var databaseContainer = GetDatabaseContainer()) {
+                return Get(databaseContainer);
+            }
         }
 
         public override List<Teacher> Get(School entitiesParent) {

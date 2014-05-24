@@ -36,7 +36,8 @@
                   VerticalAlignment="Top"
                   Width="200"
                   HorizontalAlignment="Left"
-                  SelectedValuePath="Id" />
+                  SelectedValuePath="Id"
+                  SelectionChanged="cbSubjects_SelectionChanged" />
 
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"

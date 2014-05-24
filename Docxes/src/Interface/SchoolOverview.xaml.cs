@@ -77,22 +77,22 @@ namespace VrankenBischof.Docxes.Interface {
 
 
         private void OpenManageDocuments() {
-            var managementWindow = new ManageDocuments();
+            var managementWindow = new ManageDocuments() { Owner = this };
             managementWindow.ShowDialog();
         }
 
         private void OpenManageNotes() {
-            var managementWindow = new ManageNotes();
+            var managementWindow = new ManageNotes() { Owner = this };
             managementWindow.ShowDialog();
         }
 
         private void OpenManageGrades() {
-            var managementWindow = new ManageGrades();
+            var managementWindow = new ManageGrades() { Owner = this };
             managementWindow.ShowDialog();
         }
 
         private void OpenManageEvents() {
-            var managementWindow = new ManageEvents();
+            var managementWindow = new ManageEvents() { Owner = this };
             managementWindow.ShowDialog();
         }
 
@@ -103,19 +103,19 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         private void OpenManageNote() {
-            var managementWindow = new ManageNote(ApplicationPropertyManager.Workspace.Subject);
+            var managementWindow = new ManageNote(ApplicationPropertyManager.Workspace.Subject) { Owner = this };
             managementWindow.ShowDialog();
         }
 
         private void OpenManageGrade() {
             // TODO:
-            //var managementWindow = new ManageGrade(ApplicationPropertyManager.Workspace.Subject);
+            //var managementWindow = new ManageGrade(ApplicationPropertyManager.Workspace.Subject) { Owner = this };
             //managementWindow.ShowDialog();
         }
 
         private void OpenManageEvent() {
             // TODO:
-            //var managementWindow = new ManageEvent(ApplicationPropertyManager.Workspace.Subject);
+            //var managementWindow = new ManageEvent(ApplicationPropertyManager.Workspace.Subject) { Owner = this };
             //managementWindow.ShowDialog();
         }
 

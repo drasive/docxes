@@ -33,6 +33,8 @@ namespace VrankenBischof.Docxes.Data {
         where Entity : Docxes.IBusinessObject
         where EntityParent : Docxes.IBusinessObject {
 
+        public abstract List<Entity> Get();
+
         public abstract List<Entity> Get(EntityParent entitiesParent);
 
     }

@@ -37,6 +37,8 @@ namespace VrankenBischof.Docxes.BusinessLogic {
 
         //public abstract bool CanCreate();
 
+        public abstract List<BusinessObject> Get();
+
         public abstract List<BusinessObject> Get(BusinessObjectParent objectsParent);
 
     }

@@ -20,6 +20,10 @@ namespace VrankenBischof.Docxes.Data {
         }
 
 
+        private List<School> Get(LocalDatabaseContainer databaseContainer) {
+            return Get(databaseContainer, entity => true);
+        }
+
         private List<School> Get(LocalDatabaseContainer container, Func<School, bool> predicate) {
             return (from
                         School entity
@@ -52,7 +56,7 @@ namespace VrankenBischof.Docxes.Data {
 
         public override List<School> Get() {
             using (var databaseContainer = GetDatabaseContainer()) {
-                return Get(databaseContainer, entity => true);
+                return Get(databaseContainer);
             }
         }
 

@@ -27,6 +27,10 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
+        public override List<Teacher> Get() {
+            return dataManager.Get();
+        }
+
         public override List<Teacher> Get(School objectsParent) {
             return dataManager.Get(objectsParent);
         }

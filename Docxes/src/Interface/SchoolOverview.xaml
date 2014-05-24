@@ -124,100 +124,128 @@
 
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
+                            <!-- TODO: Fucking vertical scrollbar -->
+                            <!--<ScrollViewer>-->
                             <WrapPanel />
+                            <!--</ScrollViewer>-->
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
 
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid Margin="5">
-                                <Grid.Resources>
-                                    <Style x:Key="Buttons"
-                                           TargetType="Button">
-                                        <!-- Placeholder -->
-                                    </Style>
-                                </Grid.Resources>
+                            <Grid Margin="3">
+                                <Border CornerRadius="3"
+                                        SnapsToDevicePixels="True">
+                                    <Border.Effect>
+                                        <DropShadowEffect />
+                                    </Border.Effect>
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1"
+                                                             MappingMode="RelativeToBoundingBox"
+                                                             StartPoint="0.5,0">
+                                            <GradientStop Color="#FF033C4D"
+                                                          Offset="1" />
+                                            <GradientStop Color="#FF2286A8"
+                                                          Offset="0" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
 
-                                <TextBlock Text="{Binding Name, Mode=OneWay}"
-                                           FontSize="18" />
-
-                                <Grid Margin="0,20,0,0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition Width="3" />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-
-                                    <StackPanel>
-                                        <StackPanel.Resources>
-                                            <Style x:Key="ChildButtons"
-                                                   BasedOn="{StaticResource Buttons}"
+                                    <Grid Margin="10">
+                                        <Grid.Resources>
+                                            <Style x:Key="Buttons"
                                                    TargetType="Button">
-                                                <Setter Property="Margin"
-                                                        Value="0,5,0,0" />
+                                                <!-- For future use -->
                                             </Style>
-                                            <Style x:Key="ButtonText"
-                                                   TargetType="TextBlock">
-                                                <Setter Property="Width"
-                                                        Value="100" />
-                                                <Setter Property="TextAlignment"
-                                                        Value="Left" />
-                                            </Style>
+                                        </Grid.Resources>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="35" />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
 
-                                            <Style BasedOn="{StaticResource ChildButtons}"
-                                                   TargetType="Button" />
-                                            <Style BasedOn="{StaticResource ButtonText}"
-                                                   TargetType="TextBlock" />
-                                        </StackPanel.Resources>
+                                        <TextBlock Text="{Binding Name, Mode=OneWay}"
+                                                   FontSize="22" />
 
-                                        <Button x:Name="btnManageDocuments"
-                                                Click="btnManageDocuments_Click">
-                                            <TextBlock Text="{Binding Documents.Count, Mode=OneWay}" />
-                                        </Button>
-                                        <Button x:Name="btnManageNotes"
-                                                Click="btnManageNotes_Click">
-                                            <TextBlock Text="{Binding Notes.Count, Mode=OneWay}" />
-                                        </Button>
-                                        <Button x:Name="btnManageGrades"
-                                                Click="btnManageGrades_Click"
-                                                IsEnabled="False">
-                                            <TextBlock Text="{Binding Grades.Count, Mode=OneWay}" />
-                                        </Button>
-                                        <Button x:Name="btnManageEvents"
-                                                Click="btnManageEvents_Click"
-                                                IsEnabled="False">
-                                            <TextBlock Text="{Binding Events.Count, Mode=OneWay}" />
-                                        </Button>
-                                    </StackPanel>
+                                        <Grid Margin="0,5,0,0"
+                                              Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="3" />
+                                                <ColumnDefinition Width="20" />
+                                            </Grid.ColumnDefinitions>
 
-                                    <StackPanel Grid.Column="2">
-                                        <StackPanel.Resources>
-                                            <Style x:Key="StackPanelPadding"
-                                                   BasedOn="{StaticResource Buttons}"
-                                                   TargetType="Button">
-                                                <Setter Property="Width"
-                                                        Value="20" />
-                                                <Setter Property="Margin"
-                                                        Value="0,5,0,0" />
-                                                <Setter Property="Content"
-                                                        Value="+" />
-                                            </Style>
-                                            <Style BasedOn="{StaticResource StackPanelPadding}"
-                                                   TargetType="Button" />
-                                        </StackPanel.Resources>
+                                            <StackPanel>
+                                                <StackPanel.Resources>
+                                                    <Style x:Key="ChildButtons"
+                                                           BasedOn="{StaticResource Buttons}"
+                                                           TargetType="Button">
+                                                        <Setter Property="Margin"
+                                                                Value="0,5,0,0" />
+                                                    </Style>
+                                                    <Style x:Key="ButtonText"
+                                                           TargetType="TextBlock">
+                                                        <Setter Property="MinWidth"
+                                                                Value="100" />
+                                                        <Setter Property="TextAlignment"
+                                                                Value="Left" />
+                                                    </Style>
 
-                                        <Button x:Name="btnAddDocument"
-                                                Click="btnAddDocument_Click" />
-                                        <Button x:Name="btnAddNote"
-                                                Click="btnAddNote_Click" />
-                                        <Button x:Name="btnAddGrade"
-                                                Click="btnAddGrade_Click"
-                                                IsEnabled="False" />
-                                        <Button x:Name="btnAddEvent"
-                                                Click="btnAddEvent_Click"
-                                                IsEnabled="False" />
-                                    </StackPanel>
-                                </Grid>
+                                                    <Style BasedOn="{StaticResource ChildButtons}"
+                                                           TargetType="Button" />
+                                                    <Style BasedOn="{StaticResource ButtonText}"
+                                                           TargetType="TextBlock" />
+                                                </StackPanel.Resources>
+
+                                                <Button x:Name="btnManageDocuments"
+                                                        Click="btnManageDocuments_Click">
+                                                    <TextBlock Text="{Binding Documents.Count, Mode=OneWay}" />
+                                                </Button>
+                                                <Button x:Name="btnManageNotes"
+                                                        Click="btnManageNotes_Click">
+                                                    <TextBlock Text="{Binding Notes.Count, Mode=OneWay}" />
+                                                </Button>
+                                                <Button x:Name="btnManageGrades"
+                                                        Click="btnManageGrades_Click"
+                                                        IsEnabled="False">
+                                                    <TextBlock Text="{Binding Grades.Count, Mode=OneWay}" />
+                                                </Button>
+                                                <Button x:Name="btnManageEvents"
+                                                        Click="btnManageEvents_Click"
+                                                        IsEnabled="False">
+                                                    <TextBlock Text="{Binding Events.Count, Mode=OneWay}" />
+                                                </Button>
+                                            </StackPanel>
+
+                                            <StackPanel Grid.Column="2"
+                                                        HorizontalAlignment="Left">
+                                                <StackPanel.Resources>
+                                                    <Style x:Key="StackPanelPadding"
+                                                           BasedOn="{StaticResource Buttons}"
+                                                           TargetType="Button">
+                                                        <Setter Property="Width"
+                                                                Value="20" />
+                                                        <Setter Property="Margin"
+                                                                Value="0,5,0,0" />
+                                                        <Setter Property="Content"
+                                                                Value="+" />
+                                                    </Style>
+                                                    <Style BasedOn="{StaticResource StackPanelPadding}"
+                                                           TargetType="Button" />
+                                                </StackPanel.Resources>
+
+                                                <Button x:Name="btnAddDocument"
+                                                        Click="btnAddDocument_Click" />
+                                                <Button x:Name="btnAddNote"
+                                                        Click="btnAddNote_Click" />
+                                                <Button x:Name="btnAddGrade"
+                                                        Click="btnAddGrade_Click"
+                                                        IsEnabled="False" />
+                                                <Button x:Name="btnAddEvent"
+                                                        Click="btnAddEvent_Click"
+                                                        IsEnabled="False" />
+                                            </StackPanel>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
