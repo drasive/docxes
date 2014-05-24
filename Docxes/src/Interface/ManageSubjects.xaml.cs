@@ -28,12 +28,12 @@ namespace VrankenBischof.Docxes.Interface {
             IEnumerable<Teacher> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.School);
 
             cbTeachers.ItemsSource = businessObjectParents;
-            if (ApplicationPropertyManager.Workspace.Teacher == null) {
-                cbTeachers.SelectedIndex = 0;
+            if (ApplicationPropertyManager.Workspace.Teacher != null) {
+                cbTeachers.SelectedValue = ApplicationPropertyManager.Workspace.Teacher.Id;
             }
             else {
-                cbTeachers.SelectedValue = ApplicationPropertyManager.Workspace.Teacher.Id;
-            }            
+                cbTeachers.SelectedIndex = 0;
+            }           
         }
 
 

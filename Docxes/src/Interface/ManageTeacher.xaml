@@ -7,46 +7,53 @@
         Width="500"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner">
+
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="8*" />
-        </Grid.ColumnDefinitions>
-        <Label x:Name="lblFirstName"
-               Content="Vorname:"
-               Margin="0,10,10,0"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Right" />
-        <Label x:Name="lblLastName"
-               Content="Nachname:"
-               Margin="0,41,10,0"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Right" />
-        <Label x:Name="lblMale"
-               Content="Männlich:"
-               Margin="0,72,10,0"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Right" />
-        <TextBox x:Name="tbFirstName"
-                 Grid.Column="1"
-                 Margin="10,15,10,0"
-                 TextWrapping="Wrap"
-                 VerticalAlignment="Top" />
-        <TextBox x:Name="tbLastName"
-                 Grid.Column="1"
-                 Margin="10,46,10,0"
-                 TextWrapping="Wrap"
-                 VerticalAlignment="Top" />
-        <CheckBox x:Name="cbIsMale"
-                  Content=""
-                  Grid.Column="1"
-                  HorizontalAlignment="Left"
-                  Margin="10,79,0,0"
-                  VerticalAlignment="Top" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="8*" />
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="lblFirstName"
+                   Content="Vorname:"
+                   Margin="0,10,10,0"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right" />
+            <Label x:Name="lblLastName"
+                   Content="Nachname:"
+                   Margin="0,41,10,0"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right" />
+            <Label x:Name="lblMale"
+                   Content="Männlich:"
+                   Margin="0,72,10,0"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right" />
+
+            <TextBox x:Name="tbFirstName"
+                     Grid.Column="1"
+                     Margin="10,15,10,0"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top" />
+            <TextBox x:Name="tbLastName"
+                     Grid.Column="1"
+                     Margin="10,46,10,0"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top" />
+            <CheckBox x:Name="cbIsMale"
+                      Content=""
+                      Grid.Column="1"
+                      HorizontalAlignment="Left"
+                      Margin="10,79,0,0"
+                      VerticalAlignment="Top" />
+        </Grid>
+
         <Button x:Name="btnSave"
                 Content="Speichern"
                 HorizontalAlignment="Right"

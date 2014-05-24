@@ -18,6 +18,8 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public partial class ManageSubject : Window, IBusinessObjectManager {
 
+        // TODO: Teacher selection at load
+
         private Teacher businessObjectParent;
         private Subject businessObjectEditing;
 
@@ -52,10 +54,6 @@ namespace VrankenBischof.Docxes.Interface {
             }
 
             Initialize(businessObjectToAddParent, null);
-
-            // TODO: Fix
-            //cbTeacher.SelectedItem = businessObjectParent;
-            cbTeacher.SelectedIndex = 0;
         }
 
         public ManageSubject(Teacher businessObjectToEditParent, Subject businessObjectToEdit) {
@@ -104,7 +102,9 @@ namespace VrankenBischof.Docxes.Interface {
 
         private void UpdateBusinessObjectParents() {
             IEnumerable<Teacher> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.School);
+
             cbTeacher.ItemsSource = businessObjectParents;
+            cbTeacher.SelectedValue = businessObjectParent.Id;
         }
 
 

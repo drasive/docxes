@@ -28,12 +28,12 @@ namespace VrankenBischof.Docxes.Interface {
             IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get();
 
             cbSubjects.ItemsSource = businessObjectParents;
-            if (ApplicationPropertyManager.Workspace.Subject == null) {
-                cbSubjects.SelectedIndex = 0;
+            if (ApplicationPropertyManager.Workspace.Subject != null) {
+                cbSubjects.SelectedValue = ApplicationPropertyManager.Workspace.Subject.Id;
             }
             else {
-                cbSubjects.SelectedValue = ApplicationPropertyManager.Workspace.Subject.Id;
-            }     
+                cbSubjects.SelectedIndex = 0;
+            }
         }
 
 
@@ -91,6 +91,11 @@ namespace VrankenBischof.Docxes.Interface {
             UpdateBusinessObjectParents();
             UpdateBusinessObjects();
             UpdateControlsAvailability();
+        }
+
+
+        private void cbSubjects_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            UpdateBusinessObjects();
         }
 
 

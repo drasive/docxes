@@ -31,7 +31,7 @@ namespace VrankenBischof.Docxes {
         }
 
 
-        public void Clear() {
+        public void Invalidate() {
             _Value = default(TValue);
             IsValueCached = false;
         }

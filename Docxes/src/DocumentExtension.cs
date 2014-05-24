@@ -7,16 +7,25 @@ namespace VrankenBischof.Docxes {
     public partial class Document : IBusinessObject, IEquatable<Document> {
 
         // TODO:
-        private Cache<FileInfo> fileInfo = new Cache<FileInfo>(() => { return new System.IO.FileInfo("C:/temp" /*FilePath*/); });
+        private FileInfo fileInfoCached;
+        private FileInfo FileInfo {
+            get {
+                if (fileInfoCached == null) {
+                    fileInfoCached = new System.IO.FileInfo(FilePath);
+                }
 
-        public bool DoesExist { get { return fileInfo.Value.Exists; } }
-        public string Name { get { return fileInfo.Value.Name; } }
-        public string Extension { get { return fileInfo.Value.Extension; } }
-        public long Size { get { return fileInfo.Value.Length / 1024; } }
+                return fileInfoCached;
+            }
+        }
 
-        public DateTime LastWriteTime { get { return fileInfo.Value.LastWriteTime; } }
-        public DateTime CreationTime { get { return fileInfo.Value.CreationTime; } }
-        public DateTime LastAccessTime { get { return fileInfo.Value.LastAccessTime; } }
+        public bool DoesExist { get { return FileInfo.Exists; } }
+        public string Name { get { return FileInfo.Name; } }
+        public string Extension { get { return FileInfo.Extension; } }
+        public long Size { get { return FileInfo.Length / 1024; } }
+
+        public DateTime LastWriteTime { get { return FileInfo.LastWriteTime; } }
+        public DateTime CreationTime { get { return FileInfo.CreationTime; } }
+        public DateTime LastAccessTime { get { return FileInfo.LastAccessTime; } }
 
 
         public Document() {

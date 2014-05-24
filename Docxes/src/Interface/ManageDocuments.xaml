@@ -4,12 +4,10 @@
         x:Name="wManageDocuments"
         x:Class="VrankenBischof.Docxes.Interface.ManageDocuments"
         Title="Dokumente"
-        Height="420"
+        Height="450"
         Width="800"
         Loaded="wManageDocuments_Loaded"
         WindowStartupLocation="CenterOwner"
-        MaxWidth="1280"
-        MaxHeight="720"
         MinWidth="600"
         MinHeight="300">
 
@@ -61,15 +59,15 @@
                     <!--<GridViewColumn Width="250"
                                     Header="Grösse (MiB)"
                                     DisplayMemberBinding="{Binding Size}" />-->
-                    <GridViewColumn Width="120"
+                    <GridViewColumn Width="110"
                                     Header="Änderungsdatum"
                                     DisplayMemberBinding="{Binding LastWriteTime}" />
-                    <GridViewColumn Width="120"
+                    <GridViewColumn Width="110"
                                     Header="Erstelldatum"
                                     DisplayMemberBinding="{Binding CreationTime}" />
-                    <GridViewColumn Width="250"
+                    <GridViewColumn Width="350"
                                     Header="Pfad"
-                                    DisplayMemberBinding="{Binding FilePah}" />
+                                    DisplayMemberBinding="{Binding FilePath}" />
                 </GridView>
             </ListView.View>
             <ListView.DataContext>

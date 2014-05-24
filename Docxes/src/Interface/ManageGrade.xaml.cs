@@ -61,11 +61,13 @@ namespace VrankenBischof.Docxes.Interface {
 
         private bool Save() {
             if (ValidateInput()) {
+                var businessObjectToSave = MapInterfaceToElement();
+
                 if (IsEditing) {
-                    businessObjectProcessor.Update(MapInterfaceToElement());
+                    businessObjectProcessor.Update(businessObjectToSave);
                 }
                 else {
-                    businessObjectProcessor.Create(MapInterfaceToElement());
+                    businessObjectProcessor.Create(businessObjectToSave);
                 }
                 return true;
             }
