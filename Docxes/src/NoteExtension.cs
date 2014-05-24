@@ -10,7 +10,7 @@
         public Note(string name, string content, Subject subject) {
             Name = name;
             Content = content;
-            Subject = subject;
+            SubjectId = subject.Id;
         }
 
         public Note(Note businessObjectEditing, string name, string content, Subject subject)

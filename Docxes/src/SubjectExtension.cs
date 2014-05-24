@@ -5,7 +5,7 @@
 
         public Subject(string name, Teacher teacher) {
             Name = name;
-            Teacher = teacher;
+            TeacherId = teacher.Id;
         }
 
         public Subject(Subject businessObjectEditing, string name, Teacher teacher)

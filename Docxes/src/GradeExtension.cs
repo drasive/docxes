@@ -11,8 +11,8 @@
             Value = value;
             Weight = weight;
             Comment = comment;
-            Subject = subject;
-            Event = @event;
+            SubjectId = subject.Id;
+            EventId = @event.Id;
         }
 
         public Grade(Grade businessObjectEditing, int value, int weight, string comment, Subject subject, Event @event)

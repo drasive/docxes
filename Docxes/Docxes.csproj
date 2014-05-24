@@ -335,6 +335,7 @@
     </Content>
     <Resource Include="Project Management\Class Diagram.png" />
     <Resource Include="Project Management\Priority ToDos.txt" />
+    <Content Include="Resources\SQL Scripts\Select all entities.sql" />
     <Content Include="src\Data\LocalDatabase.edmx.sql" />
     <Resource Include="Resources\Images\SchoolBackground.jpg" />
     <Resource Include="Resources\Images\NotesBackground.jpg" />

@@ -25,7 +25,7 @@ namespace VrankenBischof.Docxes {
 
         public Document(string filePath, Subject subject) {
             FilePath = filePath;
-            Subject = subject;
+            SubjectId = subject.Id;
         }
 
         public Document(Document businessObjectEditing, string filePath, Subject subject)

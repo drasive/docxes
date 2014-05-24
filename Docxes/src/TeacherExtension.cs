@@ -7,7 +7,7 @@
             FirstName = firstName;
             LastName = lastName;
             IsMale = isMale;
-            School = school;
+            SchoolId = school.Id;
         }
 
         public Teacher(Teacher businessObjectEditing, string firstName, string lastName, bool isMale, School school)

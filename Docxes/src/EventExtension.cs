@@ -10,7 +10,7 @@ namespace VrankenBischof.Docxes {
             Date = date;
             Type = type;
             Comment = comment;
-            Subject = subject;
+            SubjectId = subject.Id;
         }
 
         public Event(Event businessObjectEditing, string name, DateTime date, int type, string comment, Subject subject)
