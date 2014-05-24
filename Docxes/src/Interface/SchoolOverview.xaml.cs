@@ -55,8 +55,8 @@ namespace VrankenBischof.Docxes.Interface {
         private void UpdateBusinessObjects() {
             // Get business objects
             var businessObjects = new List<Subject>();
-            var businessObjectParantes = teacherProcessor.Get(ApplicationPropertyManager.Workspace.School);
-            foreach (var teacher in businessObjectParantes) {
+            var businessObjectParents = teacherProcessor.Get(ApplicationPropertyManager.Workspace.School);
+            foreach (var teacher in businessObjectParents) {
                 businessObjects.AddRange(subjectProcessor.Get(teacher));
             }
 

@@ -8,50 +8,50 @@ namespace VrankenBischof.Docxes.Data {
 
     sealed class TeachersDataManager : BusinessObjectDataManager<Teacher, School> {
 
-        public override void Create(Teacher objectToSave) {
-            if (objectToSave == null) {
-                throw new ArgumentNullException("objectToSave");
+        public override void Create(Teacher entityToSave) {
+            if (entityToSave == null) {
+                throw new ArgumentNullException("entityToSave");
             }
 
             using (var databaseContainer = GetDatabaseContainer()) {
-                databaseContainer.Teachers.Add(objectToSave);
+                databaseContainer.Teachers.Add(entityToSave);
                 databaseContainer.SaveChanges();
             }
         }
 
 
-        private List<Teacher> Get(LocalDatabaseContainer container) {
+        private List<Teacher> Get(LocalDatabaseContainer container, Predicate<Teacher> predicate) {
             return (from
-                        Teacher teacher
+                        Teacher entity
                     in
                         container.Teachers
-                            .Include(businessObject => businessObject.Subjects
+                            .Include(entity => entity.Subjects
                                 .Select(subject => subject.Documents)
                             )
-                            .Include(businessObject => businessObject.Subjects
+                            .Include(entity => entity.Subjects
                                 .Select(subject => subject.Notes)
                             )
-                            .Include(businessObject => businessObject.Subjects
+                            .Include(entity => entity.Subjects
                                 .Select(subject => subject.Grades)
                             )
-                            .Include(businessObject => businessObject.Subjects
+                            .Include(entity => entity.Subjects
                                 .Select(subject => subject.Events)
                             )
                     select
-                        teacher
-                    ).ToList();
+                        entity
+                    ).ToList().Where(entity => predicate(entity)).ToList();
         }
 
-        public override List<Teacher> Get(School objectsParent) {
+        public override List<Teacher> Get(School entitiesParent) {
             using (var databaseContainer = GetDatabaseContainer()) {
-                return Get(databaseContainer);
+                return Get(databaseContainer, entity => entity.School.Equals(entitiesParent));
             }
         }
 
 
-        public override void Update(Teacher objectToUpdate) {
-            if (objectToUpdate == null) {
-                throw new ArgumentNullException("objectToUpdate");
+        public override void Update(Teacher entityToUpdate) {
+            if (entityToUpdate == null) {
+                throw new ArgumentNullException("entityToUpdate");
             }
 
             using (var databaseContainer = GetDatabaseContainer()) {
@@ -68,13 +68,13 @@ namespace VrankenBischof.Docxes.Data {
         }
 
 
-        public override void Delete(Teacher objectToDelete) {
-            if (objectToDelete == null) {
-                throw new ArgumentNullException("objectToDelete");
+        public override void Delete(Teacher entityToDelete) {
+            if (entityToDelete == null) {
+                throw new ArgumentNullException("entityToDelete");
             }
 
             using (var databaseContainer = GetDatabaseContainer()) {
-                var databaseObjectToDelete = Get(databaseContainer).First(databaseElement => databaseElement.Id == objectToDelete.Id);
+                var databaseObjectToDelete = Get(databaseContainer, entity => entity.Id == entityToDelete.Id).First();
                 databaseContainer.Teachers.Remove(databaseObjectToDelete);
                 databaseContainer.SaveChanges();
             }

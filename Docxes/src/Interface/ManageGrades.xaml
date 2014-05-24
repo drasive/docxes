@@ -34,8 +34,7 @@
         </Grid.RowDefinitions>
         <ListBox x:Name="lbSchools"
                  Margin="10,10,217,5"
-                 SelectionChanged="lbSchools_SelectionChanged"
-                 ItemsSource="{Binding}" />
+                 SelectionChanged="lbSchools_SelectionChanged" />
         <Button x:Name="btnAdd"
                 Content="Hinzufügen"
                 Margin="0,5,170,0"

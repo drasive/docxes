@@ -1,19 +1,25 @@
-﻿<Window x:Name="wManageDocuments"
-        x:Class="VrankenBischof.Docxes.Interface.ManageDocuments"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Docxes="clr-namespace:VrankenBischof.Docxes"
+        x:Name="wManageDocuments"
+        x:Class="VrankenBischof.Docxes.Interface.ManageDocuments"
         Title="Dokumente"
-        Height="300"
-        Width="500"
+        Height="420"
+        Width="800"
         Loaded="wManageDocuments_Loaded"
-        ResizeMode="NoResize"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterOwner"
+        MaxWidth="1280"
+        MaxHeight="720"
+        MinWidth="600"
+        MinHeight="300">
+
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
             <RowDefinition />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
+
         <Label x:Name="lblSubject"
                Content="Fach:"
                Height="26"
@@ -31,20 +37,50 @@
                   Width="200"
                   HorizontalAlignment="Left"
                   SelectedValuePath="Id" />
+
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
-                   Margin="10,0,0,165"
+                   Margin="10,10,0,0"
                    TextWrapping="Wrap"
                    Text="Wählen Sie das Dokument aus, die Sie verwalten möchten:"
                    Height="16"
-                   VerticalAlignment="Bottom"
+                   VerticalAlignment="Top"
                    Grid.Row="1"
                    Width="309" />
-        <ListBox x:Name="lbDocuments"
+
+        <ListView x:Name="lbDocuments"
+                  Margin="10,31,10,5"
+                  Grid.Row="1"
+                  SelectionChanged="lbDocuments_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="175"
+                                    Header="Name"
+                                    DisplayMemberBinding="{Binding Name}" />
+                    <!--<GridViewColumn Width="250"
+                                    Header="Grösse (MiB)"
+                                    DisplayMemberBinding="{Binding Size}" />-->
+                    <GridViewColumn Width="120"
+                                    Header="Änderungsdatum"
+                                    DisplayMemberBinding="{Binding LastWriteTime}" />
+                    <GridViewColumn Width="120"
+                                    Header="Erstelldatum"
+                                    DisplayMemberBinding="{Binding CreationTime}" />
+                    <GridViewColumn Width="250"
+                                    Header="Pfad"
+                                    DisplayMemberBinding="{Binding FilePah}" />
+                </GridView>
+            </ListView.View>
+            <ListView.DataContext>
+                <Docxes:Document />
+            </ListView.DataContext>
+        </ListView>
+
+        <!--<ListBox x:Name="lbDocuments"
                  Margin="10,31,10,5"
                  Grid.Row="1"
-                 SelectionChanged="lbDocuments_SelectionChanged"
-                 ItemsSource="{Binding}" />
+                 SelectionChanged="lbDocuments_SelectionChanged" />-->
+
         <Button x:Name="btnOpenFolder"
                 Content="Ordner öffnen"
                 Margin="0,5,170,0"

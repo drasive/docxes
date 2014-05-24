@@ -7,38 +7,38 @@ namespace VrankenBischof.Docxes.Data {
 
     sealed class EventsDataManager : BusinessObjectDataManager<Event, Subject> {
 
-        public override void Create(Event objectToSave) {
-            if (objectToSave == null) {
-                throw new ArgumentNullException("objectToSave");
+        public override void Create(Event entityToSave) {
+            if (entityToSave == null) {
+                throw new ArgumentNullException("entityToSave");
             }
 
             using (var databaseContainer = GetDatabaseContainer()) {
-                databaseContainer.Events.Add(objectToSave);
+                databaseContainer.Events.Add(entityToSave);
                 databaseContainer.SaveChanges();
             }
         }
 
 
-        private List<Event> Get(LocalDatabaseContainer container) {
+        private List<Event> Get(LocalDatabaseContainer databaseContainer, Predicate<Event> predicate) {
             return (from
-                        Event @event
+                        Event entity
                     in
-                        container.Events
+                        databaseContainer.Events
                     select
-                        @event
-                    ).ToList();
+                        entity
+                    ).ToList().Where(entity => predicate(entity)).ToList();
         }
 
-        public override List<Event> Get(Subject objectsParent) {
+        public override List<Event> Get(Subject entitiesParent) {
             using (var databaseContainer = GetDatabaseContainer()) {
-                return Get(databaseContainer);
+                return Get(databaseContainer, entity => entity.Subject.Equals(entitiesParent));
             }
         }
 
 
-        public override void Update(Event objectToUpdate) {
-            if (objectToUpdate == null) {
-                throw new ArgumentNullException("objectToUpdate");
+        public override void Update(Event entityToUpdate) {
+            if (entityToUpdate == null) {
+                throw new ArgumentNullException("entityToUpdate");
             }
 
             using (var databaseContainer = GetDatabaseContainer()) {
@@ -55,13 +55,13 @@ namespace VrankenBischof.Docxes.Data {
         }
 
 
-        public override void Delete(Event objectToDelete) {
-            if (objectToDelete == null) {
-                throw new ArgumentNullException("objectToDelete");
+        public override void Delete(Event entityToDelete) {
+            if (entityToDelete == null) {
+                throw new ArgumentNullException("entityToDelete");
             }
 
             using (var databaseContainer = GetDatabaseContainer()) {
-                var databaseObjectToDelete = Get(databaseContainer).First(databaseElement => databaseElement.Id == objectToDelete.Id);
+                var databaseObjectToDelete = Get(databaseContainer, entity => entity.Id == entityToDelete.Id).First();
                 databaseContainer.Events.Remove(databaseObjectToDelete);
                 databaseContainer.SaveChanges();
             }

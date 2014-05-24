@@ -6,8 +6,6 @@ using VrankenBischof.Docxes.Data;
 
 namespace VrankenBischof.Docxes.BusinessLogic {
 
-    // TODO: Change this stuff to an interface (no common functionality)?
-
     // TODO: Mark as "private"
     abstract class BusinessObjectProcessorBase<BusinessObject>
         where BusinessObject : Docxes.IBusinessObject {
@@ -25,6 +23,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
 
         protected BusinessObjectDataManager<BusinessObject> dataManager;
 
+
         public abstract List<BusinessObject> Get();
 
     }
@@ -34,6 +33,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         where BusinessObjectParent : Docxes.IBusinessObject {
 
         protected BusinessObjectDataManager<BusinessObject, BusinessObjectParent> dataManager;
+
 
         //public abstract bool CanCreate();
 

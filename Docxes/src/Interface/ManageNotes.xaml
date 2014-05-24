@@ -46,7 +46,6 @@
                  Margin="10,26,10,5"
                  Grid.Row="1"
                  SelectionChanged="lbNotes_SelectionChanged"
-                 ItemsSource="{Binding}"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
 
         <Button x:Name="btnAdd"

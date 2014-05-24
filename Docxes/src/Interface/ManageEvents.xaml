@@ -24,8 +24,7 @@
         <ListBox x:Name="lbSchools"
                  Margin="10,5,10,5"
                  Grid.Row="1"
-                 SelectionChanged="lbSchools_SelectionChanged"
-                 ItemsSource="{Binding}" />
+                 SelectionChanged="lbSchools_SelectionChanged" />
         <Button x:Name="btnAdd"
                 Content="Hinzufügen"
                 Margin="0,5,170,0"

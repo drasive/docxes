@@ -23,6 +23,23 @@
             return Name;
         }
 
+        public bool Equals(Note noteToEquate) {
+            return noteToEquate != null && Id == noteToEquate.Id;
+        }
+
+        public override bool Equals(object objectToEquate) {
+            if (objectToEquate == null) {
+                return false;
+            }
+
+            var noteToEquate = objectToEquate as Note;
+            return (noteToEquate != null && Equals(noteToEquate));
+        }
+
+        public override int GetHashCode() {
+            return this.Id.GetHashCode();
+        }
+
     }
 
 }

@@ -33,7 +33,7 @@
                  Margin="10,31,10,5"
                  Grid.Row="1"
                  SelectionChanged="lbSchools_SelectionChanged"
-                 ItemsSource="{Binding}" />
+                  />
         <Button x:Name="btnSelect"
                 Content="Auswählen"
                 HorizontalAlignment="Left"

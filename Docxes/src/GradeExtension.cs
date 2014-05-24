@@ -25,6 +25,23 @@
             return Value.ToString();
         }
 
+        public bool Equals(Grade gradeToEquate) {
+            return gradeToEquate != null && Id == gradeToEquate.Id;
+        }
+
+        public override bool Equals(object objectToEquate) {
+            if (objectToEquate == null) {
+                return false;
+            }
+
+            var gradeToEquate = objectToEquate as Grade;
+            return (gradeToEquate != null && Equals(gradeToEquate));
+        }
+
+        public override int GetHashCode() {
+            return this.Id.GetHashCode();
+        }
+
     }
 
 }

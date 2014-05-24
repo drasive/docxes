@@ -24,6 +24,23 @@ namespace VrankenBischof.Docxes {
             return Name;
         }
 
+        public bool Equals(Event eventToEquate) {
+            return eventToEquate != null && Id == eventToEquate.Id;
+        }
+
+        public override bool Equals(object objectToEquate) {
+            if (objectToEquate == null) {
+                return false;
+            }
+
+            var eventToEquate = objectToEquate as Event;
+            return (eventToEquate != null && Equals(eventToEquate));
+        }
+
+        public override int GetHashCode() {
+            return this.Id.GetHashCode();
+        }
+
     }
 
 }
