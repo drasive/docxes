@@ -67,15 +67,9 @@ namespace VrankenBischof.Docxes.Data {
             }
 
             using (var databaseContainer = GetDatabaseContainer()) {
-                // REFACTOR: Replace with Get(container)
-                // BUG
-
-                //var databaseObjectToUpdate = container.Schools.First(databaseElement => databaseElement.Id == objectToUpdate.Id);
-                //databaseObjectToUpdate = objectToUpdate;
-
-                //container.Schools.Attach(objectToUpdate);
-                //container.Entry(objectToUpdate).State = System.Data.Entity.EntityState.Modified;
-                //container.SaveChanges();
+                databaseContainer.Schools.Attach(entityToUpdate);
+                databaseContainer.Entry(entityToUpdate).State = System.Data.Entity.EntityState.Modified;
+                databaseContainer.SaveChanges();
             }
         }
 

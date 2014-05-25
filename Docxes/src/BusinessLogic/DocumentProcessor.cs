@@ -43,6 +43,15 @@ namespace VrankenBischof.Docxes.BusinessLogic {
 
             dataManager.Update(objectToUpdate);
         }
+        // TODO: _
+        //public void Update(Document original, Document objectToUpdate) {
+        //    if (objectToUpdate == null) {
+        //        throw new ArgumentNullException("objectToUpdate");
+        //    }
+        //
+        //    // TODO: _
+        //    ((DocumentsDataManager)dataManager).Update2(original, objectToUpdate);
+        //}
 
 
         public override void Delete(Document objectToDelete) {

@@ -91,7 +91,9 @@ namespace VrankenBischof.Docxes.Interface {
                 string filePath = openFileDialog.FileName;
                 var businessObjectToCreate = new Document(businessObjectEditing, filePath, businessObjectParent);
 
-                businessObjectProcessor.Create(businessObjectToCreate);
+                // TODO: _
+                ((BusinessLogic.DocumentProcessor)businessObjectProcessor).Update(businessObjectToCreate);
+                //((BusinessLogic.DocumentProcessor)businessObjectProcessor).Update(businessObjectEditing, businessObjectToCreate);
 
                 Action = BusinessObjectManagerAction.Saved;
             }
