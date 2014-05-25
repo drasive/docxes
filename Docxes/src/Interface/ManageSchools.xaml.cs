@@ -45,8 +45,8 @@ namespace VrankenBischof.Docxes.Interface {
         private void OpenSchoolOverview(School school) {
             ApplicationPropertyManager.Workspace = new Workspace(SelectedBusinessObject);
 
-            Window newWindow = new SchoolOverview(school);
-            newWindow.Show();
+            Window schoolOverview = new SchoolOverview();
+            schoolOverview.Show();
             Close();
         }
 

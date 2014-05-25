@@ -4,8 +4,8 @@
         x:Name="wSchoolOverview"
         x:Class="VrankenBischof.Docxes.Interface.SchoolOverview"
         Title="SchoolOverview"
-        Height="738.833"
-        Width="927.968"
+        Height="740"
+        Width="930"
         WindowStartupLocation="CenterOwner"
         Loaded="wSchoolOverview_Loaded">
 
@@ -15,14 +15,14 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <TextBlock HorizontalAlignment="Left"
+        <TextBlock x:Name="tbTitle"
+                   HorizontalAlignment="Left"
                    Margin="10,10,0,0"
                    TextWrapping="Wrap"
-                   Text="Title"
-                   VerticalAlignment="Top"
+                   Text="[Schulname]"
                    FontSize="24"
-                   Width="188"
-                   Height="32" />
+                   Height="32"
+                   VerticalAlignment="Top" />
 
         <Grid x:Name="gContent"
               Grid.Row="1">
@@ -34,90 +34,12 @@
             <Grid x:Name="gMenu"
                   Margin="0,0,5,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="5*" />
-                    <RowDefinition Height="1.5*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="45" />
                 </Grid.RowDefinitions>
 
-                <Grid Height="250"
-                      VerticalAlignment="Top">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="1*" />
-                    </Grid.ColumnDefinitions>
-
-                    <Grid x:Name="gNotes"
-                          Margin="5">
-                        <Grid Margin="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="22" />
-                                <RowDefinition Height="1*" />
-                            </Grid.RowDefinitions>
-
-                            <TextBlock Text="Notizen [Anzahl]"
-                                       FontSize="14" />
-                            <Image Source="/Docxes;component/Resources/Images/NotesBackground.jpg"
-                                   Stretch="UniformToFill"
-                                   Grid.Row="1" />
-                        </Grid>
-                    </Grid>
-
-                    <Button x:Name="btnDocuments"
-                            Content="Documents"
-                            Grid.Column="1"
-                            HorizontalAlignment="Left"
-                            Margin="10,10,0,0"
-                            VerticalAlignment="Top"
-                            Width="75"
-                            Click="btnDocuments_Click" />
-                    <Button x:Name="btnEvents"
-                            Content="Events"
-                            Grid.Column="1"
-                            HorizontalAlignment="Left"
-                            Margin="10,35,0,0"
-                            VerticalAlignment="Top"
-                            Width="75"
-                            Click="btnEvents_Click"
-                            IsEnabled="False" />
-                    <Button x:Name="btnGrades"
-                            Content="Grades"
-                            Grid.Column="1"
-                            HorizontalAlignment="Left"
-                            Margin="10,60,0,0"
-                            VerticalAlignment="Top"
-                            Width="75"
-                            Click="btnGrades_Click"
-                            IsEnabled="False" />
-                    <Button x:Name="btnNotes"
-                            Content="Notes"
-                            Grid.Column="1"
-                            HorizontalAlignment="Left"
-                            Margin="10,85,0,0"
-                            VerticalAlignment="Top"
-                            Width="75"
-                            Click="btnNotes_Click" />
-                    <Button x:Name="btnSubjects"
-                            Content="Subjects"
-                            Grid.Column="1"
-                            HorizontalAlignment="Left"
-                            Margin="10,110,0,0"
-                            VerticalAlignment="Top"
-                            Width="75"
-                            Click="btnSubjects_Click" />
-                    <Button x:Name="btnTeachers"
-                            Content="Teachers"
-                            Grid.Column="1"
-                            HorizontalAlignment="Left"
-                            Margin="10,135,0,0"
-                            VerticalAlignment="Top"
-                            Width="75"
-                            Click="btnTeachers_Click" />
-                </Grid>
-
                 <ItemsControl x:Name="icSubjects"
-                              Margin="10,255,10,10">
+                              Margin="10,10,10,180">
                     <ItemsControl.DataContext>
                         <Docxes:Subject />
                     </ItemsControl.DataContext>
@@ -250,7 +172,19 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+
+                <Button x:Name="btnChangeSchool"
+                        Grid.Row="1"
+                        Margin="10,10,0,0"
+                        Content="Schule wechseln"
+                        Height="25"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Width="117"
+                        Click="btnChangeSchool_Click" />
             </Grid>
+
+
 
             <Grid x:Name="gEventPreview"
                   Grid.Column="1"
@@ -327,116 +261,59 @@
                            FontSize="12"
                            Width="188"
                            Height="16" />
+                <Grid Height="170"
+                      VerticalAlignment="Top"
+                      Margin="10,479,0,0"
+                      HorizontalAlignment="Left"
+                      Width="99">
+
+                    <Button x:Name="btnDocuments"
+                            Content="Documents"
+                            HorizontalAlignment="Left"
+                            Margin="10,10,0,0"
+                            VerticalAlignment="Top"
+                            Width="75"
+                            Click="btnDocuments_Click" />
+                    <Button x:Name="btnEvents"
+                            Content="Events"
+                            HorizontalAlignment="Left"
+                            Margin="10,35,0,0"
+                            VerticalAlignment="Top"
+                            Width="75"
+                            Click="btnEvents_Click"
+                            IsEnabled="False" />
+                    <Button x:Name="btnGrades"
+                            Content="Grades"
+                            HorizontalAlignment="Left"
+                            Margin="10,60,0,0"
+                            VerticalAlignment="Top"
+                            Width="75"
+                            Click="btnGrades_Click"
+                            IsEnabled="False" />
+                    <Button x:Name="btnNotes"
+                            Content="Notes"
+                            HorizontalAlignment="Left"
+                            Margin="10,85,0,0"
+                            VerticalAlignment="Top"
+                            Width="75"
+                            Click="btnNotes_Click" />
+                    <Button x:Name="btnSubjects"
+                            Content="Subjects"
+                            HorizontalAlignment="Left"
+                            Margin="10,110,0,0"
+                            VerticalAlignment="Top"
+                            Width="75"
+                            Click="btnSubjects_Click" />
+                    <Button x:Name="btnTeachers"
+                            Content="Teachers"
+                            HorizontalAlignment="Left"
+                            Margin="10,135,0,0"
+                            VerticalAlignment="Top"
+                            Width="75"
+                            Click="btnTeachers_Click" />
+                </Grid>
 
             </Grid>
         </Grid>
-
-
-
-        <!--<Border Background="#8CA4D4"
-                Margin="182,52,462,438">
-            <Canvas Margin="-2,0,2,0">
-                <Image Source="/Docxes;component/Resources/Images/DocumentsBackground.png"
-                       HorizontalAlignment="Left"
-                       Height="80"
-                       VerticalAlignment="Top"
-                       Width="150" />
-                <TextBlock HorizontalAlignment="Left"
-                           TextWrapping="Wrap"
-                           Text="Ablage  [+]"
-                           VerticalAlignment="Top"
-                           FontSize="14"
-                           Width="72"
-                           Canvas.Top="31"
-                           Height="18"
-                           Canvas.Left="101"
-                           RenderTransformOrigin="0.5,0.5">
-                    <TextBlock.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="90" />
-                            <TranslateTransform />
-                        </TransformGroup>
-                    </TextBlock.RenderTransform>
-                </TextBlock>
-            </Canvas>
-        </Border>
-        <Border Background="#C43533"
-                Margin="12,156,627,334">
-            <Canvas>
-                <Image Source="/Docxes;component/Resources/Images/GradesBackground.jpg"
-                       HorizontalAlignment="Left"
-                       Height="80"
-                       VerticalAlignment="Top"
-                       Width="150" />
-                <TextBlock HorizontalAlignment="Left"
-                           TextWrapping="Wrap"
-                           Text="Noten		  [+]"
-                           VerticalAlignment="Top"
-                           FontSize="14"
-                           Width="82"
-                           Canvas.Top="36"
-                           Height="18"
-                           Canvas.Left="97"
-                           RenderTransformOrigin="0.5,0.5">
-                    <TextBlock.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="90" />
-                            <TranslateTransform />
-                        </TransformGroup>
-                    </TextBlock.RenderTransform>
-                </TextBlock>
-            </Canvas>
-        </Border>
-
-        <Border Background="#8CA4D4"
-                Margin="12,480,627,10">
-            <Canvas>
-                <Image Source="/Docxes;component/Resources/Images/SchoolBackground.jpg"
-                       HorizontalAlignment="Left"
-                       Height="80"
-                       VerticalAlignment="Top"
-                       Width="150" />
-                <TextBlock HorizontalAlignment="Left"
-                           TextWrapping="Wrap"
-                           Text="Schulen"
-                           VerticalAlignment="Top"
-                           FontSize="14"
-                           Width="90"
-                           Canvas.Top="41"
-                           Height="18"
-                           Canvas.Left="96"
-                           RenderTransformOrigin="0.5,0.5">
-                    <TextBlock.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform Angle="90" />
-                            <TranslateTransform />
-                        </TransformGroup>
-                    </TextBlock.RenderTransform>
-                </TextBlock>
-            </Canvas>
-        </Border>
-        <Border BorderBrush="Black"
-                BorderThickness="1"
-                Height="506"
-                Margin="0,0,260,0"
-                VerticalAlignment="Top"
-                RenderTransformOrigin="0.5,0.5"
-                HorizontalAlignment="Right"
-                Width="1">
-            <Border.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="-1" />
-                    <SkewTransform />
-                    <RotateTransform />
-                    <TranslateTransform />
-                </TransformGroup>
-            </Border.RenderTransform>
-        </Border>-->
     </Grid>
 </Window>

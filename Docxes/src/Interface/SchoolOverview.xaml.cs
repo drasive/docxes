@@ -18,8 +18,6 @@ namespace VrankenBischof.Docxes.Interface {
     /// </summary>
     public partial class SchoolOverview : Window {
 
-        private School school;
-
         // ASK: Better solution than to create instances everywhere but still have inheritance and stuff for the processors?
         private BusinessLogic.BusinessObjectProcessor<Teacher, School> teacherProcessor = new BusinessLogic.TeacherProcessor();
         private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> subjectProcessor = new BusinessLogic.SubjectProcessor();
@@ -29,10 +27,10 @@ namespace VrankenBischof.Docxes.Interface {
         private BusinessLogic.BusinessObjectProcessor<Grade, Subject> gradeProcessor = new BusinessLogic.GradeProcessor();
 
 
-        public SchoolOverview(School school) {
+        public SchoolOverview() {
             InitializeComponent();
 
-            this.school = school;
+            tbTitle.Text = ApplicationPropertyManager.Workspace.School.Name;
 
             // TODO: Check if there are subjects and ask to create
         }
@@ -225,6 +223,14 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
 
+        private void btnChangeSchool_Click(object sender, RoutedEventArgs e) {
+            ApplicationPropertyManager.Workspace = null;
+
+            Window schoolSelection = new ManageSchools();
+            schoolSelection.Show();
+            Close();
+        }
+
         // TODO: Enhance this temporary solution
         #region Temp
 
@@ -284,7 +290,7 @@ namespace VrankenBischof.Docxes.Interface {
             UpdateBusinessObjects();
         }
 
-        #endregion
+        #endregion       
 
         #endregion
 
