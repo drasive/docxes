@@ -43,16 +43,20 @@ namespace VrankenBischof.Docxes.Interface {
 
         private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
             // TODO:
-            IBusinessObjectManager addBusinessObjectManager = new ManageEvent() { Owner = this };
+            return BusinessObjectManagerAction.Undefined;
+
+            //IBusinessObjectManager addBusinessObjectManager = new ManageEvent() { Owner = this };
             //addBusinessObjectManager.ShowDialog();
-            return addBusinessObjectManager.Action;
+            //return addBusinessObjectManager.Action;
         }
 
         private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
             // TODO:
-            IBusinessObjectManager editBusinessObjectManager = new ManageEvent((Event)lbSchools.SelectedItem) { Owner = this };
+            return BusinessObjectManagerAction.Undefined;
+
+            //IBusinessObjectManager editBusinessObjectManager = new ManageEvent((Event)lbSchools.SelectedItem) { Owner = this };
             //editBusinessObjectManager.ShowDialog();
-            return editBusinessObjectManager.Action;
+            //return editBusinessObjectManager.Action;
         }
 
         private bool CheckForElementDeletion() {

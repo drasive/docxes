@@ -11,6 +11,7 @@
             Value = value;
             Weight = weight;
             Comment = comment;
+
             SubjectId = subject.Id;
             EventId = @event.Id;
         }

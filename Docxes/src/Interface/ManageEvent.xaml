@@ -2,80 +2,94 @@
         x:Class="VrankenBischof.Docxes.Interface.ManageEvent"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Fach hinzufügen/ bearbeiten"
-        Height="300"
-        Width="500"
+        Title="Ereignis hinzufügen/ bearbeiten"
+        Height="380"
+        Width="700"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner">
+
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="8*" />
-        </Grid.ColumnDefinitions>
-        <Label x:Name="lblName"
-               Content="Name:"
-               Margin="0,10,10,0"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Right" />
-        <Label x:Name="lblTeacher"
-               Content="Datum:"
-               Margin="0,41,10,0"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Right" />
-        <TextBox x:Name="tbName"
-                 Grid.Column="1"
-                 Margin="10,16,10,0"
-                 TextWrapping="Wrap"
-                 VerticalAlignment="Top" />
-        <Label x:Name="lblType"
-               Content="Typ:"
-               Margin="0,67,10,0"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Right" />
-        <ComboBox x:Name="tbType"
-                  Grid.Column="1"
-                  Margin="10,72,10,0"
-                  VerticalAlignment="Top" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="8*" />
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="lblName"
+                   Content="Name:"
+                   Margin="0,10,10,0"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right" />
+            <Label x:Name="lblPlace"
+                   Content="Ort:"
+                   Margin="0,41,10,0"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right" />
+            <Label x:Name="lblTeacher"
+                   Content="Datum:"
+                   Margin="0,72,10,0"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right" />
+            <Label x:Name="lblType"
+                   Content="Typ:"
+                   Margin="0,103,10,0"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right" />
+            <Label x:Name="lblComment"
+                   Content="Notiz:"
+                   Margin="0,134,10,0"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right" />
+
+            <TextBox x:Name="tbName"
+                     Grid.Column="1"
+                     Margin="10,15,10,0"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top" />
+            <TextBox x:Name="tbPlace"
+                     Grid.Column="1"
+                     Margin="10,46,10,0"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top" />
+            <ComboBox x:Name="cbType"
+                      Grid.Column="1"
+                      Margin="10,107,10,0"
+                      VerticalAlignment="Top" />
+            <DatePicker x:Name="dpDate"
+                        Grid.Column="1"
+                        HorizontalAlignment="Left"
+                        Margin="10,73,0,0"
+                        VerticalAlignment="Top" />
+            <TextBox x:Name="tbComment"
+                     Grid.Column="1"
+                     Margin="10,139,10,10"
+                     TextWrapping="Wrap"
+                     Text="" />
+
+        </Grid>
+
         <Button x:Name="btnSave"
                 Content="Speichern"
                 HorizontalAlignment="Right"
+                Grid.Row="1"
                 Margin="0,5,90,0"
                 VerticalAlignment="Top"
                 Width="75"
-                Grid.Row="1"
-                Grid.Column="1"
                 Height="25"
                 Click="btnSave_Click" />
         <Button x:Name="btnCancel"
                 Content="Abbrechen"
+                Grid.Row="1"
                 HorizontalAlignment="Right"
                 Margin="0,5,10,0"
                 VerticalAlignment="Top"
                 Width="75"
-                Grid.Row="1"
-                Grid.Column="1"
                 Height="25"
                 Click="btnCancel_Click" />
-        <DatePicker Grid.Column="1"
-                    HorizontalAlignment="Left"
-                    Margin="10,43,0,0"
-                    VerticalAlignment="Top" />
-        <TextBox Grid.Column="1"
-                 HorizontalAlignment="Left"
-                 Height="70"
-                 Margin="10,103,0,0"
-                 TextWrapping="Wrap"
-                 Text=""
-                 VerticalAlignment="Top"
-                 Width="339" />
-        <Label x:Name="lblType_Copy"
-               Content="Notiz:"
-               Margin="0,98,10,0"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Right" />
     </Grid>
 </Window>

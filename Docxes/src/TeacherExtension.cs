@@ -9,6 +9,7 @@ namespace VrankenBischof.Docxes {
             FirstName = firstName;
             LastName = lastName;
             IsMale = isMale;
+
             SchoolId = school.Id;
         }
 

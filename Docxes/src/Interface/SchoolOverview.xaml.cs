@@ -95,19 +95,19 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
 
-        private BusinessObjectManagerAction OpenManageDocument() {
+        private BusinessObjectManagerAction OpenAddDocument() {
             var businessObjectManagerWindow = new ManageDocument(ApplicationPropertyManager.Workspace.Subject);
             businessObjectManagerWindow.ShowDialog();
             return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
         }
 
-        private BusinessObjectManagerAction OpenManageNote() {
+        private BusinessObjectManagerAction OpenAddNote() {
             var businessObjectManagerWindow = new ManageNote(ApplicationPropertyManager.Workspace.Subject) { Owner = this };
             businessObjectManagerWindow.ShowDialog();
             return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
         }
 
-        private BusinessObjectManagerAction OpenManageGrade() {
+        private BusinessObjectManagerAction OpenAddGrade() {
             // TODO:
             return BusinessObjectManagerAction.Undefined;
 
@@ -116,13 +116,13 @@ namespace VrankenBischof.Docxes.Interface {
             //return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
         }
 
-        private BusinessObjectManagerAction OpenManageEvent() {
+        private BusinessObjectManagerAction OpenAddEvent() {
             // TODO:
-            return BusinessObjectManagerAction.Undefined;
+            //return BusinessObjectManagerAction.Undefined;
 
-            //var businessObjectManagerWindow = new ManageEvent(ApplicationPropertyManager.Workspace.Subject) { Owner = this };
-            //businessObjectManagerWindow.ShowDialog();
-            //return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
+            var businessObjectManagerWindow = new ManageEvent(ApplicationPropertyManager.Workspace.Subject) { Owner = this };
+            businessObjectManagerWindow.ShowDialog();
+            return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
         }
 
 
@@ -184,7 +184,7 @@ namespace VrankenBischof.Docxes.Interface {
 
             UpdateWorkspace(businessObject.Teacher);
             UpdateWorkspace(businessObject);
-            if (OpenManageDocument() == BusinessObjectManagerAction.Saved) {
+            if (OpenAddDocument() == BusinessObjectManagerAction.Saved) {
                 UpdateBusinessObjects();
             }
         }
@@ -195,7 +195,7 @@ namespace VrankenBischof.Docxes.Interface {
 
             UpdateWorkspace(businessObject.Teacher);
             UpdateWorkspace(businessObject);
-            if (OpenManageNote() == BusinessObjectManagerAction.Saved) {
+            if (OpenAddNote() == BusinessObjectManagerAction.Saved) {
                 UpdateBusinessObjects();
             }
         }
@@ -206,7 +206,7 @@ namespace VrankenBischof.Docxes.Interface {
 
             UpdateWorkspace(businessObject.Teacher);
             UpdateWorkspace(businessObject);
-            if (OpenManageGrade() == BusinessObjectManagerAction.Saved) {
+            if (OpenAddGrade() == BusinessObjectManagerAction.Saved) {
                 UpdateBusinessObjects();
             }
         }
@@ -217,7 +217,7 @@ namespace VrankenBischof.Docxes.Interface {
 
             UpdateWorkspace(businessObject.Teacher);
             UpdateWorkspace(businessObject);
-            if (OpenManageEvent() == BusinessObjectManagerAction.Saved) {
+            if (OpenAddEvent() == BusinessObjectManagerAction.Saved) {
                 UpdateBusinessObjects();
             }
         }

@@ -28,7 +28,7 @@
                    HorizontalAlignment="Right" />
             <Label x:Name="lblContent"
                    Content="Content:"
-                   Margin="0,38,10,0"
+                   Margin="0,41,10,0"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Right" />
             

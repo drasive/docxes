@@ -34,6 +34,7 @@ namespace VrankenBischof.Docxes {
 
         public Document(string filePath, Subject subject) {
             FilePath = filePath;
+
             SubjectId = subject.Id;
         }
 

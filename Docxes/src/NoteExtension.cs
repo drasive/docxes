@@ -10,6 +10,7 @@
         public Note(string name, string content, Subject subject) {
             Name = name;
             Content = content;
+
             SubjectId = subject.Id;
         }
 

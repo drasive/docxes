@@ -162,8 +162,7 @@
                                                         Click="btnAddGrade_Click"
                                                         IsEnabled="False" />
                                                 <Button x:Name="btnAddEvent"
-                                                        Click="btnAddEvent_Click"
-                                                        IsEnabled="False" />
+                                                        Click="btnAddEvent_Click" />
                                             </StackPanel>
                                         </Grid>
                                     </Grid>

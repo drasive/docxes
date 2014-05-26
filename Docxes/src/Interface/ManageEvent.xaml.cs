@@ -13,41 +13,55 @@ using System.Windows.Shapes;
 
 namespace VrankenBischof.Docxes.Interface {
 
-    // TODO: Interface
+    // TODO: Add start and end time to event?
 
     /// <summary>
     /// Interaction logic for <see cref="ManageEvent.xaml"/>
     /// </summary>
     public partial class ManageEvent : Window, IBusinessObjectManager {
 
+        private Subject businessObjectParent;
         private Event businessObjectEditing;
 
         private BusinessLogic.BusinessObjectProcessor<Event, Subject> businessObjectProcessor = new BusinessLogic.EventProcessor();
 
 
-        private void Initialize() {
+        private void Initialize(Subject businessObjectParent, Event businessObjectToEdit) {
+            if (businessObjectParent == null) {
+                throw new ArgumentNullException("businessObjectParent");
+            }
+
+            this.businessObjectParent = businessObjectParent;
+            this.businessObjectEditing = businessObjectToEdit;
+
             InitializeComponent();
 
             if (IsEditing) {
-                Title = "Fach bearbeiten";
+                Title = "Ereignis bearbeiten";
             }
             else {
-                Title = "Fach hinzufügen";
+                Title = "Ereignis hinzufügen";
             }
             Common.ExtendWindowName(this);
         }
 
-        public ManageEvent() {
-            Initialize();
+        public ManageEvent(Subject businessObjectToAddParent) {
+            if (businessObjectToAddParent == null) {
+                throw new ArgumentNullException("businessObjectToAddParent");
+            }
+
+            Initialize(businessObjectToAddParent, null);
         }
 
-        public ManageEvent(Event businessObjectToEdit) {
+        public ManageEvent(Subject businessObjectToEditParent, Event businessObjectToEdit) {
+            if (businessObjectToEditParent == null) {
+                throw new ArgumentNullException("businessObjectToEditParent");
+            }
             if (businessObjectToEdit == null) {
                 throw new ArgumentNullException("businessObjectToEdit");
             }
 
-            this.businessObjectEditing = businessObjectToEdit;
-            Initialize();
+            Initialize(businessObjectToEditParent, businessObjectToEdit);
 
             MapElementToInterface(businessObjectToEdit);
         }
@@ -75,12 +89,8 @@ namespace VrankenBischof.Docxes.Interface {
             return false;
         }
 
-        private void Cancel() {
-            Close();
-        }
-
         #endregion
-
+        
         #region Interface
 
         private void MapElementToInterface(Event businessObjectToMap) {
@@ -88,21 +98,21 @@ namespace VrankenBischof.Docxes.Interface {
                 throw new ArgumentNullException("businessObjectToMap");
             }
 
-            // TODO:
-            //tbName.Text = businessObjectToMap.Name;
-            //cbTeacher.SelectedItem = businessObjectToMap.Teacher;
+            tbName.Text = businessObjectToMap.Name;
+            tbPlace.Text = businessObjectToMap.Place;
+            dpDate.SelectedDate = businessObjectToMap.Date;
+            // ASK: Where to store the types (DB/ app)?
+            cbType.SelectedValue = businessObjectToMap.Type;
+            tbComment.Text = businessObjectToMap.Comment;
         }
 
         private Event MapInterfaceToElement() {
-            // TODO:
-            //if (IsEditing) {
-            //    return new Event(businessObjectEditing, tbName.Text, (Teacher)cbTeacher.SelectedItem);
-            //}
-            //else {
-            //    return new Event(tbName.Text, (Teacher)cbTeacher.SelectedItem);
-            //}
-
-            return new Event();
+            if (IsEditing) {
+                return new Event(businessObjectEditing, tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (int)cbType.SelectedValue, tbComment.Text, businessObjectParent);
+            }
+            else {
+                return new Event(tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (int)cbType.SelectedValue, tbComment.Text, businessObjectParent);
+            }
         }
 
 
@@ -117,13 +127,13 @@ namespace VrankenBischof.Docxes.Interface {
         private void btnSave_Click(object sender, RoutedEventArgs e) {
             if (Save()) {
                 Action = BusinessObjectManagerAction.Saved;
-                Cancel();
+                Close();
             }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e) {
             Action = BusinessObjectManagerAction.Canceled;
-            Cancel();
+            Close();
         }
 
         #endregion

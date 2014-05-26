@@ -75,6 +75,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SubjectId" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Place" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="Type" Type="int" Nullable="false" />
     <Property Name="Comment" Type="nvarchar(max)" Nullable="true" />
@@ -274,10 +275,11 @@
                     <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectEvents" FromRole="Event" ToRole="Subject" />
                     <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Name" Type="String" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="64" />
+                    <Property Name="Place" Type="String" Nullable="true" />
                     <Property Name="Date" Type="DateTime" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Type" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <NavigationProperty Name="Grades" Relationship="LocalDatabase.EventGrades" FromRole="Event" ToRole="Grade" />
-          <Property Name="Comment" Type="String" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="Max" />
+                    <Property Name="Comment" Type="String" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="Max" />
                 </EntityType>
                 <EntityType Name="Grade">
                     <Key>
@@ -436,6 +438,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Comment" ColumnName="Comment" />

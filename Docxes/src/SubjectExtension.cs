@@ -5,6 +5,7 @@
 
         public Subject(string name, Teacher teacher) {
             Name = name;
+
             TeacherId = teacher.Id;
         }
 
