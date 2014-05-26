@@ -16,8 +16,8 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
             <Label x:Name="lblName"
@@ -40,7 +40,7 @@
             <TextBox x:Name="tbComment"
                      Grid.Column="1"
                      Margin="5,47,10,10"
-                     MaxLength="128"
+                     MaxLength="512"
                      TextWrapping="Wrap" />
         </Grid>
 

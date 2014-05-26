@@ -16,8 +16,8 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
             <Label x:Name="lblName"
@@ -35,7 +35,8 @@
                      Grid.Column="1"
                      Margin="10,16,10,0"
                      TextWrapping="Wrap"
-                     VerticalAlignment="Top" />
+                     VerticalAlignment="Top"
+                     MaxLength="64" />
             <ComboBox x:Name="cbTeacher"
                       Grid.Column="1"
                       Margin="10,45,10,0"

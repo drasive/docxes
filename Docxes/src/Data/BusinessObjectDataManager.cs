@@ -5,7 +5,6 @@ using System.Text;
 
 namespace VrankenBischof.Docxes.Data {
 
-    // TODO: Set to "private"
     abstract class BusinessObjectDataManagerBase<Entity>
         where Entity : Docxes.IBusinessObject {
 

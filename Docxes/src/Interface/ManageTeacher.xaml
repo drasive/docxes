@@ -16,8 +16,8 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
             <Label x:Name="lblFirstName"
@@ -40,12 +40,14 @@
                      Grid.Column="1"
                      Margin="10,15,10,0"
                      TextWrapping="Wrap"
-                     VerticalAlignment="Top" />
+                     VerticalAlignment="Top"
+                     MaxLength="32" />
             <TextBox x:Name="tbLastName"
                      Grid.Column="1"
                      Margin="10,46,10,0"
                      TextWrapping="Wrap"
-                     VerticalAlignment="Top" />
+                     VerticalAlignment="Top"
+                     MaxLength="32" />
             <CheckBox x:Name="cbIsMale"
                       Content=""
                       Grid.Column="1"

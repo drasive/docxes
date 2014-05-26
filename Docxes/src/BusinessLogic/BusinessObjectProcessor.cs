@@ -6,7 +6,6 @@ using VrankenBischof.Docxes.Data;
 
 namespace VrankenBischof.Docxes.BusinessLogic {
 
-    // TODO: Mark as "private"
     abstract class BusinessObjectProcessorBase<BusinessObject>
         where BusinessObject : Docxes.IBusinessObject {
 

@@ -34,6 +34,16 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             return dataManager.Get(objectsParent);
         }
 
+        public IEnumerable<EventType> GetTypes() {
+            var eventTypes = new List<EventType>();
+
+            foreach (int eventType in ((EventsDataManager)dataManager).GetTypes()) {
+                eventTypes.Add((EventType)eventType);
+            }
+
+            return eventTypes;
+        }
+
 
         public override void Update(Event objectToUpdate) {
             if (objectToUpdate == null) {
@@ -50,7 +60,12 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             }
 
             // Remove dependencies
-            // TODO: Remove dependencies from Notes and Grades
+            var gradeProcessor = new GradeProcessor();
+            foreach (Grade dependencyToDisconnect in gradeProcessor.Get(objectToDelete)) {
+                // TODO: Check if EventId needs to be modified too
+                dependencyToDisconnect.Event = null;
+                gradeProcessor.Update(dependencyToDisconnect);
+            }
 
             // Delete object
             dataManager.Delete(objectToDelete);

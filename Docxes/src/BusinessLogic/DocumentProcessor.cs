@@ -15,7 +15,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
 
         //public override bool CanCreate(Teacher objectParentParent) {
         //    var subjectProcessor = new BusinessLogic.SubjectProcessor();
-        //    return subjectProcessor.Get(teacher).Count > 0;
+        //    return subjectProcessor.Get(objectParentParent).count > 0;
         //}
 
         public override void Create(Document objectToSave) {

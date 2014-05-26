@@ -152,6 +152,7 @@
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="src\DocumentExtension.cs" />
+    <Compile Include="src\EventType.cs" />
     <Compile Include="src\Interface\ManageDocument.cs" />
     <Compile Include="src\Interface\ManageDocuments.xaml.cs">
       <DependentUpon>ManageDocuments.xaml</DependentUpon>

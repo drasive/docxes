@@ -35,6 +35,10 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             return dataManager.Get(objectsParent);
         }
 
+        public List<Grade> Get(Event objectsParent) {
+            return ((GradesDataManager)dataManager).Get(objectsParent);
+        }
+
 
         public override void Update(Grade objectToUpdate) {
             if (objectToUpdate == null) {

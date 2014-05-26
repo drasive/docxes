@@ -43,6 +43,8 @@ namespace VrankenBischof.Docxes.Interface {
                 Title = "Ereignis hinzufügen";
             }
             Common.ExtendWindowName(this);
+
+            UpdateBusinessObjectTypes();
         }
 
         public ManageEvent(Subject businessObjectToAddParent) {
@@ -92,6 +94,14 @@ namespace VrankenBischof.Docxes.Interface {
         #endregion
         
         #region Interface
+
+        private void UpdateBusinessObjectTypes() {
+            IEnumerable<EventType> businessObjectTypes = ((BusinessLogic.EventProcessor)businessObjectProcessor).GetTypes();
+
+            cbType.ItemsSource = businessObjectTypes;
+            cbType.SelectedIndex = 0;
+        }
+
 
         private void MapElementToInterface(Event businessObjectToMap) {
             if (businessObjectToMap == null) {

@@ -45,6 +45,10 @@ namespace VrankenBischof.Docxes.Data {
             }
         }
 
+        public List<int> GetTypes() {
+            return new List<int>{0, 1, 2, 3};
+        }
+
 
         public override void Update(Event entityToUpdate) {
             if (entityToUpdate == null) {

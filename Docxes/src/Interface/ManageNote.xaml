@@ -18,7 +18,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="130" />
-                <ColumnDefinition Width="8*" />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
             <Label x:Name="lblName"
@@ -43,7 +43,7 @@
                      TextWrapping="Wrap"
                      AcceptsReturn="True"
                      AcceptsTab="True"
-                     MaxLength="5000"
+                     MaxLength="8192"
                      HorizontalScrollBarVisibility="Auto"
                      VerticalScrollBarVisibility="Auto" />
         </Grid>

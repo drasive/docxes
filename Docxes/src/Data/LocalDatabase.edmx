@@ -48,7 +48,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
-    <Property Name="Comment" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="Comment" Type="nvarchar" Nullable="true" MaxLength="512" />
   </EntityType>
   <EntityType Name="Teachers">
     <Key>
@@ -75,7 +75,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SubjectId" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
-    <Property Name="Place" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Place" Type="nvarchar" Nullable="true" MaxLength="256" />
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="Type" Type="int" Nullable="false" />
     <Property Name="Comment" Type="nvarchar(max)" Nullable="true" />
@@ -89,7 +89,7 @@
     <Property Name="EventId" Type="int" Nullable="true" />
     <Property Name="Value" Type="int" Nullable="false" />
     <Property Name="Weight" Type="int" Nullable="false" />
-    <Property Name="Comment" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Comment" Type="nvarchar" Nullable="true" MaxLength="512" />
   </EntityType>
   <EntityType Name="Notes">
     <Key>
@@ -239,7 +239,7 @@
                     </Key>
                     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Name" Type="String" Nullable="false" MaxLength="64" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <Property Name="Comment" Type="String" Nullable="true" MaxLength="128" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Comment" Type="String" Nullable="true" MaxLength="512" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <NavigationProperty Name="Teachers" Relationship="LocalDatabase.SchoolTeachers" FromRole="School" ToRole="Teacher" />
                 </EntityType>
                 <EntityType Name="Teacher">
@@ -275,11 +275,11 @@
                     <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectEvents" FromRole="Event" ToRole="Subject" />
                     <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Name" Type="String" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="64" />
-                    <Property Name="Place" Type="String" Nullable="true" />
+                    <Property Name="Place" Type="String" Nullable="true" MaxLength="256" />
                     <Property Name="Date" Type="DateTime" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Type" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <NavigationProperty Name="Grades" Relationship="LocalDatabase.EventGrades" FromRole="Event" ToRole="Grade" />
-                    <Property Name="Comment" Type="String" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="Max" />
+                    <Property Name="Comment" Type="String" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="8192" />
                 </EntityType>
                 <EntityType Name="Grade">
                     <Key>
@@ -292,7 +292,7 @@
                     <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Value" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Weight" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <Property Name="Comment" Type="String" Nullable="true" MaxLength="Max" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Comment" Type="String" Nullable="true" MaxLength="512" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                 </EntityType>
                 <EntityType Name="Note">
                     <Key>
@@ -302,7 +302,7 @@
                     <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectNotes" FromRole="Note" ToRole="Subject" />
                     <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Name" Type="String" Nullable="false" MaxLength="64" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <Property xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" Name="Content" a:SetterAccess="Private" Nullable="false" MaxLength="Max" Type="String" />
+                    <Property xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" Name="Content" a:SetterAccess="Private" Nullable="false" MaxLength="8192" Type="String" />
                 </EntityType>
                 <EntityType Name="Document">
                     <Key>

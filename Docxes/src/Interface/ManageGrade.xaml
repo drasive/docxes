@@ -7,55 +7,61 @@
         Width="500"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner">
+
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="8*" />
-        </Grid.ColumnDefinitions>
-        <Label x:Name="lblSubject"
-               Content="Fach:"
-               Margin="0,11,10,0"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Right" />
-        <ComboBox x:Name="cbSubject"
-                  Margin="10,10,10,194"
-                  Grid.Column="1"
-                  Height="19" />
-        <Label x:Name="lblNote"
-               Content="Note:"
-               Margin="0,42,10,0"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Right" />
-        <TextBox x:Name="tbName"
-                 Grid.Column="1"
-                 Margin="10,42,10,0"
-                 TextWrapping="Wrap"
-                 VerticalAlignment="Top" />
-        <Label x:Name="lblGewicht"
-               Content="Kommentar:"
-               Margin="0,88,10,0"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Right" />
-        <TextBox x:Name="tbA"
-                 Grid.Column="1"
-                 Margin="10,94,10,0"
-                 TextWrapping="Wrap"
-                 VerticalAlignment="Top"
-                 Height="81" />
-        <Label x:Name="lblName"
-               Content="Gewicht:"
-               Margin="0,62,10,0"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Right" />
-        <TextBox x:Name="tbB"
-                 Grid.Column="1"
-                 Margin="10,68,10,0"
-                 TextWrapping="Wrap"
-                 VerticalAlignment="Top" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="lblSubject"
+                   Content="Fach:"
+                   Margin="0,11,10,0"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right" />
+            <ComboBox x:Name="cbSubject"
+                      Margin="10,10,10,194"
+                      Grid.Column="1"
+                      Height="19" />
+            <Label x:Name="lblNote"
+                   Content="Note:"
+                   Margin="0,42,10,0"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right" />
+            <TextBox x:Name="tbName"
+                     Grid.Column="1"
+                     Margin="10,42,10,0"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top" />
+            <Label x:Name="lblGewicht"
+                   Content="Kommentar:"
+                   Margin="0,88,10,0"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right" />
+            <TextBox x:Name="tbA"
+                     Grid.Column="1"
+                     Margin="10,94,10,0"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Height="81" />
+            <Label x:Name="lblName"
+                   Content="Gewicht:"
+                   Margin="0,62,10,0"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right" />
+            <TextBox x:Name="tbB"
+                     Grid.Column="1"
+                     Margin="10,68,10,0"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top" />
+        </Grid>
+
         <Button x:Name="btnSave"
                 Content="Speichern"
                 HorizontalAlignment="Right"

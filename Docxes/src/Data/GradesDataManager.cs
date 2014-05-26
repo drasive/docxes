@@ -45,6 +45,12 @@ namespace VrankenBischof.Docxes.Data {
             }
         }
 
+        public List<Grade> Get(Event entitiesParent) {
+            using (var databaseContainer = GetDatabaseContainer()) {
+                return Get(databaseContainer, entity => entity.Event.Equals(entitiesParent));
+            }
+        }
+
 
         public override void Update(Grade entityToUpdate) {
             if (entityToUpdate == null) {
