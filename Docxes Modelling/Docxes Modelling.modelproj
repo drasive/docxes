@@ -49,6 +49,15 @@
     <Content Include="ModelDefinition\Package6_2226.uml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ModelDefinition\Package_0047.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_0057.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_0058.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ModelDefinition\Package_2123.uml">
       <SubType>Content</SubType>
     </Content>
@@ -73,11 +82,27 @@
     <Content Include="ModelDefinition\Package_2241.uml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ModelDefinition\Package_2302.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ModelDefinition\Package_2315.uml">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\Package_2322.uml">
       <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_2325.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_2331.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Docxes 2014.06.03.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Docxes 2014.06.03.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Docxes 2014.06.03.classdiagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="Docxes.classdiagram">
