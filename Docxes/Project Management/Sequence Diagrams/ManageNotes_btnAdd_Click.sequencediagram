@@ -111,14 +111,14 @@
               <lifelineMoniker Id="207b8d73-03fd-488f-bd85-59274ee55fe2" LastKnownName="component : ManageNote" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="8c786be1-ee19-47d7-aa0f-3417e3e99ddb" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="207b8d73-03fd-488f-bd85-59274ee55fe2" LastKnownName="component : ManageNote" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="bfb67167-a8c9-4e60-b794-8c62d6852259" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="a6e2ed9a-146c-47c6-97cd-00393cba2ed9" LastKnownName="this : ManageNotes" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="8c786be1-ee19-47d7-aa0f-3417e3e99ddb" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="207b8d73-03fd-488f-bd85-59274ee55fe2" LastKnownName="component : ManageNote" />
             </covered>
           </messageOccurrenceSpecification>
           <behaviorExecutionSpecification Id="d3bf75fb-21d4-4b11-a3aa-c2bf3e3ac253" name="BehaviorExecutionSpecification">
