@@ -56,22 +56,9 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="3">
-                                <Border CornerRadius="3"
-                                        SnapsToDevicePixels="True">
-                                    <Border.Effect>
-                                        <DropShadowEffect />
-                                    </Border.Effect>
-                                    <Border.Background>
-                                        <LinearGradientBrush EndPoint="0.5,1"
-                                                             MappingMode="RelativeToBoundingBox"
-                                                             StartPoint="0.5,0">
-                                            <GradientStop Color="#FF033C4D"
-                                                          Offset="1" />
-                                            <GradientStop Color="#FF2286A8"
-                                                          Offset="0" />
-                                        </LinearGradientBrush>
-                                    </Border.Background>
-
+                                <Border CornerRadius="2"
+                                        SnapsToDevicePixels="True"
+                                        Background="#FF5E5F64">
                                     <Grid Margin="10">
                                         <Grid.Resources>
                                             <Style x:Key="Buttons"
@@ -117,19 +104,26 @@
                                                            TargetType="TextBlock" />
                                                 </StackPanel.Resources>
 
+                                                <TextBlock Text="Dokumente:" />
                                                 <Button x:Name="btnManageDocuments"
                                                         Click="btnManageDocuments_Click">
                                                     <TextBlock Text="{Binding Documents.Count, Mode=OneWay}" />
                                                 </Button>
+
+                                                <TextBlock Text="Notizen:" />
                                                 <Button x:Name="btnManageNotes"
                                                         Click="btnManageNotes_Click">
                                                     <TextBlock Text="{Binding Notes.Count, Mode=OneWay}" />
                                                 </Button>
+
+                                                <TextBlock Text="Noten:" />
                                                 <Button x:Name="btnManageGrades"
                                                         Click="btnManageGrades_Click"
                                                         IsEnabled="False">
                                                     <TextBlock Text="{Binding Grades.Count, Mode=OneWay}" />
                                                 </Button>
+
+                                                <TextBlock Text="Ereignisse:" />
                                                 <Button x:Name="btnManageEvents"
                                                         Click="btnManageEvents_Click"
                                                         IsEnabled="False">
@@ -146,7 +140,7 @@
                                                         <Setter Property="Width"
                                                                 Value="20" />
                                                         <Setter Property="Margin"
-                                                                Value="0,5,0,0" />
+                                                                Value="0,21,0,0" />
                                                         <Setter Property="Content"
                                                                 Value="+" />
                                                     </Style>

@@ -30,6 +30,10 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>%24/Docxes/Development/Docxes</SccProjectName>
+    <SccLocalPath>.</SccLocalPath>
+    <SccAuxPath>https://dimitri-vranken.visualstudio.com/defaultcollection</SccAuxPath>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -226,6 +230,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Project Management\Sequence Diagrams\ManageDocuments_btnAdd_Click.sequencediagram.layout">
+      <DependentUpon>ManageDocuments_btnAdd_Click.sequencediagram</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project Management\Sequence Diagrams\ManageNotes_btnAdd_Click.sequencediagram.layout">
+      <DependentUpon>ManageNotes_btnAdd_Click.sequencediagram</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -234,8 +244,15 @@
     <None Include="packages.config" />
     <None Include="Project Management\Assembly Dependencies.dgml" />
     <None Include="Project Management\Class Diagram.cd" />
+    <None Include="Project Management\Class Diagram 2014.06.03.oxps" />
     <None Include="Project Management\FDS.docx" />
     <None Include="Project Management\FDS.pdf" />
+    <None Include="Project Management\Sequence Diagrams\Exported\ManageDocuments_btnAdd_Click.oxps" />
+    <None Include="Project Management\Sequence Diagrams\Exported\ManageDocuments_btnAdd_Click.pdf" />
+    <None Include="Project Management\Sequence Diagrams\Exported\ManageNotes_btnAdd_Click.oxps" />
+    <None Include="Project Management\Sequence Diagrams\Exported\ManageNotes_btnAdd_Click.pdf" />
+    <None Include="Project Management\Sequence Diagrams\ManageDocuments_btnAdd_Click.sequencediagram" />
+    <None Include="Project Management\Sequence Diagrams\ManageNotes_btnAdd_Click.sequencediagram" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
