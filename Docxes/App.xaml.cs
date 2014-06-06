@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace VrankenBischof.Docxes {
 
+    // TODO: Move DataPath into AppConfig
+
     /// <summary>
-    /// Interaction logic for <see cref="App.xaml"/> 
+    /// Interaction logic for <see cref="App.xaml"/>.
     /// </summary>
     public partial class App : Application {
 
@@ -18,8 +15,7 @@ namespace VrankenBischof.Docxes {
 
             ApplicationPropertyManager.Application = Application.Current;
 
-            var userprofile = Environment.GetEnvironmentVariable("Userprofile");
-            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(userprofile, @"SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\Data\"));
+            AppDomain.CurrentDomain.SetData("DataDirectory", @"C:\Privat\Versionsverwaltung\Docxes\Development\Docxes\Data\");
 
             Window windowToShow = new Interface.ManageSchools();
             windowToShow.Show();

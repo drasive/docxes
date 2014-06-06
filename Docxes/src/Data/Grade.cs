@@ -10,8 +10,7 @@
 namespace VrankenBischof.Docxes
 {
     using System;
-    using System.Collections.Generic;
-    
+
     public partial class Grade
     {
         public int Id { get; private set; }

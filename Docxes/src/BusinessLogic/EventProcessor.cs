@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using VrankenBischof.Docxes.Data;
 
 namespace VrankenBischof.Docxes.BusinessLogic {

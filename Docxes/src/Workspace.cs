@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace VrankenBischof.Docxes {
+﻿namespace VrankenBischof.Docxes {
 
     /// <summary>
     /// Contains the business objects that are currently managed by the user.
