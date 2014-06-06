@@ -5,8 +5,15 @@ using System.Text;
 
 namespace VrankenBischof.Docxes.Data {
 
-    sealed class EventsDataManager : BusinessObjectDataManager<Event, Subject> {
+    /// <summary>
+    /// Provides functionality to manage events in nonvolatile memory.
+    /// </summary>
+    public sealed class EventsDataManager : BusinessObjectDataManager<Event, Subject> {
 
+        /// <summary>
+        /// Saves a new entity.
+        /// </summary>
+        /// <param name="entityToSave">The entity to save.</param>
         public override void Create(Event entityToSave) {
             if (entityToSave == null) {
                 throw new ArgumentNullException("entityToSave");
@@ -33,12 +40,21 @@ namespace VrankenBischof.Docxes.Data {
                     ).ToList().Where(entity => predicate(entity)).ToList();
         }
 
+        /// <summary>
+        /// Gets all existing entities.
+        /// </summary>
+        /// <returns>A list of all existing entities.</returns>
         public override List<Event> Get() {
             using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer);
             }
         }
 
+        /// <summary>
+        /// Gets all existing entities with the provided parent.
+        /// </summary>
+        /// <param name="entitiesParent">The parent that the returned entities must have.</param>
+        /// <returns>A list of all existing entities with the provided parent.</returns>
         public override List<Event> Get(Subject entitiesParent) {
             using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer, entity => entity.Subject.Equals(entitiesParent));
@@ -50,6 +66,10 @@ namespace VrankenBischof.Docxes.Data {
         }
 
 
+        /// <summary>
+        /// Updates the properties of an existing entity.
+        /// </summary>
+        /// <param name="entityToUpdate">The entity with the updated properties.</param>
         public override void Update(Event entityToUpdate) {
             if (entityToUpdate == null) {
                 throw new ArgumentNullException("entityToUpdate");
@@ -63,6 +83,10 @@ namespace VrankenBischof.Docxes.Data {
         }
 
 
+        /// <summary>
+        /// Deletes an existing entity.
+        /// </summary>
+        /// <param name="entityToDelete">The entity to delete.</param>
         public override void Delete(Event entityToDelete) {
             if (entityToDelete == null) {
                 throw new ArgumentNullException("entityToDelete");
