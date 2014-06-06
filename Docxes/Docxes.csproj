@@ -280,7 +280,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FsCalendar\FsCalendar.csproj">
+      <Project>{968182E6-FA10-476F-96D2-0FD1F09549A4}</Project>
+      <Name>FsCalendar</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

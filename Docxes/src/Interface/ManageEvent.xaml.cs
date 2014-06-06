@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace VrankenBischof.Docxes.Interface {
 
     // TODO: Add start and end time to event?
+    // TODO: Document interface class headers
 
     /// <summary>
     /// Interaction logic for <see cref="ManageEvent.xaml"/>
@@ -23,18 +15,15 @@ namespace VrankenBischof.Docxes.Interface {
         private Subject businessObjectParent;
         private Event businessObjectEditing;
 
+        private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
         private BusinessLogic.BusinessObjectProcessor<Event, Subject> businessObjectProcessor = new BusinessLogic.EventProcessor();
 
 
         private void Initialize(Subject businessObjectParent, Event businessObjectToEdit) {
-            if (businessObjectParent == null) {
-                throw new ArgumentNullException("businessObjectParent");
-            }
+            InitializeComponent();
 
             this.businessObjectParent = businessObjectParent;
             this.businessObjectEditing = businessObjectToEdit;
-
-            InitializeComponent();
 
             if (IsEditing) {
                 Title = "Ereignis bearbeiten";
@@ -45,14 +34,11 @@ namespace VrankenBischof.Docxes.Interface {
             Common.ExtendWindowName(this);
 
             UpdateBusinessObjectTypes();
+            UpdateBusinessObjectParents();
         }
 
-        public ManageEvent(Subject businessObjectToAddParent) {
-            if (businessObjectToAddParent == null) {
-                throw new ArgumentNullException("businessObjectToAddParent");
-            }
-
-            Initialize(businessObjectToAddParent, null);
+        public ManageEvent() {
+            Initialize(null, null);
         }
 
         public ManageEvent(Subject businessObjectToEditParent, Event businessObjectToEdit) {
@@ -92,8 +78,15 @@ namespace VrankenBischof.Docxes.Interface {
         }
 
         #endregion
-        
+
         #region Interface
+
+        private void UpdateBusinessObjectParents() {
+            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get();
+
+            cbSubject.ItemsSource = businessObjectParents;
+            cbSubject.SelectedIndex = 0;
+        }
 
         private void UpdateBusinessObjectTypes() {
             IEnumerable<EventType> businessObjectTypes = ((BusinessLogic.EventProcessor)businessObjectProcessor).GetTypes();
@@ -109,19 +102,19 @@ namespace VrankenBischof.Docxes.Interface {
             }
 
             tbName.Text = businessObjectToMap.Name;
+            cbSubject.SelectedValue = businessObjectParent.Id;
             tbPlace.Text = businessObjectToMap.Place;
             dpDate.SelectedDate = businessObjectToMap.Date;
-            // ASK: Where to store the types (DB/ app)?
-            cbType.SelectedValue = businessObjectToMap.Type;
+            cbType.SelectedIndex = (int)businessObjectEditing.Type;
             tbComment.Text = businessObjectToMap.Comment;
         }
 
         private Event MapInterfaceToElement() {
             if (IsEditing) {
-                return new Event(tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (int)cbType.SelectedValue, tbComment.Text, businessObjectParent, businessObjectEditing);
+                return new Event(tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (int)cbType.SelectedValue, tbComment.Text, (Subject)cbSubject.SelectedItem, businessObjectEditing);
             }
             else {
-                return new Event(tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (int)cbType.SelectedValue, tbComment.Text, businessObjectParent);
+                return new Event(tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (int)cbType.SelectedValue, tbComment.Text, (Subject)cbSubject.SelectedItem);
             }
         }
 

@@ -125,8 +125,7 @@
 
                                                 <TextBlock Text="Ereignisse:" />
                                                 <Button x:Name="btnManageEvents"
-                                                        Click="btnManageEvents_Click"
-                                                        IsEnabled="False">
+                                                        Click="btnManageEvents_Click" >
                                                     <TextBlock Text="{Binding Events.Count, Mode=OneWay}" />
                                                 </Button>
                                             </StackPanel>
@@ -273,8 +272,7 @@
                             Margin="10,35,0,0"
                             VerticalAlignment="Top"
                             Width="75"
-                            Click="btnEvents_Click"
-                            IsEnabled="False" />
+                            Click="btnEvents_Click" />
                     <Button x:Name="btnGrades"
                             Content="Grades"
                             HorizontalAlignment="Left"

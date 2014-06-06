@@ -112,7 +112,7 @@ namespace VrankenBischof.Docxes.Interface {
             // TODO:
             //return BusinessObjectManagerAction.Undefined;
 
-            var businessObjectManagerWindow = new ManageEvent(ApplicationPropertyManager.Workspace.Subject) { Owner = this };
+            var businessObjectManagerWindow = new ManageEvent() { Owner = this };
             businessObjectManagerWindow.ShowDialog();
             return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
         }

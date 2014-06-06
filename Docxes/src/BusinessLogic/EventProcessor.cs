@@ -51,14 +51,24 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             return dataManager.Get(objectsParent);
         }
 
+        /// <summary>
+        /// Gets all existing entities with the specified date.
+        /// </summary>
+        /// <param name="date">The date that the returned entities must have.</param>
+        /// <returns>A list of all existing entities with the specified date.</returns>
+        public List<Event> Get(DateTime date) {
+            return ((EventsDataManager)dataManager).Get(date);
+        }
+
+        /// <summary>
+        /// Gets all event types.
+        /// </summary>
+        /// <returns>All event types.</returns>
         public IEnumerable<EventType> GetTypes() {
-            var eventTypes = new List<EventType>();
+            var values = Enum.GetValues(typeof(EventType));
+            EventType[] array = (EventType[])values;
 
-            foreach (int eventType in ((EventsDataManager)dataManager).GetTypes()) {
-                eventTypes.Add((EventType)eventType);
-            }
-
-            return eventTypes;
+            return array;
         }
 
 

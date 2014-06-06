@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace VrankenBischof.Docxes.Data {
@@ -34,6 +35,7 @@ namespace VrankenBischof.Docxes.Data {
                         Event entity
                     in
                         databaseContainer.Events
+                            .Include(entity => entity.Subject)
                     select
                         entity
                     ).ToList().Where(entity => predicate(entity)).ToList();
@@ -60,8 +62,15 @@ namespace VrankenBischof.Docxes.Data {
             }
         }
 
-        public List<int> GetTypes() {
-            return new List<int>{0, 1, 2, 3};
+        /// <summary>
+        /// Gets all existing entities with the specified date.
+        /// </summary>
+        /// <param name="date">The date that the returned entities must have.</param>
+        /// <returns>A list of all existing entities with the specified date.</returns>
+        public List<Event> Get(DateTime date) {
+            using (var databaseContainer = GetDatabaseContainer()) {
+                return Get(databaseContainer, entity => entity.Date.Date == date.Date);
+            }
         }
 
 

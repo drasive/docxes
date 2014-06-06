@@ -1,30 +1,49 @@
-﻿<Window x:Name="wManageEvents"
-        x:Class="VrankenBischof.Docxes.Interface.ManageEvents"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Schulen"
-        Height="300"
-        Width="500"
+        xmlns:FsControls="clr-namespace:FsControls;assembly=FsCalendar"
+        x:Name="wManageEvents"
+        x:Class="VrankenBischof.Docxes.Interface.ManageEvents"
+        Title="Ereignisse"
+        Height="380"
+        Width="600"
         Loaded="wManageEvents_Loaded"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
             <RowDefinition />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        <TextBlock x:Name="tblInstructions"
-                   HorizontalAlignment="Left"
-                   Margin="10,0,0,5"
-                   TextWrapping="Wrap"
-                   Text="Wählen Sie die Schule aus, die Sie verwalten möchten:"
-                   Height="16"
-                   VerticalAlignment="Bottom" />
-        <ListBox x:Name="lbSchools"
-                 Margin="10,5,10,5"
-                 Grid.Row="1"
-                 SelectionChanged="lbSchools_SelectionChanged" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <FsControls:FsCalendar x:Name="cEvents"
+                                   Margin="10,10,0,0"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"
+                                   Width="179"
+                                   SelectedDatesChanged="cEvents_SelectedDatesChanged"
+                                   DisplayDateChanged="cEvents_DisplayDateChanged"
+                                   DateHighlightBrush="#FF0097C3" />
+
+            <Grid Grid.Column="1">
+                <TextBlock x:Name="tblInstructions"
+                           HorizontalAlignment="Left"
+                           Margin="10,10,0,0"
+                           TextWrapping="Wrap"
+                           Text="Wählen Sie das Ereignis aus, das Sie verwalten möchten:"
+                           Height="16"
+                           VerticalAlignment="Top" />
+                <ListBox x:Name="lbEvents"
+                         Margin="10,31,10,10"
+                         SelectionChanged="lbEvents_SelectionChanged" />
+            </Grid>
+        </Grid>
+
         <Button x:Name="btnAdd"
                 Content="Hinzufügen"
                 Margin="0,5,170,0"
