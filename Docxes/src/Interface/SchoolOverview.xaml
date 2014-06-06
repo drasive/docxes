@@ -11,7 +11,7 @@
 
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
-            <RowDefinition Height="45" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
@@ -20,8 +20,7 @@
                    Margin="10,10,0,0"
                    TextWrapping="Wrap"
                    Text="[Schulname]"
-                   FontSize="24"
-                   Height="32"
+                   FontSize="28"
                    VerticalAlignment="Top" />
 
         <Grid x:Name="gContent"
@@ -167,83 +166,94 @@
                         Click="btnChangeSchool_Click" />
             </Grid>
 
-
-
-            <Grid x:Name="gEventPreview"
+            <Grid x:Name="gEvents"
                   Grid.Column="1"
                   Margin="10">
-                <TextBlock HorizontalAlignment="Left"
-                           TextWrapping="Wrap"
-                           Text="Next events"
-                           VerticalAlignment="Top"
-                           FontSize="32"
-                           Width="188"
-                           Height="43" />
-                <TextBlock HorizontalAlignment="Left"
-                           Margin="0,61,0,0"
-                           TextWrapping="Wrap"
-                           Text="Diese Woche"
-                           VerticalAlignment="Top"
-                           FontSize="24"
-                           Width="188"
-                           Height="32" />
-                <TextBlock HorizontalAlignment="Left"
-                           Margin="0,98,0,0"
-                           TextWrapping="Wrap"
-                           Text="Abgabe Dokument (M226)"
-                           VerticalAlignment="Top"
-                           FontSize="14"
-                           Width="188"
-                           Height="19" />
-                <TextBlock HorizontalAlignment="Left"
-                           Margin="0,116,0,0"
-                           TextWrapping="Wrap"
-                           Text="Mittwoch, 05.02.2014"
-                           VerticalAlignment="Top"
-                           FontSize="12"
-                           Width="188"
-                           Height="16" />
-                <TextBlock HorizontalAlignment="Left"
-                           Margin="0,137,0,0"
-                           TextWrapping="Wrap"
-                           Text="Do stuff"
-                           VerticalAlignment="Top"
-                           FontSize="14"
-                           Width="188"
-                           Height="19" />
-                <TextBlock HorizontalAlignment="Left"
-                           Margin="0,156,0,0"
-                           TextWrapping="Wrap"
-                           Text="Freitag, 07.02.2014"
-                           VerticalAlignment="Top"
-                           FontSize="12"
-                           Width="188"
-                           Height="16" />
 
-                <TextBlock HorizontalAlignment="Left"
-                           Margin="0,189,0,0"
-                           TextWrapping="Wrap"
-                           Text="Nächste Woche"
-                           VerticalAlignment="Top"
+                <TextBlock Text="Nächste Ereignisse"
                            FontSize="24"
-                           Width="188"
-                           Height="32" />
-                <TextBlock HorizontalAlignment="Left"
-                           Margin="0,226,0,0"
-                           TextWrapping="Wrap"
-                           Text="Do stuff again"
-                           VerticalAlignment="Top"
-                           FontSize="14"
-                           Width="188"
-                           Height="19" />
-                <TextBlock HorizontalAlignment="Left"
-                           Margin="0,245,0,0"
-                           TextWrapping="Wrap"
-                           Text="Freitag, 14.02.2014"
-                           VerticalAlignment="Top"
-                           FontSize="12"
-                           Width="188"
-                           Height="16" />
+                           VerticalAlignment="top" />
+
+                <StackPanel>
+                    <Grid x:Name="gEventsThisWeek"
+                          Margin="0,37,0,502"
+                          Height="151">
+                        <TextBlock VerticalAlignment="top"
+                                   Text="Diese Woche"
+                                   FontSize="18" />
+
+                        <ItemsControl x:Name="icEventsThisWeek"
+                                      Margin="0,30,0,0">
+                            <ItemsControl.DataContext>
+                                <Docxes:Event />
+                            </ItemsControl.DataContext>
+
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="3">
+                                        <StackPanel>
+                                            <Label x:Name="lblEventName"
+                                                   Content="Test" />
+                                            <Label x:Name="lblEventSubject"
+                                                   Content="Test" />
+                                            <Label x:Name="lblEventDate"
+                                                   Content="Test" />
+                                        </StackPanel>                                        
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+
+                    <TextBlock HorizontalAlignment="Left"
+                               Margin="0,137,0,0"
+                               TextWrapping="Wrap"
+                               Text="Abgabe Dokument (M226)"
+                               VerticalAlignment="Top"
+                               FontSize="14"
+                               Width="188"
+                               Height="19" />
+                    <TextBlock HorizontalAlignment="Left"
+                               Margin="0,156,0,0"
+                               TextWrapping="Wrap"
+                               Text="Freitag, 07.02.2014"
+                               VerticalAlignment="Top"
+                               FontSize="12"
+                               Width="188"
+                               Height="16" />
+
+                    <TextBlock HorizontalAlignment="Left"
+                               Margin="0,189,0,0"
+                               TextWrapping="Wrap"
+                               Text="Nächste Woche"
+                               VerticalAlignment="Top"
+                               FontSize="24"
+                               Width="188"
+                               Height="32" />
+                    <TextBlock HorizontalAlignment="Left"
+                               Margin="0,226,0,0"
+                               TextWrapping="Wrap"
+                               Text="Do stuff again"
+                               VerticalAlignment="Top"
+                               FontSize="14"
+                               Width="188"
+                               Height="19" />
+                    <TextBlock HorizontalAlignment="Left"
+                               Margin="0,245,0,0"
+                               TextWrapping="Wrap"
+                               Text="Freitag, 14.02.2014"
+                               VerticalAlignment="Top"
+                               FontSize="12"
+                               Width="188"
+                               Height="16" />
+                </StackPanel>
+
                 <Grid Height="170"
                       VerticalAlignment="Top"
                       Margin="10,479,0,0"
@@ -279,7 +289,6 @@
                             Width="75"
                             Click="btnTeachers_Click" />
                 </Grid>
-
             </Grid>
         </Grid>
     </Grid>
