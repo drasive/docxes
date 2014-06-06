@@ -58,10 +58,10 @@ namespace VrankenBischof.Docxes.Data {
         }
 
         /// <summary>
-        /// Gets all existing entities with the provided parent.
+        /// Gets all existing entities with the specified parent.
         /// </summary>
         /// <param name="entitiesParent">The parent that the returned entities must have.</param>
-        /// <returns>A list of all existing entities with the provided parent.</returns>
+        /// <returns>A list of all existing entities with the specified parent.</returns>
         public override List<Subject> Get(Teacher entitiesParent) {
             using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer, entity => entity.Teacher.Equals(entitiesParent));

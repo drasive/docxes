@@ -95,7 +95,7 @@ namespace VrankenBischof.Docxes.Interface {
 
         private Teacher MapInterfaceToElement() {
             if (IsEditing) {
-                return new Teacher(businessObjectEditing, tbFirstName.Text, tbLastName.Text, cbIsMale.IsChecked.GetValueOrDefault(), businessObjectParent);
+                return new Teacher(tbFirstName.Text, tbLastName.Text, cbIsMale.IsChecked.GetValueOrDefault(), businessObjectParent, businessObjectEditing);
             }
             else {
                 return new Teacher(tbFirstName.Text, tbLastName.Text, cbIsMale.IsChecked.GetValueOrDefault(), businessObjectParent);

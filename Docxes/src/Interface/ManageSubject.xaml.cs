@@ -113,7 +113,7 @@ namespace VrankenBischof.Docxes.Interface {
 
         private Subject MapInterfaceToElement() {
             if (IsEditing) {
-                return new Subject(businessObjectEditing, tbName.Text, (Teacher)cbTeacher.SelectedItem);
+                return new Subject(tbName.Text, (Teacher)cbTeacher.SelectedItem, businessObjectEditing);
             }
             else {
                 return new Subject(tbName.Text, (Teacher)cbTeacher.SelectedItem);

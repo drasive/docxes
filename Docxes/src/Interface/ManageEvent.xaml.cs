@@ -118,7 +118,7 @@ namespace VrankenBischof.Docxes.Interface {
 
         private Event MapInterfaceToElement() {
             if (IsEditing) {
-                return new Event(businessObjectEditing, tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (int)cbType.SelectedValue, tbComment.Text, businessObjectParent);
+                return new Event(tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (int)cbType.SelectedValue, tbComment.Text, businessObjectParent, businessObjectEditing);
             }
             else {
                 return new Event(tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (int)cbType.SelectedValue, tbComment.Text, businessObjectParent);

@@ -68,10 +68,10 @@ namespace VrankenBischof.Docxes.Data {
         public abstract List<Entity> Get();
 
         /// <summary>
-        /// Gets all existing entities with the provided parent.
+        /// Gets all existing entities with the specified parent.
         /// </summary>
         /// <param name="entitiesParent">The parent that the returned entities must have.</param>
-        /// <returns>A list of all existing entities with the provided parent.</returns>
+        /// <returns>A list of all existing entities with the specified parent.</returns>
         public abstract List<Entity> Get(EntityParent entitiesParent);
 
     }

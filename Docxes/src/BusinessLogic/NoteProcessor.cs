@@ -46,10 +46,10 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
         /// <summary>
-        /// Gets all existing business objects with the provided parent.
+        /// Gets all existing business objects with the specified parent.
         /// </summary>
         /// <param name="objectsParent">The parent that the returned business objects must have.</param>
-        /// <returns>A list of all existing business objects with the provided parent.</returns>
+        /// <returns>A list of all existing business objects with the specified parent.</returns>
         public override List<Note> Get(Subject objectsParent) {
             return dataManager.Get(objectsParent);
         }
