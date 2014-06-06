@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 
-// TODO: Use MVVM?
 namespace VrankenBischof.Docxes.Interface {
 
     /// <summary>

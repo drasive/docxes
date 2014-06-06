@@ -23,6 +23,9 @@ namespace VrankenBischof.Docxes.Interface {
         public SchoolOverview() {
             InitializeComponent();
 
+            Title = ApplicationPropertyManager.Workspace.School.Name;
+            Common.ExtendWindowName(this);
+
             tbTitle.Text = ApplicationPropertyManager.Workspace.School.Name;
 
             // TODO: Check if there are subjects and ask to create
@@ -227,16 +230,6 @@ namespace VrankenBischof.Docxes.Interface {
         // TODO: Enhance this temporary solution
         #region Temp
 
-        private void btnDocuments_Click(object sender, RoutedEventArgs e) {
-            //if (documentProcessor.CanCreate()) {
-            var window = new ManageDocuments();
-            window.ShowDialog();
-            //}
-            //else {
-            //    MessageBox.Show("Mindestens ein Fach muss existieren, um Dokumente verwalten zu können!", "Keine existierenden Fächer", MessageBoxButton.OK, MessageBoxImage.Hand);
-            //}
-        }
-
         private void btnEvents_Click(object sender, RoutedEventArgs e) {
             var window = new ManageEvents();
             window.ShowDialog();
@@ -250,16 +243,6 @@ namespace VrankenBischof.Docxes.Interface {
             //else {
             //    MessageBox.Show("Mindestens ein Fach muss existieren, um Noten verwalten zu können!", "Keine existierenden Fächer", MessageBoxButton.OK, MessageBoxImage.Hand);
             //}            
-        }
-
-        private void btnNotes_Click(object sender, RoutedEventArgs e) {
-            //if (noteProcessor.CanCreate()) {
-            var window = new ManageNotes();
-            window.ShowDialog();
-            //}
-            //else {
-            //    MessageBox.Show("Mindestens ein Fach muss existieren, um Notizen verwalten zu können!", "Keine existierenden Fächer", MessageBoxButton.OK, MessageBoxImage.Hand);
-            //}
         }
 
         private void btnSubjects_Click(object sender, RoutedEventArgs e) {

@@ -39,7 +39,6 @@ namespace VrankenBischof.Docxes {
         /// <param name="businessObjectEditing">The business object editing to take the id from.</param>
         public Event(string name, string place, DateTime date, int type, string comment, Subject subject, Event businessObjectEditing)
             : this(name, place, date, type, comment, subject) {
-            // TODO: Change order of parameters in all of these classes
             Id = businessObjectEditing.Id;
         }
 

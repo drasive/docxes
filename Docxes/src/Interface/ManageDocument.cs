@@ -10,7 +10,6 @@ namespace VrankenBischof.Docxes.Interface {
         private Subject businessObjectParent;
         private Document businessObjectEditing;
 
-        // TODO: Use explicity (or exact if not possible otherwise?) typing for these members
         private BusinessLogic.BusinessObjectProcessor<Document, Subject> businessObjectProcessor = new BusinessLogic.DocumentProcessor();
 
 

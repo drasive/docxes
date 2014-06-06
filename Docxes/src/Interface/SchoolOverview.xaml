@@ -3,7 +3,7 @@
         xmlns:Docxes="clr-namespace:VrankenBischof.Docxes"
         x:Name="wSchoolOverview"
         x:Class="VrankenBischof.Docxes.Interface.SchoolOverview"
-        Title="SchoolOverview"
+        Title="[Schulname]"
         Height="740"
         Width="930"
         WindowStartupLocation="CenterOwner"
@@ -11,7 +11,7 @@
 
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="45" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
@@ -63,7 +63,7 @@
                                         <Grid.Resources>
                                             <Style x:Key="Buttons"
                                                    TargetType="Button">
-                                                <!-- For future use -->
+                                                <!-- For potential future use -->
                                             </Style>
                                         </Grid.Resources>
                                         <Grid.RowDefinitions>
@@ -89,6 +89,8 @@
                                                            TargetType="Button">
                                                         <Setter Property="Margin"
                                                                 Value="0,5,0,0" />
+                                                        <Setter Property="HorizontalContentAlignment"
+                                                                Value="Left" />
                                                     </Style>
                                                     <Style x:Key="ButtonText"
                                                            TargetType="TextBlock">
@@ -104,30 +106,19 @@
                                                            TargetType="TextBlock" />
                                                 </StackPanel.Resources>
 
-                                                <TextBlock Text="Dokumente:" />
                                                 <Button x:Name="btnManageDocuments"
-                                                        Click="btnManageDocuments_Click">
-                                                    <TextBlock Text="{Binding Documents.Count, Mode=OneWay}" />
-                                                </Button>
-
-                                                <TextBlock Text="Notizen:" />
+                                                        Click="btnManageDocuments_Click"
+                                                        Content="Dokumente [Anzahl]" />
                                                 <Button x:Name="btnManageNotes"
-                                                        Click="btnManageNotes_Click">
-                                                    <TextBlock Text="{Binding Notes.Count, Mode=OneWay}" />
-                                                </Button>
-
-                                                <TextBlock Text="Noten:" />
+                                                        Click="btnManageNotes_Click"
+                                                        Content="Notizen [Anzahl]" />
                                                 <Button x:Name="btnManageGrades"
                                                         Click="btnManageGrades_Click"
-                                                        IsEnabled="False">
-                                                    <TextBlock Text="{Binding Grades.Count, Mode=OneWay}" />
-                                                </Button>
-
-                                                <TextBlock Text="Ereignisse:" />
+                                                        Content="Noten [Anzahl]"
+                                                        IsEnabled="False" />
                                                 <Button x:Name="btnManageEvents"
-                                                        Click="btnManageEvents_Click" >
-                                                    <TextBlock Text="{Binding Events.Count, Mode=OneWay}" />
-                                                </Button>
+                                                        Click="btnManageEvents_Click"
+                                                        Content="Ereignisse [Anzahl]" />
                                             </StackPanel>
 
                                             <StackPanel Grid.Column="2"
@@ -139,7 +130,7 @@
                                                         <Setter Property="Width"
                                                                 Value="20" />
                                                         <Setter Property="Margin"
-                                                                Value="0,21,0,0" />
+                                                                Value="0,5,0,0" />
                                                         <Setter Property="Content"
                                                                 Value="+" />
                                                     </Style>
@@ -180,7 +171,7 @@
 
             <Grid x:Name="gEventPreview"
                   Grid.Column="1"
-                  Margin="5,0,0,0">
+                  Margin="10">
                 <TextBlock HorizontalAlignment="Left"
                            TextWrapping="Wrap"
                            Text="Next events"
@@ -258,14 +249,6 @@
                       Margin="10,479,0,0"
                       HorizontalAlignment="Left"
                       Width="99">
-
-                    <Button x:Name="btnDocuments"
-                            Content="Documents"
-                            HorizontalAlignment="Left"
-                            Margin="10,10,0,0"
-                            VerticalAlignment="Top"
-                            Width="75"
-                            Click="btnDocuments_Click" />
                     <Button x:Name="btnEvents"
                             Content="Events"
                             HorizontalAlignment="Left"
@@ -281,13 +264,6 @@
                             Width="75"
                             Click="btnGrades_Click"
                             IsEnabled="False" />
-                    <Button x:Name="btnNotes"
-                            Content="Notes"
-                            HorizontalAlignment="Left"
-                            Margin="10,85,0,0"
-                            VerticalAlignment="Top"
-                            Width="75"
-                            Click="btnNotes_Click" />
                     <Button x:Name="btnSubjects"
                             Content="Subjects"
                             HorizontalAlignment="Left"
