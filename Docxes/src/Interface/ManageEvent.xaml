@@ -62,7 +62,7 @@
                      MaxLength="256" />
             <ComboBox x:Name="cbType"
                       Grid.Column="1"
-                      Margin="8,138,12,0"
+                      Margin="10,138,10,0"
                       VerticalAlignment="Top" />
             <DatePicker x:Name="dpDate"
                         Grid.Column="1"
@@ -71,7 +71,7 @@
                         VerticalAlignment="Top" />
             <TextBox x:Name="tbComment"
                      Grid.Column="1"
-                     Margin="8,170,12,10"
+                     Margin="10,170,10,10"
                      TextWrapping="Wrap"
                      Text=""
                      MaxLength="8192" />

@@ -37,8 +37,10 @@ namespace VrankenBischof.Docxes.Interface {
             UpdateBusinessObjectParents();
         }
 
-        public ManageEvent() {
+        public ManageEvent(DateTime date) {
             Initialize(null, null);
+
+            dpDate.SelectedDate = date;
         }
 
         public ManageEvent(Subject businessObjectToEditParent, Event businessObjectToEdit) {

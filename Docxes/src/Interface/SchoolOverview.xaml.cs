@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -112,7 +113,7 @@ namespace VrankenBischof.Docxes.Interface {
             // TODO:
             //return BusinessObjectManagerAction.Undefined;
 
-            var businessObjectManagerWindow = new ManageEvent() { Owner = this };
+            var businessObjectManagerWindow = new ManageEvent(DateTime.Today) { Owner = this };
             businessObjectManagerWindow.ShowDialog();
             return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
         }

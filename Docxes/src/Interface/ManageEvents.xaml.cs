@@ -45,12 +45,20 @@ namespace VrankenBischof.Docxes.Interface {
 
                 if (events.Count > 0) {
                     // Mark day as highlighted
-                    cEvents.HighlightedDateText[dayOfMonth - 1] = events.Count.ToString();
+                    cEvents.HighlightedDateText[dayOfMonth - 1] = events.Count.ToString() + " Aufgaben";
                 }
             }
 
             // Refresh calendar
             cEvents.Refresh();
+        }
+
+        private void SetCalendarToToday() {
+            DateTime today = DateTime.Today;
+
+            cEvents.DisplayMode = CalendarMode.Month;
+            cEvents.DisplayDate = today;
+            cEvents.SelectedDate = today;
         }
 
 
@@ -59,14 +67,18 @@ namespace VrankenBischof.Docxes.Interface {
         private Event SelectedBusinessObject { get { return (Event)lbEvents.SelectedItem; } }
 
         private void UpdateBusinessObjects() {
-            IEnumerable<Event> businessObjects = ((BusinessLogic.EventProcessor)businessObjectProcessor).Get(SelectedDate);
+            List<Event> businessObjects = ((BusinessLogic.EventProcessor)businessObjectProcessor).Get(SelectedDate);
 
+            // Update title
+            tblEvents.Text = "Ereignisse am " + SelectedDate.ToShortDateString() + " (" + businessObjects.Count + "):";
+
+            // Update list
             if (businessObjects.Count() > 0) {
                 lbEvents.ItemsSource = businessObjects;
             }
             else {
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
-                    Content = "Keine Events für dieses Datum vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Ereignis zu erstellen.",
+                    Content = "Keine Ereignisse für dieses Datum vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Ereignis zu erstellen.",
                     FontSize = 10,
                     IsEnabled = false
                 };
@@ -76,7 +88,7 @@ namespace VrankenBischof.Docxes.Interface {
 
 
         private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
-            Window addBusinessObjectManager = new ManageEvent() { Owner = this };
+            Window addBusinessObjectManager = new ManageEvent(SelectedDate) { Owner = this };
             addBusinessObjectManager.ShowDialog();
             return ((IBusinessObjectManager)addBusinessObjectManager).Action;
         }
@@ -115,6 +127,7 @@ namespace VrankenBischof.Docxes.Interface {
 
         private void cEvents_SelectedDatesChanged(object sender, SelectionChangedEventArgs e) {
             UpdateBusinessObjects();
+
         }
 
         private void cEvents_DisplayDateChanged(object sender, CalendarDateChangedEventArgs e) {
@@ -124,6 +137,10 @@ namespace VrankenBischof.Docxes.Interface {
 
                 UpdateCalendar();
             }
+        }
+
+        private void btnToday_Click(object sender, RoutedEventArgs e) {
+            SetCalendarToToday();
         }
 
         protected override void OnPreviewMouseUp(MouseButtonEventArgs e) {
@@ -143,6 +160,7 @@ namespace VrankenBischof.Docxes.Interface {
 
         private void btnAdd_Click(object sender, RoutedEventArgs e) {
             if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                UpdateCalendar();
                 UpdateBusinessObjects();
             }
         }

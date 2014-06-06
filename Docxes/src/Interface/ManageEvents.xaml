@@ -4,7 +4,7 @@
         x:Name="wManageEvents"
         x:Class="VrankenBischof.Docxes.Interface.ManageEvents"
         Title="Ereignisse"
-        Height="380"
+        Height="320"
         Width="600"
         Loaded="wManageEvents_Loaded"
         ResizeMode="NoResize"
@@ -31,17 +31,25 @@
                                    DateHighlightBrush="#FF0097C3" />
 
             <Grid Grid.Column="1">
-                <TextBlock x:Name="tblInstructions"
+                <TextBlock x:Name="tblEvents"
                            HorizontalAlignment="Left"
                            Margin="10,10,0,0"
                            TextWrapping="Wrap"
-                           Text="Wählen Sie das Ereignis aus, das Sie verwalten möchten:"
+                           Text="Ereignisse am [Ausgewähltes Datum] ([Anzahl]):"
                            Height="16"
                            VerticalAlignment="Top" />
                 <ListBox x:Name="lbEvents"
                          Margin="10,31,10,10"
                          SelectionChanged="lbEvents_SelectionChanged" />
             </Grid>
+            <Button x:Name="btnToday"
+                    Content="Zu heute springen"
+                    HorizontalAlignment="Left"
+                    Margin="10,178,0,0"
+                    VerticalAlignment="Top"
+                    Width="179"
+                    Click="btnToday_Click"
+                    Height="22" />
         </Grid>
 
         <Button x:Name="btnAdd"
