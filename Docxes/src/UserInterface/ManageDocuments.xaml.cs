@@ -7,15 +7,15 @@ using System.Windows.Controls;
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageDocuments.xaml"/>
+    /// Interaction logic for <see cref="ManageDocuments.xaml"/>.
     /// </summary>
-    public sealed partial class ManageDocuments : Window {
+    internal sealed partial class ManageDocuments : Window {
 
         private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
         private BusinessLogic.BusinessObjectProcessor<Document, Subject> businessObjectProcessor = new BusinessLogic.DocumentProcessor();
 
 
-        public ManageDocuments() {
+        internal ManageDocuments() {
             InitializeComponent();
 
             Common.ExtendWindowName(this);

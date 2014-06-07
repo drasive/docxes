@@ -4,9 +4,9 @@ using System.Windows;
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageNote.xaml"/>
+    /// Interaction logic for <see cref="ManageNote.xaml"/>.
     /// </summary>
-    public partial class ManageNote : Window, IBusinessObjectManager {
+    internal partial class ManageNote : Window, IBusinessObjectManager {
 
         private Subject businessObjectParent;
         private Note businessObjectEditing;
@@ -33,7 +33,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             Common.ExtendWindowName(this);
         }
 
-        public ManageNote(Subject businessObjectToAddParent) {
+        internal ManageNote(Subject businessObjectToAddParent) {
             if (businessObjectToAddParent == null) {
                 throw new ArgumentNullException("businessObjectToAddParent");
             }
@@ -41,7 +41,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             Initialize(businessObjectToAddParent, null);
         }
 
-        public ManageNote(Subject businessObjectToEditParent, Note businessObjectToEdit) {
+        internal ManageNote(Subject businessObjectToEditParent, Note businessObjectToEdit) {
             if (businessObjectToEditParent == null) {
                 throw new ArgumentNullException("businessObjectToEditParent");
             }
@@ -101,7 +101,10 @@ namespace VrankenBischof.Docxes.UserInterface {
 
 
         private bool ValidateInput() {
-            return InputValidation.ValidateInput(tbName) & InputValidation.ValidateInput(tbContent);
+            var isNameValid = InputValidation.ValidateInput(tbName);
+            var isContentValid = InputValidation.ValidateInput(tbContent);
+
+            return isNameValid && isContentValid;
         }
 
         #endregion

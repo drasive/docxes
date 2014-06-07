@@ -11,7 +11,6 @@ namespace VrankenBischof.Docxes.UserInterface {
     /// </summary>
     internal partial class SchoolOverview : Window {
 
-        // ASK: Better solution than to create instances everywhere but still have inheritance and stuff for the processors?
         private BusinessLogic.BusinessObjectProcessor<Teacher, School> teacherProcessor = new BusinessLogic.TeacherProcessor();
         private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> subjectProcessor = new BusinessLogic.SubjectProcessor();
 
@@ -21,7 +20,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         private BusinessLogic.BusinessObjectProcessor<Event, Subject> eventProcessor = new BusinessLogic.EventProcessor();
 
 
-        public SchoolOverview() {
+        internal SchoolOverview() {
             InitializeComponent();
 
             Title = ApplicationPropertyManager.Workspace.School.Name;
@@ -60,7 +59,6 @@ namespace VrankenBischof.Docxes.UserInterface {
                 icSubjects.ItemsSource = businessObjects;
             }
             else {
-                // ASK: Move into BusinessLogic somehow?
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
                     Content = "Es sind noch keine Fächer vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Fach zu erstellen.",
                     FontSize = 10,

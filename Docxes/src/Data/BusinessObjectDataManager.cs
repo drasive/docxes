@@ -18,19 +18,19 @@ namespace VrankenBischof.Docxes.Data {
         /// Saves a new entity.
         /// </summary>
         /// <param name="entityToSave">The entity to save.</param>
-        public abstract void Create(Entity entityToSave);
+        internal abstract void Create(Entity entityToSave);
 
         /// <summary>
         /// Updates the properties of an existing entity.
         /// </summary>
         /// <param name="entityToUpdate">The entity with the updated properties.</param>
-        public abstract void Update(Entity entityToUpdate);
+        internal abstract void Update(Entity entityToUpdate);
 
         /// <summary>
         /// Deletes an existing entity.
         /// </summary>
         /// <param name="entityToDelete">The entity to delete.</param>
-        public abstract void Delete(Entity entityToDelete);
+        internal abstract void Delete(Entity entityToDelete);
 
     }
 
@@ -45,7 +45,7 @@ namespace VrankenBischof.Docxes.Data {
         /// Gets all existing entities.
         /// </summary>
         /// <returns>A list of all existing entities.</returns>
-        public abstract List<Entity> Get();
+        internal abstract List<Entity> Get();
 
     }
 
@@ -62,14 +62,14 @@ namespace VrankenBischof.Docxes.Data {
         /// Gets all existing entities.
         /// </summary>
         /// <returns>A list of all existing entities.</returns>
-        public abstract List<Entity> Get();
+        internal abstract List<Entity> Get();
 
         /// <summary>
         /// Gets all existing entities with the specified parent.
         /// </summary>
         /// <param name="entitiesParent">The parent that the returned entities must have.</param>
         /// <returns>A list of all existing entities with the specified parent.</returns>
-        public abstract List<Entity> Get(EntityParent entitiesParent);
+        internal abstract List<Entity> Get(EntityParent entitiesParent);
 
     }
 

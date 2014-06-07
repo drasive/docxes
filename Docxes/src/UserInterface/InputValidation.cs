@@ -5,12 +5,16 @@ using System.Windows.Media;
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// This class contains functionality to validate the input inside a user interface.
+    /// Provides functionality to validate user input.
     /// </summary>
-    public static class InputValidation {
+    internal static class InputValidation {
 
-        // TODO: Add tooltipp
-        public static bool ValidateInput(TextBox textBox) {
+        /// <summary>
+        /// Validates the input inside of a text box.
+        /// </summary>
+        /// <param name="textBox">The text box to validate the input of.</param>
+        /// <returns>True if the input is valid; otherwise, false.</returns>
+        internal static bool ValidateInput(TextBox textBox) {
             if (textBox == null) {
                 throw new ArgumentNullException("textBox");
             }
@@ -21,10 +25,32 @@ namespace VrankenBischof.Docxes.UserInterface {
                 return false;
             }
 
-            // TODO: Check for duplicate?
+            // TODO: Check for duplicate entity?
 
             textBox.BorderBrush = Brushes.DimGray; // The default border brush of a TextBox
             textBox.ToolTip = string.Empty;
+            return true;
+        }
+
+        /// <summary>
+        /// Validates the input inside of a date picker.
+        /// </summary>
+        /// <param name="datePicker">The date picker to validate the input of.</param>
+        /// <returns>>True if the input is valid; otherwise, false.</returns>
+        internal static bool ValidateInput(DatePicker datePicker) {
+            if (datePicker == null) {
+                throw new ArgumentNullException("datePicker");
+            }
+
+            if (datePicker.SelectedDate == null) {
+                datePicker.BorderBrush = Brushes.Red;
+                datePicker.ToolTip = "Dies ist ein Pflichtfeld";
+                return false;
+            }
+
+            // TODO: _
+            datePicker.BorderBrush = Brushes.DimGray; // The default border brush of a TextBox
+            datePicker.ToolTip = string.Empty;
             return true;
         }
 

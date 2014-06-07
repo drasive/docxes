@@ -4,11 +4,15 @@ using System.Windows;
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// This class contains common functionality, which can be used in the context of a user interface.
+    /// Provides helper methods for working with a user interface.
     /// </summary>
-    public static class Common {
+    internal static class Common {
 
-        public static void ExtendWindowName(Window window) {
+        /// <summary>
+        /// Extends the name of the window with the application name.
+        /// </summary>
+        /// <param name="window">The window to extend the name of.</param>
+        internal static void ExtendWindowName(Window window) {
             if (window == null) {
                 throw new ArgumentNullException("window");
             }
@@ -16,7 +20,13 @@ namespace VrankenBischof.Docxes.UserInterface {
             window.Title = Application.Current.MainWindow.GetType().Assembly.GetName().Name + " | " + window.Title;
         }
 
-        public static bool AskForElementDeletion(string question, string objectType) {
+        /// <summary>
+        /// Asks the user if he really wants do delete a certain object.
+        /// </summary>
+        /// <param name="question">The question that will be displayed to the user.</param>
+        /// <param name="objectType">The type of the object that will be deleted.</param>
+        /// <returns>True if the user confirmed the object deletion; otherwise, false.</returns>
+        internal static bool AskForElementDeletion(string question, string objectType) {
             if (String.IsNullOrEmpty(question)) {
                 throw new ArgumentNullException("question");
             }

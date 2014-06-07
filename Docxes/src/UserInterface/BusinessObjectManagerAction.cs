@@ -1,7 +1,9 @@
-﻿
-namespace VrankenBischof.Docxes.UserInterface {
+﻿namespace VrankenBischof.Docxes.UserInterface {
 
-    public enum BusinessObjectManagerAction {
+    /// <summary>
+    /// Represents an action that was chosen for a business object manager by the user.
+    /// </summary>
+    internal enum BusinessObjectManagerAction {
         Undefined,
         Canceled,
         Saved

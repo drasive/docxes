@@ -7,13 +7,13 @@ namespace VrankenBischof.Docxes.Data {
     /// <summary>
     /// Provides functionality to manage notes in nonvolatile memory.
     /// </summary>
-    public sealed class NotesDataManager : BusinessObjectDataManager<Note, Subject> {
+    internal sealed class NotesDataManager : BusinessObjectDataManager<Note, Subject> {
 
         /// <summary>
         /// Saves a new entity.
         /// </summary>
         /// <param name="entityToSave">The entity to save.</param>
-        public override void Create(Note entityToSave) {
+        internal override void Create(Note entityToSave) {
             if (entityToSave == null) {
                 throw new ArgumentNullException("entityToSave");
             }
@@ -43,7 +43,7 @@ namespace VrankenBischof.Docxes.Data {
         /// Gets all existing entities.
         /// </summary>
         /// <returns>A list of all existing entities.</returns>
-        public override List<Note> Get() {
+        internal override List<Note> Get() {
             using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer);
             }
@@ -54,10 +54,10 @@ namespace VrankenBischof.Docxes.Data {
         /// </summary>
         /// <param name="entitiesParent">The parent that the returned entities must have.</param>
         /// <returns>A list of all existing entities with the specified parent.</returns>
-        public override List<Note> Get(Subject entitiesParent) {
+        internal override List<Note> Get(Subject entitiesParent) {
             using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer, entity => entity.Subject.Equals(entitiesParent));
-            }            
+            }
         }
 
 
@@ -65,7 +65,7 @@ namespace VrankenBischof.Docxes.Data {
         /// Updates the properties of an existing entity.
         /// </summary>
         /// <param name="entityToUpdate">The entity with the updated properties.</param>
-        public override void Update(Note entityToUpdate) {
+        internal override void Update(Note entityToUpdate) {
             if (entityToUpdate == null) {
                 throw new ArgumentNullException("entityToUpdate");
             }
@@ -82,7 +82,7 @@ namespace VrankenBischof.Docxes.Data {
         /// Deletes an existing entity.
         /// </summary>
         /// <param name="entityToDelete">The entity to delete.</param>
-        public override void Delete(Note entityToDelete) {
+        internal override void Delete(Note entityToDelete) {
             if (entityToDelete == null) {
                 throw new ArgumentNullException("entityToDelete");
             }

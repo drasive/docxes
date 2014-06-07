@@ -3,6 +3,7 @@
         xmlns:Docxes="clr-namespace:VrankenBischof.Docxes"
         x:Name="wManageDocuments"
         x:Class="VrankenBischof.Docxes.UserInterface.ManageDocuments"
+        x:ClassModifier="internal"
         Title="Dokumente"
         Height="450"
         Width="800"

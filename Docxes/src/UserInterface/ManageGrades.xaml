@@ -1,5 +1,6 @@
 ﻿<Window x:Name="wManageGrades"
         x:Class="VrankenBischof.Docxes.UserInterface.ManageGrades"
+        x:ClassModifier="internal"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Noten"

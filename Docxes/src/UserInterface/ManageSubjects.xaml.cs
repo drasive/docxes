@@ -6,15 +6,15 @@ using System.Windows.Controls;
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageEvents.xaml"/>
+    /// Interaction logic for <see cref="ManageSubjects.xaml"/>.
     /// </summary>
-    public sealed partial class ManageSubjects : Window {
+    internal sealed partial class ManageSubjects : Window {
 
         private BusinessLogic.BusinessObjectProcessor<Teacher, School> businessObjectParentProcessor = new BusinessLogic.TeacherProcessor();
         private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> businessObjectProcessor = new BusinessLogic.SubjectProcessor();
 
 
-        public ManageSubjects() {
+        internal ManageSubjects() {
             InitializeComponent();
 
             Common.ExtendWindowName(this);
@@ -33,7 +33,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
             else {
                 cbTeachers.SelectedIndex = 0;
-            }           
+            }
         }
 
 
@@ -46,7 +46,6 @@ namespace VrankenBischof.Docxes.UserInterface {
                 lbSubjects.ItemsSource = businessObjects;
             }
             else {
-                // ASK: Move into BusinessLogic somehow?
                 ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
                     Content = "Keine Fächer für diesen Lehrer vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Fach zu erstellen.",
                     FontSize = 10,

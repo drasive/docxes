@@ -4,9 +4,9 @@ using System.Windows;
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageTeacher.xaml"/>
+    /// Interaction logic for <see cref="ManageTeacher.xaml"/>.
     /// </summary>
-    public partial class ManageTeacher : Window, IBusinessObjectManager {
+    internal partial class ManageTeacher : Window, IBusinessObjectManager {
 
         private School businessObjectParent { get { return ApplicationPropertyManager.Workspace.School; } }
         private Teacher businessObjectEditing;
@@ -28,11 +28,11 @@ namespace VrankenBischof.Docxes.UserInterface {
             Common.ExtendWindowName(this);
         }
 
-        public ManageTeacher() {
+        internal ManageTeacher() {
             Initialize(null);
         }
 
-        public ManageTeacher(Teacher businessObjectToEdit) {
+        internal ManageTeacher(Teacher businessObjectToEdit) {
             if (businessObjectToEdit == null) {
                 throw new ArgumentNullException("businessObjectToEdit");
             }
@@ -94,8 +94,10 @@ namespace VrankenBischof.Docxes.UserInterface {
 
 
         private bool ValidateInput() {
-            // ASK: If the bitwise operator is an appropriate solution to the short-circuit problem
-            return InputValidation.ValidateInput(tbFirstName) & InputValidation.ValidateInput(tbLastName);
+            var isFirstNameValid = InputValidation.ValidateInput(tbFirstName);
+            var isLastNameValid = InputValidation.ValidateInput(tbLastName);
+
+            return isFirstNameValid && isLastNameValid;
         }
 
         #endregion

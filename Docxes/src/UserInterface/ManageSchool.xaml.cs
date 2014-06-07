@@ -4,9 +4,9 @@ using System.Windows;
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageSchool.xaml"/>
+    /// Interaction logic for <see cref="ManageSchool.xaml"/>.
     /// </summary>
-    public sealed partial class ManageSchool : Window, IBusinessObjectManager {
+    internal sealed partial class ManageSchool : Window, IBusinessObjectManager {
 
         private School businessObjectEditing;
 
@@ -25,11 +25,11 @@ namespace VrankenBischof.Docxes.UserInterface {
             Common.ExtendWindowName(this);
         }
 
-        public ManageSchool() {
+        internal ManageSchool() {
             Initialize();
         }
 
-        public ManageSchool(School businessObjectToEdit) {
+        internal ManageSchool(School businessObjectToEdit) {
             if (businessObjectToEdit == null) {
                 throw new ArgumentNullException("businessObjectToEdit");
             }
@@ -88,7 +88,9 @@ namespace VrankenBischof.Docxes.UserInterface {
 
 
         private bool ValidateInput() {
-            return InputValidation.ValidateInput(tbName);
+            var isNameValid = InputValidation.ValidateInput(tbName);
+
+            return isNameValid;
         }
 
         #endregion

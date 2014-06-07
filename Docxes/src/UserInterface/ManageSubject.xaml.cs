@@ -5,9 +5,9 @@ using System.Windows;
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageSubject.xaml"/>
+    /// Interaction logic for <see cref="ManageSubject.xaml"/>.
     /// </summary>
-    public partial class ManageSubject : Window, IBusinessObjectManager {
+    internal partial class ManageSubject : Window, IBusinessObjectManager {
 
         private Teacher businessObjectParent;
         private Subject businessObjectEditing;
@@ -37,7 +37,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             UpdateBusinessObjectParents();
         }
 
-        public ManageSubject(Teacher businessObjectToAddParent) {
+        internal ManageSubject(Teacher businessObjectToAddParent) {
             if (businessObjectToAddParent == null) {
                 throw new ArgumentNullException("businessObjectToAddParent");
             }
@@ -45,7 +45,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             Initialize(businessObjectToAddParent, null);
         }
 
-        public ManageSubject(Teacher businessObjectToEditParent, Subject businessObjectToEdit) {
+        internal ManageSubject(Teacher businessObjectToEditParent, Subject businessObjectToEdit) {
             if (businessObjectToEditParent == null) {
                 throw new ArgumentNullException("businessObjectToEditParent");
             }
@@ -113,7 +113,9 @@ namespace VrankenBischof.Docxes.UserInterface {
 
 
         private bool ValidateInput() {
-            return InputValidation.ValidateInput(tbName);
+            var isNameValid = InputValidation.ValidateInput(tbName);
+
+            return isNameValid;
         }
 
         #endregion

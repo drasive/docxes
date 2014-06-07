@@ -3,9 +3,9 @@
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageDocument.xaml"/>
+    /// Provides functionality to manage an entity of the type <see cref="Document"/>.
     /// </summary>
-    public partial class ManageDocument : IBusinessObjectManager {
+    internal partial class ManageDocument : IBusinessObjectManager {
 
         private Subject businessObjectParent;
         private Document businessObjectEditing;
@@ -22,7 +22,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             this.businessObjectEditing = businessObjectToEdit;
         }
 
-        public ManageDocument(Subject businessObjectToAddParent) {
+        internal ManageDocument(Subject businessObjectToAddParent) {
             if (businessObjectToAddParent == null) {
                 throw new ArgumentNullException("businessObjectToAddParent");
             }
@@ -30,7 +30,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             Initialize(businessObjectToAddParent, null);
         }
 
-        public ManageDocument(Subject businessObjectToEditParent, Document businessObjectToEdit) {
+        internal ManageDocument(Subject businessObjectToEditParent, Document businessObjectToEdit) {
             if (businessObjectToEditParent == null) {
                 throw new ArgumentNullException("businessObjectToEditParent");
             }
@@ -59,7 +59,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             return openFileDialog;
         }
-        
+
         // TODO: Split up Add and Edit into "MapInterfaceToObject" and "Save" like the others of these classes
         private void Add() {
             var openFileDialog = GetOpenFileDialog();
@@ -76,11 +76,11 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
             else {
                 Action = BusinessObjectManagerAction.Canceled;
-            }            
+            }
         }
 
         private void Edit() {
-            var openFileDialog = GetOpenFileDialog();            
+            var openFileDialog = GetOpenFileDialog();
             openFileDialog.FileName = businessObjectEditing.FilePath;
             // TODO: Desn't work, is still .docx
             openFileDialog.DefaultExt = "*.*";
@@ -98,11 +98,11 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
             else {
                 Action = BusinessObjectManagerAction.Canceled;
-            }            
+            }
         }
 
 
-        public void ShowDialog() {
+        internal void ShowDialog() {
             if (Action != BusinessObjectManagerAction.Undefined) {
                 throw new InvalidOperationException("Already executed");
             }

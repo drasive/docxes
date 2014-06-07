@@ -8,13 +8,13 @@ namespace VrankenBischof.Docxes.Data {
     /// <summary>
     /// Provides functionality to manage schools in nonvolatile memory.
     /// </summary>
-    public sealed class SchoolsDataManager : BusinessObjectDataManager<School> {
+    internal sealed class SchoolsDataManager : BusinessObjectDataManager<School> {
 
         /// <summary>
         /// Saves a new entity.
         /// </summary>
         /// <param name="entityToSave">The entity to save.</param>
-        public override void Create(School entityToSave) {
+        internal override void Create(School entityToSave) {
             if (entityToSave == null) {
                 throw new ArgumentNullException("entityToSave");
             }
@@ -64,7 +64,7 @@ namespace VrankenBischof.Docxes.Data {
         /// Gets all existing entities.
         /// </summary>
         /// <returns>A list of all existing entities.</returns>
-        public override List<School> Get() {
+        internal override List<School> Get() {
             using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer);
             }
@@ -75,7 +75,7 @@ namespace VrankenBischof.Docxes.Data {
         /// Updates the properties of an existing entity.
         /// </summary>
         /// <param name="entityToUpdate">The entity with the updated properties.</param>
-        public override void Update(School entityToUpdate) {
+        internal override void Update(School entityToUpdate) {
             if (entityToUpdate == null) {
                 throw new ArgumentNullException("entityToUpdate");
             }
@@ -92,7 +92,7 @@ namespace VrankenBischof.Docxes.Data {
         /// Deletes an existing entity.
         /// </summary>
         /// <param name="entityToDelete">The entity to delete.</param>
-        public override void Delete(School entityToDelete) {
+        internal override void Delete(School entityToDelete) {
             if (entityToDelete == null) {
                 throw new ArgumentNullException("entityToDelete");
             }

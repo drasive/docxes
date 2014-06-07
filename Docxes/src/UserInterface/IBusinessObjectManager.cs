@@ -1,7 +1,9 @@
-﻿
-namespace VrankenBischof.Docxes.UserInterface {
+﻿namespace VrankenBischof.Docxes.UserInterface {
 
-    public interface IBusinessObjectManager {
+    /// <summary>
+    /// Provides functionality to manage a business object.
+    /// </summary>
+    internal interface IBusinessObjectManager {
 
         bool IsEditing { get; }
 

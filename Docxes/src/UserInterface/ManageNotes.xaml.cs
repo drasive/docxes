@@ -6,15 +6,15 @@ using System.Windows.Controls;
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageNotes.xaml"/>
+    /// Interaction logic for <see cref="ManageNotes.xaml"/>.
     /// </summary>
-    public sealed partial class ManageNotes : Window {
+    internal sealed partial class ManageNotes : Window {
 
         private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
         private BusinessLogic.BusinessObjectProcessor<Note, Subject> businessObjectProcessor = new BusinessLogic.NoteProcessor();
 
 
-        public ManageNotes() {
+        internal ManageNotes() {
             InitializeComponent();
 
             Common.ExtendWindowName(this);

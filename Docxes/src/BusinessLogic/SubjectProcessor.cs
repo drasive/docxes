@@ -18,7 +18,6 @@ namespace VrankenBischof.Docxes.BusinessLogic {
 
 
         //public override bool CanCreate() {
-        //    // ASK Is this legit? If not, update all processors
         //    var teacherProcessor = new BusinessLogic.TeacherProcessor();
         //    return teacherProcessor.Get(ApplicationManager.Workspace.School).Count > 0;
         //}

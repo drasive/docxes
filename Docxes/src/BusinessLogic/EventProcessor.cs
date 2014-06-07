@@ -38,10 +38,10 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         /// Gets all existing business objects.
         /// </summary>
         /// <returns>A list of all existing business objects.</returns>
-        public override List<Event> Get( ) {
+        public override List<Event> Get() {
             return dataManager.Get();
         }
-        
+
         /// <summary>
         /// Gets all existing business objects with the specified parent.
         /// </summary>

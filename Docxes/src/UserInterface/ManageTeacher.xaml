@@ -1,5 +1,6 @@
 ﻿<Window x:Name="wManageTeacher"
         x:Class="VrankenBischof.Docxes.UserInterface.ManageTeacher"
+        x:ClassModifier="internal"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Lehrer hinzufügen/ bearbeiten"

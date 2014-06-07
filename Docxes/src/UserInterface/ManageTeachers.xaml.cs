@@ -6,16 +6,16 @@ using System.Windows.Controls;
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageTeachers.xaml"/>
+    /// Interaction logic for <see cref="ManageTeachers.xaml"/>.
     /// </summary>
-    public sealed partial class ManageTeachers : Window {
+    internal sealed partial class ManageTeachers : Window {
 
         private School businessObjectParent { get { return ApplicationPropertyManager.Workspace.School; } }
 
         private BusinessLogic.BusinessObjectProcessor<Teacher, School> businessObjectProcessor = new BusinessLogic.TeacherProcessor();
 
 
-        public ManageTeachers() {
+        internal ManageTeachers() {
             InitializeComponent();
 
             Common.ExtendWindowName(this);

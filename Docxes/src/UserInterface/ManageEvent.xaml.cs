@@ -4,13 +4,10 @@ using System.Windows;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
-    // TODO: Add start and end time to event?
-    // TODO: Document interface class headers
-
     /// <summary>
-    /// Interaction logic for <see cref="ManageEvent.xaml"/>
+    /// Interaction logic for <see cref="ManageEvent.xaml"/>.
     /// </summary>
-    public partial class ManageEvent : Window, IBusinessObjectManager {
+    internal partial class ManageEvent : Window, IBusinessObjectManager {
 
         private Subject businessObjectParent;
         private Event businessObjectEditing;
@@ -37,13 +34,13 @@ namespace VrankenBischof.Docxes.UserInterface {
             UpdateBusinessObjectParents();
         }
 
-        public ManageEvent(DateTime date) {
+        internal ManageEvent(DateTime date) {
             Initialize(null, null);
 
             dpDate.SelectedDate = date;
         }
 
-        public ManageEvent(Subject businessObjectToEditParent, Event businessObjectToEdit) {
+        internal ManageEvent(Subject businessObjectToEditParent, Event businessObjectToEdit) {
             if (businessObjectToEditParent == null) {
                 throw new ArgumentNullException("businessObjectToEditParent");
             }
@@ -122,7 +119,10 @@ namespace VrankenBischof.Docxes.UserInterface {
 
 
         private bool ValidateInput() {
-            return InputValidation.ValidateInput(tbName);
+            var isNameValid = InputValidation.ValidateInput(tbName);
+            var isDateValid = InputValidation.ValidateInput(dpDate);
+
+            return isNameValid && isDateValid;
         }
 
         #endregion

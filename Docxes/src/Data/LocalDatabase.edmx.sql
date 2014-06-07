@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/26/2014 20:36:02
+-- Date Created: 06/07/2014 18:19:42
 -- Generated from EDMX file: C:\Users\dimit_000\SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\src\Data\LocalDatabase.edmx
 -- --------------------------------------------------
 
@@ -123,7 +123,7 @@ CREATE TABLE [dbo].[Notes] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [SubjectId] int  NOT NULL,
     [Name] nvarchar(64)  NOT NULL,
-    [Content] nvarchar(max)  NOT NULL
+    [Content] nvarchar(max)  NULL
 );
 GO
 

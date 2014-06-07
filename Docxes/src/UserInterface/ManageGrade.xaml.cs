@@ -6,9 +6,9 @@ namespace VrankenBischof.Docxes.UserInterface {
     // TODO: Interface
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageGrade.xaml"/>
+    /// Interaction logic for <see cref="ManageGrade.xaml"/>.
     /// </summary>
-    public partial class ManageGrade : Window, IBusinessObjectManager {
+    internal partial class ManageGrade : Window, IBusinessObjectManager {
 
         private Grade businessObjectEditing;
 
@@ -27,11 +27,11 @@ namespace VrankenBischof.Docxes.UserInterface {
             Common.ExtendWindowName(this);
         }
 
-        public ManageGrade() {
+        internal ManageGrade() {
             Initialize();
         }
 
-        public ManageGrade(Grade businessObjectToEdit) {
+        internal ManageGrade(Grade businessObjectToEdit) {
             if (businessObjectToEdit == null) {
                 throw new ArgumentNullException("businessObjectToEdit");
             }

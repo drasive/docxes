@@ -6,14 +6,14 @@ using System.Windows.Controls;
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageSchools.xaml"/>
+    /// Interaction logic for <see cref="ManageSchools.xaml"/>.
     /// </summary>
-    public sealed partial class ManageSchools : Window {
+    internal sealed partial class ManageSchools : Window {
 
         private BusinessLogic.BusinessObjectProcessor<School> businessObjectProcessor = new BusinessLogic.SchoolProcessor();
 
 
-        public ManageSchools() {
+        internal ManageSchools() {
             InitializeComponent();
 
             Common.ExtendWindowName(this);
@@ -22,7 +22,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         #region Interface
 
-        private School SelectedBusinessObject { get { return (School)lbSchools.SelectedItem;} }
+        private School SelectedBusinessObject { get { return (School)lbSchools.SelectedItem; } }
 
         private void UpdateBusinessObjects() {
             IEnumerable<School> businessObjects = businessObjectProcessor.Get();

@@ -8,14 +8,14 @@ namespace VrankenBischof.Docxes.UserInterface {
     // TODO: Interface
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageGrades.xaml"/>
+    /// Interaction logic for <see cref="ManageGrades.xaml"/>.
     /// </summary>
-    public sealed partial class ManageGrades : Window {
+    internal sealed partial class ManageGrades : Window {
 
         private BusinessLogic.BusinessObjectProcessor<Grade, Subject> businessObjectProcessor = new BusinessLogic.GradeProcessor();
 
 
-        public ManageGrades() {
+        internal ManageGrades() {
             InitializeComponent();
 
             Common.ExtendWindowName(this);
@@ -64,10 +64,10 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             return false;
         }
-        
+
         private void UpdateControlsAvailability() {
             bool isBusinessObjectSelected = lbSchools.SelectedIndex != -1;
-            
+
             foreach (Button button in new Button[] { btnEdit, btnDelete }) {
                 button.IsEnabled = isBusinessObjectSelected;
             }

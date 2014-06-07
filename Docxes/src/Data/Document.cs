@@ -7,8 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VrankenBischof.Docxes {
-
+namespace VrankenBischof.Docxes
+{
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Document
     {
         public int Id { get; private set; }

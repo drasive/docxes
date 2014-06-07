@@ -98,7 +98,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SubjectId" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
-    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="Documents">
     <Key>
@@ -302,7 +302,7 @@
                     <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectNotes" FromRole="Note" ToRole="Subject" />
                     <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Name" Type="String" Nullable="false" MaxLength="64" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <Property xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" Name="Content" a:SetterAccess="Private" Nullable="false" MaxLength="8192" Type="String" />
+                    <Property xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" Name="Content" a:SetterAccess="Private" Nullable="true" MaxLength="8192" Type="String" />
                 </EntityType>
                 <EntityType Name="Document">
                     <Key>

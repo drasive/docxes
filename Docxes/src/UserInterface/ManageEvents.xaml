@@ -3,6 +3,7 @@
         xmlns:FsControls="clr-namespace:FsControls;assembly=FsCalendar"
         x:Name="wManageEvents"
         x:Class="VrankenBischof.Docxes.UserInterface.ManageEvents"
+        x:ClassModifier="internal"
         Title="Ereignisse"
         Height="320"
         Width="600"
@@ -43,7 +44,7 @@
                          SelectionChanged="lbEvents_SelectionChanged" />
             </Grid>
             <Button x:Name="btnToday"
-                    Content="Zu heute springen"
+                    Content="Heutiges Datum"
                     HorizontalAlignment="Left"
                     Margin="10,178,0,0"
                     VerticalAlignment="Top"

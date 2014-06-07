@@ -12,7 +12,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         /// <summary>
         /// Creates a new instance of the class <see cref="DocumentProcessor"/>.
         /// </summary>
-        public DocumentProcessor() {
+        internal DocumentProcessor() {
             dataManager = new DocumentsDataManager();
         }
 
@@ -39,7 +39,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         /// Gets all existing business objects.
         /// </summary>
         /// <returns>A list of all existing business objects.</returns>
-        public override List<Document> Get( ) {
+        public override List<Document> Get() {
             return dataManager.Get();
         }
 

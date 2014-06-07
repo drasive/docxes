@@ -1,5 +1,6 @@
 ﻿<Window x:Name="wManageNotes"
         x:Class="VrankenBischof.Docxes.UserInterface.ManageNotes"
+        x:ClassModifier="internal"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Notizen"

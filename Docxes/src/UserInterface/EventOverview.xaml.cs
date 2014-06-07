@@ -3,11 +3,11 @@
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// Interaction logic for <see cref="EventPreview.xaml"/>.
+    /// Interaction logic for <see cref="EventOverview.xaml"/>.
     /// </summary>
     internal partial class EventOverview : UserControl {
 
-        public EventOverview() {
+        internal EventOverview() {
             InitializeComponent();
         }
 

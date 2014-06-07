@@ -8,9 +8,9 @@ using System.Windows.Input;
 namespace VrankenBischof.Docxes.UserInterface {
 
     /// <summary>
-    /// Interaction logic for <see cref="ManageEvents.xaml"/>
+    /// Interaction logic for <see cref="ManageEvents.xaml"/>.
     /// </summary>
-    public sealed partial class ManageEvents : Window {
+    internal sealed partial class ManageEvents : Window {
 
         // TODO: Multi date selection, grid intead of list
         private DateTime _lastDisplayDate;
@@ -19,7 +19,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         private BusinessLogic.BusinessObjectProcessor<Event, Subject> businessObjectProcessor = new BusinessLogic.EventProcessor();
 
 
-        public ManageEvents() {
+        internal ManageEvents() {
             InitializeComponent();
 
             Common.ExtendWindowName(this);
