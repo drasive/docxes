@@ -72,7 +72,8 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Height="25"
-                Click="btnSave_Click" />
+                Click="btnSave_Click"
+                IsDefault="True" />
         <Button x:Name="btnCancel"
                 Content="Abbrechen"
                 HorizontalAlignment="Right"
@@ -82,6 +83,7 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Height="25"
-                Click="btnCancel_Click" />
+                Click="btnCancel_Click"
+                IsCancel="True" />
     </Grid>
 </Window>

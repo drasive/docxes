@@ -107,7 +107,8 @@
                 VerticalAlignment="Top"
                 Width="75"
                 Height="25"
-                Click="btnSave_Click" />
+                Click="btnSave_Click"
+                IsDefault="True" />
         <Button x:Name="btnCancel"
                 Content="Abbrechen"
                 Grid.Row="1"
@@ -116,6 +117,7 @@
                 VerticalAlignment="Top"
                 Width="75"
                 Height="25"
-                Click="btnCancel_Click" />
+                Click="btnCancel_Click"
+                IsCancel="True" />
     </Grid>
 </Window>

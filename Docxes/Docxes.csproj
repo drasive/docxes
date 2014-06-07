@@ -111,6 +111,7 @@
     <Compile Include="src\BusinessLogic\SubjectProcessor.cs" />
     <Compile Include="src\BusinessLogic\TeacherProcessor.cs" />
     <Compile Include="src\BusinessLogic\SchoolProcessor.cs" />
+    <Compile Include="src\ConfigurationReader.cs" />
     <Compile Include="src\Data\Document.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
