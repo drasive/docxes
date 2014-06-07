@@ -157,66 +157,66 @@
     <Compile Include="src\DateTimeHelper.cs" />
     <Compile Include="src\DocumentExtension.cs" />
     <Compile Include="src\EventType.cs" />
-    <Compile Include="src\Interface\EventOverview.xaml.cs">
+    <Compile Include="src\UserInterface\EventOverview.xaml.cs">
       <DependentUpon>EventOverview.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Interface\ManageDocument.cs" />
-    <Compile Include="src\Interface\ManageDocuments.xaml.cs">
+    <Compile Include="src\UserInterface\ManageDocument.cs" />
+    <Compile Include="src\UserInterface\ManageDocuments.xaml.cs">
       <DependentUpon>ManageDocuments.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Interface\ManageNote.xaml.cs">
+    <Compile Include="src\UserInterface\ManageNote.xaml.cs">
       <DependentUpon>ManageNote.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Interface\ManageGrade.xaml.cs">
+    <Compile Include="src\UserInterface\ManageGrade.xaml.cs">
       <DependentUpon>ManageGrade.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Interface\ManageEvent.xaml.cs">
+    <Compile Include="src\UserInterface\ManageEvent.xaml.cs">
       <DependentUpon>ManageEvent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Interface\ManageSubjects.xaml.cs">
+    <Compile Include="src\UserInterface\ManageSubjects.xaml.cs">
       <DependentUpon>ManageSubjects.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Interface\ManageTeachers.xaml.cs">
+    <Compile Include="src\UserInterface\ManageTeachers.xaml.cs">
       <DependentUpon>ManageTeachers.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Interface\ManageGrades.xaml.cs">
+    <Compile Include="src\UserInterface\ManageGrades.xaml.cs">
       <DependentUpon>ManageGrades.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Interface\ManageNotes.xaml.cs">
+    <Compile Include="src\UserInterface\ManageNotes.xaml.cs">
       <DependentUpon>ManageNotes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Interface\ManageEvents.xaml.cs">
+    <Compile Include="src\UserInterface\ManageEvents.xaml.cs">
       <DependentUpon>ManageEvents.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\BusinessLogic\Logging.cs" />
-    <Compile Include="src\Interface\SubjectOverview.xaml.cs">
+    <Compile Include="src\UserInterface\SubjectOverview.xaml.cs">
       <DependentUpon>SubjectOverview.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\NoteExtension.cs" />
     <Compile Include="src\GradeExtension.cs" />
-    <Compile Include="src\Interface\IBusinessObjectManager.cs" />
-    <Compile Include="src\Interface\BusinessObjectManagerAction.cs" />
+    <Compile Include="src\UserInterface\IBusinessObjectManager.cs" />
+    <Compile Include="src\UserInterface\BusinessObjectManagerAction.cs" />
     <Compile Include="src\EventExtension.cs" />
     <Compile Include="src\ApplicationPropertyManager.cs" />
     <Compile Include="src\TeacherExtension.cs" />
     <Compile Include="src\SubjectExtension.cs" />
     <Compile Include="src\SchoolExtension.cs" />
     <Compile Include="src\Data\SchoolsDataManager.cs" />
-    <Compile Include="src\Interface\InputValidation.cs" />
-    <Compile Include="src\Interface\ManageSubject.xaml.cs">
+    <Compile Include="src\UserInterface\InputValidation.cs" />
+    <Compile Include="src\UserInterface\ManageSubject.xaml.cs">
       <DependentUpon>ManageSubject.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Interface\ManageTeacher.xaml.cs">
+    <Compile Include="src\UserInterface\ManageTeacher.xaml.cs">
       <DependentUpon>ManageTeacher.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Interface\Common.cs" />
-    <Compile Include="src\Interface\ManageSchool.xaml.cs">
+    <Compile Include="src\UserInterface\Common.cs" />
+    <Compile Include="src\UserInterface\ManageSchool.xaml.cs">
       <DependentUpon>ManageSchool.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Interface\SchoolOverview.xaml.cs">
+    <Compile Include="src\UserInterface\SchoolOverview.xaml.cs">
       <DependentUpon>SchoolOverview.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\Interface\ManageSchools.xaml.cs">
+    <Compile Include="src\UserInterface\ManageSchools.xaml.cs">
       <DependentUpon>ManageSchools.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\IBusinessObject.cs" />
@@ -297,67 +297,67 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="src\Interface\EventOverview.xaml">
+    <Page Include="src\UserInterface\EventOverview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\Interface\ManageDocuments.xaml">
+    <Page Include="src\UserInterface\ManageDocuments.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\Interface\ManageNote.xaml">
+    <Page Include="src\UserInterface\ManageNote.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\Interface\ManageGrade.xaml">
+    <Page Include="src\UserInterface\ManageGrade.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\Interface\ManageEvent.xaml">
+    <Page Include="src\UserInterface\ManageEvent.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\Interface\ManageSubjects.xaml">
+    <Page Include="src\UserInterface\ManageSubjects.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\Interface\ManageTeachers.xaml">
+    <Page Include="src\UserInterface\ManageTeachers.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\Interface\ManageGrades.xaml">
+    <Page Include="src\UserInterface\ManageGrades.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\Interface\ManageNotes.xaml">
+    <Page Include="src\UserInterface\ManageNotes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\Interface\ManageEvents.xaml">
+    <Page Include="src\UserInterface\ManageEvents.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\Interface\ManageSubject.xaml">
+    <Page Include="src\UserInterface\ManageSubject.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\Interface\ManageTeacher.xaml">
+    <Page Include="src\UserInterface\ManageTeacher.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="src\Interface\ManageSchool.xaml">
+    <Page Include="src\UserInterface\ManageSchool.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\Interface\SchoolOverview.xaml">
+    <Page Include="src\UserInterface\SchoolOverview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\Interface\ManageSchools.xaml">
+    <Page Include="src\UserInterface\ManageSchools.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="src\Interface\SubjectOverview.xaml">
+    <Page Include="src\UserInterface\SubjectOverview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

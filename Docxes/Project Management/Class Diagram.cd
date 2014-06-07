@@ -182,21 +182,21 @@
       <FileName>src\BusinessLogic\Logging.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.Common">
+  <Class Name="VrankenBischof.Docxes.UserInterface.Common">
     <Position X="0.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Interface\Common.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.InputValidation">
+  <Class Name="VrankenBischof.Docxes.UserInterface.InputValidation">
     <Position X="3.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>src\Interface\InputValidation.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageDocument" BaseTypeListCollapsed="true">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageDocument" BaseTypeListCollapsed="true">
     <Position X="20.5" Y="9" Width="4.25" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
@@ -204,14 +204,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageDocuments">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageDocuments">
     <Position X="20.5" Y="2.5" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCEAAgAAQAAAAAAAQI=</HashCode>
       <FileName>src\Interface\ManageDocuments.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageEvent" BaseTypeListCollapsed="true">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageEvent" BaseTypeListCollapsed="true">
     <Position X="15.5" Y="9" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
@@ -219,14 +219,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageEvents">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageEvents">
     <Position X="15.5" Y="2.5" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCAAAgAAQAAAAgAAQI=</HashCode>
       <FileName>src\Interface\ManageEvents.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageGrade" BaseTypeListCollapsed="true">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageGrade" BaseTypeListCollapsed="true">
     <Position X="25.5" Y="9" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
@@ -234,14 +234,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageGrades">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageGrades">
     <Position X="25.5" Y="2.5" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCAAAoAAQAAAAAAAQI=</HashCode>
       <FileName>src\Interface\ManageGrades.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageNote" BaseTypeListCollapsed="true">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageNote" BaseTypeListCollapsed="true">
     <Position X="30.5" Y="9" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
@@ -249,14 +249,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageNotes">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageNotes">
     <Position X="30.5" Y="2.5" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCAAAgAAQAAAAAAgQI=</HashCode>
       <FileName>src\Interface\ManageNotes.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageSchool" BaseTypeListCollapsed="true">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageSchool" BaseTypeListCollapsed="true">
     <Position X="0.5" Y="9" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
@@ -264,14 +264,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageSchools">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageSchools">
     <Position X="0.5" Y="2.5" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAACCAAAAABAAAIAAAAgAABAAgCAAAgAAQAAAAAAAYI=</HashCode>
       <FileName>src\Interface\ManageSchools.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageSubject" BaseTypeListCollapsed="true">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageSubject" BaseTypeListCollapsed="true">
     <Position X="10.5" Y="9" Width="4.25" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
@@ -279,14 +279,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageSubjects">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageSubjects">
     <Position X="10.5" Y="2.5" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCEAAgAAQAAAAAAAQI=</HashCode>
       <FileName>src\Interface\ManageSubjects.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageTeacher" BaseTypeListCollapsed="true">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageTeacher" BaseTypeListCollapsed="true">
     <Position X="5.5" Y="9" Width="4.25" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAQAAAAQAACAAgAEAoAAAAABAAAAAAAAAAgAQ=</HashCode>
@@ -294,14 +294,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.ManageTeachers">
+  <Class Name="VrankenBischof.Docxes.UserInterface.ManageTeachers">
     <Position X="5.5" Y="2.5" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAACCAAAAAAAAAAAAAAgAABAAgCgAAgAAQAAAAAAAQI=</HashCode>
       <FileName>src\Interface\ManageTeachers.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="VrankenBischof.Docxes.Interface.SchoolOverview">
+  <Class Name="VrankenBischof.Docxes.UserInterface.SchoolOverview">
     <Position X="0.5" Y="13" Width="2.25" />
     <TypeIdentifier>
       <HashCode>gAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
@@ -315,14 +315,14 @@
       <FileName>src\IBusinessObject.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="VrankenBischof.Docxes.Interface.IBusinessObjectManager">
+  <Interface Name="VrankenBischof.Docxes.UserInterface.IBusinessObjectManager">
     <Position X="3" Y="7.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>src\Interface\IBusinessObjectManager.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="VrankenBischof.Docxes.Interface.BusinessObjectManagerAction">
+  <Enum Name="VrankenBischof.Docxes.UserInterface.BusinessObjectManagerAction">
     <Position X="0.5" Y="7.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAACA=</HashCode>

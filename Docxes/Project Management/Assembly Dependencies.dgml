@@ -385,7 +385,7 @@
     <Alias n="16" Id="(@1 @15)" />
     <Alias n="17" Id="Namespace=VrankenBischof.Docxes.Data" />
     <Alias n="18" Id="(@1 @17)" />
-    <Alias n="19" Id="Namespace=VrankenBischof.Docxes.Interface" />
+    <Alias n="19" Id="Namespace=VrankenBischof.Docxes.UserInterface" />
     <Alias n="20" Id="(@1 @19)" />
     <Alias n="21" Id="(@1 @17 Type=(Name=BusinessObjectDataManager GenericParameterCount=1))" />
     <Alias n="22" Id="(@1 @15 Type=(Name=BusinessObjectProcessor GenericParameterCount=1))" />
