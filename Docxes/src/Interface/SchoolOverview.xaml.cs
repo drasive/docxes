@@ -9,7 +9,7 @@ namespace VrankenBischof.Docxes.Interface {
     /// <summary>
     /// Interaction logic for <see cref="SchoolOverview.xaml"/>
     /// </summary>
-    public partial class SchoolOverview : Window {
+    internal partial class SchoolOverview : Window {
 
         // ASK: Better solution than to create instances everywhere but still have inheritance and stuff for the processors?
         private BusinessLogic.BusinessObjectProcessor<Teacher, School> teacherProcessor = new BusinessLogic.TeacherProcessor();
@@ -18,6 +18,7 @@ namespace VrankenBischof.Docxes.Interface {
         private BusinessLogic.BusinessObjectProcessor<Document, Subject> documentProcessor = new BusinessLogic.DocumentProcessor();
         private BusinessLogic.BusinessObjectProcessor<Note, Subject> noteProcessor = new BusinessLogic.NoteProcessor();
         private BusinessLogic.BusinessObjectProcessor<Grade, Subject> gradeProcessor = new BusinessLogic.GradeProcessor();
+        private BusinessLogic.BusinessObjectProcessor<Event, Subject> eventProcessor = new BusinessLogic.EventProcessor();
 
 
         public SchoolOverview() {
@@ -46,7 +47,7 @@ namespace VrankenBischof.Docxes.Interface {
 
         #region Interface
 
-        private void UpdateBusinessObjects() {
+        private void UpdateSubjects() {
             // Get business objects
             var businessObjects = new List<Subject>();
             var businessObjectParents = teacherProcessor.Get(ApplicationPropertyManager.Workspace.School);
@@ -67,6 +68,33 @@ namespace VrankenBischof.Docxes.Interface {
                 };
                 icSubjects.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
+        }
+
+        private void UpdateEvents() {
+            UpdateEventsThisWeek();
+            UpdateEventsNextWeek();
+        }
+
+        private void UpdateEvent(Panel container, ItemsControl itemsContainer, DateTime startDate, DateTime endDate) {
+            List<Event> events = ((BusinessLogic.EventProcessor)eventProcessor).Get(startDate, endDate);
+
+            if (events.Count > 0) {
+                itemsContainer.ItemsSource = events;
+                container.Visibility = System.Windows.Visibility.Visible;
+            }
+            else {
+                container.Visibility = System.Windows.Visibility.Collapsed;
+            }
+        }
+
+        private void UpdateEventsThisWeek() {
+            var today = DateTime.Today;
+            UpdateEvent(gEventsThisWeek, icEventsThisWeek, today, today.GetLastDayOfWeek());
+        }
+        // TODO: __
+        private void UpdateEventsNextWeek() {
+            var nextWeek = DateTime.Today.AddDays(7);
+            UpdateEvent(gEventsNextWeek, icEventsNextWeek, nextWeek.GetFirstDayOfWeek(), nextWeek.GetLastDayOfWeek());
         }
 
 
@@ -133,11 +161,12 @@ namespace VrankenBischof.Docxes.Interface {
         #region Event wiring
 
         private void wSchoolOverview_Loaded(object sender, RoutedEventArgs e) {
-            UpdateBusinessObjects();
+            UpdateSubjects();
+            UpdateEvents();
         }
 
 
-        private void btnManageDocuments_Click(object sender, RoutedEventArgs e) {
+        private void SubjectOverview_ManagingDocuments(object sender, RoutedEventArgs e) {
             var senderControl = (Control)sender;
             var businessObject = (Subject)senderControl.DataContext;
 
@@ -145,8 +174,18 @@ namespace VrankenBischof.Docxes.Interface {
             UpdateWorkspace(businessObject);
             OpenManageDocuments();
         }
+        private void SubjectOverview_AddingDocument(object sender, RoutedEventArgs e) {
+            var senderControl = (Control)sender;
+            var businessObject = (Subject)senderControl.DataContext;
 
-        private void btnManageNotes_Click(object sender, RoutedEventArgs e) {
+            UpdateWorkspace(businessObject.Teacher);
+            UpdateWorkspace(businessObject);
+            if (OpenAddDocument() == BusinessObjectManagerAction.Saved) {
+                UpdateSubjects();
+            }
+        }
+
+        private void SubjectOverview_ManagingNotes(object sender, RoutedEventArgs e) {
             var senderControl = (Control)sender;
             var businessObject = (Subject)senderControl.DataContext;
 
@@ -154,8 +193,18 @@ namespace VrankenBischof.Docxes.Interface {
             UpdateWorkspace(businessObject);
             OpenManageNotes();
         }
+        private void SubjectOverview_AddingNote(object sender, RoutedEventArgs e) {
+            var senderControl = (Control)sender;
+            var businessObject = (Subject)senderControl.DataContext;
 
-        private void btnManageGrades_Click(object sender, RoutedEventArgs e) {
+            UpdateWorkspace(businessObject.Teacher);
+            UpdateWorkspace(businessObject);
+            if (OpenAddNote() == BusinessObjectManagerAction.Saved) {
+                UpdateSubjects();
+            }
+        }
+
+        private void SubjectOverview_ManagingGrades(object sender, RoutedEventArgs e) {
             var senderControl = (Control)sender;
             var businessObject = (Subject)senderControl.DataContext;
 
@@ -163,8 +212,18 @@ namespace VrankenBischof.Docxes.Interface {
             UpdateWorkspace(businessObject);
             OpenManageGrades();
         }
+        private void SubjectOverview_AddingGrade(object sender, RoutedEventArgs e) {
+            var senderControl = (Control)sender;
+            var businessObject = (Subject)senderControl.DataContext;
 
-        private void btnManageEvents_Click(object sender, RoutedEventArgs e) {
+            UpdateWorkspace(businessObject.Teacher);
+            UpdateWorkspace(businessObject);
+            if (OpenAddGrade() == BusinessObjectManagerAction.Saved) {
+                UpdateSubjects();
+            }
+        }
+
+        private void SubjectOverview_ManagingEvents(object sender, RoutedEventArgs e) {
             var senderControl = (Control)sender;
             var businessObject = (Subject)senderControl.DataContext;
 
@@ -172,49 +231,15 @@ namespace VrankenBischof.Docxes.Interface {
             UpdateWorkspace(businessObject);
             OpenManageEvents();
         }
-
-
-        private void btnAddDocument_Click(object sender, RoutedEventArgs e) {
-            var senderControl = (Control)sender;
-            var businessObject = (Subject)senderControl.DataContext;
-
-            UpdateWorkspace(businessObject.Teacher);
-            UpdateWorkspace(businessObject);
-            if (OpenAddDocument() == BusinessObjectManagerAction.Saved) {
-                UpdateBusinessObjects();
-            }
-        }
-
-        private void btnAddNote_Click(object sender, RoutedEventArgs e) {
-            var senderControl = (Control)sender;
-            var businessObject = (Subject)senderControl.DataContext;
-
-            UpdateWorkspace(businessObject.Teacher);
-            UpdateWorkspace(businessObject);
-            if (OpenAddNote() == BusinessObjectManagerAction.Saved) {
-                UpdateBusinessObjects();
-            }
-        }
-
-        private void btnAddGrade_Click(object sender, RoutedEventArgs e) {
-            var senderControl = (Control)sender;
-            var businessObject = (Subject)senderControl.DataContext;
-
-            UpdateWorkspace(businessObject.Teacher);
-            UpdateWorkspace(businessObject);
-            if (OpenAddGrade() == BusinessObjectManagerAction.Saved) {
-                UpdateBusinessObjects();
-            }
-        }
-
-        private void btnAddEvent_Click(object sender, RoutedEventArgs e) {
+        private void SubjectOverview_AddingEvent(object sender, RoutedEventArgs e) {
             var senderControl = (Control)sender;
             var businessObject = (Subject)senderControl.DataContext;
 
             UpdateWorkspace(businessObject.Teacher);
             UpdateWorkspace(businessObject);
             if (OpenAddEvent() == BusinessObjectManagerAction.Saved) {
-                UpdateBusinessObjects();
+                UpdateSubjects();
+                UpdateEvents();
             }
         }
 
@@ -255,7 +280,7 @@ namespace VrankenBischof.Docxes.Interface {
             //}
 
 
-            UpdateBusinessObjects();
+            UpdateSubjects();
         }
 
         private void btnTeachers_Click(object sender, RoutedEventArgs e) {
@@ -263,10 +288,10 @@ namespace VrankenBischof.Docxes.Interface {
             window.ShowDialog();
 
 
-            UpdateBusinessObjects();
+            UpdateSubjects();
         }
 
-        #endregion       
+        #endregion
 
         #endregion
 

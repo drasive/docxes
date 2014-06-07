@@ -73,6 +73,18 @@ namespace VrankenBischof.Docxes.Data {
             }
         }
 
+        /// <summary>
+        /// Gets all existing entities between the specified minimum and maximum date.
+        /// </summary>
+        /// <param name="minimumDate">The minimum date that the returned entities can have (inclusive).</param>
+        /// <param name="maximumDate">The maximum date that the returned entities can have (inclusive).</param>
+        /// <returns>A list of all existing entities between the specified minimum and maximum date.</returns>
+        public List<Event> Get(DateTime minimumDate, DateTime maximumDate) {
+            using (var databaseContainer = GetDatabaseContainer()) {
+                return Get(databaseContainer, entity => entity.Date.Date >= minimumDate.Date && entity.Date.Date <= maximumDate.Date);
+            }
+        }
+
 
         /// <summary>
         /// Updates the properties of an existing entity.

@@ -61,6 +61,16 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
         /// <summary>
+        /// Gets all existing entities between the specified minimum and maximum date.
+        /// </summary>
+        /// <param name="minimumDate">The minimum date that the returned entities can have (inclusive).</param>
+        /// <param name="maximumDate">The maximum date that the returned entities can have (inclusive).</param>
+        /// <returns>A list of all existing entities between the specified minimum and maximum date.</returns>
+        public List<Event> Get(DateTime minimumDate, DateTime maximumDate) {
+            return ((EventsDataManager)dataManager).Get(minimumDate, maximumDate);
+        }
+
+        /// <summary>
         /// Gets all event types.
         /// </summary>
         /// <returns>All event types.</returns>
