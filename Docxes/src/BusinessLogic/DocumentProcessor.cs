@@ -17,10 +17,23 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
-        //public override bool CanCreate(Teacher objectParentParent) {
-        //    var subjectProcessor = new BusinessLogic.SubjectProcessor();
-        //    return subjectProcessor.Get(objectParentParent).count > 0;
-        //}
+        /// <summary>
+        /// Indicates whether a new object can be saved.
+        /// </summary>
+        /// <param name="school">The parent of the object, on which the ability to save a new object is based on.</param>
+        /// <returns>True if a new object can be saved; otherwise, false.</returns>
+        public override bool CanCreate(IBusinessObject school) {
+            if (school == null) {
+                throw new ArgumentNullException("school");
+            }
+            if (school.GetType() != typeof(School)) {
+                throw new ArgumentException("school is not of type \"School\"");
+            }
+            var schoolAsSchool = (School)school;
+
+            var subjectProcessor = new BusinessLogic.SubjectProcessor();
+            return subjectProcessor.Get(schoolAsSchool).Count > 0;
+        }
 
         /// <summary>
         /// Saves a new business object to nonvolatile memory.

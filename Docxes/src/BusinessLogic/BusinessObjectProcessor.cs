@@ -63,6 +63,14 @@ namespace VrankenBischof.Docxes.BusinessLogic {
 
 
         /// <summary>
+        /// Indicates whether a new object can be saved.
+        /// </summary>
+        /// <param name="parent">The parent of the object, on which the ability to save a new object is based on.</param>
+        /// <returns>True if a new object can be saved; otherwise, false.</returns>
+        public abstract bool CanCreate(IBusinessObject parent);
+
+
+        /// <summary>
         /// Gets all existing business objects.
         /// </summary>
         /// <returns>A list of all existing business objects.</returns>

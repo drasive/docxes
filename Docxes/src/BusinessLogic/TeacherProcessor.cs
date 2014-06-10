@@ -17,10 +17,15 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
-        //public override bool CanCreate() {
-        //    // TODO: Only if schools exist
-        //    return true;
-        //}
+        /// <summary>
+        /// Indicates whether a new object can be saved.
+        /// </summary>
+        /// <param name="parent">The parent of the object, on which the ability to save a new object is based on. This parameter is not used by the method and can be null.</param>
+        /// <returns>True if a new object can be saved; otherwise, false.</returns>
+        public override bool CanCreate(IBusinessObject parent) {
+            var schoolProcessor = new BusinessLogic.SchoolProcessor();
+            return schoolProcessor.Get().Count > 0;
+        }
 
         /// <summary>
         /// Saves a new business object to nonvolatile memory.

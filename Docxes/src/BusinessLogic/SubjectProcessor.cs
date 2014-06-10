@@ -17,10 +17,23 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
 
-        //public override bool CanCreate() {
-        //    var teacherProcessor = new BusinessLogic.TeacherProcessor();
-        //    return teacherProcessor.Get(ApplicationManager.Workspace.School).Count > 0;
-        //}
+        /// <summary>
+        /// Indicates whether a new object can be saved.
+        /// </summary>
+        /// <param name="school">The parent of the object, on which the ability to save a new object is based on.</param>
+        /// <returns>True if a new object can be saved; otherwise, false.</returns>
+        public override bool CanCreate(IBusinessObject school) {
+            if (school == null) {
+                throw new ArgumentNullException("school");
+            }
+            if (school.GetType() != typeof(School)) {
+                throw new ArgumentException("school is not of type \"School\"");
+            }
+            var schoolAsSchool = (School)school;
+
+            var teacherProcessor = new BusinessLogic.TeacherProcessor();
+            return teacherProcessor.Get(schoolAsSchool).Count > 0;
+        }
 
         /// <summary>
         /// Saves a new business object to nonvolatile memory.
@@ -50,6 +63,23 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         /// <returns>A list of all existing business objects with the specified parent.</returns>
         public override List<Subject> Get(Teacher objectsParent) {
             return dataManager.Get(objectsParent);
+        }
+
+        /// <summary>
+        /// Gets all existing business objects for the specified school.
+        /// </summary>
+        /// <param name="school">The school that the returned business objects must belong to.</param>
+        /// <returns>A list of all existing business objects for the specified school.</returns>
+        public List<Subject> Get(School school) {
+            var teacherProcessor = new BusinessLogic.TeacherProcessor();
+            var teachers = teacherProcessor.Get();
+
+            List<Subject> subjects = new List<Subject>();
+            foreach (var teacher in teachers) {
+                subjects.AddRange(dataManager.Get(teacher));
+            }
+
+            return subjects;
         }
 
 
