@@ -17,10 +17,6 @@ namespace VrankenBischof.Docxes.UserInterface {
 
 
         private void Initialize(Teacher businessObjectParent, Subject businessObjectToEdit) {
-            if (businessObjectParent == null) {
-                throw new ArgumentNullException("businessObjectParent");
-            }
-
             InitializeComponent();
 
             this.businessObjectParent = businessObjectParent;
@@ -35,6 +31,10 @@ namespace VrankenBischof.Docxes.UserInterface {
             Common.ExtendWindowName(this);
 
             UpdateBusinessObjectParents();
+        }
+
+        internal ManageSubject() {
+            Initialize(null, null);
         }
 
         internal ManageSubject(Teacher businessObjectToAddParent) {
@@ -89,7 +89,12 @@ namespace VrankenBischof.Docxes.UserInterface {
             IEnumerable<Teacher> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.School);
 
             cbTeacher.ItemsSource = businessObjectParents;
-            cbTeacher.SelectedValue = businessObjectParent.Id;
+            if (businessObjectParent != null) {
+                cbTeacher.SelectedValue = businessObjectParent.Id;
+            }
+            else {
+                cbTeacher.SelectedIndex = 0;
+            }
         }
 
 

@@ -27,13 +27,10 @@ namespace VrankenBischof.Docxes.UserInterface {
             Common.ExtendWindowName(this);
 
             tbTitle.Text = ApplicationPropertyManager.Workspace.School.Name;
-
-            // TODO: Check if there are subjects and ask to create
         }
 
         #region Control
 
-        // TODO: Business logic
         private void UpdateWorkspace(Teacher teacher) {
             ApplicationPropertyManager.Workspace.Teacher = teacher;
         }
@@ -45,6 +42,23 @@ namespace VrankenBischof.Docxes.UserInterface {
         #endregion
 
         #region Interface
+
+        private bool CheckForTeacherCreation() {
+            return (teacherProcessor.Get().Count == 0
+                    && AskForElementCreation("Sie haben noch keine Lehrer eingetragen. Möchten Sie jetzt einen Lehrer hinzufügen?", "Lehrer hinzufügen?") == MessageBoxResult.Yes
+                    && OpenAddTeacher() == BusinessObjectManagerAction.Saved);
+        }
+
+        private bool CheckForSubjectCreation() {
+            return (subjectProcessor.Get().Count == 0
+                    && AskForElementCreation("Sie haben noch keine Fächer eingetragen. Möchten Sie jetzt ein Fach hinzufügen?", "Fach hinzufügen?") == MessageBoxResult.Yes
+                    && OpenAddSubject() == BusinessObjectManagerAction.Saved);
+        }
+
+        private MessageBoxResult AskForElementCreation(string question, string caption) {
+            return MessageBox.Show(question, caption, MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
+        }
+
 
         private void UpdateSubjects() {
             // Get business objects
@@ -68,12 +82,24 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
         }
 
+
         private void UpdateEvents() {
-            UpdateEventsThisWeek();
-            UpdateEventsNextWeek();
+            var allEvents = new List<Event>();
+
+            allEvents.AddRange(UpdateEventsThisWeek());
+            allEvents.AddRange(UpdateEventsNextWeek());
+
+            if (allEvents.Count > 0) {
+                lblNoUpcommingEvents.Visibility = System.Windows.Visibility.Collapsed;
+                gUpcommingEventsOverview.Visibility = System.Windows.Visibility.Visible;
+            }
+            else {
+                lblNoUpcommingEvents.Visibility = System.Windows.Visibility.Visible;
+                gUpcommingEventsOverview.Visibility = System.Windows.Visibility.Collapsed;
+            }
         }
 
-        private void UpdateEvent(Panel container, ItemsControl itemsContainer, DateTime startDate, DateTime endDate) {
+        private List<Event> UpdateEvents(Panel container, ItemsControl itemsContainer, DateTime startDate, DateTime endDate) {
             List<Event> events = ((BusinessLogic.EventProcessor)eventProcessor).Get(startDate, endDate);
 
             if (events.Count > 0) {
@@ -83,16 +109,18 @@ namespace VrankenBischof.Docxes.UserInterface {
             else {
                 container.Visibility = System.Windows.Visibility.Collapsed;
             }
+
+            return events;
         }
 
-        private void UpdateEventsThisWeek() {
+        private List<Event> UpdateEventsThisWeek() {
             var today = DateTime.Today;
-            UpdateEvent(gEventsThisWeek, icEventsThisWeek, today, today.GetLastDayOfWeek());
+            return UpdateEvents(gUpcommingEventsThisWeek, icUpcommingEventsThisWeek, today, today.GetLastDayOfWeek());
         }
-        // TODO: __
-        private void UpdateEventsNextWeek() {
+
+        private List<Event> UpdateEventsNextWeek() {
             var nextWeek = DateTime.Today.AddDays(7);
-            UpdateEvent(gEventsNextWeek, icEventsNextWeek, nextWeek.GetFirstDayOfWeek(), nextWeek.GetLastDayOfWeek());
+            return UpdateEvents(gUpcommingEventsNextWeek, icUpcommingEventsNextWeek, nextWeek.GetFirstDayOfWeek(), nextWeek.GetLastDayOfWeek());
         }
 
 
@@ -147,6 +175,18 @@ namespace VrankenBischof.Docxes.UserInterface {
             return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
         }
 
+        private BusinessObjectManagerAction OpenAddTeacher() {
+            var businessObjectManagerWindow = new ManageTeacher() { Owner = this };
+            businessObjectManagerWindow.ShowDialog();
+            return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
+        }
+
+        private BusinessObjectManagerAction OpenAddSubject() {
+            var businessObjectManagerWindow = new ManageSubject() { Owner = this };
+            businessObjectManagerWindow.ShowDialog();
+            return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
+        }
+
 
         private void OpenManageSchools() {
             Window managementWindow = new ManageSchools();
@@ -161,6 +201,9 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void wSchoolOverview_Loaded(object sender, RoutedEventArgs e) {
             UpdateSubjects();
             UpdateEvents();
+
+            CheckForTeacherCreation();
+            CheckForSubjectCreation();
         }
 
 

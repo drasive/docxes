@@ -14,15 +14,15 @@
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
-            <RowDefinition Height="1*" />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <TextBlock x:Name="tbTitle"
-                   HorizontalAlignment="Left"
                    Margin="10,10,0,0"
                    TextWrapping="Wrap"
                    Text="[Schulname]"
                    FontSize="28"
+                   HorizontalAlignment="Left"
                    VerticalAlignment="Top" />
 
         <Grid x:Name="gContent"
@@ -40,7 +40,7 @@
                 </Grid.RowDefinitions>
 
                 <ItemsControl x:Name="icSubjects"
-                              Margin="10,10,10,180">
+                              Margin="10">
                     <ItemsControl.DataContext>
                         <Docxes:Subject />
                     </ItemsControl.DataContext>
@@ -55,7 +55,7 @@
                     </ItemsControl.ItemsPanel>
 
                     <ItemsControl.ItemTemplate>
-                        <DataTemplate>                            
+                        <DataTemplate>
                             <Interface:SubjectOverview ManagingDocuments="SubjectOverview_ManagingDocuments"
                                                        ManagingEvents="SubjectOverview_ManagingEvents"
                                                        ManagingGrades="SubjectOverview_ManagingGrades"
@@ -75,11 +75,30 @@
                         Height="25"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Left"
-                        Width="117"
+                        Width="120"
                         Click="btnChangeSchool_Click" />
+                <Button x:Name="btnManageTeachers"
+                        Content="Lehrer verwalten"
+                        HorizontalAlignment="Left"
+                        Margin="509,10,0,0"
+                        Width="120"
+                        Click="btnTeachers_Click"
+                        Grid.Row="1"
+                        RenderTransformOrigin="0.383,0.48"
+                        Height="25"
+                        VerticalAlignment="Top" />
+                <Button x:Name="btnManageSubjects"
+                        Content="Fächer verwalten"
+                        HorizontalAlignment="Left"
+                        Margin="384,10,0,0"
+                        VerticalAlignment="Top"
+                        Width="120"
+                        Click="btnSubjects_Click"
+                        Grid.Row="1"
+                        Height="25" />
             </Grid>
 
-            <Grid x:Name="gEvents"
+            <Grid x:Name="gUpcommingEvents"
                   Grid.Column="1"
                   Margin="10">
                 <Grid.RowDefinitions>
@@ -91,9 +110,15 @@
                            FontSize="24"
                            VerticalAlignment="top" />
 
-                <StackPanel Grid.Row="1"
-                            Margin="0,0,0,180">
-                    <Grid x:Name="gEventsThisWeek"
+                <TextBlock x:Name="lblNoUpcommingEvents"
+                           Grid.Row="1"
+                           Text="Keine bevorstehenden Ereignisse."
+                           Margin="0,0,0,180" />
+
+                <StackPanel x:Name="gUpcommingEventsOverview"
+                            Grid.Row="1"
+                            Margin="0,0,0,79">
+                    <Grid x:Name="gUpcommingEventsThisWeek"
                           Height="150">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30" />
@@ -104,7 +129,7 @@
                                    Text="Diese Woche"
                                    FontSize="18" />
 
-                        <ItemsControl x:Name="icEventsThisWeek"
+                        <ItemsControl x:Name="icUpcommingEventsThisWeek"
                                       Grid.Row="1">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -120,7 +145,7 @@
                         </ItemsControl>
                     </Grid>
 
-                    <Grid x:Name="gEventsNextWeek"
+                    <Grid x:Name="gUpcommingEventsNextWeek"
                           Height="270">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30" />
@@ -131,7 +156,7 @@
                                    Text="Nächste Woche"
                                    FontSize="18" />
 
-                        <ItemsControl x:Name="icEventsNextWeek"
+                        <ItemsControl x:Name="icUpcommingEventsNextWeek"
                                       Grid.Row="1">
                             <ItemsControl.DataContext>
                                 <Docxes:Event />
@@ -154,42 +179,30 @@
 
 
 
-                <Grid Height="170"
+                <Grid Height="64"
                       VerticalAlignment="Top"
-                      Margin="10,419,0,0"
+                      Margin="10,525,0,0"
                       HorizontalAlignment="Left"
                       Width="99"
                       Grid.Row="1">
-                    <Button x:Name="btnEvents"
-                            Content="Events"
+                    <Button x:Name="btnGrades"
+                            Content="Grades"
                             HorizontalAlignment="Left"
                             Margin="10,35,0,0"
                             VerticalAlignment="Top"
                             Width="75"
-                            Click="btnEvents_Click" />
-                    <Button x:Name="btnGrades"
-                            Content="Grades"
-                            HorizontalAlignment="Left"
-                            Margin="10,60,0,0"
-                            VerticalAlignment="Top"
-                            Width="75"
                             Click="btnGrades_Click"
                             IsEnabled="False" />
-                    <Button x:Name="btnSubjects"
-                            Content="Subjects"
-                            HorizontalAlignment="Left"
-                            Margin="10,110,0,0"
-                            VerticalAlignment="Top"
-                            Width="75"
-                            Click="btnSubjects_Click" />
-                    <Button x:Name="btnTeachers"
-                            Content="Teachers"
-                            HorizontalAlignment="Left"
-                            Margin="10,135,0,0"
-                            VerticalAlignment="Top"
-                            Width="75"
-                            Click="btnTeachers_Click" />
                 </Grid>
+                <Button x:Name="btnManageEvents"
+                        Content="Ereignisse verwalten"
+                        HorizontalAlignment="Left"
+                        Margin="128,564,0,0"
+                        VerticalAlignment="Top"
+                        Width="120"
+                        Click="btnEvents_Click"
+                        Grid.Row="1"
+                        Height="25" />
             </Grid>
         </Grid>
     </Grid>
