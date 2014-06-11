@@ -39,14 +39,23 @@ namespace VrankenBischof.Docxes.UserInterface {
             cEvents.HighlightedDateText = new string[31];
 
             // Update highlighted days
-            for (int dayOfMonth = 1; dayOfMonth <= DateTime.DaysInMonth(cEvents.DisplayDate.Year, cEvents.DisplayDate.Month); dayOfMonth++) {
-                var currentDate = new DateTime(cEvents.DisplayDate.Year, cEvents.DisplayDate.Month, dayOfMonth);
-                List<Event> events = ((BusinessLogic.EventProcessor)businessObjectProcessor).Get(currentDate);
+            var monthStart = new DateTime(cEvents.DisplayDate.Year, cEvents.DisplayDate.Month, 1);
+            var monthEnd = new DateTime(cEvents.DisplayDate.Year, cEvents.DisplayDate.Month, DateTime.DaysInMonth(monthStart.Year, monthStart.Month));
+            List<Event> eventsInMonth = ((BusinessLogic.EventProcessor)businessObjectProcessor).Get(monthStart, monthEnd);
 
-                if (events.Count > 0) {
-                    // Mark day as highlighted
-                    var highlightedDateText = events.Count.ToString() + " " + ((events.Count > 1) ? "Ereignisse" : "Ereginis");
-                    cEvents.HighlightedDateText[dayOfMonth - 1] = highlightedDateText;
+            if (eventsInMonth.Count > 0) {
+                var currentDate = monthStart;
+
+                while (currentDate.Date < monthEnd.Date) {
+                    List<Event> eventsThisDay = eventsInMonth.Where(@event => @event.Date.Date == currentDate.Date).ToList();
+
+                    if (eventsThisDay.Count > 0) {
+                        // Mark day as highlighted
+                        var highlightedDateText = eventsThisDay.Count.ToString() + " " + ((eventsThisDay.Count > 1) ? "Ereignisse" : "Ereignis");
+                        cEvents.HighlightedDateText[currentDate.Day - 1] = highlightedDateText;
+                    }
+
+                    currentDate = currentDate.AddDays(1);
                 }
             }
 
