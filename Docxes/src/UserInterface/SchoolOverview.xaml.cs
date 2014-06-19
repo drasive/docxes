@@ -211,19 +211,17 @@ namespace VrankenBischof.Docxes.UserInterface {
 
 
         private void UpdateManageSubjectsAvailability() {
-
+            // TODO:
         }
 
         private void OpenManageSubjects() {
             Window managementWindow = new ManageSubjects();
-            managementWindow.Show();
-            Close();
+            managementWindow.ShowDialog();
         }
 
         private void OpenManageTeachers() {
             Window managementWindow = new ManageTeachers();
-            managementWindow.Show();
-            Close();
+            managementWindow.ShowDialog();
         }
 
         private void OpenManageSchools() {
