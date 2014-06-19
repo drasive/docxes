@@ -15,21 +15,7 @@
         MinWidth="750">
 
     <Grid x:Name="gRoot">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-
-        <TextBlock x:Name="tbTitle"
-                   Margin="10,10,0,0"
-                   TextWrapping="Wrap"
-                   Text="[Schulname]"
-                   FontSize="28"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top" />
-
-        <Grid x:Name="gContent"
-              Grid.Row="1">
+        <Grid x:Name="gContent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition Width="22" />
@@ -84,14 +70,12 @@
                         VerticalAlignment="Top"
                         Click="btnChangeSchool_Click"
                         Grid.Row="2"
-                        RenderTransformOrigin="0.775,0.4"
                         HorizontalAlignment="Right"
                         Width="120" />
                 <Button x:Name="btnManageTeachers"
                         Content="Lehrer verwalten"
                         Margin="0,15,135,0"
                         Click="btnTeachers_Click"
-                        RenderTransformOrigin="0.383,0.48"
                         Height="25"
                         VerticalAlignment="Top"
                         Grid.Row="2"

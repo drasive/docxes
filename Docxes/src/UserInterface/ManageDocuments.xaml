@@ -23,7 +23,6 @@
                Content="Fach:"
                Height="26"
                VerticalAlignment="Top"
-               RenderTransformOrigin="1.819,2.949"
                Margin="10,10,0,0"
                Padding="0,5"
                HorizontalAlignment="Left"
@@ -115,7 +114,6 @@
                 VerticalAlignment="Top"
                 Width="75"
                 Grid.Row="2"
-                RenderTransformOrigin="0.505,0.333"
                 Click="btnDelete_Click"
                 Height="25" />
         <Button x:Name="btnEdit"
@@ -125,7 +123,6 @@
                 VerticalAlignment="Top"
                 Width="75"
                 Grid.Row="2"
-                RenderTransformOrigin="0.505,0.333"
                 Click="btnEdit_Click"
                 Height="25" />
     </Grid>

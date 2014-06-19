@@ -21,11 +21,9 @@
                Content="Fach:"
                Height="26"
                VerticalAlignment="Top"
-               RenderTransformOrigin="1.819,2.949"
                Margin="10,10,0,0"
                Padding="0,5"
-               HorizontalAlignment="Left"
-               Width="27" />
+               HorizontalAlignment="Left" />
         <ComboBox x:Name="cbSubjects"
                   Margin="42,12,0,0"
                   Height="23"
@@ -33,8 +31,7 @@
                   Width="200"
                   HorizontalAlignment="Left"
                   SelectedValuePath="Id"
-                  SelectionChanged="cbSubjects_SelectionChanged">
-        </ComboBox>
+                  SelectionChanged="cbSubjects_SelectionChanged" />
 
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
@@ -76,7 +73,6 @@
                 VerticalAlignment="Top"
                 Width="75"
                 Grid.Row="2"
-                RenderTransformOrigin="0.505,0.333"
                 Click="btnDelete_Click"
                 Height="25" />
     </Grid>

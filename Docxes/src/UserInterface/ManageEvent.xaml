@@ -48,7 +48,6 @@
                    Margin="0,165,10,0"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Right"
-                   RenderTransformOrigin="0.537,1.962"
                    FontStyle="Italic" />
 
             <TextBox x:Name="tbName"

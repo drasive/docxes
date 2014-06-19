@@ -45,7 +45,6 @@
                 VerticalAlignment="Top"
                 Width="75"
                 Grid.Row="2"
-                RenderTransformOrigin="0.505,0.333"
                 Click="btnDelete_Click"
                 Height="25" />
     </Grid>
