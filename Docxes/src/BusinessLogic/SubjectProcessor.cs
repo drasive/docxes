@@ -27,9 +27,9 @@ namespace VrankenBischof.Docxes.BusinessLogic {
                 throw new ArgumentNullException("school");
             }
             // TODO: Fix everywhere
-            if (school.GetType() != typeof(School)) {
-                throw new ArgumentException("school is not of type \"School\"");
-            }
+            //if (school.GetType() != typeof(School)) {
+            //    throw new ArgumentException("school is not of type \"School\"");
+            //}
             var schoolAsSchool = (School)school;
 
             var teacherProcessor = new BusinessLogic.TeacherProcessor();
@@ -126,7 +126,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             //foreach (Event dependencyToDelete in objectToDelete.Events) {
             //    eventProcessor.Delete(dependencyToDelete);
             //}
-            
+
             // Delete object
             dataManager.Delete(objectToDelete);
         }

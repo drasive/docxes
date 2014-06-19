@@ -93,7 +93,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
 
         private bool ValidateInput() {
-            return InputValidation.ValidateInput(tbName);
+            return InputValidation.Validate(tbName);
         }
 
         #endregion

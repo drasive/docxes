@@ -118,7 +118,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
 
         private bool ValidateInput() {
-            var isNameValid = InputValidation.ValidateInput(tbName);
+            var isNameValid = InputValidation.Validate(tbName);
 
             return isNameValid;
         }

@@ -78,15 +78,28 @@ namespace VrankenBischof.Docxes.UserInterface {
                 };
                 icSubjects.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
+
+            // Update controls
+            // TODO: __
+            if (subjectProcessor.CanCreate(ApplicationPropertyManager.Workspace.School)) {
+                btnManageSubjects.IsEnabled = true;
+                btnManageSubjects.ToolTip = null;
+            }
+            else {
+                btnManageSubjects.IsEnabled = false;
+                btnManageSubjects.ToolTip = "Mindestens ein Lehrer muss existieren, um Fächer verwalten zu können!";
+            }
         }
 
 
-        private void UpdateEvents() {
+        private void UpdateUpcommingEvents() {
+            // Get business objects
             var allEvents = new List<Event>();
 
-            allEvents.AddRange(UpdateEventsThisWeek());
-            allEvents.AddRange(UpdateEventsNextWeek());
+            allEvents.AddRange(UpdateUpcommingEventsThisWeek());
+            allEvents.AddRange(UpdateUpcommingEventsNextWeek());
 
+            // Display business objects
             if (allEvents.Count > 0) {
                 lblNoUpcommingEvents.Visibility = System.Windows.Visibility.Collapsed;
                 gUpcommingEventsOverview.Visibility = System.Windows.Visibility.Visible;
@@ -95,9 +108,20 @@ namespace VrankenBischof.Docxes.UserInterface {
                 lblNoUpcommingEvents.Visibility = System.Windows.Visibility.Visible;
                 gUpcommingEventsOverview.Visibility = System.Windows.Visibility.Collapsed;
             }
+
+            // Update controls
+            // TODO: __
+            if (eventProcessor.CanCreate(ApplicationPropertyManager.Workspace.School)) {
+                btnManageEvents.IsEnabled = true;
+                btnManageEvents.ToolTip = null;
+            }
+            else {
+                btnManageEvents.IsEnabled = false;
+                btnManageEvents.ToolTip = "Mindestens ein Fach muss existieren, um Ereignisse verwalten zu können!";
+            }
         }
 
-        private List<Event> UpdateEvents(Panel container, ItemsControl itemsContainer, DateTime startDate, DateTime endDate) {
+        private List<Event> UpdateUpcommingEvents(Panel container, ItemsControl itemsContainer, DateTime startDate, DateTime endDate) {
             List<Event> events = ((BusinessLogic.EventProcessor)eventProcessor).Get(startDate, endDate);
 
             if (events.Count > 0) {
@@ -111,14 +135,14 @@ namespace VrankenBischof.Docxes.UserInterface {
             return events;
         }
 
-        private List<Event> UpdateEventsThisWeek() {
+        private List<Event> UpdateUpcommingEventsThisWeek() {
             var today = DateTime.Today;
-            return UpdateEvents(gUpcommingEventsThisWeek, icUpcommingEventsThisWeek, today, today.GetLastDayOfWeek());
+            return UpdateUpcommingEvents(gUpcommingEventsThisWeek, icUpcommingEventsThisWeek, today, today.GetLastDayOfWeek());
         }
 
-        private List<Event> UpdateEventsNextWeek() {
+        private List<Event> UpdateUpcommingEventsNextWeek() {
             var nextWeek = DateTime.Today.AddDays(7);
-            return UpdateEvents(gUpcommingEventsNextWeek, icUpcommingEventsNextWeek, nextWeek.GetFirstDayOfWeek(), nextWeek.GetLastDayOfWeek());
+            return UpdateUpcommingEvents(gUpcommingEventsNextWeek, icUpcommingEventsNextWeek, nextWeek.GetFirstDayOfWeek(), nextWeek.GetLastDayOfWeek());
         }
 
 
@@ -186,6 +210,22 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
 
+        private void UpdateManageSubjectsAvailability() {
+
+        }
+
+        private void OpenManageSubjects() {
+            Window managementWindow = new ManageSubjects();
+            managementWindow.Show();
+            Close();
+        }
+
+        private void OpenManageTeachers() {
+            Window managementWindow = new ManageTeachers();
+            managementWindow.Show();
+            Close();
+        }
+
         private void OpenManageSchools() {
             Window managementWindow = new ManageSchools();
             managementWindow.Show();
@@ -198,7 +238,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private void wSchoolOverview_Loaded(object sender, RoutedEventArgs e) {
             UpdateSubjects();
-            UpdateEvents();
+            UpdateUpcommingEvents();
 
             CheckForTeacherCreation();
             CheckForSubjectCreation();
@@ -278,26 +318,41 @@ namespace VrankenBischof.Docxes.UserInterface {
             UpdateWorkspace(businessObject);
             if (OpenAddEvent() == BusinessObjectManagerAction.Saved) {
                 UpdateSubjects();
-                UpdateEvents();
+                UpdateUpcommingEvents();
             }
         }
 
 
+        private void btnManageSubjects_Click(object sender, RoutedEventArgs e) {
+            //if (subjectProcessor.CanCreate()) {
+            //}
+            //else {
+            //    MessageBox.Show("Mindestens ein Lehrer muss existieren, um Fächer verwalten zu können!", "Keine existierenden Lehrer", MessageBoxButton.OK, MessageBoxImage.Hand);
+            //}
+
+            OpenManageSubjects();
+            UpdateSubjects();
+        }
+
+        private void btnManageTeachers_Click(object sender, RoutedEventArgs e) {
+            OpenManageTeachers();
+            UpdateSubjects();
+        }
+
         private void btnChangeSchool_Click(object sender, RoutedEventArgs e) {
             ApplicationPropertyManager.Workspace = null;
 
-            Window schoolSelection = new ManageSchools();
-            schoolSelection.Show();
-            Close();
+            OpenManageSchools();
+        }
+
+
+        private void btnManageEvents_Click(object sender, RoutedEventArgs e) {
+            var window = new ManageEvents();
+            window.ShowDialog();
         }
 
         // TODO: Enhance this temporary solution
         #region Temp
-
-        private void btnEvents_Click(object sender, RoutedEventArgs e) {
-            var window = new ManageEvents();
-            window.ShowDialog();
-        }
 
         private void btnGrades_Click(object sender, RoutedEventArgs e) {
             //if (gradeProcessor.CanCreate()) {
@@ -307,27 +362,6 @@ namespace VrankenBischof.Docxes.UserInterface {
             //else {
             //    MessageBox.Show("Mindestens ein Fach muss existieren, um Noten verwalten zu können!", "Keine existierenden Fächer", MessageBoxButton.OK, MessageBoxImage.Hand);
             //}            
-        }
-
-        private void btnSubjects_Click(object sender, RoutedEventArgs e) {
-            //if (subjectProcessor.CanCreate()) {
-            var window = new ManageSubjects();
-            window.ShowDialog();
-            //}
-            //else {
-            //    MessageBox.Show("Mindestens ein Lehrer muss existieren, um Fächer verwalten zu können!", "Keine existierenden Lehrer", MessageBoxButton.OK, MessageBoxImage.Hand);
-            //}
-
-
-            UpdateSubjects();
-        }
-
-        private void btnTeachers_Click(object sender, RoutedEventArgs e) {
-            var window = new ManageTeachers();
-            window.ShowDialog();
-
-
-            UpdateSubjects();
         }
 
         #endregion

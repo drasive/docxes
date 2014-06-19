@@ -18,18 +18,17 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToSave");
             }
 
-            using (var databaseContainer = GetDatabaseContainer()) {
-                databaseContainer.Grades.Add(entityToSave);
-                databaseContainer.SaveChanges();
-            }
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+
+            databaseContainer.Grades.Add(entityToSave);
+
+            databaseContainer.SaveChanges();
         }
 
 
-        private List<Grade> Get(LocalDatabaseContainer databaseContainer) {
-            return Get(databaseContainer, entity => true);
-        }
+        private List<Grade> Get(Predicate<Grade> predicate) {
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
 
-        private List<Grade> Get(LocalDatabaseContainer databaseContainer, Predicate<Grade> predicate) {
             return (from
                         Grade entity
                     in
@@ -44,9 +43,7 @@ namespace VrankenBischof.Docxes.Data {
         /// </summary>
         /// <returns>A list of all existing entities.</returns>
         internal override List<Grade> Get() {
-            using (var databaseContainer = GetDatabaseContainer()) {
-                return Get(databaseContainer);
-            }
+            return Get(entity => true);
         }
 
         /// <summary>
@@ -55,9 +52,11 @@ namespace VrankenBischof.Docxes.Data {
         /// <param name="entitiesParent">The parent that the returned entities must have.</param>
         /// <returns>A list of all existing entities with the specified parent.</returns>
         internal override List<Grade> Get(Subject entitiesParent) {
-            using (var databaseContainer = GetDatabaseContainer()) {
-                return Get(databaseContainer, entity => entity.Subject.Equals(entitiesParent));
+            if (entitiesParent == null) {
+                throw new ArgumentNullException("entitiesParent");
             }
+
+            return Get(entity => entity.Subject.Equals(entitiesParent));
         }
 
 
@@ -70,14 +69,12 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToUpdate");
             }
 
-            using (var databaseContainer = GetDatabaseContainer()) {
-                //var a = await databaseContainer.Grades.Find(entityToUpdate.Id);
-                //a.Comment = "123";
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
 
-                databaseContainer.Grades.Attach(entityToUpdate);
-                databaseContainer.Entry(entityToUpdate).State = System.Data.Entity.EntityState.Modified;
-                databaseContainer.SaveChanges();
-            }
+            var databaseObjectToUpdate = databaseContainer.Events.Find(entityToUpdate.Id);
+            databaseContainer.Entry(databaseObjectToUpdate).CurrentValues.SetValues(entityToUpdate);
+
+            databaseContainer.SaveChanges();
         }
 
 
@@ -90,11 +87,12 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToDelete");
             }
 
-            using (var databaseContainer = GetDatabaseContainer()) {
-                var databaseObjectToDelete = Get(databaseContainer, entity => entity.Id == entityToDelete.Id).First();
-                databaseContainer.Grades.Remove(databaseObjectToDelete);
-                databaseContainer.SaveChanges();
-            }
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+
+            var databaseObjectToDelete = databaseContainer.Grades.Find(entityToDelete.Id);
+            databaseContainer.Grades.Remove(databaseObjectToDelete);
+
+            databaseContainer.SaveChanges();
         }
 
     }

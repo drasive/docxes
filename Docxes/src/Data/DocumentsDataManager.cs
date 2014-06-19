@@ -19,25 +19,23 @@ namespace VrankenBischof.Docxes.Data {
             }
 
             var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
-            //using (var databaseContainer = GetDatabaseContainer()) {
-                databaseContainer.Documents.Add(entityToSave);
-                databaseContainer.SaveChanges();
-            //}
+
+            databaseContainer.Documents.Add(entityToSave);
+
+            databaseContainer.SaveChanges();
         }
 
 
-        private List<Document> Get(LocalDatabaseContainer databaseContainer) {
-            return Get(databaseContainer, entity => true);
-        }
+        private List<Document> Get(Predicate<Document> predicate) {
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
 
-        private List<Document> Get(LocalDatabaseContainer databaseContainer, Predicate<Document> predicate) {
             return (from
                         Document entity
                     in
                         databaseContainer.Documents
                     select
                         entity
-                    ).ToList().Where(entity => predicate(entity)).ToList();
+                    ).ToList().Where(entity => entity.DoesExist == true).Where(entity => predicate(entity)).ToList();
         }
 
         /// <summary>
@@ -45,10 +43,7 @@ namespace VrankenBischof.Docxes.Data {
         /// </summary>
         /// <returns>A list of all existing entities.</returns>
         internal override List<Document> Get() {
-            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer(); 
-            //using (var databaseContainer = GetDatabaseContainer()) {
-                return Get(databaseContainer);
-            //}
+            return Get(entity => true);
         }
 
         /// <summary>
@@ -57,10 +52,11 @@ namespace VrankenBischof.Docxes.Data {
         /// <param name="entitiesParent">The parent that the returned entities must have.</param>
         /// <returns>A list of all existing entities with the specified parent.</returns>
         internal override List<Document> Get(Subject entitiesParent) {
-            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
-            //using (var databaseContainer = GetDatabaseContainer()) {
-                return Get(databaseContainer, entity => entity.Subject.Equals(entitiesParent));
-            //}
+            if (entitiesParent == null) {
+                throw new ArgumentNullException("entitiesParent");
+            }
+
+            return Get(entity => entity.Subject.Equals(entitiesParent));
         }
 
 
@@ -73,30 +69,12 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToUpdate");
             }
 
-            // TODO: __DV
-
             var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
-            //using (var databaseContainer = GetDatabaseContainer()) {
-                //databaseContainer.Documents.Attach(entityToUpdate);
-                //databaseContainer.Entry(entityToUpdate).State = System.Data.Entity.EntityState.Modified;
-                //databaseContainer.SaveChanges();
 
+            var databaseObjectToUpdate = databaseContainer.Documents.Find(entityToUpdate.Id);
+            databaseContainer.Entry(databaseObjectToUpdate).CurrentValues.SetValues(entityToUpdate);
 
-
-                //var a = databaseContainer.Documents.Find(entityToUpdate.Id);
-                //a = entityToUpdate;
-                //
-                //
-                //databaseContainer.Entry(a).State = System.Data.Entity.EntityState.Modified;
-                //databaseContainer.SaveChanges();
-
-
-
-                var a = databaseContainer.Documents.Find(entityToUpdate.Id);
-                databaseContainer.Entry(a).CurrentValues.SetValues(entityToUpdate);
-
-                databaseContainer.SaveChanges();
-            //}
+            databaseContainer.SaveChanges();
         }
 
 
@@ -110,11 +88,11 @@ namespace VrankenBischof.Docxes.Data {
             }
 
             var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
-            //using (var databaseContainer = GetDatabaseContainer()) {
-                var databaseObjectToDelete = Get(databaseContainer, entity => entity.Id == entityToDelete.Id).First();
-                databaseContainer.Documents.Remove(databaseObjectToDelete);
-                databaseContainer.SaveChanges();
-            //}
+
+            var databaseObjectToDelete = databaseContainer.Documents.Find(entityToDelete.Id);
+            databaseContainer.Documents.Remove(databaseObjectToDelete);
+
+            databaseContainer.SaveChanges();
         }
 
     }

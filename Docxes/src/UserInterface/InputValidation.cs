@@ -14,7 +14,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         /// </summary>
         /// <param name="textBox">The text box to validate the input of.</param>
         /// <returns>True if the input is valid; otherwise, false.</returns>
-        internal static bool ValidateInput(TextBox textBox) {
+        internal static bool Validate(TextBox textBox) {
             if (textBox == null) {
                 throw new ArgumentNullException("textBox");
             }
@@ -37,7 +37,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         /// </summary>
         /// <param name="datePicker">The date picker to validate the input of.</param>
         /// <returns>>True if the input is valid; otherwise, false.</returns>
-        internal static bool ValidateInput(DatePicker datePicker) {
+        internal static bool Validate(DatePicker datePicker) {
             if (datePicker == null) {
                 throw new ArgumentNullException("datePicker");
             }

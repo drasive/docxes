@@ -88,7 +88,7 @@ namespace VrankenBischof.Docxes {
             if (objectToEquate == null) {
                 return false;
             }
-            
+
             var documentToEquate = objectToEquate as Document;
             return (documentToEquate != null && Equals(documentToEquate));
         }
