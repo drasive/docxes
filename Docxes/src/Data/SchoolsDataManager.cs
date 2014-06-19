@@ -19,10 +19,11 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToSave");
             }
 
-            using (var databaseContainer = GetDatabaseContainer()) {
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+            //using (var databaseContainer = GetDatabaseContainer()) {
                 databaseContainer.Schools.Add(entityToSave);
                 databaseContainer.SaveChanges();
-            }
+            //}
         }
 
 
@@ -35,26 +36,26 @@ namespace VrankenBischof.Docxes.Data {
                         School entity
                     in
                         container.Schools
-                            .Include(entity => entity.Teachers
-                                .Select(teacher => teacher.Subjects
-                                    .Select(subject => subject.Documents)
-                                )
-                            )
-                            .Include(entity => entity.Teachers
-                                .Select(teacher => teacher.Subjects
-                                    .Select(subject => subject.Notes)
-                                )
-                            )
-                            .Include(entity => entity.Teachers
-                                .Select(teacher => teacher.Subjects
-                                    .Select(subject => subject.Grades)
-                                )
-                            )
-                            .Include(entity => entity.Teachers
-                                .Select(teacher => teacher.Subjects
-                                    .Select(subject => subject.Events)
-                                )
-                            )
+                            //.Include(entity => entity.Teachers
+                            //    .Select(teacher => teacher.Subjects
+                            //        .Select(subject => subject.Documents)
+                            //    )
+                            //)
+                            //.Include(entity => entity.Teachers
+                            //    .Select(teacher => teacher.Subjects
+                            //        .Select(subject => subject.Notes)
+                            //    )
+                            //)
+                            //.Include(entity => entity.Teachers
+                            //    .Select(teacher => teacher.Subjects
+                            //        .Select(subject => subject.Grades)
+                            //    )
+                            //)
+                            //.Include(entity => entity.Teachers
+                            //    .Select(teacher => teacher.Subjects
+                            //        .Select(subject => subject.Events)
+                            //    )
+                            //)
                     select
                         entity
                     ).ToList().Where(entity => predicate(entity)).ToList();
@@ -65,9 +66,10 @@ namespace VrankenBischof.Docxes.Data {
         /// </summary>
         /// <returns>A list of all existing entities.</returns>
         internal override List<School> Get() {
-            using (var databaseContainer = GetDatabaseContainer()) {
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+            //using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer);
-            }
+            //}
         }
 
 
@@ -80,11 +82,12 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToUpdate");
             }
 
-            using (var databaseContainer = GetDatabaseContainer()) {
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+            //using (var databaseContainer = GetDatabaseContainer()) {
                 databaseContainer.Schools.Attach(entityToUpdate);
                 databaseContainer.Entry(entityToUpdate).State = System.Data.Entity.EntityState.Modified;
                 databaseContainer.SaveChanges();
-            }
+            //}
         }
 
 
@@ -97,11 +100,12 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToDelete");
             }
 
-            using (var databaseContainer = GetDatabaseContainer()) {
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+            //using (var databaseContainer = GetDatabaseContainer()) {
                 var databaseObjectToDelete = Get(databaseContainer, entity => entity.Id == entityToDelete.Id).First();
                 databaseContainer.Schools.Remove(databaseObjectToDelete);
                 databaseContainer.SaveChanges();
-            }
+            //}
         }
 
     }

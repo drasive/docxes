@@ -9,6 +9,13 @@ namespace VrankenBischof.Docxes {
     public partial class Event : IBusinessObject {
 
         /// <summary>
+        /// Creates a new instance of the class <see cref="Event"/>.
+        /// </summary>
+        public Event() {
+            // Required for LINQ
+        }
+
+        /// <summary>
         /// Creates a new instance of the class <see cref="Event"/> with the specified name, place, date, type, comment and subject.
         /// </summary>
         /// <param name="name">The name of the event.</param>

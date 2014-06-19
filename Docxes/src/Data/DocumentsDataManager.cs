@@ -18,10 +18,11 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToSave");
             }
 
-            using (var databaseContainer = GetDatabaseContainer()) {
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+            //using (var databaseContainer = GetDatabaseContainer()) {
                 databaseContainer.Documents.Add(entityToSave);
                 databaseContainer.SaveChanges();
-            }
+            //}
         }
 
 
@@ -44,9 +45,10 @@ namespace VrankenBischof.Docxes.Data {
         /// </summary>
         /// <returns>A list of all existing entities.</returns>
         internal override List<Document> Get() {
-            using (var databaseContainer = GetDatabaseContainer()) {
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer(); 
+            //using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer);
-            }
+            //}
         }
 
         /// <summary>
@@ -55,9 +57,10 @@ namespace VrankenBischof.Docxes.Data {
         /// <param name="entitiesParent">The parent that the returned entities must have.</param>
         /// <returns>A list of all existing entities with the specified parent.</returns>
         internal override List<Document> Get(Subject entitiesParent) {
-            using (var databaseContainer = GetDatabaseContainer()) {
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+            //using (var databaseContainer = GetDatabaseContainer()) {
                 return Get(databaseContainer, entity => entity.Subject.Equals(entitiesParent));
-            }
+            //}
         }
 
 
@@ -70,11 +73,30 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToUpdate");
             }
 
-            using (var databaseContainer = GetDatabaseContainer()) {
-                databaseContainer.Documents.Attach(entityToUpdate);
-                databaseContainer.Entry(entityToUpdate).State = System.Data.Entity.EntityState.Modified;
+            // TODO: __DV
+
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+            //using (var databaseContainer = GetDatabaseContainer()) {
+                //databaseContainer.Documents.Attach(entityToUpdate);
+                //databaseContainer.Entry(entityToUpdate).State = System.Data.Entity.EntityState.Modified;
+                //databaseContainer.SaveChanges();
+
+
+
+                //var a = databaseContainer.Documents.Find(entityToUpdate.Id);
+                //a = entityToUpdate;
+                //
+                //
+                //databaseContainer.Entry(a).State = System.Data.Entity.EntityState.Modified;
+                //databaseContainer.SaveChanges();
+
+
+
+                var a = databaseContainer.Documents.Find(entityToUpdate.Id);
+                databaseContainer.Entry(a).CurrentValues.SetValues(entityToUpdate);
+
                 databaseContainer.SaveChanges();
-            }
+            //}
         }
 
 
@@ -87,11 +109,12 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToDelete");
             }
 
-            using (var databaseContainer = GetDatabaseContainer()) {
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+            //using (var databaseContainer = GetDatabaseContainer()) {
                 var databaseObjectToDelete = Get(databaseContainer, entity => entity.Id == entityToDelete.Id).First();
                 databaseContainer.Documents.Remove(databaseObjectToDelete);
                 databaseContainer.SaveChanges();
-            }
+            //}
         }
 
     }

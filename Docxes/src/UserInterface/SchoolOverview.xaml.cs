@@ -25,8 +25,6 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             Title = ApplicationPropertyManager.Workspace.School.Name;
             Common.ExtendWindowName(this);
-
-            tbTitle.Text = ApplicationPropertyManager.Workspace.School.Name;
         }
 
         #region Control

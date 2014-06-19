@@ -20,11 +20,12 @@
         <Label x:Name="lblTeacher"
                Content="Lehrer:"
                HorizontalAlignment="Left"
-               Margin="10,9,0,0"
+               Margin="10,10,0,0"
                Height="26"
-               VerticalAlignment="Top" />
+               VerticalAlignment="Top"
+               Padding="0,5,0,5" />
         <ComboBox x:Name="cbTeachers"
-                  Margin="61,13,0,0"
+                  Margin="51,13,0,0"
                   Height="20"
                   VerticalAlignment="Top"
                   Width="200"

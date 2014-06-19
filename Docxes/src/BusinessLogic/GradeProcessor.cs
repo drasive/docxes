@@ -65,10 +65,6 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             return dataManager.Get(objectsParent);
         }
 
-        public List<Grade> Get(Event objectsParent) {
-            return ((GradesDataManager)dataManager).Get(objectsParent);
-        }
-
 
         /// <summary>
         /// Updates the properties of an existing business objects.

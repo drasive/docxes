@@ -112,6 +112,7 @@
     <Compile Include="src\BusinessLogic\TeacherProcessor.cs" />
     <Compile Include="src\BusinessLogic\SchoolProcessor.cs" />
     <Compile Include="src\ConfigurationReader.cs" />
+    <Compile Include="src\Data\DatabaseContainerManager.cs" />
     <Compile Include="src\Data\Document.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
@@ -137,24 +138,24 @@
       <DependentUpon>LocalDatabase.edmx</DependentUpon>
     </Compile>
     <Compile Include="src\Data\BusinessObjectDataManager.cs" />
-    <Compile Include="src\Data\Note.cs">
-      <DependentUpon>LocalDatabase.tt</DependentUpon>
-    </Compile>
-    <Compile Include="src\Data\School.cs">
-      <DependentUpon>LocalDatabase.tt</DependentUpon>
-    </Compile>
     <Compile Include="src\Data\DocumentsDataManager.cs" />
     <Compile Include="src\Data\EventsDataManager.cs" />
     <Compile Include="src\Data\GradesDataManager.cs" />
+    <Compile Include="src\Data\Note.cs">
+      <DependentUpon>LocalDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="src\Data\NotesDataManager.cs" />
-    <Compile Include="src\Data\TeachersDataManager.cs" />
-    <Compile Include="src\Data\SubjectsDataManager.cs" />
+    <Compile Include="src\Data\School.cs">
+      <DependentUpon>LocalDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="src\Data\Subject.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="src\Data\Teacher.cs">
       <DependentUpon>LocalDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\Data\TeachersDataManager.cs" />
+    <Compile Include="src\Data\SubjectsDataManager.cs" />
     <Compile Include="src\DateTimeHelper.cs" />
     <Compile Include="src\DocumentExtension.cs" />
     <Compile Include="src\EventType.cs" />

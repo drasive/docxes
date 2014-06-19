@@ -35,7 +35,7 @@ namespace VrankenBischof.Docxes.Data {
                         Event entity
                     in
                         databaseContainer.Events
-                            .Include(entity => entity.Subject)
+                            //.Include(entity => entity.Subject)
                     select
                         entity
                     ).ToList().Where(entity => predicate(entity)).ToList();

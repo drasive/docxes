@@ -24,7 +24,6 @@
           <ConnectorPoint PointX="8" PointY="5.1250000000000142" />
         </AssociationConnector>
         <AssociationConnector Association="LocalDatabase.SubjectGrades" />
-        <AssociationConnector Association="LocalDatabase.EventGrades" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

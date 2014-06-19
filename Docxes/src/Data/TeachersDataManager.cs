@@ -35,18 +35,18 @@ namespace VrankenBischof.Docxes.Data {
                         Teacher entity
                     in
                         container.Teachers
-                            .Include(entity => entity.Subjects
-                                .Select(subject => subject.Documents)
-                            )
-                            .Include(entity => entity.Subjects
-                                .Select(subject => subject.Notes)
-                            )
-                            .Include(entity => entity.Subjects
-                                .Select(subject => subject.Grades)
-                            )
-                            .Include(entity => entity.Subjects
-                                .Select(subject => subject.Events)
-                            )
+                            //.Include(entity => entity.Subjects
+                            //    .Select(subject => subject.Documents)
+                            //)
+                            //.Include(entity => entity.Subjects
+                            //    .Select(subject => subject.Notes)
+                            //)
+                            //.Include(entity => entity.Subjects
+                            //    .Select(subject => subject.Grades)
+                            //)
+                            //.Include(entity => entity.Subjects
+                            //    .Select(subject => subject.Events)
+                            //)
                     select
                         entity
                     ).ToList().Where(entity => predicate(entity)).ToList();

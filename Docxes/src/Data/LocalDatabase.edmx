@@ -37,10 +37,6 @@
       <End Role="Subject" EntitySet="Subjects" />
       <End Role="Grade" EntitySet="Grades" />
     </AssociationSet>
-    <AssociationSet Name="EventGrades" Association="LocalDatabase.Store.EventGrades">
-      <End Role="Event" EntitySet="Events" />
-      <End Role="Grade" EntitySet="Grades" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Schools">
     <Key>
@@ -109,7 +105,9 @@
     <Property Name="FilePath" Type="nvarchar" Nullable="false" MaxLength="255" />
   </EntityType>
   <Association Name="SchoolTeachers">
-    <End Role="School" Type="LocalDatabase.Store.Schools" Multiplicity="1" />
+    <End Role="School" Type="LocalDatabase.Store.Schools" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Teacher" Type="LocalDatabase.Store.Teachers" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="School">
@@ -121,7 +119,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="TeacherSubjects">
-    <End Role="Teacher" Type="LocalDatabase.Store.Teachers" Multiplicity="1" />
+    <End Role="Teacher" Type="LocalDatabase.Store.Teachers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Subject" Type="LocalDatabase.Store.Subjects" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Teacher">
@@ -133,7 +133,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="SubjectEvents">
-    <End Role="Subject" Type="LocalDatabase.Store.Subjects" Multiplicity="1" />
+    <End Role="Subject" Type="LocalDatabase.Store.Subjects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Event" Type="LocalDatabase.Store.Events" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Subject">
@@ -145,7 +147,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="SubjectDocuments">
-    <End Role="Subject" Type="LocalDatabase.Store.Subjects" Multiplicity="1" />
+    <End Role="Subject" Type="LocalDatabase.Store.Subjects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Document" Type="LocalDatabase.Store.Documents" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Subject">
@@ -157,7 +161,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="SubjectNotes">
-    <End Role="Subject" Type="LocalDatabase.Store.Subjects" Multiplicity="1" />
+    <End Role="Subject" Type="LocalDatabase.Store.Subjects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Note" Type="LocalDatabase.Store.Notes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Subject">
@@ -169,7 +175,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="SubjectGrades">
-    <End Role="Subject" Type="LocalDatabase.Store.Subjects" Multiplicity="1" />
+    <End Role="Subject" Type="LocalDatabase.Store.Subjects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Grade" Type="LocalDatabase.Store.Grades" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Subject">
@@ -177,18 +185,6 @@
       </Principal>
       <Dependent Role="Grade">
         <PropertyRef Name="SubjectId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="EventGrades">
-    <End Role="Event" Type="LocalDatabase.Store.Events" Multiplicity="0..1" />
-    <End Role="Grade" Type="LocalDatabase.Store.Grades" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Event">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Grade">
-        <PropertyRef Name="EventId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -226,10 +222,6 @@
                     </AssociationSet>
                     <AssociationSet Name="SubjectGrades" Association="LocalDatabase.SubjectGrades">
                         <End Role="Subject" EntitySet="Subjects" />
-                        <End Role="Grade" EntitySet="Grades" />
-                    </AssociationSet>
-                    <AssociationSet Name="EventGrades" Association="LocalDatabase.EventGrades">
-                        <End Role="Event" EntitySet="Events" />
                         <End Role="Grade" EntitySet="Grades" />
                     </AssociationSet>
                 </EntityContainer>
@@ -278,7 +270,6 @@
                     <Property Name="Place" Type="String" Nullable="true" MaxLength="256" />
                     <Property Name="Date" Type="DateTime" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Type" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <NavigationProperty Name="Grades" Relationship="LocalDatabase.EventGrades" FromRole="Event" ToRole="Grade" />
                     <Property Name="Comment" Type="String" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="8192" />
                 </EntityType>
                 <EntityType Name="Grade">
@@ -288,7 +279,6 @@
                     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectGrades" FromRole="Grade" ToRole="Subject" />
                     <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <NavigationProperty Name="Event" Relationship="LocalDatabase.EventGrades" FromRole="Grade" ToRole="Event" />
                     <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Value" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Weight" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
@@ -314,8 +304,11 @@
                     <Property Name="FilePath" Type="String" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" MaxLength="255" />
                 </EntityType>
                 <Association Name="SchoolTeachers">
-                    <End Type="LocalDatabase.School" Role="School" Multiplicity="1" />
-                    <End Type="LocalDatabase.Teacher" Role="Teacher" Multiplicity="*" />
+                    <End Type="LocalDatabase.School" Role="School" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+                    <End Type="LocalDatabase.Teacher" Role="Teacher" Multiplicity="*" >
+          </End>
                     <ReferentialConstraint>
                         <Principal Role="School">
                             <PropertyRef Name="Id" />
@@ -326,7 +319,9 @@
                     </ReferentialConstraint>
                 </Association>
                 <Association Name="TeacherSubjects">
-                    <End Type="LocalDatabase.Teacher" Role="Teacher" Multiplicity="1" />
+                    <End Type="LocalDatabase.Teacher" Role="Teacher" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
                     <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="*" />
                     <ReferentialConstraint>
                         <Principal Role="Teacher">
@@ -338,7 +333,9 @@
                     </ReferentialConstraint>
                 </Association>
                 <Association Name="SubjectEvents">
-                    <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" />
+                    <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
                     <End Type="LocalDatabase.Event" Role="Event" Multiplicity="*" />
                     <ReferentialConstraint>
                         <Principal Role="Subject">
@@ -350,7 +347,9 @@
                     </ReferentialConstraint>
                 </Association>
                 <Association Name="SubjectDocuments">
-                    <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" />
+                    <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
                     <End Type="LocalDatabase.Document" Role="Document" Multiplicity="*" />
                     <ReferentialConstraint>
                         <Principal Role="Subject">
@@ -362,7 +361,9 @@
                     </ReferentialConstraint>
                 </Association>
                 <Association Name="SubjectNotes">
-                    <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" />
+                    <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
                     <End Type="LocalDatabase.Note" Role="Note" Multiplicity="*" />
                     <ReferentialConstraint>
                         <Principal Role="Subject">
@@ -374,7 +375,9 @@
                     </ReferentialConstraint>
                 </Association>
                 <Association Name="SubjectGrades">
-                    <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" />
+                    <End Type="LocalDatabase.Subject" Role="Subject" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
                     <End Type="LocalDatabase.Grade" Role="Grade" Multiplicity="*" />
                     <ReferentialConstraint>
                         <Principal Role="Subject">
@@ -382,18 +385,6 @@
                         </Principal>
                         <Dependent Role="Grade">
                             <PropertyRef Name="SubjectId" />
-                        </Dependent>
-                    </ReferentialConstraint>
-                </Association>
-                <Association Name="EventGrades">
-                    <End Type="LocalDatabase.Event" Role="Event" Multiplicity="0..1" />
-                    <End Type="LocalDatabase.Grade" Role="Grade" Multiplicity="*" />
-                    <ReferentialConstraint>
-                        <Principal Role="Event">
-                            <PropertyRef Name="Id" />
-                        </Principal>
-                        <Dependent Role="Grade">
-                            <PropertyRef Name="EventId" />
                         </Dependent>
                     </ReferentialConstraint>
                 </Association>

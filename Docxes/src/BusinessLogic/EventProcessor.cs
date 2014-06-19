@@ -119,12 +119,12 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             }
 
             // Remove dependencies
-            var gradeProcessor = new GradeProcessor();
-            foreach (Grade dependencyToDisconnect in gradeProcessor.Get(objectToDelete)) {
-                // TODO: Check if EventId needs to be modified too
-                dependencyToDisconnect.Event = null;
-                gradeProcessor.Update(dependencyToDisconnect);
-            }
+            //var gradeProcessor = new GradeProcessor();
+            //foreach (Grade dependencyToDisconnect in gradeProcessor.Get(objectToDelete)) {
+            //    // TODO: Check if EventId needs to be modified too
+            //    dependencyToDisconnect.Event = null;
+            //    gradeProcessor.Update(dependencyToDisconnect);
+            //}
 
             // Delete object
             dataManager.Delete(objectToDelete);

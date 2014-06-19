@@ -26,7 +26,7 @@ namespace VrankenBischof.Docxes.Data {
 
 
         private List<Note> Get(LocalDatabaseContainer databaseContainer) {
-            return Get(databaseContainer, entity => true);
+           return Get(databaseContainer, entity => true);
         }
 
         private List<Note> Get(LocalDatabaseContainer databaseContainer, Predicate<Note> predicate) {

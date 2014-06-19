@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/07/2014 18:19:42
--- Generated from EDMX file: C:\Users\dimit_000\SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\src\Data\LocalDatabase.edmx
+-- Date Created: 06/19/2014 09:23:49
+-- Generated from EDMX file: C:\Privat\Versionsverwaltung\Docxes\Development\Docxes\src\Data\LocalDatabase.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -191,7 +191,8 @@ ADD CONSTRAINT [FK_SchoolTeachers]
     FOREIGN KEY ([SchoolId])
     REFERENCES [dbo].[Schools]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SchoolTeachers'
 CREATE INDEX [IX_FK_SchoolTeachers]
@@ -205,7 +206,8 @@ ADD CONSTRAINT [FK_TeacherSubjects]
     FOREIGN KEY ([TeacherId])
     REFERENCES [dbo].[Teachers]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_TeacherSubjects'
 CREATE INDEX [IX_FK_TeacherSubjects]
@@ -219,7 +221,8 @@ ADD CONSTRAINT [FK_SubjectEvents]
     FOREIGN KEY ([SubjectId])
     REFERENCES [dbo].[Subjects]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SubjectEvents'
 CREATE INDEX [IX_FK_SubjectEvents]
@@ -233,7 +236,8 @@ ADD CONSTRAINT [FK_SubjectDocuments]
     FOREIGN KEY ([SubjectId])
     REFERENCES [dbo].[Subjects]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SubjectDocuments'
 CREATE INDEX [IX_FK_SubjectDocuments]
@@ -247,7 +251,8 @@ ADD CONSTRAINT [FK_SubjectNotes]
     FOREIGN KEY ([SubjectId])
     REFERENCES [dbo].[Subjects]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SubjectNotes'
 CREATE INDEX [IX_FK_SubjectNotes]
@@ -261,26 +266,13 @@ ADD CONSTRAINT [FK_SubjectGrades]
     FOREIGN KEY ([SubjectId])
     REFERENCES [dbo].[Subjects]
         ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_SubjectGrades'
 CREATE INDEX [IX_FK_SubjectGrades]
 ON [dbo].[Grades]
     ([SubjectId]);
-GO
-
--- Creating foreign key on [EventId] in table 'Grades'
-ALTER TABLE [dbo].[Grades]
-ADD CONSTRAINT [FK_EventGrades]
-    FOREIGN KEY ([EventId])
-    REFERENCES [dbo].[Events]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_EventGrades'
-CREATE INDEX [IX_FK_EventGrades]
-ON [dbo].[Grades]
-    ([EventId]);
 GO
 
 -- --------------------------------------------------
