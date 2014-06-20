@@ -3,8 +3,6 @@ using System.IO;
 
 namespace VrankenBischof.Docxes {
 
-    // TODO: Fix crash when file doesnt exist
-
     /// <summary>
     /// Represents a document.
     /// </summary>

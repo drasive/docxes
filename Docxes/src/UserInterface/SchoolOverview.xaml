@@ -15,7 +15,8 @@
         MinWidth="750">
 
     <Grid x:Name="gRoot">
-        <Grid x:Name="gContent">
+        <Grid x:Name="gContent"
+              Margin="0,5,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition Width="22" />

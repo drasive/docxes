@@ -21,12 +21,13 @@ namespace VrankenBischof.Docxes.UserInterface {
             window.Title = Application.Current.MainWindow.GetType().Assembly.GetName().Name + " | " + window.Title;
         }
 
+
         /// <summary>
         /// Generates a ListBoxItem that can be used as a placeholder.
         /// </summary>
         /// <param name="message">The message to put inside of the placeholder</param>
         internal static ListBoxItem GeneratePlaceholderListBoxItem(String message) {
-            ListBoxItem placeholder = new ListBoxItem() {
+            var placeholder = new ListBoxItem() {
                 Content = message,
                 FontSize = 10,
                 IsEnabled = false
@@ -34,6 +35,21 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             return placeholder;
         }
+
+        /// <summary>
+        /// Generates a ListBoxItem that can be used as a placeholder.
+        /// </summary>
+        /// <param name="message">The message to put inside of the placeholder</param>
+        internal static ListViewItem GeneratePlaceholderListViewItem(String message) {
+            var placeholder = new ListViewItem() {
+                Content = message,
+                FontSize = 10,
+                IsEnabled = false
+            };
+
+            return placeholder;
+        }
+
 
         /// <summary>
         /// Asks the user if he really wants do delete a certain object.

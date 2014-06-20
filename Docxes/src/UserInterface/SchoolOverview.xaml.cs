@@ -27,6 +27,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             Common.ExtendWindowName(this);
         }
 
+
         #region Control
 
         private void UpdateWorkspace(Teacher teacher) {
@@ -62,36 +63,19 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private void UpdateSubjects() {
             // Get business objects
-            // TODO: __DV Check
-            var businessObjects = new List<Subject>();
-            var businessObjectParents = teacherProcessor.Get(ApplicationPropertyManager.Workspace.School);
-            foreach (var teacher in businessObjectParents) {
-                businessObjects.AddRange(subjectProcessor.Get(teacher));
-            }
+            var businessObjects = subjectProcessor.Get(ApplicationPropertyManager.Workspace.School);
 
             // Display business objects
             if (businessObjects.Count() > 0) {
                 icSubjects.ItemsSource = businessObjects;
             }
             else {
-                ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
-                    Content = "Es sind noch keine Fächer vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Fach zu erstellen.",
-                    FontSize = 10,
-                    IsEnabled = false
-                };
+                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Es sind noch keine Fächer vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Fach zu erstellen.");
                 icSubjects.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
 
             // Update controls
-            // TODO: __
-            if (subjectProcessor.CanCreate(ApplicationPropertyManager.Workspace.School)) {
-                btnManageSubjects.IsEnabled = true;
-                btnManageSubjects.ToolTip = null;
-            }
-            else {
-                btnManageSubjects.IsEnabled = false;
-                btnManageSubjects.ToolTip = "Mindestens ein Lehrer muss existieren, um Fächer verwalten zu können!";
-            }
+            btnManageSubjects.IsEnabled = subjectProcessor.CanCreate(ApplicationPropertyManager.Workspace.School);
         }
 
 
@@ -113,15 +97,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
 
             // Update controls
-            // TODO: __
-            if (eventProcessor.CanCreate(ApplicationPropertyManager.Workspace.School)) {
-                btnManageEvents.IsEnabled = true;
-                btnManageEvents.ToolTip = null;
-            }
-            else {
-                btnManageEvents.IsEnabled = false;
-                btnManageEvents.ToolTip = "Mindestens ein Fach muss existieren, um Ereignisse verwalten zu können!";
-            }
+            btnManageEvents.IsEnabled = eventProcessor.CanCreate(ApplicationPropertyManager.Workspace.School);
         }
 
         private List<Event> UpdateUpcommingEvents(Panel container, ItemsControl itemsContainer, DateTime startDate, DateTime endDate) {
@@ -183,12 +159,9 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         private BusinessObjectManagerAction OpenAddGrade() {
-            // TODO:
-            return BusinessObjectManagerAction.Undefined;
-
-            //var businessObjectManagerWindow = new ManageGrade(ApplicationPropertyManager.Workspace.Subject) { Owner = this };
-            //businessObjectManagerWindow.ShowDialog();
-            //return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
+            var businessObjectManagerWindow = new ManageGrade() { Owner = this };
+            businessObjectManagerWindow.ShowDialog();
+            return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
         }
 
         private BusinessObjectManagerAction OpenAddEvent() {
@@ -196,6 +169,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             businessObjectManagerWindow.ShowDialog();
             return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
         }
+
 
         private BusinessObjectManagerAction OpenAddTeacher() {
             var businessObjectManagerWindow = new ManageTeacher() { Owner = this };
@@ -209,10 +183,6 @@ namespace VrankenBischof.Docxes.UserInterface {
             return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
         }
 
-
-        private void UpdateManageSubjectsAvailability() {
-            // TODO:
-        }
 
         private void OpenManageSubjects() {
             Window managementWindow = new ManageSubjects() { Owner = this };
@@ -238,8 +208,14 @@ namespace VrankenBischof.Docxes.UserInterface {
             UpdateSubjects();
             UpdateUpcommingEvents();
 
-            CheckForTeacherCreation();
-            CheckForSubjectCreation();
+            if (CheckForTeacherCreation()) {
+                UpdateSubjects();
+                UpdateUpcommingEvents();
+            }
+            if (CheckForSubjectCreation()) {
+                UpdateSubjects();
+                UpdateUpcommingEvents();
+            }
         }
 
 
@@ -250,6 +226,8 @@ namespace VrankenBischof.Docxes.UserInterface {
             UpdateWorkspace(businessObject.Teacher);
             UpdateWorkspace(businessObject);
             OpenManageDocuments();
+
+            UpdateSubjects();
         }
         private void SubjectOverview_AddingDocument(object sender, RoutedEventArgs e) {
             var senderControl = (Control)sender;
@@ -269,6 +247,8 @@ namespace VrankenBischof.Docxes.UserInterface {
             UpdateWorkspace(businessObject.Teacher);
             UpdateWorkspace(businessObject);
             OpenManageNotes();
+
+            UpdateSubjects();
         }
         private void SubjectOverview_AddingNote(object sender, RoutedEventArgs e) {
             var senderControl = (Control)sender;
@@ -288,6 +268,8 @@ namespace VrankenBischof.Docxes.UserInterface {
             UpdateWorkspace(businessObject.Teacher);
             UpdateWorkspace(businessObject);
             OpenManageGrades();
+
+            UpdateSubjects();
         }
         private void SubjectOverview_AddingGrade(object sender, RoutedEventArgs e) {
             var senderControl = (Control)sender;
@@ -307,6 +289,9 @@ namespace VrankenBischof.Docxes.UserInterface {
             UpdateWorkspace(businessObject.Teacher);
             UpdateWorkspace(businessObject);
             OpenManageEvents();
+
+            UpdateSubjects();
+            UpdateUpcommingEvents();
         }
         private void SubjectOverview_AddingEvent(object sender, RoutedEventArgs e) {
             var senderControl = (Control)sender;
@@ -323,12 +308,16 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private void btnManageSubjects_Click(object sender, RoutedEventArgs e) {
             OpenManageSubjects();
+
             UpdateSubjects();
+            UpdateUpcommingEvents();
         }
 
         private void btnManageTeachers_Click(object sender, RoutedEventArgs e) {
             OpenManageTeachers();
+
             UpdateSubjects();
+            UpdateUpcommingEvents();
         }
 
         private void btnChangeSchool_Click(object sender, RoutedEventArgs e) {
@@ -339,8 +328,9 @@ namespace VrankenBischof.Docxes.UserInterface {
 
 
         private void btnManageEvents_Click(object sender, RoutedEventArgs e) {
-            var window = new ManageEvents();
-            window.ShowDialog();
+            OpenManageEvents();
+
+            UpdateUpcommingEvents();
         }
 
         #endregion

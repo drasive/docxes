@@ -38,18 +38,12 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
 
-        private Document SelectedBusinessObject { get { return (Document)lbDocuments.SelectedItem; } }
+        private Document SelectedBusinessObject { get { return (Document)lvDocuments.SelectedItem; } }
 
         private void UpdateBusinessObjects() {
             IEnumerable<Document> businessObjects = businessObjectProcessor.Get(SelectedBusinessObjectParent);
 
-            if (businessObjects.Count() > 0) {
-                lbDocuments.ItemsSource = businessObjects;
-            }
-            else {
-                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Keine Dokumente gefunden.\nKlicken Sie auf \"Hinzufügen\" um ein Dokument hinzuzufügen.");
-                lbDocuments.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
-            }
+            lvDocuments.ItemsSource = businessObjects;
         }
 
 

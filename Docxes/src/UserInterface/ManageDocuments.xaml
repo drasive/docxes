@@ -47,7 +47,7 @@
                    Grid.Row="1"
                    Width="309" />
 
-        <ListView x:Name="lbDocuments"
+        <ListView x:Name="lvDocuments"
                   Margin="10,31,10,5"
                   Grid.Row="1"
                   SelectionChanged="lbDocuments_SelectionChanged">

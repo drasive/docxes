@@ -3,8 +3,6 @@ using VrankenBischof.Docxes.Data;
 
 namespace VrankenBischof.Docxes.BusinessLogic {
 
-    // TODO: Implement CanCreate
-
     /// <summary>
     /// Provides basic functionality to process a <see cref="IBusinessObject"/>.
     /// </summary>

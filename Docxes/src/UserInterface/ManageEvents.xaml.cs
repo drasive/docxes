@@ -12,7 +12,7 @@ namespace VrankenBischof.Docxes.UserInterface {
     /// </summary>
     internal sealed partial class ManageEvents : Window {
 
-        // TODO: Multi date selection, grid intead of list
+        // TODO: Use a grid intead of a list
         private DateTime _lastDisplayDate;
 
         private BusinessLogic.SubjectProcessor businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();

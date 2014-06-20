@@ -27,7 +27,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             // TODO: Check for duplicate entity?
 
-            textBox.BorderBrush = Brushes.DimGray; // The default border brush of a TextBox
+            textBox.BorderBrush = Brushes.DimGray; // Pretty similar to the default border brush of a TextBox
             textBox.ToolTip = string.Empty;
             return true;
         }
@@ -48,8 +48,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                 return false;
             }
 
-            // TODO: _
-            datePicker.BorderBrush = Brushes.DimGray; // The default border brush of a TextBox
+            datePicker.BorderBrush = Brushes.DimGray; // Pretty similar to the default border brush of a DatePicker
             datePicker.ToolTip = string.Empty;
             return true;
         }

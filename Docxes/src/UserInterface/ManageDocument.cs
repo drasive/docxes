@@ -60,10 +60,10 @@ namespace VrankenBischof.Docxes.UserInterface {
             return openFileDialog;
         }
 
-        // TODO: Split up Add and Edit into "MapInterfaceToObject" and "Save" like the others of these classes
+
         private void Add() {
             var openFileDialog = GetOpenFileDialog();
-            openFileDialog.DefaultExt = ".docx";
+            openFileDialog.FilterIndex = 3;
             Nullable<bool> fileSelected = openFileDialog.ShowDialog();
 
             if (fileSelected.GetValueOrDefault()) {
@@ -82,17 +82,24 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void Edit() {
             var openFileDialog = GetOpenFileDialog();
             openFileDialog.FileName = businessObjectEditing.FilePath;
-            // TODO: Desn't work, is still .docx
-            openFileDialog.DefaultExt = "*.*";
+            switch (System.IO.Path.GetExtension(openFileDialog.FileName).ToLower()) {
+                case ".docx":
+                    openFileDialog.FilterIndex = 1;
+                    break;
+                case ".txt":
+                    openFileDialog.FilterIndex = 2;
+                    break;
+                default:
+                    openFileDialog.FilterIndex = 3;
+                    break;
+            }
             Nullable<bool> fileSelected = openFileDialog.ShowDialog();
 
             if (fileSelected.GetValueOrDefault()) {
                 string filePath = openFileDialog.FileName;
                 var businessObjectToCreate = new Document(filePath, businessObjectParent, businessObjectEditing);
 
-                // TODO: _
                 businessObjectProcessor.Update(businessObjectToCreate);
-                //businessObjectProcessor.Update(businessObjectEditing, businessObjectToCreate);
 
                 Action = BusinessObjectManagerAction.Saved;
             }

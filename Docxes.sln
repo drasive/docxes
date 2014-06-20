@@ -5,11 +5,11 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Docxes", "Docxes\Docxes.csproj", "{5CA8DAE4-C9D8-44DC-83CF-1D4A5E6362B5}"
 EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Docxes Modelling", "Docxes Modelling\Docxes Modelling.modelproj", "{1C7990F7-8250-41EA-8921-6EF0ED9737E3}"
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Docxes.Modelling", "Docxes Modelling\Docxes.Modelling.modelproj", "{1C7990F7-8250-41EA-8921-6EF0ED9737E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FsCalendar", "FsCalendar\FsCalendar.csproj", "{968182E6-FA10-476F-96D2-0FD1F09549A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Docxes Testing", "Docxes Testing\Docxes Testing.csproj", "{6330F855-D5B1-4B52-8259-CE43200D17E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Docxes.Test", "Docxes Testing\Docxes.Test.csproj", "{6330F855-D5B1-4B52-8259-CE43200D17E3}"
 	ProjectSection(ProjectDependencies) = postProject
 		{5CA8DAE4-C9D8-44DC-83CF-1D4A5E6362B5} = {5CA8DAE4-C9D8-44DC-83CF-1D4A5E6362B5}
 	EndProjectSection
@@ -26,7 +26,7 @@ Global
 		SccProjectUniqueName2 = FsCalendar\\FsCalendar.csproj
 		SccProjectName2 = FsCalendar
 		SccLocalPath2 = FsCalendar
-		SccProjectUniqueName3 = Docxes\u0020Testing\\Docxes\u0020Testing.csproj
+		SccProjectUniqueName3 = Docxes\u0020Testing\\Docxes.Test.csproj
 		SccProjectName3 = Docxes\u0020Testing
 		SccLocalPath3 = Docxes\u0020Testing
 	EndGlobalSection
