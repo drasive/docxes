@@ -1,9 +1,9 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 using System.Windows;
 
 namespace VrankenBischof.Docxes {
-
-    // TODO: Move DataPath into AppConfig
 
     /// <summary>
     /// Interaction logic for <see cref="App.xaml"/>.
@@ -15,9 +15,11 @@ namespace VrankenBischof.Docxes {
 
             ApplicationPropertyManager.Application = Application.Current;
 
-            var userprofile = Environment.GetEnvironmentVariable("Userprofile");
-            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Path.Combine(userprofile, @"SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\Data\"));
+            // Set the data directory
+            var DataDirectoryPath = ConfigurationReader.GetDataDirectoryPath();
+            AppDomain.CurrentDomain.SetData("DataDirectory", DataDirectoryPath);
 
+            // Show the initial window
             Window windowToShow = new UserInterface.ManageSchools();
             windowToShow.Show();
         }

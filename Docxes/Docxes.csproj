@@ -75,6 +75,7 @@
     <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Deployment" />
@@ -159,6 +160,7 @@
     <Compile Include="src\DateTimeHelper.cs" />
     <Compile Include="src\DocumentExtension.cs" />
     <Compile Include="src\EventType.cs" />
+    <Compile Include="src\InvalidConfigurationSettingException.cs" />
     <Compile Include="src\UserInterface\EventOverview.xaml.cs">
       <DependentUpon>EventOverview.xaml</DependentUpon>
     </Compile>
