@@ -129,7 +129,8 @@
                                    FontSize="18" />
 
                         <ItemsControl x:Name="icUpcommingEventsThisWeek"
-                                      Grid.Row="1">
+                                      Grid.Row="1"
+                                      Margin="-4,0,0,0">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel />
@@ -156,7 +157,8 @@
                                    FontSize="18" />
 
                         <ItemsControl x:Name="icUpcommingEventsNextWeek"
-                                      Grid.Row="1">
+                                      Grid.Row="1"
+                                      Margin="-4,0,0,0">
                             <ItemsControl.DataContext>
                                 <Docxes:Event />
                             </ItemsControl.DataContext>

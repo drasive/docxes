@@ -10,7 +10,7 @@
         <Grid Margin="3">
             <Border CornerRadius="2"
                     SnapsToDevicePixels="True"
-                    Background="#FF5E5F64">
+                    Background="#FF007ACC">
                 <Grid Margin="10">
                     <Grid.Resources>
                         <Style x:Key="Button"
@@ -60,8 +60,7 @@
                                     Content="Notizen [Anzahl]" />
                             <Button x:Name="btnManageGrades"
                                     Click="btnManageGrades_Click"
-                                    Content="Noten [Anzahl]"
-                                    IsEnabled="False" />
+                                    Content="Noten [Anzahl]" />
                             <Button x:Name="btnManageEvents"
                                     Click="btnManageEvents_Click"
                                     Content="Ereignisse [Anzahl]" />
@@ -90,8 +89,7 @@
                             <Button x:Name="btnAddNote"
                                     Click="btnAddNote_Click" />
                             <Button x:Name="btnAddGrade"
-                                    Click="btnAddGrade_Click"
-                                    IsEnabled="False" />
+                                    Click="btnAddGrade_Click" />
                             <Button x:Name="btnAddEvent"
                                     Click="btnAddEvent_Click" />
                         </StackPanel>

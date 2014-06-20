@@ -20,13 +20,11 @@
         </Grid.Resources>
 
         <StackPanel Margin="0,0,0,8">
-            <Label x:Name="lblEventName"
+            <Label x:Name="lblName"
                    Content="{Binding Name, Mode=OneWay}"
                    FontSize="16" />
-            <Label x:Name="lblEventSubject"
+            <Label x:Name="lblSubjectAndDate"
                    Content="{Binding Subject, Mode=OneWay}" />
-            <Label x:Name="lblEventDate"
-                   Content="{Binding Date, Mode=OneWay}" />
         </StackPanel>
     </Grid>
 </UserControl>

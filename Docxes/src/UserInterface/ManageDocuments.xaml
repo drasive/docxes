@@ -50,15 +50,12 @@
         <ListView x:Name="lvDocuments"
                   Margin="10,31,10,5"
                   Grid.Row="1"
-                  SelectionChanged="lbDocuments_SelectionChanged">
+                  SelectionChanged="lvDocuments_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="175"
                                     Header="Name"
                                     DisplayMemberBinding="{Binding Name}" />
-                    <!--<GridViewColumn Width="250"
-                                    Header="Grösse (MiB)"
-                                    DisplayMemberBinding="{Binding Size}" />-->
                     <GridViewColumn Width="110"
                                     Header="Änderungsdatum"
                                     DisplayMemberBinding="{Binding LastWriteTime}" />
@@ -74,11 +71,6 @@
                 <Docxes:Document />
             </ListView.DataContext>
         </ListView>
-
-        <!--<ListBox x:Name="lbDocuments"
-                 Margin="10,31,10,5"
-                 Grid.Row="1"
-                 SelectionChanged="lbDocuments_SelectionChanged" />-->
 
         <Button x:Name="btnOpenFolder"
                 Content="Ordner öffnen"

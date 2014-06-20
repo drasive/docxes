@@ -104,7 +104,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
 
-        private void lbDocuments_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+        private void lvDocuments_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             try {
                 UpdateControlsAvailability();
             }

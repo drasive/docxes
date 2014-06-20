@@ -2,20 +2,21 @@
 
 namespace VrankenBischof.Docxes {
 
-    // TODO: Document code of Logging
-    // TODO: Implement logging
-
     /// <summary>
-    /// This class only exists for the creation of the class diagram. It will probably be replaced later on.
+    /// Provides functionality to log exceptions.
     /// </summary>
     internal static class Logger {
 
         private static void InitializeLogger() {
-            // TODO: ___Test directory
             var DataDirectoryPath = ConfigurationReader.GetDataDirectoryPath();
             JochenScharr.SimpleLog.SetLogDir(DataDirectoryPath);
         }
 
+
+        /// <summary>
+        /// Writes an exception to the log.
+        /// </summary>
+        /// <param name="exception">The exception to log.</param>
         internal static void Log(Exception exception) {
             try {
                 InitializeLogger();

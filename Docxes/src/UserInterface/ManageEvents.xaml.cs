@@ -12,7 +12,6 @@ namespace VrankenBischof.Docxes.UserInterface {
     /// </summary>
     internal sealed partial class ManageEvents : Window {
 
-        // TODO: Use a grid intead of a list
         private DateTime _lastDisplayDate;
 
         private BusinessLogic.SubjectProcessor businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
@@ -74,7 +73,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private Subject SelectedBusinessObjectParent { get { return SelectedBusinessObject.Subject; } }
 
-        private Event SelectedBusinessObject { get { return (Event)lbEvents.SelectedItem; } }
+        private Event SelectedBusinessObject { get { return (Event)lvEvents.SelectedItem; } }
 
         private void UpdateBusinessObjects() {
             List<Event> businessObjects = businessObjectProcessor.Get(ApplicationPropertyManager.Workspace.School, SelectedDate);
@@ -83,13 +82,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             tblEvents.Text = "Ereignisse am " + SelectedDate.ToShortDateString() + " (" + businessObjects.Count + "):";
 
             // Update list
-            if (businessObjects.Count() > 0) {
-                lbEvents.ItemsSource = businessObjects;
-            }
-            else {
-                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Keine Ereignisse für dieses Datum vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Ereignis zu erstellen.");
-                lbEvents.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
-            }
+            lvEvents.ItemsSource = businessObjects;
         }
 
 
@@ -107,7 +100,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private bool CheckForElementDeletion() {
             if (Common.AskForElementDeletion("Wollen Sie dieses Ereignis wirklich löschen?", "Ereignis")) {
-                businessObjectProcessor.Delete((Event)lbEvents.SelectedItem);
+                businessObjectProcessor.Delete((Event)lvEvents.SelectedItem);
                 return true;
             }
 
@@ -193,7 +186,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
 
-        private void lbEvents_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+        private void lvEvents_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             try {
                 UpdateControlsAvailability();
             }

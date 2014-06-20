@@ -59,7 +59,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         /// Shows a generic error message to the user.
         /// </summary>
         internal static void ShowGenericErrorMessage() {
-            // TODO: Update person to contact
+            // TODO: Update person to contact in error message
             MessageBox.Show("Beim Ausführen dieser Aktion ist ein Fehler aufgetreten." + Environment.NewLine +
                             "Versuchen Sie, den Vorgang zu wiederholen oder kontaktieren Sie Nicola Bischof (er ist schuld).",
                             "Fehler aufgetreten", MessageBoxButton.OK, MessageBoxImage.Error);

@@ -1,12 +1,13 @@
 ﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:FsControls="clr-namespace:FsControls;assembly=FsCalendar"
+        xmlns:Docxes="clr-namespace:VrankenBischof.Docxes"
         x:Name="wManageEvents"
         x:Class="VrankenBischof.Docxes.UserInterface.ManageEvents"
         x:ClassModifier="internal"
         Title="Ereignisse"
-        Height="320"
-        Width="600"
+        Height="360"
+        Width="750"
         Loaded="wManageEvents_Loaded"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
@@ -39,9 +40,28 @@
                            Text="Ereignisse am [Ausgewähltes Datum] ([Anzahl]):"
                            Height="16"
                            VerticalAlignment="Top" />
-                <ListBox x:Name="lbEvents"
-                         Margin="10,31,10,10"
-                         SelectionChanged="lbEvents_SelectionChanged" />
+
+                <ListView x:Name="lvEvents"
+                          Margin="10,31,10,10"
+                          Grid.Row="1"
+                          SelectionChanged="lvEvents_SelectionChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="230"
+                                            Header="Name"
+                                            DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Width="100"
+                                            Header="Typ"
+                                            DisplayMemberBinding="{Binding Type}" />
+                            <GridViewColumn Width="150"
+                                            Header="Fach"
+                                            DisplayMemberBinding="{Binding Subject}" />
+                        </GridView>
+                    </ListView.View>
+                    <ListView.DataContext>
+                        <Docxes:Event />
+                    </ListView.DataContext>
+                </ListView>
             </Grid>
             <Button x:Name="btnToday"
                     Content="Heutiges Datum"
