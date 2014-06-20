@@ -125,63 +125,125 @@ namespace VrankenBischof.Docxes.UserInterface {
         #region Event wiring
 
         private void wManageEvents_Loaded(object sender, RoutedEventArgs e) {
-            UpdateCalendar();
-            UpdateBusinessObjects();
-            UpdateControlsAvailability();
+            try {
+                UpdateCalendar();
+                UpdateBusinessObjects();
+                UpdateControlsAvailability();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
 
         private void cEvents_SelectedDatesChanged(object sender, SelectionChangedEventArgs e) {
-            UpdateBusinessObjects();
+            try {
+                UpdateBusinessObjects();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
 
+                Common.ShowGenericErrorMessage();
+            }
         }
 
         private void cEvents_DisplayDateChanged(object sender, CalendarDateChangedEventArgs e) {
-            bool isCalendarRefreshRequired = cEvents.DisplayDate != null && cEvents.DisplayDate != DateTime.MinValue && cEvents.DisplayDate.Date != _lastDisplayDate.Date;
-            if (isCalendarRefreshRequired) {
-                _lastDisplayDate = cEvents.DisplayDate;
+            try {
+                bool isCalendarRefreshRequired = cEvents.DisplayDate != null && cEvents.DisplayDate != DateTime.MinValue && cEvents.DisplayDate.Date != _lastDisplayDate.Date;
+                if (isCalendarRefreshRequired) {
+                    _lastDisplayDate = cEvents.DisplayDate;
 
-                UpdateCalendar();
+                    UpdateCalendar();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
         private void btnToday_Click(object sender, RoutedEventArgs e) {
-            SetCalendarToToday();
+            try {
+                SetCalendarToToday();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
         protected override void OnPreviewMouseUp(MouseButtonEventArgs e) {
-            base.OnPreviewMouseUp(e);
+            try {
+                base.OnPreviewMouseUp(e);
 
-            // Required to remove the necessity for an additional click to loose focus of a calendar
-            if (Mouse.Captured is System.Windows.Controls.Primitives.CalendarItem) {
-                Mouse.Capture(null);
+                // Required to remove the necessity for an additional click to loose focus of a calendar
+                if (Mouse.Captured is System.Windows.Controls.Primitives.CalendarItem) {
+                    Mouse.Capture(null);
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
 
         private void lbEvents_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            UpdateControlsAvailability();
+            try {
+                UpdateControlsAvailability();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
 
         private void btnAdd_Click(object sender, RoutedEventArgs e) {
-            if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
-                UpdateCalendar();
-                UpdateBusinessObjects();
+            try {
+                if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                    UpdateCalendar();
+                    UpdateBusinessObjects();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e) {
-            if (OpenEditBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
-                UpdateCalendar();
-                UpdateBusinessObjects();
+            try {
+                if (OpenEditBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                    UpdateCalendar();
+                    UpdateBusinessObjects();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e) {
-            if (CheckForElementDeletion()) {
-                UpdateCalendar();
-                UpdateBusinessObjects();
+            try {
+                if (CheckForElementDeletion()) {
+                    UpdateCalendar();
+                    UpdateBusinessObjects();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 

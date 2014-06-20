@@ -205,132 +205,223 @@ namespace VrankenBischof.Docxes.UserInterface {
         #region Event wiring
 
         private void wSchoolOverview_Loaded(object sender, RoutedEventArgs e) {
-            UpdateSubjects();
-            UpdateUpcommingEvents();
+            try {
+                UpdateSubjects();
+                UpdateUpcommingEvents();
 
-            if (CheckForTeacherCreation()) {
-                UpdateSubjects();
-                UpdateUpcommingEvents();
+                if (CheckForTeacherCreation()) {
+                    UpdateSubjects();
+                    UpdateUpcommingEvents();
+                }
+                if (CheckForSubjectCreation()) {
+                    UpdateSubjects();
+                    UpdateUpcommingEvents();
+                }
             }
-            if (CheckForSubjectCreation()) {
-                UpdateSubjects();
-                UpdateUpcommingEvents();
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
 
         private void SubjectOverview_ManagingDocuments(object sender, RoutedEventArgs e) {
-            var senderControl = (Control)sender;
-            var businessObject = (Subject)senderControl.DataContext;
+            try {
+                var senderControl = (Control)sender;
+                var businessObject = (Subject)senderControl.DataContext;
 
-            UpdateWorkspace(businessObject.Teacher);
-            UpdateWorkspace(businessObject);
-            OpenManageDocuments();
+                UpdateWorkspace(businessObject.Teacher);
+                UpdateWorkspace(businessObject);
+                OpenManageDocuments();
 
-            UpdateSubjects();
+                UpdateSubjects();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
         private void SubjectOverview_AddingDocument(object sender, RoutedEventArgs e) {
-            var senderControl = (Control)sender;
-            var businessObject = (Subject)senderControl.DataContext;
+            try {
+                var senderControl = (Control)sender;
+                var businessObject = (Subject)senderControl.DataContext;
 
-            UpdateWorkspace(businessObject.Teacher);
-            UpdateWorkspace(businessObject);
-            if (OpenAddDocument() == BusinessObjectManagerAction.Saved) {
-                UpdateSubjects();
+                UpdateWorkspace(businessObject.Teacher);
+                UpdateWorkspace(businessObject);
+                if (OpenAddDocument() == BusinessObjectManagerAction.Saved) {
+                    UpdateSubjects();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
         private void SubjectOverview_ManagingNotes(object sender, RoutedEventArgs e) {
-            var senderControl = (Control)sender;
-            var businessObject = (Subject)senderControl.DataContext;
+            try {
+                var senderControl = (Control)sender;
+                var businessObject = (Subject)senderControl.DataContext;
 
-            UpdateWorkspace(businessObject.Teacher);
-            UpdateWorkspace(businessObject);
-            OpenManageNotes();
+                UpdateWorkspace(businessObject.Teacher);
+                UpdateWorkspace(businessObject);
+                OpenManageNotes();
 
-            UpdateSubjects();
+                UpdateSubjects();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
         private void SubjectOverview_AddingNote(object sender, RoutedEventArgs e) {
-            var senderControl = (Control)sender;
-            var businessObject = (Subject)senderControl.DataContext;
+            try {
+                var senderControl = (Control)sender;
+                var businessObject = (Subject)senderControl.DataContext;
 
-            UpdateWorkspace(businessObject.Teacher);
-            UpdateWorkspace(businessObject);
-            if (OpenAddNote() == BusinessObjectManagerAction.Saved) {
-                UpdateSubjects();
+                UpdateWorkspace(businessObject.Teacher);
+                UpdateWorkspace(businessObject);
+                if (OpenAddNote() == BusinessObjectManagerAction.Saved) {
+                    UpdateSubjects();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
         private void SubjectOverview_ManagingGrades(object sender, RoutedEventArgs e) {
-            var senderControl = (Control)sender;
-            var businessObject = (Subject)senderControl.DataContext;
+            try {
+                var senderControl = (Control)sender;
+                var businessObject = (Subject)senderControl.DataContext;
 
-            UpdateWorkspace(businessObject.Teacher);
-            UpdateWorkspace(businessObject);
-            OpenManageGrades();
+                UpdateWorkspace(businessObject.Teacher);
+                UpdateWorkspace(businessObject);
+                OpenManageGrades();
 
-            UpdateSubjects();
+                UpdateSubjects();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
         private void SubjectOverview_AddingGrade(object sender, RoutedEventArgs e) {
-            var senderControl = (Control)sender;
-            var businessObject = (Subject)senderControl.DataContext;
+            try {
+                var senderControl = (Control)sender;
+                var businessObject = (Subject)senderControl.DataContext;
 
-            UpdateWorkspace(businessObject.Teacher);
-            UpdateWorkspace(businessObject);
-            if (OpenAddGrade() == BusinessObjectManagerAction.Saved) {
-                UpdateSubjects();
+                UpdateWorkspace(businessObject.Teacher);
+                UpdateWorkspace(businessObject);
+                if (OpenAddGrade() == BusinessObjectManagerAction.Saved) {
+                    UpdateSubjects();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
         private void SubjectOverview_ManagingEvents(object sender, RoutedEventArgs e) {
-            var senderControl = (Control)sender;
-            var businessObject = (Subject)senderControl.DataContext;
+            try {
+                var senderControl = (Control)sender;
+                var businessObject = (Subject)senderControl.DataContext;
 
-            UpdateWorkspace(businessObject.Teacher);
-            UpdateWorkspace(businessObject);
-            OpenManageEvents();
+                UpdateWorkspace(businessObject.Teacher);
+                UpdateWorkspace(businessObject);
+                OpenManageEvents();
 
-            UpdateSubjects();
-            UpdateUpcommingEvents();
-        }
-        private void SubjectOverview_AddingEvent(object sender, RoutedEventArgs e) {
-            var senderControl = (Control)sender;
-            var businessObject = (Subject)senderControl.DataContext;
-
-            UpdateWorkspace(businessObject.Teacher);
-            UpdateWorkspace(businessObject);
-            if (OpenAddEvent() == BusinessObjectManagerAction.Saved) {
                 UpdateSubjects();
                 UpdateUpcommingEvents();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
+        }
+        private void SubjectOverview_AddingEvent(object sender, RoutedEventArgs e) {
+            try {
+                var senderControl = (Control)sender;
+                var businessObject = (Subject)senderControl.DataContext;
+
+                UpdateWorkspace(businessObject.Teacher);
+                UpdateWorkspace(businessObject);
+                if (OpenAddEvent() == BusinessObjectManagerAction.Saved) {
+                    UpdateSubjects();
+                    UpdateUpcommingEvents();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
 
         private void btnManageSubjects_Click(object sender, RoutedEventArgs e) {
-            OpenManageSubjects();
+            try {
+                OpenManageSubjects();
 
-            UpdateSubjects();
-            UpdateUpcommingEvents();
+                UpdateSubjects();
+                UpdateUpcommingEvents();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
         private void btnManageTeachers_Click(object sender, RoutedEventArgs e) {
-            OpenManageTeachers();
+            try {
+                OpenManageTeachers();
 
-            UpdateSubjects();
-            UpdateUpcommingEvents();
+                UpdateSubjects();
+                UpdateUpcommingEvents();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
         private void btnChangeSchool_Click(object sender, RoutedEventArgs e) {
-            ApplicationPropertyManager.Workspace = null;
+            try {
+                ApplicationPropertyManager.Workspace = null;
 
-            OpenManageSchools();
+                OpenManageSchools();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
 
         private void btnManageEvents_Click(object sender, RoutedEventArgs e) {
-            OpenManageEvents();
+            try {
+                OpenManageEvents();
 
-            UpdateUpcommingEvents();
+                UpdateUpcommingEvents();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
         #endregion

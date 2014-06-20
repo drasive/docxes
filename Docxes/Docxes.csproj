@@ -109,6 +109,7 @@
     <Compile Include="src\BusinessLogic\NoteProcessor.cs" />
     <Compile Include="src\BusinessLogic\GradeProcessor.cs" />
     <Compile Include="src\BusinessLogic\DocumentProcessor.cs" />
+    <Compile Include="src\SimpleLog.cs" />
     <Compile Include="src\BusinessLogic\SubjectProcessor.cs" />
     <Compile Include="src\BusinessLogic\TeacherProcessor.cs" />
     <Compile Include="src\BusinessLogic\SchoolProcessor.cs" />
@@ -192,7 +193,7 @@
     <Compile Include="src\UserInterface\ManageEvents.xaml.cs">
       <DependentUpon>ManageEvents.xaml</DependentUpon>
     </Compile>
-    <Compile Include="src\BusinessLogic\Logging.cs" />
+    <Compile Include="src\Logger.cs" />
     <Compile Include="src\UserInterface\SubjectOverview.xaml.cs">
       <DependentUpon>SubjectOverview.xaml</DependentUpon>
     </Compile>

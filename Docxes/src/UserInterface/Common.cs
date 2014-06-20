@@ -21,7 +21,6 @@ namespace VrankenBischof.Docxes.UserInterface {
             window.Title = Application.Current.MainWindow.GetType().Assembly.GetName().Name + " | " + window.Title;
         }
 
-
         /// <summary>
         /// Generates a ListBoxItem that can be used as a placeholder.
         /// </summary>
@@ -35,21 +34,6 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             return placeholder;
         }
-
-        /// <summary>
-        /// Generates a ListBoxItem that can be used as a placeholder.
-        /// </summary>
-        /// <param name="message">The message to put inside of the placeholder</param>
-        internal static ListViewItem GeneratePlaceholderListViewItem(String message) {
-            var placeholder = new ListViewItem() {
-                Content = message,
-                FontSize = 10,
-                IsEnabled = false
-            };
-
-            return placeholder;
-        }
-
 
         /// <summary>
         /// Asks the user if he really wants do delete a certain object.
@@ -69,6 +53,16 @@ namespace VrankenBischof.Docxes.UserInterface {
                                                       "Gelöschte Daten können nicht wiederhergestellt werden.",
                                                       objectType + " wirklich löschen?", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
             return result == MessageBoxResult.Yes;
+        }
+
+        /// <summary>
+        /// Shows a generic error message to the user.
+        /// </summary>
+        internal static void ShowGenericErrorMessage() {
+            // TODO: Update person to contact
+            MessageBox.Show("Beim Ausführen dieser Aktion ist ein Fehler aufgetreten." + Environment.NewLine +
+                            "Versuchen Sie, den Vorgang zu wiederholen oder kontaktieren Sie Nicola Bischof (er ist schuld).",
+                            "Fehler aufgetreten", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
     }

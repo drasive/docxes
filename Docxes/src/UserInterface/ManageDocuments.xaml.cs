@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -79,45 +79,101 @@ namespace VrankenBischof.Docxes.UserInterface {
         #region Event wiring
 
         private void wManageDocuments_Loaded(object sender, RoutedEventArgs e) {
-            UpdateBusinessObjectParents();
-            UpdateBusinessObjects();
-            UpdateControlsAvailability();
+            try {
+                UpdateBusinessObjectParents();
+                UpdateBusinessObjects();
+                UpdateControlsAvailability();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
 
         private void cbSubjects_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            UpdateBusinessObjects();
+            try {
+                UpdateBusinessObjects();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
 
         private void lbDocuments_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            UpdateControlsAvailability();
+            try {
+                UpdateControlsAvailability();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
 
         private void btnAdd_Click(object sender, RoutedEventArgs e) {
-            if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
-                UpdateBusinessObjects();
+            try {
+                if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                    UpdateBusinessObjects();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
         private void btnOpen_Click(object sender, RoutedEventArgs e) {
-            Process.Start(SelectedBusinessObject.FilePath);
+            try {
+                Process.Start(SelectedBusinessObject.FilePath);
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
         private void btnOpenFolder_Click(object sender, RoutedEventArgs e) {
-            Process.Start("explorer.exe", "/select," + SelectedBusinessObject.FilePath);
+            try {
+                Process.Start("explorer.exe", "/select," + SelectedBusinessObject.FilePath);
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e) {
-            if (OpenEditBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
-                UpdateBusinessObjects();
+            try {
+                if (OpenEditBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                    UpdateBusinessObjects();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e) {
-            if (CheckForElementDeletion()) {
-                UpdateBusinessObjects();
+            try {
+                if (CheckForElementDeletion()) {
+                    UpdateBusinessObjects();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 

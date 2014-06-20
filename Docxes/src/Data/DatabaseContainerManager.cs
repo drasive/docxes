@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace VrankenBischof.Docxes.Data {
+
+    // TODO: Document DatabaseContainerManager
 
     public sealed class DatabaseContainerManager {
 

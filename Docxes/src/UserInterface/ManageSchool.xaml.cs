@@ -98,15 +98,29 @@ namespace VrankenBischof.Docxes.UserInterface {
         #region Event wiring
 
         private void btnSave_Click(object sender, RoutedEventArgs e) {
-            if (Save()) {
-                Action = BusinessObjectManagerAction.Saved;
-                Close();
+            try {
+                if (Save()) {
+                    Action = BusinessObjectManagerAction.Saved;
+                    Close();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e) {
-            Action = BusinessObjectManagerAction.Canceled;
-            Close();
+            try {
+                Action = BusinessObjectManagerAction.Canceled;
+                Close();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
         #endregion

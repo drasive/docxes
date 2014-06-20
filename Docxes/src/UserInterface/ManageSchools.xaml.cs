@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -78,35 +79,77 @@ namespace VrankenBischof.Docxes.UserInterface {
         #region Event wiring
 
         private void wManageSchools_Loaded(object sender, RoutedEventArgs e) {
-            UpdateBusinessObjects();
-            UpdateControlsAvailability();
+            try {
+                UpdateBusinessObjects();
+                UpdateControlsAvailability();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
 
         private void lbSchools_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            UpdateControlsAvailability();
+            try {
+                UpdateControlsAvailability();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
 
         private void btnSelect_Click(object sender, RoutedEventArgs e) {
-            OpenSchoolOverview(SelectedBusinessObject);
+            try {
+                OpenSchoolOverview(SelectedBusinessObject);
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e) {
-            if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
-                UpdateBusinessObjects();
+            try {
+                if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                    UpdateBusinessObjects();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e) {
-            if (OpenEditBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
-                UpdateBusinessObjects();
+            try {
+                if (OpenEditBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                    UpdateBusinessObjects();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e) {
-            if (CheckForElementDeletion()) {
-                UpdateBusinessObjects();
+            try {
+                if (CheckForElementDeletion()) {
+                    UpdateBusinessObjects();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
             }
         }
 

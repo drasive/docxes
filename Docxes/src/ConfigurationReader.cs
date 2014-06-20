@@ -1,10 +1,5 @@
-﻿using Microsoft.VisualBasic;
-using System;
-using System.Collections;
+﻿using System;
 using System.Configuration;
-using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
 
 namespace VrankenBischof.Docxes {
 
