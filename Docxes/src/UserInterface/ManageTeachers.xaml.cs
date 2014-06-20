@@ -12,7 +12,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private School businessObjectParent { get { return ApplicationPropertyManager.Workspace.School; } }
 
-        private BusinessLogic.BusinessObjectProcessor<Teacher, School> businessObjectProcessor = new BusinessLogic.TeacherProcessor();
+        private BusinessLogic.TeacherProcessor businessObjectProcessor = new BusinessLogic.TeacherProcessor();
 
 
         internal ManageTeachers() {
@@ -32,11 +32,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                 lbTeachers.ItemsSource = businessObjects;
             }
             else {
-                ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
-                    Content = "Keine Lehrer vorhanden.\nKlicken Sie auf \"Hinzufügen\" um einen neuen Lehrer zu erstellen.",
-                    FontSize = 10,
-                    IsEnabled = false
-                };
+                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Keine Lehrer vorhanden.\nKlicken Sie auf \"Hinzufügen\" um einen neuen Lehrer zu erstellen.");
                 lbTeachers.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
         }

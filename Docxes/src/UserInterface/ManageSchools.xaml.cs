@@ -10,7 +10,7 @@ namespace VrankenBischof.Docxes.UserInterface {
     /// </summary>
     internal sealed partial class ManageSchools : Window {
 
-        private BusinessLogic.BusinessObjectProcessor<School> businessObjectProcessor = new BusinessLogic.SchoolProcessor();
+        private BusinessLogic.SchoolProcessor businessObjectProcessor = new BusinessLogic.SchoolProcessor();
 
 
         internal ManageSchools() {
@@ -32,11 +32,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                 lbSchools.SelectedIndex = 0;
             }
             else {
-                ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
-                    Content = "Keine Schulen gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Schule zu erstellen.",
-                    FontSize = 10,
-                    IsEnabled = false
-                };
+                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Keine Schulen gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Schule zu erstellen.");
                 lbSchools.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
         }

@@ -15,8 +15,8 @@ namespace VrankenBischof.Docxes.UserInterface {
         // TODO: Multi date selection, grid intead of list
         private DateTime _lastDisplayDate;
 
-        private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
-        private BusinessLogic.BusinessObjectProcessor<Event, Subject> businessObjectProcessor = new BusinessLogic.EventProcessor();
+        private BusinessLogic.SubjectProcessor businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
+        private BusinessLogic.EventProcessor businessObjectProcessor = new BusinessLogic.EventProcessor();
 
 
         internal ManageEvents() {
@@ -41,7 +41,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             // Update highlighted days
             var monthStart = new DateTime(cEvents.DisplayDate.Year, cEvents.DisplayDate.Month, 1);
             var monthEnd = new DateTime(cEvents.DisplayDate.Year, cEvents.DisplayDate.Month, DateTime.DaysInMonth(monthStart.Year, monthStart.Month));
-            List<Event> eventsInMonth = ((BusinessLogic.EventProcessor)businessObjectProcessor).Get(monthStart, monthEnd);
+            List<Event> eventsInMonth = businessObjectProcessor.Get(ApplicationPropertyManager.Workspace.School, monthStart, monthEnd);
 
             if (eventsInMonth.Count > 0) {
                 var currentDate = monthStart;
@@ -77,7 +77,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         private Event SelectedBusinessObject { get { return (Event)lbEvents.SelectedItem; } }
 
         private void UpdateBusinessObjects() {
-            List<Event> businessObjects = ((BusinessLogic.EventProcessor)businessObjectProcessor).Get(SelectedDate);
+            List<Event> businessObjects = businessObjectProcessor.Get(ApplicationPropertyManager.Workspace.School, SelectedDate);
 
             // Update title
             tblEvents.Text = "Ereignisse am " + SelectedDate.ToShortDateString() + " (" + businessObjects.Count + "):";
@@ -87,11 +87,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                 lbEvents.ItemsSource = businessObjects;
             }
             else {
-                ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
-                    Content = "Keine Ereignisse für dieses Datum vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Ereignis zu erstellen.",
-                    FontSize = 10,
-                    IsEnabled = false
-                };
+                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Keine Ereignisse für dieses Datum vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Ereignis zu erstellen.");
                 lbEvents.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
         }

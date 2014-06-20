@@ -35,7 +35,7 @@ namespace VrankenBischof.Docxes.Data {
                         databaseContainer.Documents
                     select
                         entity
-                    ).ToList().Where(entity => entity.DoesExist == true).Where(entity => predicate(entity)).ToList();
+                    ).ToList().Where(entity => entity.DoesExist == true && predicate(entity)).ToList();
         }
 
         /// <summary>

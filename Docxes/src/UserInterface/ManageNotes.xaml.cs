@@ -10,8 +10,8 @@ namespace VrankenBischof.Docxes.UserInterface {
     /// </summary>
     internal sealed partial class ManageNotes : Window {
 
-        private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
-        private BusinessLogic.BusinessObjectProcessor<Note, Subject> businessObjectProcessor = new BusinessLogic.NoteProcessor();
+        private BusinessLogic.SubjectProcessor businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
+        private BusinessLogic.NoteProcessor businessObjectProcessor = new BusinessLogic.NoteProcessor();
 
 
         internal ManageNotes() {
@@ -25,7 +25,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         private Subject SelectedBusinessObjectParent { get { return (Subject)cbSubjects.SelectedItem; } }
 
         private void UpdateBusinessObjectParents() {
-            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get();
+            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.School);
 
             cbSubjects.ItemsSource = businessObjectParents;
             if (ApplicationPropertyManager.Workspace.Subject != null) {

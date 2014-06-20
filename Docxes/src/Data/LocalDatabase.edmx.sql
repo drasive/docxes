@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/19/2014 09:23:49
+-- Date Created: 06/20/2014 10:11:49
 -- Generated from EDMX file: C:\Privat\Versionsverwaltung\Docxes\Development\Docxes\src\Data\LocalDatabase.edmx
 -- --------------------------------------------------
 
@@ -34,9 +34,6 @@ IF OBJECT_ID(N'[dbo].[FK_SubjectNotes]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_SubjectGrades]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Grades] DROP CONSTRAINT [FK_SubjectGrades];
-GO
-IF OBJECT_ID(N'[dbo].[FK_EventGrades]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Grades] DROP CONSTRAINT [FK_EventGrades];
 GO
 
 -- --------------------------------------------------

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
@@ -18,6 +19,20 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
 
             window.Title = Application.Current.MainWindow.GetType().Assembly.GetName().Name + " | " + window.Title;
+        }
+
+        /// <summary>
+        /// Generates a ListBoxItem that can be used as a placeholder.
+        /// </summary>
+        /// <param name="message">The message to put inside of the placeholder</param>
+        internal static ListBoxItem GeneratePlaceholderListBoxItem(String message) {
+            ListBoxItem placeholder = new ListBoxItem() {
+                Content = message,
+                FontSize = 10,
+                IsEnabled = false
+            };
+
+            return placeholder;
         }
 
         /// <summary>

@@ -26,11 +26,14 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             if (school == null) {
                 throw new ArgumentNullException("school");
             }
-            // TODO:
-            //if (school.GetType() != typeof(School)) {
-            //    throw new ArgumentException("school is not of type \"School\"");
-            //}
-            var schoolAsSchool = (School)school;
+
+            School schoolAsSchool;
+            try {
+                schoolAsSchool = (School)school;
+            }
+            catch {
+                throw new ArgumentException("parameter \"school\" cannot be converted to type \"School\"");
+            }
 
             var subjectProcessor = new BusinessLogic.SubjectProcessor();
             return subjectProcessor.Get(schoolAsSchool).Count > 0;

@@ -12,8 +12,8 @@ namespace VrankenBischof.Docxes.UserInterface {
     /// </summary>
     internal sealed partial class ManageGrades : Window {
 
-        private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
-        private BusinessLogic.BusinessObjectProcessor<Grade, Subject> businessObjectProcessor = new BusinessLogic.GradeProcessor();
+        private BusinessLogic.SubjectProcessor businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
+        private BusinessLogic.GradeProcessor businessObjectProcessor = new BusinessLogic.GradeProcessor();
 
 
         internal ManageGrades() {
@@ -50,11 +50,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                 lbGrades.ItemsSource = businessObjects;
             }
             else {
-                ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
-                    Content = "Keine Noten gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Noten zu erstellen.",
-                    FontSize = 10,
-                    IsEnabled = false
-                };
+                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Keine Noten gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Noten zu erstellen.");
                 lbGrades.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
         }

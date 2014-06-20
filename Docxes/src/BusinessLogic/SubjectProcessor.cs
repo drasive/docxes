@@ -26,11 +26,14 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             if (school == null) {
                 throw new ArgumentNullException("school");
             }
-            // TODO: Fix everywhere
-            //if (school.GetType() != typeof(School)) {
-            //    throw new ArgumentException("school is not of type \"School\"");
-            //}
-            var schoolAsSchool = (School)school;
+
+            School schoolAsSchool;
+            try {
+                schoolAsSchool = (School)school;
+            }
+            catch {
+                throw new ArgumentException("parameter \"school\" cannot be converted to type \"School\"");
+            }
 
             var teacherProcessor = new BusinessLogic.TeacherProcessor();
             return teacherProcessor.Get(schoolAsSchool).Count > 0;
@@ -73,7 +76,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         /// <returns>A list of all existing business objects for the specified school.</returns>
         public List<Subject> Get(School school) {
             var teacherProcessor = new BusinessLogic.TeacherProcessor();
-            var teachers = teacherProcessor.Get();
+            var teachers = teacherProcessor.Get(school);
 
             List<Subject> subjects = new List<Subject>();
             foreach (var teacher in teachers) {
@@ -107,23 +110,27 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             }
 
             // Delete dependencies
+            //var documents = objectToDelete.Documents;
             //var documentProcessor = new DocumentProcessor();
-            //foreach (Document dependencyToDelete in objectToDelete.Documents) {
+            //foreach (Document dependencyToDelete in documents) {
             //    documentProcessor.Delete(dependencyToDelete);
             //}
             //
+            //var notes = objectToDelete.Notes;
             //var noteProcessor = new NoteProcessor();
-            //foreach (Note dependencyToDelete in objectToDelete.Notes) {
+            //foreach (Note dependencyToDelete in notes) {
             //    noteProcessor.Delete(dependencyToDelete);
             //}
             //
+            //var grades = objectToDelete.Grades;
             //var gradeProcessor = new GradeProcessor();
-            //foreach (Grade dependencyToDelete in objectToDelete.Grades) {
+            //foreach (Grade dependencyToDelete in grades) {
             //    gradeProcessor.Delete(dependencyToDelete);
             //}
             //
+            //var events = objectToDelete.Events;
             //var eventProcessor = new EventProcessor();
-            //foreach (Event dependencyToDelete in objectToDelete.Events) {
+            //foreach (Event dependencyToDelete in events) {
             //    eventProcessor.Delete(dependencyToDelete);
             //}
 

@@ -12,8 +12,8 @@ namespace VrankenBischof.Docxes.UserInterface {
         private Subject businessObjectParent;
         private Event businessObjectEditing;
 
-        private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
-        private BusinessLogic.BusinessObjectProcessor<Event, Subject> businessObjectProcessor = new BusinessLogic.EventProcessor();
+        private BusinessLogic.SubjectProcessor businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
+        private BusinessLogic.EventProcessor businessObjectProcessor = new BusinessLogic.EventProcessor();
 
 
         private void Initialize(Subject businessObjectParent, Event businessObjectToEdit) {
@@ -81,14 +81,14 @@ namespace VrankenBischof.Docxes.UserInterface {
         #region Interface
 
         private void UpdateBusinessObjectParents() {
-            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get();
+            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.School);
 
             cbSubject.ItemsSource = businessObjectParents;
             cbSubject.SelectedIndex = 0;
         }
 
         private void UpdateBusinessObjectTypes() {
-            IEnumerable<EventType> businessObjectTypes = ((BusinessLogic.EventProcessor)businessObjectProcessor).GetTypes();
+            IEnumerable<EventType> businessObjectTypes = businessObjectProcessor.GetTypes();
 
             cbType.ItemsSource = businessObjectTypes;
             cbType.SelectedIndex = 0;

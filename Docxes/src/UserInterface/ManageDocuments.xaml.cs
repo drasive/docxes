@@ -11,8 +11,8 @@ namespace VrankenBischof.Docxes.UserInterface {
     /// </summary>
     internal sealed partial class ManageDocuments : Window {
 
-        private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
-        private BusinessLogic.BusinessObjectProcessor<Document, Subject> businessObjectProcessor = new BusinessLogic.DocumentProcessor();
+        private BusinessLogic.SubjectProcessor businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
+        private BusinessLogic.DocumentProcessor businessObjectProcessor = new BusinessLogic.DocumentProcessor();
 
 
         internal ManageDocuments() {
@@ -26,7 +26,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         private Subject SelectedBusinessObjectParent { get { return (Subject)cbSubjects.SelectedItem; } }
 
         private void UpdateBusinessObjectParents() {
-            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get();
+            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.School);
 
             cbSubjects.ItemsSource = businessObjectParents;
             if (ApplicationPropertyManager.Workspace.Subject != null) {
@@ -47,11 +47,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                 lbDocuments.ItemsSource = businessObjects;
             }
             else {
-                ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
-                    Content = "Keine Dokumente gefunden.\nKlicken Sie auf \"Hinzufügen\" um ein Dokument hinzuzufügen.",
-                    FontSize = 10,
-                    IsEnabled = false
-                };
+                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Keine Dokumente gefunden.\nKlicken Sie auf \"Hinzufügen\" um ein Dokument hinzuzufügen.");
                 lbDocuments.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
         }

@@ -63,20 +63,22 @@ namespace VrankenBischof.Docxes.Data {
         /// <summary>
         /// Gets all existing entities with the specified date.
         /// </summary>
+        /// <param name="subject">The subject that the returned entities must have.</param>
         /// <param name="date">The date that the returned entities must have.</param>
         /// <returns>A list of all existing entities with the specified date.</returns>
-        internal List<Event> Get(DateTime date) {
-            return Get(entity => entity.Date.Date == date.Date);
+        internal List<Event> Get(Subject subject, DateTime date) {
+            return Get(entity => entity.Date.Date == date.Date && entity.Subject.Equals(subject));
         }
 
         /// <summary>
         /// Gets all existing entities between the specified minimum and maximum date.
         /// </summary>
+        /// <param name="subject">The subject that the returned entities must have.</param>
         /// <param name="minimumDate">The minimum date that the returned entities can have (inclusive).</param>
         /// <param name="maximumDate">The maximum date that the returned entities can have (inclusive).</param>
         /// <returns>A list of all existing entities between the specified minimum and maximum date.</returns>
-        internal List<Event> Get(DateTime minimumDate, DateTime maximumDate) {
-            return Get(entity => entity.Date.Date >= minimumDate.Date && entity.Date.Date <= maximumDate.Date);
+        internal List<Event> Get(Subject subject, DateTime minimumDate, DateTime maximumDate) {
+            return Get(entity => entity.Date.Date >= minimumDate.Date && entity.Date.Date <= maximumDate.Date && entity.Subject.Equals(subject));
         }
 
 

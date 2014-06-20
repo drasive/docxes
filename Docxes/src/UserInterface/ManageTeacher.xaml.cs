@@ -11,7 +11,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         private School businessObjectParent { get { return ApplicationPropertyManager.Workspace.School; } }
         private Teacher businessObjectEditing;
 
-        private BusinessLogic.BusinessObjectProcessor<Teacher, School> businessObjectProcessor = new BusinessLogic.TeacherProcessor();
+        private BusinessLogic.TeacherProcessor businessObjectProcessor = new BusinessLogic.TeacherProcessor();
 
 
         private void Initialize(Teacher businessObjectToEdit) {

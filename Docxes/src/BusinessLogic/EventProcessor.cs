@@ -26,11 +26,14 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             if (school == null) {
                 throw new ArgumentNullException("school");
             }
-            // TODO:
-            //if (school != typeof(School)) {
-            //    throw new ArgumentException("school is not of type \"School\"");
-            //}
-            var schoolAsSchool = (School)school;
+            
+            School schoolAsSchool;
+            try {
+                schoolAsSchool = (School)school;
+            }
+            catch {
+                throw new ArgumentException("parameter \"school\" cannot be converted to type \"School\"");
+            }
 
             var subjectProcessor = new BusinessLogic.SubjectProcessor();
             return subjectProcessor.Get(schoolAsSchool).Count > 0;
@@ -71,8 +74,16 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         /// </summary>
         /// <param name="date">The date that the returned entities must have.</param>
         /// <returns>A list of all existing entities with the specified date.</returns>
-        public List<Event> Get(DateTime date) {
-            return ((EventsDataManager)dataManager).Get(date);
+        public List<Event> Get(School school, DateTime date) {
+            var subjectProcessor = new SubjectProcessor();
+            var subjects = subjectProcessor.Get(school);
+
+            List<Event> events = new List<Event>();
+            foreach (var subject in subjects) {
+                events.AddRange(((EventsDataManager)dataManager).Get(subject, date));
+            }
+
+            return events;
         }
 
         /// <summary>
@@ -81,8 +92,16 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         /// <param name="minimumDate">The minimum date that the returned entities can have (inclusive).</param>
         /// <param name="maximumDate">The maximum date that the returned entities can have (inclusive).</param>
         /// <returns>A list of all existing entities between the specified minimum and maximum date.</returns>
-        public List<Event> Get(DateTime minimumDate, DateTime maximumDate) {
-            return ((EventsDataManager)dataManager).Get(minimumDate, maximumDate);
+        public List<Event> Get(School school, DateTime minimumDate, DateTime maximumDate) {
+            var subjectProcessor = new SubjectProcessor();
+            var subjects = subjectProcessor.Get(school);
+
+            List<Event> events = new List<Event>();
+            foreach (var subject in subjects) {
+                events.AddRange(((EventsDataManager)dataManager).Get(subject, minimumDate, maximumDate));
+            }
+
+            return events;
         }
 
         /// <summary>
@@ -119,15 +138,6 @@ namespace VrankenBischof.Docxes.BusinessLogic {
                 throw new ArgumentNullException("objectToDelete");
             }
 
-            // Remove dependencies
-            //var gradeProcessor = new GradeProcessor();
-            //foreach (Grade dependencyToDisconnect in gradeProcessor.Get(objectToDelete)) {
-            //    // TODO: Check if EventId needs to be modified too
-            //    dependencyToDisconnect.Event = null;
-            //    gradeProcessor.Update(dependencyToDisconnect);
-            //}
-
-            // Delete object
             dataManager.Delete(objectToDelete);
         }
 

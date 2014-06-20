@@ -11,13 +11,13 @@ namespace VrankenBischof.Docxes.UserInterface {
     /// </summary>
     internal partial class SchoolOverview : Window {
 
-        private BusinessLogic.BusinessObjectProcessor<Teacher, School> teacherProcessor = new BusinessLogic.TeacherProcessor();
-        private BusinessLogic.BusinessObjectProcessor<Subject, Teacher> subjectProcessor = new BusinessLogic.SubjectProcessor();
+        private BusinessLogic.TeacherProcessor teacherProcessor = new BusinessLogic.TeacherProcessor();
+        private BusinessLogic.SubjectProcessor subjectProcessor = new BusinessLogic.SubjectProcessor();
 
-        private BusinessLogic.BusinessObjectProcessor<Document, Subject> documentProcessor = new BusinessLogic.DocumentProcessor();
-        private BusinessLogic.BusinessObjectProcessor<Note, Subject> noteProcessor = new BusinessLogic.NoteProcessor();
-        private BusinessLogic.BusinessObjectProcessor<Grade, Subject> gradeProcessor = new BusinessLogic.GradeProcessor();
-        private BusinessLogic.BusinessObjectProcessor<Event, Subject> eventProcessor = new BusinessLogic.EventProcessor();
+        private BusinessLogic.DocumentProcessor documentProcessor = new BusinessLogic.DocumentProcessor();
+        private BusinessLogic.NoteProcessor noteProcessor = new BusinessLogic.NoteProcessor();
+        private BusinessLogic.GradeProcessor gradeProcessor = new BusinessLogic.GradeProcessor();
+        private BusinessLogic.EventProcessor eventProcessor = new BusinessLogic.EventProcessor();
 
 
         internal SchoolOverview() {
@@ -42,13 +42,15 @@ namespace VrankenBischof.Docxes.UserInterface {
         #region Interface
 
         private bool CheckForTeacherCreation() {
-            return (teacherProcessor.Get().Count == 0
+            return (teacherProcessor.Get(ApplicationPropertyManager.Workspace.School).Count == 0
                     && AskForElementCreation("Sie haben noch keine Lehrer eingetragen. Möchten Sie jetzt einen Lehrer hinzufügen?", "Lehrer hinzufügen?") == MessageBoxResult.Yes
                     && OpenAddTeacher() == BusinessObjectManagerAction.Saved);
         }
 
         private bool CheckForSubjectCreation() {
-            return (subjectProcessor.Get().Count == 0
+            var subjects = subjectProcessor.Get(ApplicationPropertyManager.Workspace.School);
+
+            return (subjects.Count == 0
                     && AskForElementCreation("Sie haben noch keine Fächer eingetragen. Möchten Sie jetzt ein Fach hinzufügen?", "Fach hinzufügen?") == MessageBoxResult.Yes
                     && OpenAddSubject() == BusinessObjectManagerAction.Saved);
         }
@@ -60,6 +62,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private void UpdateSubjects() {
             // Get business objects
+            // TODO: __DV Check
             var businessObjects = new List<Subject>();
             var businessObjectParents = teacherProcessor.Get(ApplicationPropertyManager.Workspace.School);
             foreach (var teacher in businessObjectParents) {
@@ -122,7 +125,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         private List<Event> UpdateUpcommingEvents(Panel container, ItemsControl itemsContainer, DateTime startDate, DateTime endDate) {
-            List<Event> events = ((BusinessLogic.EventProcessor)eventProcessor).Get(startDate, endDate);
+            List<Event> events = eventProcessor.Get(ApplicationPropertyManager.Workspace.School, startDate, endDate);
 
             if (events.Count > 0) {
                 itemsContainer.ItemsSource = events;
@@ -189,9 +192,6 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         private BusinessObjectManagerAction OpenAddEvent() {
-            // TODO:
-            //return BusinessObjectManagerAction.Undefined;
-
             var businessObjectManagerWindow = new ManageEvent(DateTime.Today) { Owner = this };
             businessObjectManagerWindow.ShowDialog();
             return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
@@ -215,12 +215,12 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         private void OpenManageSubjects() {
-            Window managementWindow = new ManageSubjects();
+            Window managementWindow = new ManageSubjects() { Owner = this };
             managementWindow.ShowDialog();
         }
 
         private void OpenManageTeachers() {
-            Window managementWindow = new ManageTeachers();
+            Window managementWindow = new ManageTeachers() { Owner = this };
             managementWindow.ShowDialog();
         }
 
@@ -322,12 +322,6 @@ namespace VrankenBischof.Docxes.UserInterface {
 
 
         private void btnManageSubjects_Click(object sender, RoutedEventArgs e) {
-            //if (subjectProcessor.CanCreate()) {
-            //}
-            //else {
-            //    MessageBox.Show("Mindestens ein Lehrer muss existieren, um Fächer verwalten zu können!", "Keine existierenden Lehrer", MessageBoxButton.OK, MessageBoxImage.Hand);
-            //}
-
             OpenManageSubjects();
             UpdateSubjects();
         }
@@ -348,21 +342,6 @@ namespace VrankenBischof.Docxes.UserInterface {
             var window = new ManageEvents();
             window.ShowDialog();
         }
-
-        // TODO: Enhance this temporary solution
-        #region Temp
-
-        private void btnGrades_Click(object sender, RoutedEventArgs e) {
-            //if (gradeProcessor.CanCreate()) {
-            var window = new ManageGrades();
-            window.ShowDialog();
-            //}
-            //else {
-            //    MessageBox.Show("Mindestens ein Fach muss existieren, um Noten verwalten zu können!", "Keine existierenden Fächer", MessageBoxButton.OK, MessageBoxImage.Hand);
-            //}            
-        }
-
-        #endregion
 
         #endregion
 

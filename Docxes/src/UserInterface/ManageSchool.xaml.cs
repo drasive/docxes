@@ -10,7 +10,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private School businessObjectEditing;
 
-        private BusinessLogic.BusinessObjectProcessor<School> businessObjectProcessor = new BusinessLogic.SchoolProcessor();
+        private BusinessLogic.SchoolProcessor businessObjectProcessor = new BusinessLogic.SchoolProcessor();
 
 
         private void Initialize() {

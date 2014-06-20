@@ -11,7 +11,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         private Subject businessObjectParent;
         private Note businessObjectEditing;
 
-        private BusinessLogic.BusinessObjectProcessor<Note, Subject> businessObjectProcessor = new BusinessLogic.NoteProcessor();
+        private BusinessLogic.NoteProcessor businessObjectProcessor = new BusinessLogic.NoteProcessor();
 
 
         private void Initialize(Subject businessObjectParent, Note businessObjectToEdit) {
