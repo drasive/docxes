@@ -7,7 +7,7 @@
         Height="400"
         Width="600"
         MinHeight="300"
-        MinWidth="500"
+        MinWidth="600"
         WindowStartupLocation="CenterOwner">
 
     <Grid x:Name="gRoot">
@@ -57,21 +57,20 @@
                      VerticalAlignment="Top"
                      MaxLength="64"
                      HorizontalAlignment="Left"
-                     Width="442" />
+                     Width="432" />
             <TextBox x:Name="tbPlace"
                      Grid.Column="1"
                      Margin="10,140,0,0"
-                     TextWrapping="Wrap"
                      VerticalAlignment="Top"
                      MaxLength="256"
                      HorizontalAlignment="Left"
-                     Width="442" />
+                     Width="432" />
             <ComboBox x:Name="cbType"
                       Grid.Column="1"
                       Margin="10,107,0,0"
                       VerticalAlignment="Top"
                       HorizontalAlignment="Left"
-                      Width="442" />
+                      Width="432" />
             <DatePicker x:Name="dpDate"
                         Grid.Column="1"
                         HorizontalAlignment="Left"
@@ -89,7 +88,7 @@
                       VerticalAlignment="Top"
                       SelectedValuePath="Id"
                       HorizontalAlignment="Left"
-                      Width="442" />
+                      Width="432" />
             <Label x:Name="lblSubject"
                    Content="Fach:"
                    Margin="0,41,10,0"

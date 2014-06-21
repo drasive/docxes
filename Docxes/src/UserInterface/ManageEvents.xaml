@@ -10,7 +10,7 @@
         Width="750"
         Loaded="wManageEvents_Loaded"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterOwner">
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -52,7 +52,7 @@
                                             DisplayMemberBinding="{Binding Name}" />
                             <GridViewColumn Width="100"
                                             Header="Typ"
-                                            DisplayMemberBinding="{Binding Type}" />
+                                            DisplayMemberBinding="{Binding TypeAsString}" />
                             <GridViewColumn Width="150"
                                             Header="Fach"
                                             DisplayMemberBinding="{Binding Subject}" />

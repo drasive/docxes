@@ -20,12 +20,12 @@
                     </Grid.Resources>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="35" />
+                        <RowDefinition Height="40" />
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
                     <Label Content="{Binding Name, Mode=OneWay}"
-                           FontSize="22" />
+                           FontSize="20" />
 
                     <Grid Margin="0,5,0,0"
                           Grid.Row="1">
@@ -54,16 +54,16 @@
 
                             <Button x:Name="btnManageDocuments"
                                     Click="btnManageDocuments_Click"
-                                    Content="Dokumente [Anzahl]" />
+                                    Content="Dokumente" />
                             <Button x:Name="btnManageNotes"
                                     Click="btnManageNotes_Click"
-                                    Content="Notizen [Anzahl]" />
+                                    Content="Notizen" />
                             <Button x:Name="btnManageGrades"
                                     Click="btnManageGrades_Click"
-                                    Content="Noten [Anzahl]" />
+                                    Content="Noten" />
                             <Button x:Name="btnManageEvents"
                                     Click="btnManageEvents_Click"
-                                    Content="Ereignisse [Anzahl]" />
+                                    Content="Ereignisse" />
                         </StackPanel>
 
                         <StackPanel Grid.Column="2"

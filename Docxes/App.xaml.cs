@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows;
 
 namespace VrankenBischof.Docxes {
@@ -11,6 +12,13 @@ namespace VrankenBischof.Docxes {
         protected override void OnStartup(StartupEventArgs e) {
             try {
                 base.OnStartup(e);
+
+                // Check for multiple running instances
+                if (Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Length > 1) {
+                    MessageBox.Show("Eine andere Instanz von Docxes wird bereits ausgeführt!",
+                                    "Andere Instanz wird bereits ausgeführt", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Shutdown(0);
+                }
 
                 // Set the application context
                 ApplicationPropertyManager.Application = Application.Current;
@@ -26,7 +34,7 @@ namespace VrankenBischof.Docxes {
             catch (Exception ex) {
                 Logger.Log(ex);
 
-                MessageBox.Show("Beim Start von Docxes ist ein Fehler aufgetreten." + Environment.NewLine +
+                MessageBox.Show("Beim Start von Docxes ist ein Fehler aufgetreten!" + Environment.NewLine +
                                 "Überprüfen Sie die Applikationskonfiguration und stellen Sie sicher, dass die Anwendung über die benötigten Berechtigungen auf dem Dateisystem verfügt.",
                                 "Fehler beim Start", MessageBoxButton.OK, MessageBoxImage.Error);
                 Shutdown(1);

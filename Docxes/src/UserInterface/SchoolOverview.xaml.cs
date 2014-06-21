@@ -6,6 +6,8 @@ using System.Windows.Controls;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
+    // TODO: Fix the usage of custom string formatter properties in custom controls
+
     /// <summary>
     /// Interaction logic for <see cref="SchoolOverview.xaml"/>.
     /// </summary>

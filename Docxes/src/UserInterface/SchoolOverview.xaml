@@ -9,7 +9,7 @@
         Title="[Schulname]"
         Height="600"
         Width="900"
-        WindowStartupLocation="CenterOwner"
+        WindowStartupLocation="CenterScreen"
         Loaded="wSchoolOverview_Loaded"
         MinHeight="500"
         MinWidth="750">
@@ -35,34 +35,33 @@
                            FontSize="24"
                            VerticalAlignment="top" />
 
-                <ItemsControl x:Name="icSubjects"
-                              Grid.Row="1">
-                    <ItemsControl.DataContext>
-                        <Docxes:Subject />
-                    </ItemsControl.DataContext>
+                <ScrollViewer Grid.Row="1"
+                              VerticalScrollBarVisibility="Auto">
+                    <ItemsControl x:Name="icSubjects">
+                        <ItemsControl.DataContext>
+                            <Docxes:Subject />
+                        </ItemsControl.DataContext>
 
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <!-- TODO: Fucking vertical scrollbar -->
-                            <!--<ScrollViewer>-->
-                            <WrapPanel />
-                            <!--</ScrollViewer>-->
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
 
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Interface:SubjectOverview ManagingDocuments="SubjectOverview_ManagingDocuments"
-                                                       ManagingEvents="SubjectOverview_ManagingEvents"
-                                                       ManagingGrades="SubjectOverview_ManagingGrades"
-                                                       ManagingNotes="SubjectOverview_ManagingNotes"
-                                                       AddingDocument="SubjectOverview_AddingDocument"
-                                                       AddingEvent="SubjectOverview_AddingEvent"
-                                                       AddingGrade="SubjectOverview_AddingGrade"
-                                                       AddingNote="SubjectOverview_AddingNote" />
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Interface:SubjectOverview ManagingDocuments="SubjectOverview_ManagingDocuments"
+                                                           ManagingEvents="SubjectOverview_ManagingEvents"
+                                                           ManagingGrades="SubjectOverview_ManagingGrades"
+                                                           ManagingNotes="SubjectOverview_ManagingNotes"
+                                                           AddingDocument="SubjectOverview_AddingDocument"
+                                                           AddingEvent="SubjectOverview_AddingEvent"
+                                                           AddingGrade="SubjectOverview_AddingGrade"
+                                                           AddingNote="SubjectOverview_AddingNote" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
 
                 <Button x:Name="btnChangeSchool"
                         Margin="0,15,10,0"
@@ -112,13 +111,12 @@
                            VerticalAlignment="top" />
                 <TextBlock x:Name="lblNoUpcommingEvents"
                            Grid.Row="1"
-                           Text="Keine bevorstehenden Ereignisse."
-                           Margin="0,0,0,180" />
+                           Text="Keine bevorstehenden Ereignisse." />
 
                 <StackPanel x:Name="gUpcommingEventsOverview"
                             Grid.Row="1">
                     <Grid x:Name="gUpcommingEventsThisWeek"
-                          Height="150">
+                          MaxHeight="250">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30" />
                             <RowDefinition />
@@ -128,25 +126,28 @@
                                    Text="Diese Woche"
                                    FontSize="18" />
 
-                        <ItemsControl x:Name="icUpcommingEventsThisWeek"
-                                      Grid.Row="1"
-                                      Margin="-4,0,0,0">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
+                        <ScrollViewer Grid.Row="1"
+                                      Margin="-4,0,0,0"
+                                      VerticalScrollBarVisibility="Auto">
+                            <ItemsControl x:Name="icUpcommingEventsThisWeek">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
 
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Interface:EventOverview />
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Interface:EventOverview />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
                     </Grid>
 
                     <Grid x:Name="gUpcommingEventsNextWeek"
-                          Height="270">
+                          MaxHeight="250"
+                          Margin="0,10,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30" />
                             <RowDefinition />
@@ -156,25 +157,27 @@
                                    Text="Nächste Woche"
                                    FontSize="18" />
 
-                        <ItemsControl x:Name="icUpcommingEventsNextWeek"
-                                      Grid.Row="1"
-                                      Margin="-4,0,0,0">
-                            <ItemsControl.DataContext>
-                                <Docxes:Event />
-                            </ItemsControl.DataContext>
+                        <ScrollViewer Grid.Row="1"
+                                      Margin="-4,0,0,0"
+                                      VerticalScrollBarVisibility="Auto">
+                            <ItemsControl x:Name="icUpcommingEventsNextWeek">
+                                <ItemsControl.DataContext>
+                                    <Docxes:Event />
+                                </ItemsControl.DataContext>
 
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
 
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Interface:EventOverview />
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Interface:EventOverview />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
                     </Grid>
                 </StackPanel>
 

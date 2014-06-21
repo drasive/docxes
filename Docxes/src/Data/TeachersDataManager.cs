@@ -87,6 +87,7 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToDelete");
             }
 
+            // TODO: Fix bug when deleting teacher (probably connected to the problem when deleting a document)
             var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
 
             var databaseObjectToDelete = databaseContainer.Teachers.Find(entityToDelete.Id);

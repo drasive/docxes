@@ -23,8 +23,18 @@
             <Label x:Name="lblName"
                    Content="{Binding Name, Mode=OneWay}"
                    FontSize="16" />
-            <Label x:Name="lblSubjectAndDate"
-                   Content="{Binding Subject, Mode=OneWay}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="lblSubject"
+                       Grid.Column="1"
+                       Content="{Binding Subject, Mode=OneWay}" />
+                <Label x:Name="lblDate"                       
+                       Content="{Binding Date, Mode=OneWay}" />               
+            </Grid>
         </StackPanel>
     </Grid>
 </UserControl>

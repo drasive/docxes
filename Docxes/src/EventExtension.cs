@@ -50,6 +50,10 @@ namespace VrankenBischof.Docxes {
         }
 
 
+        // UI formatting
+        public string TypeAsString { get { return Enum.GetName(typeof(EventType), Type); } }
+
+
         /// <summary>
         /// Returns a string that represents the current object.
         /// </summary>
