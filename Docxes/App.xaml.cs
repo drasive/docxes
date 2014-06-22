@@ -10,6 +10,8 @@ namespace VrankenBischof.Docxes {
     public partial class App : Application {
 
         protected override void OnStartup(StartupEventArgs e) {
+            Window windowToShow = null;
+
             try {
                 base.OnStartup(e);
 
@@ -28,12 +30,15 @@ namespace VrankenBischof.Docxes {
                 AppDomain.CurrentDomain.SetData("DataDirectory", DataDirectoryPath);
 
                 // Show the initial window
-                Window windowToShow = new UserInterface.ManageSchools();
+                windowToShow = new UserInterface.ManageSchools();
                 windowToShow.Show();
             }
             catch (Exception ex) {
                 Logger.Log(ex);
 
+                if (windowToShow != null) {
+                    windowToShow.Close();
+                }
                 MessageBox.Show("Beim Start von Docxes ist ein Fehler aufgetreten!" + Environment.NewLine +
                                 "Überprüfen Sie die Applikationskonfiguration und stellen Sie sicher, dass die Anwendung über die benötigten Berechtigungen auf dem Dateisystem verfügt.",
                                 "Fehler beim Start", MessageBoxButton.OK, MessageBoxImage.Error);

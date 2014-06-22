@@ -120,7 +120,30 @@ namespace VrankenBischof.Docxes.UserInterface {
         private bool ValidateInput() {
             var isNameValid = InputValidation.Validate(tbName);
 
-            return isNameValid;
+            if (isNameValid) {
+                School currentSchool = ApplicationPropertyManager.Workspace.School;
+                Subject duplicate;
+                if (IsEditing) {
+                    duplicate = businessObjectProcessor.Get(currentSchool).Find(entity => entity.Name.ToUpper() == tbName.Text.ToUpper()
+                                                                                          && entity.Id != businessObjectEditing.Id);
+                }
+                else {
+                    duplicate = businessObjectProcessor.Get(currentSchool).Find(entity => entity.Name.ToUpper() == tbName.Text.ToUpper());
+                }
+
+                var doesDuplicateExist = duplicate != null;
+                if (doesDuplicateExist) {
+                    InputValidation.MarkControlAsInvalid(tbName, "Dieser Name wird bereits für ein anderes Fach an dieser Schule verwendet.");
+                }
+                else {
+                    InputValidation.MarkControlAsValid(tbName);
+                }
+
+                return !doesDuplicateExist;
+            }
+            else {
+                return false;
+            }
         }
 
         #endregion

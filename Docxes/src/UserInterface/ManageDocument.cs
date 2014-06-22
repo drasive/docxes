@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
@@ -64,15 +65,12 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void Add() {
             var openFileDialog = GetOpenFileDialog();
             openFileDialog.FilterIndex = 3;
-            Nullable<bool> fileSelected = openFileDialog.ShowDialog();
+            Nullable<bool> selectedFile = openFileDialog.ShowDialog();
 
-            if (fileSelected.GetValueOrDefault()) {
-                string filePath = openFileDialog.FileName;
-                var businessObjectToCreate = new Document(filePath, businessObjectParent);
-
-                businessObjectProcessor.Create(businessObjectToCreate);
-
-                Action = BusinessObjectManagerAction.Saved;
+            if (selectedFile.GetValueOrDefault()) {
+                if (Save(openFileDialog)) {
+                    Action = BusinessObjectManagerAction.Saved;
+                }
             }
             else {
                 Action = BusinessObjectManagerAction.Canceled;
@@ -93,19 +91,66 @@ namespace VrankenBischof.Docxes.UserInterface {
                     openFileDialog.FilterIndex = 3;
                     break;
             }
-            Nullable<bool> fileSelected = openFileDialog.ShowDialog();
+            Nullable<bool> selectedFile = openFileDialog.ShowDialog();
 
-            if (fileSelected.GetValueOrDefault()) {
-                string filePath = openFileDialog.FileName;
-                var businessObjectToCreate = new Document(filePath, businessObjectParent, businessObjectEditing);
-
-                businessObjectProcessor.Update(businessObjectToCreate);
-
-                Action = BusinessObjectManagerAction.Saved;
+            if (selectedFile.GetValueOrDefault()) {
+                if (Save(openFileDialog)) {
+                    Action = BusinessObjectManagerAction.Saved;
+                }
             }
             else {
                 Action = BusinessObjectManagerAction.Canceled;
             }
+        }
+
+
+        private bool Save(Microsoft.Win32.OpenFileDialog dialog) {
+            if (ValidateInput(dialog.FileName)) {
+                var businessObjectToSave = MapInterfaceToElement(dialog.FileName);
+
+                if (IsEditing) {
+                    businessObjectProcessor.Update(businessObjectToSave);
+                }
+                else {
+                    businessObjectProcessor.Create(businessObjectToSave);
+                }
+                return true;
+            }
+
+            return false;
+        }
+
+        #endregion
+
+        #region Interface
+
+        private Document MapInterfaceToElement(string filePath) {
+            if (IsEditing) {
+                return new Document(filePath, businessObjectParent, businessObjectEditing);
+            }
+            else {
+                return new Document(filePath, businessObjectParent);
+            }
+        }
+
+
+        private bool ValidateInput(string filePath) {
+            Document duplicate;
+            if (IsEditing) {
+                duplicate = businessObjectProcessor.Get(businessObjectParent).Find(entity => entity.FilePath.ToUpper() == filePath.ToUpper()
+                                                                                             && entity.Id != businessObjectEditing.Id);
+            }
+            else {
+                duplicate = businessObjectProcessor.Get(businessObjectParent).Find(entity => entity.FilePath.ToUpper() == filePath.ToUpper());
+            }
+
+            var doesDuplicateExist = duplicate != null;
+            if (doesDuplicateExist) {
+                MessageBox.Show("Dieses Dokument ist bereits diesem Fach zugeordnet.", "Dokument bereits zugeordnet",
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            return !doesDuplicateExist;
         }
 
 
@@ -114,12 +159,14 @@ namespace VrankenBischof.Docxes.UserInterface {
                 throw new InvalidOperationException("Already executed");
             }
 
-            if (IsEditing) {
-                Edit();
-            }
-            else {
-                Add();
-            }
+            do {
+                if (IsEditing) {
+                    Edit();
+                }
+                else {
+                    Add();
+                }
+            } while (Action == BusinessObjectManagerAction.Undefined);
         }
 
         #endregion

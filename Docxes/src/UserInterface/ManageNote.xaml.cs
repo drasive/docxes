@@ -104,7 +104,29 @@ namespace VrankenBischof.Docxes.UserInterface {
             var isNameValid = InputValidation.Validate(tbName);
             var isContentValid = InputValidation.Validate(tbContent);
 
-            return isNameValid && isContentValid;
+            if (isNameValid && isContentValid) {
+                Note duplicate;
+                if (IsEditing) {
+                    duplicate = businessObjectProcessor.Get(businessObjectParent).Find(entity => entity.Name.ToUpper() == tbName.Text.ToUpper()
+                                                                                           && entity.Id != businessObjectEditing.Id);
+                }
+                else {
+                    duplicate = businessObjectProcessor.Get(businessObjectParent).Find(entity => entity.Name.ToUpper() == tbName.Text.ToUpper());
+                }
+
+                var doesDuplicateExist = duplicate != null;
+                if (doesDuplicateExist) {
+                    InputValidation.MarkControlAsInvalid(tbName, "Dieser Name wird bereits für eine andere Notiz für dieses Fach verwendet.");
+                }
+                else {
+                    InputValidation.MarkControlAsValid(tbName);
+                }
+
+                return !doesDuplicateExist;
+            }
+            else {
+                return false;
+            }
         }
 
         #endregion

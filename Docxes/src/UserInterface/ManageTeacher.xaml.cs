@@ -97,7 +97,35 @@ namespace VrankenBischof.Docxes.UserInterface {
             var isFirstNameValid = InputValidation.Validate(tbFirstName);
             var isLastNameValid = InputValidation.Validate(tbLastName);
 
-            return isFirstNameValid && isLastNameValid;
+            if (isFirstNameValid && isLastNameValid) {
+                School currentSchool = ApplicationPropertyManager.Workspace.School;
+                Teacher duplicate;
+                if (IsEditing) {
+                    duplicate = businessObjectProcessor.Get(currentSchool).Find(entity => entity.FirstName.ToUpper() == tbFirstName.Text.ToUpper()
+                                                                                              && entity.LastName.ToUpper() == tbLastName.Text.ToUpper()
+                                                                                              && entity.Id != businessObjectEditing.Id);
+                }
+                else {
+                    duplicate = businessObjectProcessor.Get(currentSchool).Find(entity => entity.FirstName.ToUpper() == tbFirstName.Text.ToUpper()
+                                                                                              && entity.LastName.ToUpper() == tbLastName.Text.ToUpper());
+                }
+
+                var doesDuplicateExist = duplicate != null;
+                if (doesDuplicateExist) {
+                    var toolTip = "Diese Kombination von Vor- und Nachname wird bereits für einen anderen Lehrer an dieser Schule verwendet.";
+                    InputValidation.MarkControlAsInvalid(tbFirstName, toolTip);
+                    InputValidation.MarkControlAsInvalid(tbLastName, toolTip);
+                }
+                else {
+                    InputValidation.MarkControlAsValid(tbFirstName);
+                    InputValidation.MarkControlAsValid(tbLastName);
+                }
+
+                return !doesDuplicateExist;
+            }
+            else {
+                return false;
+            }
         }
 
         #endregion

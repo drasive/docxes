@@ -10,6 +10,34 @@ namespace VrankenBischof.Docxes.UserInterface {
     internal static class InputValidation {
 
         /// <summary>
+        /// Marks a control as valid by restoring the default border color and removing the tooltip.
+        /// </summary>
+        /// <param name="control">The control to mark as valid.</param>
+        internal static void MarkControlAsValid(Control control) {
+            if (control == null) {
+                throw new ArgumentNullException("control");
+            }
+
+            control.BorderBrush = Brushes.DimGray; // Pretty similar to the default border brush of a TextBox
+            control.ToolTip = string.Empty;
+        }
+
+        /// <summary>
+        /// Marks a control as invalid by setting the border color to red.
+        /// </summary>
+        /// <param name="control">The control to mark as invalid.</param>
+        /// <param name="toolTip">The tooltip to use for the specified control.</param>
+        internal static void MarkControlAsInvalid(Control control, string toolTip) {
+            if (control == null) {
+                throw new ArgumentNullException("control");
+            }
+
+            control.BorderBrush = Brushes.Red;
+            control.ToolTip = toolTip ?? String.Empty;
+        }
+
+
+        /// <summary>
         /// Validates the input inside of a text box.
         /// </summary>
         /// <param name="textBox">The text box to validate the input of.</param>
@@ -20,16 +48,13 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
 
             if (String.IsNullOrEmpty(textBox.Text.Trim())) {
-                textBox.BorderBrush = Brushes.Red;
-                textBox.ToolTip = "Dies ist ein Pflichtfeld";
+                MarkControlAsInvalid(textBox, "Dies ist ein Pflichtfeld.");
                 return false;
             }
-
-            // TODO: Check for duplicate entity?
-
-            textBox.BorderBrush = Brushes.DimGray; // Pretty similar to the default border brush of a TextBox
-            textBox.ToolTip = string.Empty;
-            return true;
+            else {
+                MarkControlAsValid(textBox);
+                return true;
+            }
         }
 
         /// <summary>
@@ -43,14 +68,13 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
 
             if (datePicker.SelectedDate == null) {
-                datePicker.BorderBrush = Brushes.Red;
-                datePicker.ToolTip = "Dies ist ein Pflichtfeld";
+                MarkControlAsInvalid(datePicker, "Dies ist ein Pflichtfeld.");
                 return false;
             }
-
-            datePicker.BorderBrush = Brushes.DimGray; // Pretty similar to the default border brush of a DatePicker
-            datePicker.ToolTip = string.Empty;
-            return true;
+            else {
+                MarkControlAsValid(datePicker);
+                return true;
+            }
         }
 
     }
