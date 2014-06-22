@@ -3,29 +3,46 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VrankenBischof.Docxes;
 using VrankenBischof.Docxes.BusinessLogic;
 
-namespace DocxesTesting {
+namespace Docxes.Test {
 
     [TestClass]
     public class SchoolProcessorTest {
 
         private static string GetRandomEntityName() {
-            return "[AUTOMATED TESTING] " + new Guid().GetHashCode();
+            return new Guid().ToString();
         }
 
-        [TestMethod]
-        public void TestMethod1() {
-            // TODO: __DV
 
+        [TestMethod]
+        public void DatabaseOperations() {
             // Arrange
-            var SchoolProcessor = new SchoolProcessor();
+            var entityProcessor = new SchoolProcessor();
+            var initialEntityCount = entityProcessor.Get().Count;
 
             // Act & Assert
-            var schoolToSave = new School(GetRandomEntityName(), "Test comment");
-            SchoolProcessor.Create(schoolToSave);
+            // -- Insert
+            var initialEntityName = GetRandomEntityName();
+            var initialEntityComment = "Comment 1";
+            var initialEntity = new School(initialEntityName, initialEntityComment);
 
-            //Update
+            entityProcessor.Create(initialEntity);
 
-            //Delete
+            Assert.AreEqual(initialEntityCount + 1, entityProcessor.Get().Count);
+
+            // -- Update
+            var updatedEntityName = GetRandomEntityName();
+            var updatedEntityComment = "Comment 2";
+            var updatedEntity = new School(updatedEntityName, updatedEntityComment, initialEntity);
+
+            entityProcessor.Update(updatedEntity);
+
+            Assert.AreEqual(initialEntityCount + 1, entityProcessor.Get().Count);
+
+
+            // -- Delete
+            entityProcessor.Delete(initialEntity);
+
+            Assert.AreEqual(initialEntityCount, entityProcessor.Get().Count);
         }
 
     }
