@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Configuration;
+using System.IO;
+using System.Reflection;
 
 namespace VrankenBischof.Docxes {
 
@@ -8,20 +10,45 @@ namespace VrankenBischof.Docxes {
     /// </summary>
     internal sealed class ConfigurationReader {
 
-        #region "General"
+        #region General
 
         /// <summary>
-        /// Gets the value of the DataDirectoryPath setting in the application configuration.
+        /// Gets the value of the UseAutoDataDirectoryPath setting in the application configuration.
         /// </summary>
-        /// <returns>The value of the DataDirectoryPath setting in the application configuration.</returns>
+        /// <returns>The value of the UseAutoDataDirectoryPath setting in the application configuration.</returns>
+        private static bool GetUseAutoDataDirectoryPath() {
+            return GetBooleanValue("UseAutoDataDirectoryPath");
+        }
+
+        /// <summary>
+        /// Gets the value of the CustomDataDirectoryPath setting in the application configuration.
+        /// </summary>
+        /// <returns>The value of the CustomDataDirectoryPath setting in the application configuration.</returns>
+        private static string GetCustomDataDirectoryPath() {
+            return GetPathValue("CustomDataDirectoryPath");
+        }
+
+
+        /// <summary>
+        /// Returns the path to the data directory, which is either set in the application configuration (absolute) or auto generated (relative to the executing assembly).
+        /// </summary>
+        /// <returns>The path to the data directory, which is either set in the application configuration (absolute) or auto generated (relative to the executing assembly).</returns>
         internal static string GetDataDirectoryPath() {
-            return GetPathValue("DataDirectoryPath");
+            if (GetUseAutoDataDirectoryPath()) {
+                var applicationDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                var autoDataDirectory = @"Data\";
+
+                return Path.Combine(applicationDirectory, autoDataDirectory);
+            }
+            else {
+                return GetCustomDataDirectoryPath();
+            }
         }
 
         #endregion
 
 
-        #region "Helper Methods"
+        #region Helper Methods
 
         private static string GetConnectionStringValue(string key) {
             if (string.IsNullOrEmpty(key)) {

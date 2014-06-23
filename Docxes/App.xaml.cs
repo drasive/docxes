@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Windows;
 
 namespace VrankenBischof.Docxes {
@@ -26,8 +28,8 @@ namespace VrankenBischof.Docxes {
                 ApplicationPropertyManager.Application = Application.Current;
 
                 // Set the data directory
-                var DataDirectoryPath = ConfigurationReader.GetDataDirectoryPath();
-                AppDomain.CurrentDomain.SetData("DataDirectory", DataDirectoryPath);
+                var dataDirectory = ConfigurationReader.GetDataDirectoryPath();
+                AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectory);
 
                 // Show the initial window
                 windowToShow = new UserInterface.ManageSchools();
