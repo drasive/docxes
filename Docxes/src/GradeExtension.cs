@@ -20,14 +20,12 @@
         /// <param name="weight">The weight of the grade.</param>
         /// <param name="comment">The comment of the grade.</param>
         /// <param name="subject">The subject of the grade.</param>
-        /// <param name="event">The event of the grade.</param>
-        public Grade(int value, int weight, string comment, Subject subject, Event @event) {
+        public Grade(decimal value, GradeWeight weight, string comment, Subject subject) {
             Value = value;
-            Weight = weight;
+            Weight = (int)weight;
             Comment = comment;
 
             SubjectId = subject.Id;
-            EventId = @event.Id;
         }
 
         /// <summary>
@@ -37,10 +35,9 @@
         /// <param name="weight">The weight of the grade.</param>
         /// <param name="comment">The comment of the grade.</param>
         /// <param name="subject">The subject of the grade.</param>
-        /// <param name="event">The event of the grade.</param>
         /// <param name="businessObjectEditing">The business object editing to take the id from.</param>
-        public Grade(int value, int weight, string comment, Subject subject, Event @event, Grade businessObjectEditing)
-            : this(value, weight, comment, subject, @event) {
+        public Grade(decimal value, GradeWeight weight, string comment, Subject subject, Grade businessObjectEditing)
+            : this(value, weight, comment, subject) {
             Id = businessObjectEditing.Id;
         }
 

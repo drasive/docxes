@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/20/2014 10:11:49
--- Generated from EDMX file: C:\Privat\Versionsverwaltung\Docxes\Development\Docxes\src\Data\LocalDatabase.edmx
+-- Date Created: 06/23/2014 20:06:59
+-- Generated from EDMX file: C:\Users\dimit_000\SkyDrive\Programming\Windows Desktop\Docxes\Development\Docxes\src\Data\LocalDatabase.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [DocxesDB];
+USE [Docxes];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -108,9 +108,8 @@ GO
 CREATE TABLE [dbo].[Grades] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [SubjectId] int  NOT NULL,
-    [EventId] int  NULL,
-    [Value] int  NOT NULL,
-    [Weight] int  NOT NULL,
+    [Value] decimal(18,0)  NOT NULL,
+    [Weight] decimal(18,0)  NOT NULL,
     [Comment] nvarchar(512)  NULL
 );
 GO

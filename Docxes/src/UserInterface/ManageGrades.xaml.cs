@@ -25,8 +25,6 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         #region Interface
 
-        //TODO NBI: businessObjectParentProcessor.Get(); implement
-
         private Subject SelectedBusinessObjectParent { get { return (Subject)cbSubjects.SelectedItem; } }
 
         private void UpdateBusinessObjectParents() {
@@ -42,36 +40,41 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
 
-        private Grade SelectedBusinessObject { get { return (Grade)lbGrades.SelectedItem; } }
+        private Grade SelectedBusinessObject { get { return (Grade)lvGrades.SelectedItem; } }
 
         private void UpdateBusinessObjects() {
             IEnumerable<Grade> businessObjects = businessObjectProcessor.Get(SelectedBusinessObjectParent);
 
-            if (businessObjects.Count() > 0) {
-                lbGrades.ItemsSource = businessObjects;
-            }
-            else {
-                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Keine Noten gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Noten zu erstellen.");
-                lbGrades.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
-            }
+            lvGrades.ItemsSource = businessObjects;
+        }
+
+
+        private void UpdateOverallAverage() {
+            // TODO: _
+            tblOverallAverage.Text = "5";
+        }
+
+        private void UpdateSubjectAverage() {
+            // TODO: _
+            tblSubjectAverage.Text = "5";
         }
 
 
         private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
-            Window addBusinessObjectManager = new ManageGrade() { Owner = this };
+            Window addBusinessObjectManager = new ManageGrade(SelectedBusinessObjectParent) { Owner = this };
             addBusinessObjectManager.ShowDialog();
             return ((IBusinessObjectManager)addBusinessObjectManager).Action;
         }
 
         private BusinessObjectManagerAction OpenEditBusinessObjectManager() {
-            Window editBusinessObjectManager = new ManageGrade((Grade)lbGrades.SelectedItem) { Owner = this };
+            Window editBusinessObjectManager = new ManageGrade(SelectedBusinessObjectParent, SelectedBusinessObject) { Owner = this };
             editBusinessObjectManager.ShowDialog();
             return ((IBusinessObjectManager)editBusinessObjectManager).Action;
         }
 
         private bool CheckForElementDeletion() {
             if (Common.AskForElementDeletion("Wollen Sie diese Note wirklich löschen?", "Note")) {
-                businessObjectProcessor.Delete((Grade)lbGrades.SelectedItem);
+                businessObjectProcessor.Delete(SelectedBusinessObject);
                 return true;
             }
 
@@ -91,7 +94,11 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void wManageGrades_Loaded(object sender, RoutedEventArgs e) {
             try {
                 UpdateBusinessObjectParents();
+                UpdateOverallAverage();
+
                 UpdateBusinessObjects();
+                UpdateSubjectAverage();
+
                 UpdateControlsAvailability();
             }
             catch (Exception ex) {
@@ -102,7 +109,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
 
-        private void lbGrades_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+        private void lvEvents_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             try {
                 UpdateControlsAvailability();
             }
@@ -129,7 +136,10 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void btnAdd_Click(object sender, RoutedEventArgs e) {
             try {
                 if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                    UpdateOverallAverage();
+
                     UpdateBusinessObjects();
+                    UpdateSubjectAverage();
                 }
             }
             catch (Exception ex) {
@@ -142,7 +152,10 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void btnEdit_Click(object sender, RoutedEventArgs e) {
             try {
                 if (OpenEditBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                    UpdateOverallAverage();
+
                     UpdateBusinessObjects();
+                    UpdateSubjectAverage();
                 }
             }
             catch (Exception ex) {
@@ -155,7 +168,10 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void btnDelete_Click(object sender, RoutedEventArgs e) {
             try {
                 if (CheckForElementDeletion()) {
+                    UpdateOverallAverage();
+
                     UpdateBusinessObjects();
+                    UpdateSubjectAverage();
                 }
             }
             catch (Exception ex) {

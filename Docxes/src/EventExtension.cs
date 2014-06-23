@@ -24,11 +24,11 @@ namespace VrankenBischof.Docxes {
         /// <param name="type">The type of the event.</param>
         /// <param name="comment">The comment of the event.</param>
         /// <param name="subject">The subject of the event.</param>
-        public Event(string name, string place, DateTime date, int type, string comment, Subject subject) {
+        public Event(string name, string place, DateTime date, EventType type, string comment, Subject subject) {
             Name = name;
             Place = place;
             Date = date;
-            Type = type;
+            Type = (int)type;
             Comment = comment;
 
             SubjectId = subject.Id;
@@ -44,7 +44,7 @@ namespace VrankenBischof.Docxes {
         /// <param name="comment">The comment of the event.</param>
         /// <param name="subject">The subject of the event.</param>
         /// <param name="businessObjectEditing">The business object editing to take the id from.</param>
-        public Event(string name, string place, DateTime date, int type, string comment, Subject subject, Event businessObjectEditing)
+        public Event(string name, string place, DateTime date, EventType type, string comment, Subject subject, Event businessObjectEditing)
             : this(name, place, date, type, comment, subject) {
             Id = businessObjectEditing.Id;
         }

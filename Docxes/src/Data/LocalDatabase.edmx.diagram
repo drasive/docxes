@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7ac6d267baec44358c508937aacbe2bf" Name="Main" ShowGrid="true" DisplayType="true" ZoomLevel="92" >
+      <Diagram DiagramId="7ac6d267baec44358c508937aacbe2bf" Name="Main" ShowGrid="true" DisplayType="true" ZoomLevel="74" >
         <EntityTypeShape EntityType="LocalDatabase.School" Width="1.875" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="LocalDatabase.Teacher" Width="1.875" PointX="0.5" PointY="3" />
         <EntityTypeShape EntityType="LocalDatabase.Subject" Width="1.875" PointX="3" PointY="3" />
@@ -17,11 +17,11 @@
         <AssociationConnector Association="LocalDatabase.SubjectEvents" />
         <AssociationConnector Association="LocalDatabase.SubjectDocuments" />
         <AssociationConnector Association="LocalDatabase.SubjectNotes" ManuallyRouted="true" >
-          <ConnectorPoint PointX="4.875" PointY="2.9999999999161635" />
+          <ConnectorPoint PointX="4.875" PointY="2.9999999982849124" />
           <ConnectorPoint PointX="5.25" PointY="2.625" />
           <ConnectorPoint PointX="5.25" PointY="4.75" />
           <ConnectorPoint PointX="7.625" PointY="4.75" />
-          <ConnectorPoint PointX="8" PointY="5.1250000000000142" />
+          <ConnectorPoint PointX="8" PointY="5.1250000000002247" />
         </AssociationConnector>
         <AssociationConnector Association="LocalDatabase.SubjectGrades" />
       </Diagram>

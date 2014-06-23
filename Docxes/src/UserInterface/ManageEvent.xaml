@@ -90,7 +90,9 @@
                      Margin="5,170,10,10"
                      TextWrapping="Wrap"
                      Text=""
-                     MaxLength="8192" />
+                     MaxLength="8192"
+                     AcceptsReturn="True"
+                     AcceptsTab="True" />
             <ComboBox x:Name="cbSubject"
                       Grid.Column="1"
                       Margin="5,45,0,0"

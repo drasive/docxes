@@ -43,7 +43,7 @@
                      MaxLength="64" />
             <ComboBox x:Name="cbTeacher"
                       Grid.Column="1"
-                      Margin="5,45,10,0"
+                      Margin="5,44,10,0"
                       VerticalAlignment="Top"
                       SelectedValuePath="Id"
                       ToolTip="Der Lehrer der dieses Fach unterrichtet" />

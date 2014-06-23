@@ -82,9 +82,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SubjectId" Type="int" Nullable="false" />
-    <Property Name="EventId" Type="int" Nullable="true" />
-    <Property Name="Value" Type="int" Nullable="false" />
-    <Property Name="Weight" Type="int" Nullable="false" />
+    <Property Name="Value" Type="decimal" Nullable="false" />
+    <Property Name="Weight" Type="decimal" Nullable="false" />
     <Property Name="Comment" Type="nvarchar" Nullable="true" MaxLength="512" />
   </EntityType>
   <EntityType Name="Notes">
@@ -279,9 +278,8 @@
                     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectGrades" FromRole="Grade" ToRole="Subject" />
                     <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <Property Name="EventId" Type="Int32" Nullable="true" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <Property Name="Value" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <Property Name="Weight" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Value" Type="Decimal" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Weight" Type="Decimal" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Comment" Type="String" Nullable="true" MaxLength="512" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                 </EntityType>
                 <EntityType Name="Note">
@@ -441,7 +439,6 @@
         <MappingFragment StoreEntitySet="Grades">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
-          <ScalarProperty Name="EventId" ColumnName="EventId" />
           <ScalarProperty Name="Value" ColumnName="Value" />
           <ScalarProperty Name="Weight" ColumnName="Weight" />
           <ScalarProperty Name="Comment" ColumnName="Comment" />

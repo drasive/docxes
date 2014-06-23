@@ -6,8 +6,8 @@
         x:ClassModifier="internal"
         Title="Noten"
         Icon="/Docxes;component/Resources/Images/Icon.ico"
-        Height="380"
-        Width="450"
+        Height="430"
+        Width="320"
         Loaded="wManageGrades_Loaded"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner">
@@ -50,12 +50,6 @@
                   SelectedValuePath="Id"
                   SelectionChanged="cbSubjects_SelectionChanged"
                   VerticalAlignment="Top" />
-        <TextBlock x:Name="tblOverallAverage"
-                   HorizontalAlignment="Right"
-                   Margin="253,15,10,0"
-                   Text="Gesamtdurchschnitt: [Note]"
-                   Height="16"
-                   VerticalAlignment="Top" />
 
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
@@ -64,12 +58,10 @@
                    Grid.Row="1"
                    Height="16"
                    VerticalAlignment="Top" />
-        <ListView x:Name="lvEvents"
-                  Margin="10,26,0,36"
+        <ListView x:Name="lvGrades"
+                  Margin="10,26,10,62"
                   Grid.Row="1"
-                  SelectionChanged="lvEvents_SelectionChanged"
-                  Width="260"
-                  HorizontalAlignment="Left">
+                  SelectionChanged="lvEvents_SelectionChanged">
             <ListView.DataContext>
                 <Docxes:Grade />
             </ListView.DataContext>
@@ -77,14 +69,48 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="120"
-                                    Header="Note"
-                                    DisplayMemberBinding="{Binding }" />
-                    <GridViewColumn Width="120"
-                                    Header="Gewicht"
+                                    Header="Gewichtung"
                                     DisplayMemberBinding="{Binding Weight}" />
+                    <GridViewColumn Width="120"
+                                    Header="Note"
+                                    DisplayMemberBinding="{Binding Value}" />
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <TextBlock Text="Durchschnitt:"
+                   Margin="10,0,0,36"
+                   Grid.Row="1"
+                   HorizontalAlignment="Left"
+                   Padding="0,5,5,0"
+                   Height="21"
+                   VerticalAlignment="Bottom" />
+        <TextBlock x:Name="tblSubjectAverage"
+                   Text="[Note]"
+                   Margin="0,0,10,33"
+                   Grid.Row="1"
+                   HorizontalAlignment="Right"
+                   Padding="0,5,5,0"
+                   Height="21"
+                   VerticalAlignment="Bottom" />
+        <TextBlock Text="Gesamtdurchschnitt:"
+                   Margin="10,0,0,10"
+                   Grid.Row="1"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left"
+                   Padding="0,5,5,0"
+                   RenderTransformOrigin="0.489,0.404"
+                   FontWeight="Bold" />
+        <TextBlock x:Name="tblOverallAverage"
+                   Text="[Note]"
+                   Margin="0,0,10,10"
+                   Grid.Row="1"
+                   HorizontalAlignment="Right"
+                   Padding="0,5,5,0"
+                   RenderTransformOrigin="0.489,0.404"
+                   FontWeight="Bold"
+                   Height="21"
+                   VerticalAlignment="Bottom" />
 
         <Button x:Name="btnAdd"
                 Content="Hinzufügen"
@@ -94,7 +120,8 @@
                 Width="75"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Right"
-                Click="btnAdd_Click" />
+                Click="btnAdd_Click"
+                ToolTip="Eine neue Note hinzufügen" />
         <Button x:Name="btnEdit"
                 Content="Bearbeiten"
                 Margin="0,5,90,0"
@@ -103,7 +130,8 @@
                 Click="btnEdit_Click"
                 Height="25"
                 Width="75"
-                Grid.Row="2" />
+                Grid.Row="2"
+                ToolTip="Die ausgewählte Note bearbeiten" />
         <Button x:Name="btnDelete"
                 Content="Löschen"
                 Margin="0,5,10,0"
@@ -112,12 +140,7 @@
                 Grid.Row="2"
                 Click="btnDelete_Click"
                 Height="25"
-                Width="75" />
-        <Label Content="Durchschnitt: [Note]"
-               Margin="10,235,0,0"
-               Grid.Row="1"
-               VerticalAlignment="Top"
-               HorizontalAlignment="Left"
-               Padding="0,5,5,5" />
+                Width="75"
+                ToolTip="Die ausgewählte Note löschen" />
     </Grid>
 </Window>

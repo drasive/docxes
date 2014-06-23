@@ -30,8 +30,8 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
             Common.ExtendWindowName(this);
 
-            UpdateBusinessObjectTypes();
             UpdateBusinessObjectParents();
+            UpdateBusinessObjectTypes();
         }
 
         internal ManageEvent(DateTime date) {
@@ -113,10 +113,10 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private Event MapInterfaceToElement() {
             if (IsEditing) {
-                return new Event(tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (int)cbType.SelectedValue, tbComment.Text, (Subject)cbSubject.SelectedItem, businessObjectEditing);
+                return new Event(tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (EventType)cbType.SelectedValue, tbComment.Text, (Subject)cbSubject.SelectedItem, businessObjectEditing);
             }
             else {
-                return new Event(tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (int)cbType.SelectedValue, tbComment.Text, (Subject)cbSubject.SelectedItem);
+                return new Event(tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (EventType)cbType.SelectedValue, tbComment.Text, (Subject)cbSubject.SelectedItem);
             }
         }
 

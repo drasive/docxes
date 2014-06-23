@@ -161,7 +161,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         private BusinessObjectManagerAction OpenAddGrade() {
-            var businessObjectManagerWindow = new ManageGrade() { Owner = this };
+            var businessObjectManagerWindow = new ManageGrade(ApplicationPropertyManager.Workspace.Subject) { Owner = this };
             businessObjectManagerWindow.ShowDialog();
             return ((IBusinessObjectManager)businessObjectManagerWindow).Action;
         }
