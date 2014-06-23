@@ -27,13 +27,13 @@
         
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
-                   Margin="10,10,0,0"
+                   Margin="10,5,0,0"
                    Text="Wählen Sie die Schule aus, die Sie verwalten möchten:"
                    Height="16"
                    VerticalAlignment="Top"
                    Grid.Row="1" />
         <ListBox x:Name="lbSchools"
-                 Margin="10,31,10,5"
+                 Margin="10,26,10,5"
                  Grid.Row="1"
                  SelectionChanged="lbSchools_SelectionChanged" />
         
@@ -46,7 +46,8 @@
                 Grid.Row="2"
                 Click="btnSelect_Click"
                 Height="25"
-                IsDefault="True" />
+                IsDefault="True"
+                ToolTip="Die Verwaltung für die ausgewählte Schule öffnen" />
         <Button x:Name="btnAdd"
                 Content="Hinzufügen"
                 Margin="0,5,170,0"
@@ -55,7 +56,8 @@
                 VerticalAlignment="Top"
                 Click="btnAdd_Click"
                 HorizontalAlignment="Right"
-                Width="75" />
+                Width="75"
+                ToolTip="Eine neue Schule hinzufügen" />
         <Button x:Name="btnEdit"
                 Content="Bearbeiten"
                 Margin="0,5,90,0"
@@ -64,7 +66,8 @@
                 Click="btnEdit_Click"
                 Height="25"
                 HorizontalAlignment="Right"
-                Width="75" />
+                Width="75"
+                ToolTip="Die ausgewählte Schule bearbeiten" />
         <Button x:Name="btnDelete"
                 Content="Löschen"
                 HorizontalAlignment="Right"
@@ -73,6 +76,7 @@
                 Width="75"
                 Grid.Row="2"
                 Click="btnDelete_Click"
-                Height="25" />
+                Height="25"
+                ToolTip="Die ausgewählte Schule löschen" />
     </Grid>
 </Window>

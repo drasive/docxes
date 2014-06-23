@@ -44,7 +44,7 @@
                Padding="0,5"
                HorizontalAlignment="Left" />
         <ComboBox x:Name="cbSubjects"
-                  Margin="42,13,0,0"
+                  Margin="42,12,0,0"
                   Height="23"
                   HorizontalAlignment="Left"
                   Width="200"
@@ -55,7 +55,7 @@
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
                    Margin="10,5,0,0"
-                   Text="Wählen Sie die Note aus, die Sie bearbeiten möchten:"
+                   Text="Wählen Sie die Note aus, die Sie verwalten möchten:"
                    Grid.Row="1"
                    Height="16"
                    VerticalAlignment="Top" />

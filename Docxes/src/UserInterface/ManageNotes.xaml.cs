@@ -47,11 +47,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                 lbNotes.ItemsSource = businessObjects;
             }
             else {
-                ListBoxItem noBusinessObjectsPlaceholder = new ListBoxItem() {
-                    Content = "Keine Notizen für dieses Fach gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Notiz zu erstellen.",
-                    FontSize = 10,
-                    IsEnabled = false
-                };
+                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Es sind noch keine Notizen für dieses Fach vorhanden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Notiz zu erstellen.");
                 lbNotes.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
         }

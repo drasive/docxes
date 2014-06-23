@@ -26,13 +26,15 @@
                    Content="Name:"
                    Margin="0,10,5, 0"
                    VerticalAlignment="Top"
-                   HorizontalAlignment="Right" />
+                   HorizontalAlignment="Right"
+                   Padding="5,5,2,5" />
             <Label x:Name="lblComment"
                    Content="Kommentar:"
                    Margin="0,41,5,0"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Right"
-                   FontStyle="Italic" />
+                   FontStyle="Italic"
+                   Padding="5,5,2,5" />
 
             <TextBox x:Name="tbName"
                      Grid.Column="1"

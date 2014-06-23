@@ -20,7 +20,7 @@
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
                    Margin="10,5,0,0"
-                   Text="Wählen Sie den Lehrer aus, den Sie bearbeiten möchten:"
+                   Text="Wählen Sie den Lehrer aus, den Sie verwalten möchten:"
                    Height="16"
                    VerticalAlignment="Top" />
         <ListBox x:Name="lbTeachers"
@@ -35,7 +35,8 @@
                 VerticalAlignment="Top"
                 Click="btnAdd_Click"
                 HorizontalAlignment="Right"
-                Width="75" />
+                Width="75"
+                ToolTip="Einen neuen Lehrer hinzufügen" />
         <Button x:Name="btnEdit"
                 Content="Bearbeiten"
                 Margin="0,5,90,0"
@@ -44,7 +45,8 @@
                 Click="btnEdit_Click"
                 Height="25"
                 HorizontalAlignment="Right"
-                Width="75" />
+                Width="75"
+                ToolTip="Den ausgewählten Lehrer bearbeiten" />
         <Button x:Name="btnDelete"
                 Content="Löschen"
                 HorizontalAlignment="Right"
@@ -53,6 +55,7 @@
                 Width="75"
                 Grid.Row="2"
                 Click="btnDelete_Click"
-                Height="25" />
+                Height="25"
+                ToolTip="Den ausgewählten Lehrer löschen" />
     </Grid>
 </Window>

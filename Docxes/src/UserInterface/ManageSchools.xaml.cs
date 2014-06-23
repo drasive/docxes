@@ -33,7 +33,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                 lbSchools.SelectedIndex = 0;
             }
             else {
-                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Keine Schulen gefunden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Schule zu erstellen.");
+                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Es sind noch keine Schulen vorhanden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Schule zu erstellen.");
                 lbSchools.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
         }

@@ -29,6 +29,14 @@
         }
 
 
+        // UI formatting
+        public string DocumentsAsString { get { return "Dokumente (" + Documents.Count + ")"; } }
+        public string NotesAsString { get { return "Notizen (" + Notes.Count + ")"; } }
+        public string GradesAsString { get { return "Noten (" + Grades.Count + ")"; } }
+        public string EventsAsString { get { return "Ereignisse (" + Events.Count + ")"; } }
+
+
+
         /// <summary>
         /// Returns a string that represents the current object.
         /// </summary>

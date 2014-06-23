@@ -26,18 +26,19 @@
                Padding="0,5"
                HorizontalAlignment="Left" />
         <ComboBox x:Name="cbSubjects"
-                  Margin="42,13,0,0"
+                  Margin="42,12,0,0"
                   Width="200"
                   HorizontalAlignment="Left"
                   SelectedValuePath="Id"
                   SelectionChanged="cbSubjects_SelectionChanged"
                   Height="23"
-                  VerticalAlignment="Top" />
+                  VerticalAlignment="Top"
+                  ToolTip="Das Fach dessen Notizen angezeigt werden sollen" />
 
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
                    Margin="10,5,0,0"
-                   Text="Wählen Sie die Notiz aus, die Sie bearbeiten möchten:"
+                   Text="Wählen Sie die Notiz aus, die Sie verwalten möchten:"
                    Grid.Row="1"
                    Height="16"
                    VerticalAlignment="Top" />
@@ -55,7 +56,8 @@
                 VerticalAlignment="Top"
                 Click="btnAdd_Click"
                 HorizontalAlignment="Right"
-                Width="75" />
+                Width="75"
+                ToolTip="Eine neue Notiz hinzufügen" />
         <Button x:Name="btnEdit"
                 Content="Bearbeiten"
                 Margin="0,5,90,0"
@@ -64,7 +66,8 @@
                 Click="btnEdit_Click"
                 Height="25"
                 HorizontalAlignment="Right"
-                Width="75" />
+                Width="75"
+                ToolTip="Die ausgewählte Notiz bearbeiten" />
         <Button x:Name="btnDelete"
                 Content="Löschen"
                 HorizontalAlignment="Right"
@@ -73,6 +76,7 @@
                 Width="75"
                 Grid.Row="2"
                 Click="btnDelete_Click"
-                Height="25" />
+                Height="25"
+                ToolTip="Die ausgewählte Notiz löschen" />
     </Grid>
 </Window>

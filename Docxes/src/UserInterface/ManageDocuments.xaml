@@ -30,18 +30,19 @@
                Width="27"
                Grid.RowSpan="2" />
         <ComboBox x:Name="cbSubjects"
-                  Margin="42,13,0,0"
+                  Margin="42,12,0,0"
                   Height="23"
                   VerticalAlignment="Top"
                   Width="200"
                   HorizontalAlignment="Left"
                   SelectedValuePath="Id"
-                  SelectionChanged="cbSubjects_SelectionChanged" />
+                  SelectionChanged="cbSubjects_SelectionChanged"
+                  ToolTip="Das Fach dessen Dokumente angezeigt werden sollen" />
 
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
                    Margin="10,10,0,0"
-                   Text="Wählen Sie das Dokument aus, die Sie bearbeiten möchten:"
+                   Text="Wählen Sie das Dokument aus, das Sie verwalten möchten:"
                    Height="16"
                    VerticalAlignment="Top"
                    Grid.Row="1" />
@@ -79,7 +80,8 @@
                 VerticalAlignment="Top"
                 Click="btnOpenFolder_Click"
                 HorizontalAlignment="Right"
-                Width="100" />
+                Width="100"
+                ToolTip="Den Ordner öffnen, in dem sich das ausgewählte Dokument befindet" />
         <Button x:Name="btnAdd"
                 Content="Hinzufügen"
                 Margin="0,5,355,0"
@@ -88,7 +90,8 @@
                 VerticalAlignment="Top"
                 Click="btnAdd_Click"
                 HorizontalAlignment="Right"
-                Width="75" />
+                Width="75"
+                ToolTip="Ein neues Dokument zuordnen" />
         <Button x:Name="btnOpen"
                 Content="Öffnen"
                 Margin="0,5,275,0"
@@ -97,7 +100,8 @@
                 VerticalAlignment="Top"
                 Click="btnOpen_Click"
                 HorizontalAlignment="Right"
-                Width="75" />
+                Width="75"
+                ToolTip="Das ausgewählte Dokument öffnen" />
         <Button x:Name="btnDelete"
                 Content="Löschen"
                 HorizontalAlignment="Right"
@@ -106,7 +110,8 @@
                 Width="75"
                 Grid.Row="2"
                 Click="btnDelete_Click"
-                Height="25" />
+                Height="25"
+                ToolTip="Das ausgewählte Dokument löschen" />
         <Button x:Name="btnEdit"
                 Content="Bearbeiten"
                 HorizontalAlignment="Right"
@@ -115,6 +120,7 @@
                 Width="75"
                 Grid.Row="2"
                 Click="btnEdit_Click"
-                Height="25" />
+                Height="25"
+                ToolTip="Das ausgewählte Dokument bearbeiten" />
     </Grid>
 </Window>

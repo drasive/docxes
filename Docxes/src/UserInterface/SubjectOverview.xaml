@@ -20,15 +20,14 @@
                     </Grid.Resources>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="40" />
+                        <RowDefinition Height="38" />
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
                     <Label Content="{Binding Name, Mode=OneWay}"
                            FontSize="20" />
 
-                    <Grid Margin="0,5,0,0"
-                          Grid.Row="1">
+                    <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition Width="3" />
@@ -54,16 +53,20 @@
 
                             <Button x:Name="btnManageDocuments"
                                     Click="btnManageDocuments_Click"
-                                    Content="Dokumente" />
+                                    Content="{Binding DocumentsAsString, Mode=OneWay}"
+                                    ToolTip="Die Dokumente von diesem Fach verwalten" />
                             <Button x:Name="btnManageNotes"
                                     Click="btnManageNotes_Click"
-                                    Content="Notizen" />
+                                    Content="{Binding NotesAsString, Mode=OneWay}"
+                                    ToolTip="Die Notizen von diesem Fach verwalten" />
                             <Button x:Name="btnManageGrades"
                                     Click="btnManageGrades_Click"
-                                    Content="Noten" />
+                                    Content="{Binding GradesAsString, Mode=OneWay}"
+                                    ToolTip="Die Noten von diesem Fach verwalten" />
                             <Button x:Name="btnManageEvents"
                                     Click="btnManageEvents_Click"
-                                    Content="Ereignisse" />
+                                    Content="{Binding EventsAsString, Mode=OneWay}"
+                                    ToolTip="Alle Ereignisse an dieser Schule verwalten" />
                         </StackPanel>
 
                         <StackPanel Grid.Column="2"
@@ -85,13 +88,17 @@
                             </StackPanel.Resources>
 
                             <Button x:Name="btnAddDocument"
-                                    Click="btnAddDocument_Click" />
+                                    Click="btnAddDocument_Click"
+                                    ToolTip="Ein neues Dokument zu diesem Fach zuordnen" />
                             <Button x:Name="btnAddNote"
-                                    Click="btnAddNote_Click" />
+                                    Click="btnAddNote_Click"
+                                    ToolTip="Eine neue Notiz für dieses Fach erstellen" />
                             <Button x:Name="btnAddGrade"
-                                    Click="btnAddGrade_Click" />
+                                    Click="btnAddGrade_Click"
+                                    ToolTip="Eine neue Note für dieses Fach eintragen" />
                             <Button x:Name="btnAddEvent"
-                                    Click="btnAddEvent_Click" />
+                                    Click="btnAddEvent_Click"
+                                    ToolTip="Ein neues Ereignis für dieses Fach eintragen" />
                         </StackPanel>
                     </Grid>
                 </Grid>

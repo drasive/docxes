@@ -25,25 +25,27 @@
 
             <Label x:Name="lblName"
                    Content="Name:"
-                   Margin="0,10,10,0"
+                   Margin="0,10,1,0"
                    VerticalAlignment="Top"
-                   HorizontalAlignment="Right" />
+                   HorizontalAlignment="Right"
+                   Padding="5,5,2,5" />
             <Label x:Name="lblContent"
                    Content="Inhalt:"
-                   Margin="0,41,10,0"
+                   Margin="0,41,1,0"
                    VerticalAlignment="Top"
-                   HorizontalAlignment="Right" />
+                   HorizontalAlignment="Right"
+                   Padding="5,5,2,5" />
 
             <TextBox x:Name="tbName"
                      Grid.Column="1"
-                     Margin="10,16,0,0"
+                     Margin="5,16,0,0"
                      VerticalAlignment="Top"
                      MaxLength="64"
                      HorizontalAlignment="Left"
                      Width="442" />
             <TextBox x:Name="tbContent"
                      Grid.Column="1"
-                     Margin="10,41,10,10"
+                     Margin="5,41,10,10"
                      TextWrapping="Wrap"
                      AcceptsReturn="True"
                      AcceptsTab="True"

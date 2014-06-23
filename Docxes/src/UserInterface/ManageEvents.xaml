@@ -71,7 +71,8 @@
                     VerticalAlignment="Top"
                     Width="179"
                     Click="btnToday_Click"
-                    Height="22" />
+                    Height="22"
+                    ToolTip="Zum heutigen Datum springen" />
         </Grid>
 
         <Button x:Name="btnAdd"
@@ -82,7 +83,8 @@
                 VerticalAlignment="Top"
                 Click="btnAdd_Click"
                 HorizontalAlignment="Right"
-                Width="75" />
+                Width="75"
+                ToolTip="Ein neues Ereignis hinzufügen" />
         <Button x:Name="btnEdit"
                 Content="Bearbeiten"
                 Margin="0,5,90,0"
@@ -91,7 +93,8 @@
                 Click="btnEdit_Click"
                 Height="25"
                 HorizontalAlignment="Right"
-                Width="75" />
+                Width="75"
+                ToolTip="Das ausgewählte Ereignis bearbeiten" />
         <Button x:Name="btnDelete"
                 Content="Löschen"
                 HorizontalAlignment="Right"
@@ -100,6 +103,7 @@
                 Width="75"
                 Grid.Row="2"
                 Click="btnDelete_Click"
-                Height="25" />
+                Height="25"
+                ToolTip="Das ausgewählte Ereignis löschen" />
     </Grid>
 </Window>

@@ -48,7 +48,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
 
             if (String.IsNullOrEmpty(textBox.Text.Trim())) {
-                MarkControlAsInvalid(textBox, "Dies ist ein Pflichtfeld.");
+                MarkControlAsInvalid(textBox, "Dies ist ein Pflichtfeld");
                 return false;
             }
             else {
@@ -68,7 +68,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
 
             if (datePicker.SelectedDate == null) {
-                MarkControlAsInvalid(datePicker, "Dies ist ein Pflichtfeld.");
+                MarkControlAsInvalid(datePicker, "Dies ist ein Pflichtfeld");
                 return false;
             }
             else {
