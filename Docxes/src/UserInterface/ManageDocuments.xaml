@@ -5,6 +5,7 @@
         x:Class="VrankenBischof.Docxes.UserInterface.ManageDocuments"
         x:ClassModifier="internal"
         Title="Dokumente"
+        Icon="/Docxes;component/Resources/Images/Icon.ico"
         Height="450"
         Width="800"
         Loaded="wManageDocuments_Loaded"

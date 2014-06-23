@@ -7,6 +7,7 @@
         x:Class="VrankenBischof.Docxes.UserInterface.SchoolOverview"
         x:ClassModifier="internal"
         Title="[Schulname]"
+        Icon="/Docxes;component/Resources/Images/Icon.ico"
         Height="600"
         Width="900"
         WindowStartupLocation="CenterScreen"
@@ -111,7 +112,8 @@
                            VerticalAlignment="top" />
                 <TextBlock x:Name="lblNoUpcommingEvents"
                            Grid.Row="1"
-                           Text="Keine bevorstehenden Ereignisse." />
+                           Text="Keine bevorstehenden Ereignisse in dieser oder der nächsten Woche."
+                           TextWrapping="Wrap" />
 
                 <StackPanel x:Name="gUpcommingEventsOverview"
                             Grid.Row="1">

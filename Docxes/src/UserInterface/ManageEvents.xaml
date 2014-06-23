@@ -3,6 +3,7 @@
         xmlns:FsControls="clr-namespace:FsControls;assembly=FsCalendar"
         xmlns:Docxes="clr-namespace:VrankenBischof.Docxes"
         x:Name="wManageEvents"
+        Icon="/Docxes;component/Resources/Images/Icon.ico"
         x:Class="VrankenBischof.Docxes.UserInterface.ManageEvents"
         x:ClassModifier="internal"
         Title="Ereignisse"

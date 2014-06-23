@@ -73,7 +73,14 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -266,7 +273,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="Docxes_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Project Management\Assembly Dependencies.dgml" />
     <None Include="Project Management\Class Diagram.cd" />
@@ -305,7 +311,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FsCalendar\FsCalendar.csproj">
@@ -383,21 +391,21 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\DocxesDB.mdf">
+    <Content Include="Data\Docxes.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Data\DocxesDB_log.ldf">
+    <Content Include="Data\Docxes_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DocxesDB.mdf</DependentUpon>
+      <DependentUpon>Docxes.mdf</DependentUpon>
     </Content>
     <Resource Include="Project Management\Class Diagram.png" />
     <Resource Include="Project Management\Priority ToDos.txt" />
+    <Resource Include="Project Management\Deployment.txt" />
+    <Resource Include="Resources\Images\Icon.png" />
+    <Resource Include="Resources\Images\Logo.png" />
+    <Resource Include="Resources\Images\Icon.ico" />
     <Content Include="Resources\SQL Scripts\Select all entities.sql" />
     <Content Include="src\Data\LocalDatabase.edmx.sql" />
-    <Resource Include="Resources\Images\SchoolBackground.jpg" />
-    <Resource Include="Resources\Images\NotesBackground.jpg" />
-    <Resource Include="Resources\Images\DocumentsBackground.png" />
-    <Resource Include="Resources\Images\GradesBackground.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
@@ -426,6 +434,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
