@@ -3,18 +3,26 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VrankenBischof.Docxes;
 using VrankenBischof.Docxes.BusinessLogic;
 
-namespace Docxes.Test {
+namespace VrankenBischof.Docxes.Test {
 
     [TestClass]
     public class SchoolProcessorTest {
 
         private static string GetRandomEntityName() {
-            return new Guid().ToString();
+            return Guid.NewGuid().ToString().Substring(0, 32);
+        }
+
+
+        [TestInitialize]
+        public void InitializeTests() {
+            App.Initialize();
         }
 
 
         [TestMethod]
         public void DatabaseOperations() {
+            // ASK: Is a check of the item count good enough?
+
             // Arrange
             var entityProcessor = new SchoolProcessor();
             var initialEntityCount = entityProcessor.Get().Count;
