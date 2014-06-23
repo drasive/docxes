@@ -24,7 +24,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         /// <summary>
         /// Generates a ListBoxItem that can be used as a placeholder.
         /// </summary>
-        /// <param name="message">The message to put inside of the placeholder</param>
+        /// <param name="message">The message to put inside of the placeholder.</param>
         internal static ListBoxItem GeneratePlaceholderListBoxItem(String message) {
             var placeholder = new ListBoxItem() {
                 Content = message,

@@ -104,17 +104,6 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             return events;
         }
 
-        /// <summary>
-        /// Gets all event types.
-        /// </summary>
-        /// <returns>All event types.</returns>
-        public IEnumerable<EventType> GetTypes() {
-            var values = Enum.GetValues(typeof(EventType));
-            EventType[] array = (EventType[])values;
-
-            return array;
-        }
-
 
         /// <summary>
         /// Updates the properties of an existing business objects.

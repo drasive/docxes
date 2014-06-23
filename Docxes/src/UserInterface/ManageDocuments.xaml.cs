@@ -6,6 +6,9 @@ using System.Windows.Controls;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
+    // TODO: Update formatting (application wide)
+    // TODO: Update document name after entity update
+
     /// <summary>
     /// Interaction logic for <see cref="ManageDocuments.xaml"/>.
     /// </summary>

@@ -30,7 +30,7 @@
                Width="27"
                Grid.RowSpan="2" />
         <ComboBox x:Name="cbSubjects"
-                  Margin="42,12,0,0"
+                  Margin="42,13,0,0"
                   Height="23"
                   VerticalAlignment="Top"
                   Width="200"
@@ -41,12 +41,10 @@
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
                    Margin="10,10,0,0"
-                   TextWrapping="Wrap"
-                   Text="Wählen Sie das Dokument aus, die Sie verwalten möchten:"
+                   Text="Wählen Sie das Dokument aus, die Sie bearbeiten möchten:"
                    Height="16"
                    VerticalAlignment="Top"
-                   Grid.Row="1"
-                   Width="309" />
+                   Grid.Row="1" />
 
         <ListView x:Name="lvDocuments"
                   Margin="10,31,10,5"
@@ -57,15 +55,15 @@
                     <GridViewColumn Width="175"
                                     Header="Name"
                                     DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Width="110"
+                    <GridViewColumn Width="118"
                                     Header="Änderungsdatum"
-                                    DisplayMemberBinding="{Binding LastWriteTime}" />
-                    <GridViewColumn Width="110"
+                                    DisplayMemberBinding="{Binding LastWriteTimeAsString}" />
+                    <GridViewColumn Width="118"
                                     Header="Erstelldatum"
-                                    DisplayMemberBinding="{Binding CreationTime}" />
-                    <GridViewColumn Width="350"
-                                    Header="Pfad"
-                                    DisplayMemberBinding="{Binding FilePath}" />
+                                    DisplayMemberBinding="{Binding CreationTimeAsString}" />
+                    <GridViewColumn Width="340"
+                                    Header="Ordner"
+                                    DisplayMemberBinding="{Binding Directory}" />
                 </GridView>
             </ListView.View>
             <ListView.DataContext>

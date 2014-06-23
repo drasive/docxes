@@ -10,7 +10,7 @@
         Loaded="wManageNotes_Loaded"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner">
-    
+
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
@@ -26,20 +26,18 @@
                Padding="0,5"
                HorizontalAlignment="Left" />
         <ComboBox x:Name="cbSubjects"
-                  Margin="42,12,0,0"
-                  Height="23"
-                  VerticalAlignment="Top"
+                  Margin="42,13,0,0"
                   Width="200"
                   HorizontalAlignment="Left"
                   SelectedValuePath="Id"
-                  SelectionChanged="cbSubjects_SelectionChanged" />
+                  SelectionChanged="cbSubjects_SelectionChanged"
+                  Height="23"
+                  VerticalAlignment="Top" />
 
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
                    Margin="10,5,0,0"
-                   TextWrapping="Wrap"
-                   Text="Wählen Sie die Notiz aus, die Sie verwalten möchten:"
-                   Width="286"
+                   Text="Wählen Sie die Notiz aus, die Sie bearbeiten möchten:"
                    Grid.Row="1"
                    Height="16"
                    VerticalAlignment="Top" />

@@ -28,7 +28,6 @@
         <TextBlock x:Name="tblInstructions"
                    HorizontalAlignment="Left"
                    Margin="10,10,0,0"
-                   TextWrapping="Wrap"
                    Text="Wählen Sie die Schule aus, die Sie verwalten möchten:"
                    Height="16"
                    VerticalAlignment="Top"

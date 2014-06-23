@@ -51,8 +51,7 @@ namespace VrankenBischof.Docxes {
 
 
         // UI formatting
-        // TODO: Translate to german (enum desc)
-        public string TypeAsString { get { return Enum.GetName(typeof(EventType), Type); } }
+        public string TypeAsString { get { return Common.GetEnumDescription((EventType)Type); } }
 
 
         /// <summary>

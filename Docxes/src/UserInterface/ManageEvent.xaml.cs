@@ -88,7 +88,10 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         private void UpdateBusinessObjectTypes() {
-            IEnumerable<EventType> businessObjectTypes = businessObjectProcessor.GetTypes();
+            Dictionary<string, int> businessObjectTypes = new Dictionary<string, int>();
+            foreach (var businessObjectType in Enum.GetValues(typeof(EventType))) {
+                businessObjectTypes.Add(VrankenBischof.Docxes.Common.GetEnumDescription((EventType)businessObjectType), (int)businessObjectType);
+            }
 
             cbType.ItemsSource = businessObjectTypes;
             cbType.SelectedIndex = 0;

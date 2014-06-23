@@ -16,9 +16,15 @@
             <RowDefinition />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        
+
+        <TextBlock x:Name="tblInstructions"
+                   HorizontalAlignment="Left"
+                   Margin="10,5,0,0"
+                   Text="Wählen Sie den Lehrer aus, den Sie bearbeiten möchten:"
+                   Height="16"
+                   VerticalAlignment="Top" />
         <ListBox x:Name="lbTeachers"
-                 Margin="10,5,10,5"
+                 Margin="10,26,10,5"
                  SelectionChanged="lbTeachers_SelectionChanged" />
         
         <Button x:Name="btnAdd"
