@@ -1,0 +1,17 @@
+﻿// --------------------------------------------------
+// Files & Folder
+// --------------------------------------------------
+Files
+- Compiled source files
+- EntityFramework.dll/ .xml & EntityFramework.SqlServer.dll/ .xml
+- FsCalendar.dll/ .pdb
+
+Folders
+- /Data
+    - Docxes.mdf (empty)/ Docxes_log.ldf
+
+// --------------------------------------------------
+// Configuration
+// --------------------------------------------------
+App.config
+- Set "UseAutoDataDirectoryPath" to true
