@@ -196,7 +196,7 @@
                         Height="25"
                         Grid.Column="2"
                         Margin="0,15,10,0"
-                        ToolTip="Alle Ereignisse an dieser Schule verwalten" />
+                        ToolTip="Die Ereignisse an dieser Schule verwalten" />
             </Grid>
         </Grid>
     </Grid>

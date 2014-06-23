@@ -19,10 +19,10 @@ namespace VrankenBischof.Docxes.UserInterface {
             InitializeComponent();
 
             if (IsEditing) {
-                Title = "Fach bearbeiten";
+                Title = "Note bearbeiten";
             }
             else {
-                Title = "Fach hinzufügen";
+                Title = "Note hinzufügen";
             }
             Common.ExtendWindowName(this);
         }

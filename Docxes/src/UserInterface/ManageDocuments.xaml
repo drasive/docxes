@@ -51,6 +51,10 @@
                   Margin="10,31,10,5"
                   Grid.Row="1"
                   SelectionChanged="lvDocuments_SelectionChanged">
+            <ListView.DataContext>
+                <Docxes:Document />
+            </ListView.DataContext>
+            
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="175"
@@ -66,10 +70,7 @@
                                     Header="Ordner"
                                     DisplayMemberBinding="{Binding Directory}" />
                 </GridView>
-            </ListView.View>
-            <ListView.DataContext>
-                <Docxes:Document />
-            </ListView.DataContext>
+            </ListView.View>            
         </ListView>
 
         <Button x:Name="btnOpenFolder"

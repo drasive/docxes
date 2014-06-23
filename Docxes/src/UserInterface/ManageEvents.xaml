@@ -46,6 +46,10 @@
                           Margin="10,31,10,10"
                           Grid.Row="1"
                           SelectionChanged="lvEvents_SelectionChanged">
+                    <ListView.DataContext>
+                        <Docxes:Event />
+                    </ListView.DataContext>
+                    
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="230"
@@ -58,10 +62,7 @@
                                             Header="Fach"
                                             DisplayMemberBinding="{Binding Subject}" />
                         </GridView>
-                    </ListView.View>
-                    <ListView.DataContext>
-                        <Docxes:Event />
-                    </ListView.DataContext>
+                    </ListView.View>                    
                 </ListView>
             </Grid>
             <Button x:Name="btnToday"
