@@ -17,7 +17,7 @@ namespace VrankenBischof.Docxes
         public int Id { get; private set; }
         public int SubjectId { get; private set; }
         public decimal Value { get; private set; }
-        public decimal Weight { get; private set; }
+        public int Weight { get; private set; }
         public string Comment { get; private set; }
     
         public virtual Subject Subject { get; set; }

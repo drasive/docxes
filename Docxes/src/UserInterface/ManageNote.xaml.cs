@@ -91,11 +91,14 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         private Note MapInterfaceToElement() {
+            var name = tbName.Text;
+            var content = tbContent.Text;
+
             if (IsEditing) {
-                return new Note(tbName.Text, tbContent.Text, businessObjectParent, businessObjectEditing);
+                return new Note(name, content, businessObjectParent, businessObjectEditing);
             }
             else {
-                return new Note(tbName.Text, tbContent.Text, businessObjectParent);
+                return new Note(name, content, businessObjectParent);
             }
         }
 

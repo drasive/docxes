@@ -112,11 +112,18 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         private Event MapInterfaceToElement() {
+            var name = tbName.Text;
+            var place = tbPlace.Text;
+            var date = dpDate.SelectedDate.Value;
+            var type = (EventType)cbType.SelectedValue;
+            var comment = tbComment.Text;
+            var subject = (Subject)cbSubject.SelectedItem;
+
             if (IsEditing) {
-                return new Event(tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (EventType)cbType.SelectedValue, tbComment.Text, (Subject)cbSubject.SelectedItem, businessObjectEditing);
+                return new Event(name, place, date, type, comment, subject, businessObjectEditing);
             }
             else {
-                return new Event(tbName.Text, tbPlace.Text, dpDate.SelectedDate.Value, (EventType)cbType.SelectedValue, tbComment.Text, (Subject)cbSubject.SelectedItem);
+                return new Event(name, place, date, type, comment, subject);
             }
         }
 

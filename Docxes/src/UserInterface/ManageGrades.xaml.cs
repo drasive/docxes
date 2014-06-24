@@ -7,6 +7,7 @@ using System.Windows.Controls;
 namespace VrankenBischof.Docxes.UserInterface {
 
     // TODO: Interface
+    // TODO: Calculate required grade
 
     /// <summary>
     /// Interaction logic for <see cref="ManageGrades.xaml"/>.
@@ -49,14 +50,24 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
 
-        private void UpdateOverallAverage() {
-            // TODO: _
-            tblOverallAverage.Text = "5";
+        private void UpdateSubjectAverage() {
+            var subjectGrades = businessObjectProcessor.Get(SelectedBusinessObjectParent);
+            if (subjectGrades.Count > 0) {
+                tblSubjectAverage.Text = Math.Round(businessObjectProcessor.CalculateAverageGrade(subjectGrades), 2).ToString();
+            }
+            else {
+                tblSubjectAverage.Text = "-";
+            }
         }
 
-        private void UpdateSubjectAverage() {
-            // TODO: _
-            tblSubjectAverage.Text = "5";
+        private void UpdateOverallAverage() {
+            var schoolGrades = businessObjectProcessor.Get(ApplicationPropertyManager.Workspace.School);
+            if (schoolGrades.Count > 0) {
+                tblOverallAverage.Text = Math.Round(businessObjectProcessor.CalculateAverageGrade(schoolGrades), 2).ToString();
+            }
+            else {
+                tblOverallAverage.Text = "-";
+            }
         }
 
 
@@ -94,10 +105,10 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void wManageGrades_Loaded(object sender, RoutedEventArgs e) {
             try {
                 UpdateBusinessObjectParents();
-                UpdateOverallAverage();
 
                 UpdateBusinessObjects();
                 UpdateSubjectAverage();
+                UpdateOverallAverage();
 
                 UpdateControlsAvailability();
             }
@@ -124,6 +135,8 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void cbSubjects_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             try {
                 UpdateBusinessObjects();
+
+                UpdateSubjectAverage();
             }
             catch (Exception ex) {
                 Logger.Log(ex);
@@ -136,10 +149,10 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void btnAdd_Click(object sender, RoutedEventArgs e) {
             try {
                 if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
-                    UpdateOverallAverage();
-
                     UpdateBusinessObjects();
+
                     UpdateSubjectAverage();
+                    UpdateOverallAverage();
                 }
             }
             catch (Exception ex) {
@@ -152,10 +165,10 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void btnEdit_Click(object sender, RoutedEventArgs e) {
             try {
                 if (OpenEditBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
-                    UpdateOverallAverage();
-
                     UpdateBusinessObjects();
+
                     UpdateSubjectAverage();
+                    UpdateOverallAverage();
                 }
             }
             catch (Exception ex) {
@@ -168,10 +181,10 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void btnDelete_Click(object sender, RoutedEventArgs e) {
             try {
                 if (CheckForElementDeletion()) {
-                    UpdateOverallAverage();
-
                     UpdateBusinessObjects();
+
                     UpdateSubjectAverage();
+                    UpdateOverallAverage();
                 }
             }
             catch (Exception ex) {

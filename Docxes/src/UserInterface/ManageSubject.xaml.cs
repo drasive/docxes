@@ -108,11 +108,14 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         private Subject MapInterfaceToElement() {
+            var name = tbName.Text;
+            var teacher = (Teacher)cbTeacher.SelectedItem;
+
             if (IsEditing) {
-                return new Subject(tbName.Text, (Teacher)cbTeacher.SelectedItem, businessObjectEditing);
+                return new Subject(name, teacher, businessObjectEditing);
             }
             else {
-                return new Subject(tbName.Text, (Teacher)cbTeacher.SelectedItem);
+                return new Subject(name, teacher);
             }
         }
 

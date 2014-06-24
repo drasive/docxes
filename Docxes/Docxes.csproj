@@ -131,7 +131,6 @@
     <Compile Include="src\BusinessLogic\GradeProcessor.cs" />
     <Compile Include="src\BusinessLogic\DocumentProcessor.cs" />
     <Compile Include="src\Common.cs" />
-    <Compile Include="src\GradeWeight.cs" />
     <Compile Include="src\SimpleLog.cs" />
     <Compile Include="src\BusinessLogic\SubjectProcessor.cs" />
     <Compile Include="src\BusinessLogic\TeacherProcessor.cs" />

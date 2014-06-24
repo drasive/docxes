@@ -84,11 +84,15 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         private Teacher MapInterfaceToElement() {
+            var firstName = tbFirstName.Text;
+            var lastName = tbLastName.Text;
+            var isMale = cbIsMale.IsChecked.GetValueOrDefault();
+
             if (IsEditing) {
-                return new Teacher(tbFirstName.Text, tbLastName.Text, cbIsMale.IsChecked.GetValueOrDefault(), businessObjectParent, businessObjectEditing);
+                return new Teacher(firstName, lastName, isMale, businessObjectParent, businessObjectEditing);
             }
             else {
-                return new Teacher(tbFirstName.Text, tbLastName.Text, cbIsMale.IsChecked.GetValueOrDefault(), businessObjectParent);
+                return new Teacher(firstName, lastName, isMale, businessObjectParent);
             }
         }
 

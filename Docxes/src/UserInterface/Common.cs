@@ -56,6 +56,16 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         /// <summary>
+        /// Escapes invalid characters from a string that represents a number.
+        /// </summary>
+        /// <param name="number">The number, which represents a string, to escape.</param>
+        /// <returns>The specified string with the invalid characters escaped.</returns>
+        internal static string EscapeNumber(string number) {
+            return number.Replace('.', ',');
+        }
+
+
+        /// <summary>
         /// Shows a generic error message to the user.
         /// </summary>
         internal static void ShowGenericErrorMessage() {

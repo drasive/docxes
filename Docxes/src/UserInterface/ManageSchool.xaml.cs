@@ -78,11 +78,14 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         private School MapInterfaceToElement() {
+            var name = tbName.Text;
+            var comment = tbComment.Text;
+
             if (IsEditing) {
-                return new School(tbName.Text, tbComment.Text, businessObjectEditing);
+                return new School(name, comment, businessObjectEditing);
             }
             else {
-                return new School(tbName.Text, tbComment.Text);
+                return new School(name, comment);
             }
         }
 

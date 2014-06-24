@@ -69,7 +69,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="120"
-                                    Header="Gewichtung"
+                                    Header="Gewichtung (%)"
                                     DisplayMemberBinding="{Binding Weight}" />
                     <GridViewColumn Width="120"
                                     Header="Note"

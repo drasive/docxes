@@ -4,9 +4,6 @@ using System.Windows;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
-    // TODO: Interface
-    // TODO: Selected stuff
-
     /// <summary>
     /// Interaction logic for <see cref="ManageGrade.xaml"/>.
     /// </summary>
@@ -38,7 +35,6 @@ namespace VrankenBischof.Docxes.UserInterface {
             Common.ExtendWindowName(this);
 
             UpdateBusinessObjectParents();
-            UpdateBusinessObjectWeights();
         }
 
         internal ManageGrade(Subject businessObjectToAddParent) {
@@ -73,6 +69,11 @@ namespace VrankenBischof.Docxes.UserInterface {
             if (ValidateInput()) {
                 var businessObjectToSave = MapInterfaceToElement();
 
+                // EASTER_EGG
+                if (businessObjectToSave.Value < 2) {
+                    MessageBox.Show("Haha, du bist scheisse!", "Du bist scheisse", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
                 if (IsEditing) {
                     businessObjectProcessor.Update(businessObjectToSave);
                 }
@@ -101,16 +102,6 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
         }
 
-        private void UpdateBusinessObjectWeights() {
-            Dictionary<string, int> businessObjectTypes = new Dictionary<string, int>();
-            foreach (var businessObjectType in Enum.GetValues(typeof(GradeWeight))) {
-                businessObjectTypes.Add(VrankenBischof.Docxes.Common.GetEnumDescription((GradeWeight)businessObjectType), (int)businessObjectType);
-            }
-
-            cbWeight.ItemsSource = businessObjectTypes;
-            cbWeight.SelectedIndex = 0;
-        }
-
 
         private void MapElementToInterface(Grade businessObjectToMap) {
             if (businessObjectToMap == null) {
@@ -118,52 +109,31 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
 
             tbGrade.Text = businessObjectToMap.Value.ToString();
-            cbWeight.SelectedItem = businessObjectToMap.Weight;
+            tbWeight.Text = businessObjectToMap.Weight.ToString();
             cbSubject.SelectedItem = businessObjectToMap.Subject;
             tbComment.Text = businessObjectToMap.Comment;
         }
 
         private Grade MapInterfaceToElement() {
+            var gradeAsDecimal = Decimal.Parse(Common.EscapeNumber(tbGrade.Text));
+            var weightAsInteger = Int32.Parse(tbWeight.Text);
+            var comment = tbComment.Text;
+            var subject = (Subject)cbSubject.SelectedItem;
+
             if (IsEditing) {
-                return new Grade(Decimal.Parse(tbGrade.Text), (GradeWeight)cbWeight.SelectedItem, tbComment.Text, (Subject)cbSubject.SelectedItem);
+                return new Grade(gradeAsDecimal, weightAsInteger, comment, subject, businessObjectEditing);
             }
             else {
-                return new Grade(Decimal.Parse(tbGrade.Text), (GradeWeight)cbWeight.SelectedItem, tbComment.Text, (Subject)cbSubject.SelectedItem, businessObjectEditing);
+                return new Grade(gradeAsDecimal, weightAsInteger, comment, subject);
             }
         }
 
 
         private bool ValidateInput() {
-            // TODO: Outsource
+            var isGradeValid = InputValidation.Validate(tbGrade, 1M, 6M);
+            var isWeightValid = InputValidation.Validate(tbWeight, 1, 100);
 
-            // Validate presence
-            var isGradeFilledIn = InputValidation.Validate(tbGrade);
-            if (!isGradeFilledIn) {
-                return false;
-            }
-
-            // Validate data type
-            decimal gradeAsDecimal;
-            var isGradeValidDecimal = Decimal.TryParse(tbGrade.Text.Replace('.', ','), out gradeAsDecimal);
-            if (isGradeValidDecimal) {
-                InputValidation.MarkControlAsValid(tbGrade);
-            }
-            else {
-                InputValidation.MarkControlAsInvalid(tbGrade, "Dieser Wert ist keine gültige Zahl. Bitte geben Sie eine Zahl im Format 0,## ein (z.B.: 5 oder 4,87).");
-                return false;
-            }
-
-            // Validate range
-            var isGradeInValidRange = gradeAsDecimal >= 1 && gradeAsDecimal <= 6;
-            if (isGradeInValidRange) {
-                InputValidation.MarkControlAsValid(tbGrade);
-            }
-            else {
-                InputValidation.MarkControlAsInvalid(tbGrade, "Dieser Wert entspricht keiner gültigen Note. Bitte geben Sie einen Wert zwischen 1 und 6 ein.");
-                return false;
-            }
-
-            return true;
+            return isGradeValid && isWeightValid;
         }
 
         #endregion

@@ -69,6 +69,23 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             return dataManager.Get(objectsParent);
         }
 
+        /// <summary>
+        /// Gets all existing business objects for the specified school.
+        /// </summary>
+        /// <param name="school">The school that the returned business objects must belong to.</param>
+        /// <returns>A list of all existing business objects for the specified school.</returns>
+        public List<Grade> Get(School school) {
+            var subjectProcessor = new BusinessLogic.SubjectProcessor();
+            var subjects = subjectProcessor.Get(school);
+
+            List<Grade> grades = new List<Grade>();
+            foreach (var subject in subjects) {
+                grades.AddRange(dataManager.Get(subject));
+            }
+
+            return grades;
+        }
+
 
         /// <summary>
         /// Updates the properties of an existing business objects.
@@ -93,6 +110,37 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             }
 
             dataManager.Delete(objectToDelete);
+        }
+
+
+        /// <summary>
+        /// Calculates the average of a list grades.
+        /// </summary>
+        /// <param name="grades">The grades to calculate the average of.</param>
+        /// <returns>The average of the specified grades.</returns>
+        /// <remarks>Thanks to Dominik Fringeli and Thomas Frey for providing us with this algorithm!</remarks>
+        public decimal CalculateAverageGrade(List<Grade> grades) {
+            if (grades == null) {
+                throw new ArgumentNullException("grades");
+            }
+            if (grades.Count == 0) {
+                throw new ArgumentException("\"grades\" does not contain any elements");
+            }
+
+            decimal totalValue = 0;
+            decimal denominator = 0;
+            foreach (var grade in grades) {
+                totalValue += grade.Value * (grade.Weight / 100M);
+                denominator += (grade.Weight / 100M);
+            }
+
+            var average = totalValue / denominator;
+            return average;
+        }
+
+        public decimal CalculateRequiredGrade(IEnumerable<Grade> existingGrades, decimal targetGrade) {
+            // TODO: __
+            return 0;
         }
 
     }

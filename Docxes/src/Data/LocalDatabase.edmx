@@ -83,7 +83,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SubjectId" Type="int" Nullable="false" />
     <Property Name="Value" Type="decimal" Nullable="false" />
-    <Property Name="Weight" Type="decimal" Nullable="false" />
+    <Property Name="Weight" Type="int" Nullable="false" />
     <Property Name="Comment" Type="nvarchar" Nullable="true" MaxLength="512" />
   </EntityType>
   <EntityType Name="Notes">
@@ -279,7 +279,7 @@
                     <NavigationProperty Name="Subject" Relationship="LocalDatabase.SubjectGrades" FromRole="Grade" ToRole="Subject" />
                     <Property Name="SubjectId" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Value" Type="Decimal" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-                    <Property Name="Weight" Type="Decimal" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+                    <Property Name="Weight" Type="Int32" Nullable="false" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                     <Property Name="Comment" Type="String" Nullable="true" MaxLength="512" a:SetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
                 </EntityType>
                 <EntityType Name="Note">
