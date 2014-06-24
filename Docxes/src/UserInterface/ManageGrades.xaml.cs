@@ -7,8 +7,7 @@ using System.Windows.Input;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
-    // TODO: Interface
-    // TODO: Calculate required grade
+    // TODO: Add feature to calculate required grade
 
     /// <summary>
     /// Interaction logic for <see cref="ManageGrades.xaml"/>.
@@ -54,7 +53,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void UpdateSubjectAverage() {
             var subjectGrades = businessObjectProcessor.Get(SelectedBusinessObjectParent);
             if (subjectGrades.Count > 0) {
-                tblSubjectAverage.Text = Math.Round(businessObjectProcessor.CalculateAverageGrade(subjectGrades), 2).ToString();
+                tblSubjectAverage.Text = Math.Round(businessObjectProcessor.CalculateAverageGrade(subjectGrades), 2).ToString("0.00");
             }
             else {
                 tblSubjectAverage.Text = "-";
@@ -64,7 +63,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         private void UpdateOverallAverage() {
             var schoolGrades = businessObjectProcessor.Get(ApplicationPropertyManager.Workspace.School);
             if (schoolGrades.Count > 0) {
-                tblOverallAverage.Text = Math.Round(businessObjectProcessor.CalculateAverageGrade(schoolGrades), 2).ToString();
+                tblOverallAverage.Text = Math.Round(businessObjectProcessor.CalculateAverageGrade(schoolGrades), 2).ToString("0.00");
             }
             else {
                 tblOverallAverage.Text = "-";

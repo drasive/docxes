@@ -7,7 +7,9 @@ using System.Windows.Input;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
-    // TODO: Fix the usage of custom string formatter properties in custom controls
+    // TODO: Test usability
+    // TODO: Test displaying
+    // TODO: Test input validation
 
     /// <summary>
     /// Interaction logic for <see cref="SchoolOverview.xaml"/>.
@@ -29,7 +31,6 @@ namespace VrankenBischof.Docxes.UserInterface {
             Title = ApplicationPropertyManager.Workspace.School.Name;
             Common.ExtendWindowName(this);
         }
-
 
         #region Control
 
@@ -232,9 +233,8 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private void wSchoolOverview_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {
             try {
-                // TODO: Shurtcut conditionS
                 if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.F
-                    && false) {
+                    && subjectProcessor.CanCreate(ApplicationPropertyManager.Workspace.School)) {
                     OpenManageSubjects();
 
                     UpdateSubjects();
@@ -252,7 +252,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                     OpenManageSchools();
                 }
                 else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.E
-                         && false) {
+                         && eventProcessor.CanCreate(ApplicationPropertyManager.Workspace.School)) {
                     OpenManageEvents();
 
                     UpdateUpcommingEvents();

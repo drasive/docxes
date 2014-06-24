@@ -71,7 +71,7 @@ namespace VrankenBischof.Docxes.Data {
 
             var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
 
-            var databaseObjectToUpdate = databaseContainer.Events.Find(entityToUpdate.Id);
+            var databaseObjectToUpdate = databaseContainer.Grades.Find(entityToUpdate.Id);
             databaseContainer.Entry(databaseObjectToUpdate).CurrentValues.SetValues(entityToUpdate);
 
             databaseContainer.SaveChanges();

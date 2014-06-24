@@ -17,7 +17,6 @@ namespace VrankenBischof.Docxes.Test {
         }
 
 
-        // TODO: Implement GradeProcessorTest
         [TestMethod]
         public void CalculateAverageGrade_MixedWeights() {
             // ASK: Do i even need to finish this?

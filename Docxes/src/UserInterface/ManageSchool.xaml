@@ -42,7 +42,7 @@
                      VerticalAlignment="Top"
                      MaxLength="64"
                      HorizontalAlignment="Left"
-                     Width="339" />
+                     Width="349" />
             <TextBox x:Name="tbComment"
                      Grid.Column="1"
                      Margin="5,47,10,10"

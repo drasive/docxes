@@ -53,6 +53,8 @@ namespace VrankenBischof.Docxes {
         // UI formatting
         public string TypeAsString { get { return Common.GetEnumDescription((EventType)Type); } }
 
+        public string DateAndSubject { get { return Date.ToShortDateString() + ", " + Subject.Name; } }
+
 
         /// <summary>
         /// Returns a string that represents the current object.

@@ -139,7 +139,7 @@ namespace VrankenBischof.Docxes.BusinessLogic {
         }
 
         public decimal CalculateRequiredGrade(IEnumerable<Grade> existingGrades, decimal targetGrade) {
-            // TODO: __
+            // TODO: Implement calculation of required grade
             return 0;
         }
 

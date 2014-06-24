@@ -54,7 +54,6 @@
                      VerticalAlignment="Top"
                      MaxLength="32" />
             <CheckBox x:Name="cbIsMale"
-                      Content=""
                       Grid.Column="1"
                       HorizontalAlignment="Left"
                       Margin="5,79,0,0"

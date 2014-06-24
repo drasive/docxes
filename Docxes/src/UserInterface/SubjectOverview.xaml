@@ -8,10 +8,10 @@
 
     <Grid>
         <Grid Margin="3">
-            <Border CornerRadius="2"
+            <Border CornerRadius="3"
                     SnapsToDevicePixels="True"
                     Background="#FF007ACC">
-                <Grid Margin="10">
+                <Grid Margin="10,10,10,10">
                     <Grid.Resources>
                         <Style x:Key="Button"
                                TargetType="Button">
@@ -20,12 +20,13 @@
                     </Grid.Resources>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="38" />
+                        <RowDefinition Height="30" />
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
                     <Label Content="{Binding Name, Mode=OneWay}"
-                           FontSize="20" />
+                           FontSize="20"
+                           Padding="3,0" />
 
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
@@ -43,6 +44,8 @@
                                             Value="130" />
                                     <Setter Property="Margin"
                                             Value="0,5,0,0" />
+                                    <Setter Property="Padding"
+                                            Value="3,1,1,1" />
                                     <Setter Property="HorizontalContentAlignment"
                                             Value="Left" />
                                 </Style>
@@ -58,7 +61,7 @@
                             <Button x:Name="btnManageNotes"
                                     Click="btnManageNotes_Click"
                                     Content="{Binding NotesAsString, Mode=OneWay}"
-                                    ToolTip="Die Notizen von diesem Fach verwalten" />
+                                    ToolTip="Die Notizen von diesem Fach verwalten"/>
                             <Button x:Name="btnManageGrades"
                                     Click="btnManageGrades_Click"
                                     Content="{Binding GradesAsString, Mode=OneWay}"

@@ -42,7 +42,7 @@
                      VerticalAlignment="Top"
                      MaxLength="64"
                      HorizontalAlignment="Left"
-                     Width="442" />
+                     Width="447" />
             <TextBox x:Name="tbContent"
                      Grid.Column="1"
                      Margin="5,41,10,10"
