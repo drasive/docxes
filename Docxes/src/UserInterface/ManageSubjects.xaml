@@ -9,7 +9,8 @@
         Width="600"
         Loaded="wManageSubjects_Loaded"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterOwner"
+        KeyDown="wManageSubjects_KeyDown">
     
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
@@ -56,7 +57,7 @@
                 Click="btnAdd_Click"
                 HorizontalAlignment="Right"
                 Width="75"
-                ToolTip="Ein neues Fach für den ausgewälten Lehrer hinzufügen" />
+                ToolTip="Ein neues Fach für den ausgewälten Lehrer hinzufügen (Strg + H)" />
         <Button x:Name="btnEdit"
                 Content="Bearbeiten"
                 Margin="0,5,90,0"
@@ -66,7 +67,7 @@
                 Height="25"
                 HorizontalAlignment="Right"
                 Width="75"
-                ToolTip="Das ausgewählte Fach bearbeiten" />
+                ToolTip="Das ausgewählte Fach bearbeiten (Strg + B)" />
         <Button x:Name="btnDelete"
                 Content="Löschen"
                 HorizontalAlignment="Right"
@@ -76,6 +77,6 @@
                 Grid.Row="2"
                 Click="btnDelete_Click"
                 Height="25"
-                ToolTip="Das ausgewählte Fach löschen" />
+                ToolTip="Das ausgewählte Fach löschen (Delete)" />
     </Grid>
 </Window>

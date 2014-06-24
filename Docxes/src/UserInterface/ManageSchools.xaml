@@ -9,7 +9,8 @@
         Width="600"
         Loaded="wManageSchools_Loaded"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        KeyDown="wManageSchools_KeyDown">
     
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
@@ -57,7 +58,7 @@
                 Click="btnAdd_Click"
                 HorizontalAlignment="Right"
                 Width="75"
-                ToolTip="Eine neue Schule hinzufügen" />
+                ToolTip="Eine neue Schule hinzufügen (Strg + H)" />
         <Button x:Name="btnEdit"
                 Content="Bearbeiten"
                 Margin="0,5,90,0"
@@ -67,7 +68,7 @@
                 Height="25"
                 HorizontalAlignment="Right"
                 Width="75"
-                ToolTip="Die ausgewählte Schule bearbeiten" />
+                ToolTip="Die ausgewählte Schule bearbeiten (Strg + B)" />
         <Button x:Name="btnDelete"
                 Content="Löschen"
                 HorizontalAlignment="Right"
@@ -77,6 +78,6 @@
                 Grid.Row="2"
                 Click="btnDelete_Click"
                 Height="25"
-                ToolTip="Die ausgewählte Schule löschen" />
+                ToolTip="Die ausgewählte Schule löschen (Delete)" />
     </Grid>
 </Window>

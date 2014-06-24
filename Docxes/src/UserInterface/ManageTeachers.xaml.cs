@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
@@ -74,6 +75,33 @@ namespace VrankenBischof.Docxes.UserInterface {
             try {
                 UpdateBusinessObjects();
                 UpdateControlsAvailability();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
+        }
+
+        private void wManageTeachers_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {
+            try {
+                if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.H) {
+                    if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                        UpdateBusinessObjects();
+                    }
+                }
+                else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.B
+                         && SelectedBusinessObject != null) {
+                    if (OpenEditBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                        UpdateBusinessObjects();
+                    }
+                }
+                else if (e.Key == Key.Delete
+                         && SelectedBusinessObject != null) {
+                    if (CheckForElementDeletion()) {
+                        UpdateBusinessObjects();
+                    }
+                }
             }
             catch (Exception ex) {
                 Logger.Log(ex);

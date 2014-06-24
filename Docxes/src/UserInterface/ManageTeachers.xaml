@@ -9,7 +9,8 @@
         Width="600"
         Loaded="wManageTeachers_Loaded"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterOwner"
+        KeyDown="wManageTeachers_KeyDown">
     
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
@@ -36,7 +37,7 @@
                 Click="btnAdd_Click"
                 HorizontalAlignment="Right"
                 Width="75"
-                ToolTip="Einen neuen Lehrer hinzufügen" />
+                ToolTip="Einen neuen Lehrer hinzufügen (Strg + H)" />
         <Button x:Name="btnEdit"
                 Content="Bearbeiten"
                 Margin="0,5,90,0"
@@ -46,7 +47,7 @@
                 Height="25"
                 HorizontalAlignment="Right"
                 Width="75"
-                ToolTip="Den ausgewählten Lehrer bearbeiten" />
+                ToolTip="Den ausgewählten Lehrer bearbeiten (Strg + B)" />
         <Button x:Name="btnDelete"
                 Content="Löschen"
                 HorizontalAlignment="Right"
@@ -56,6 +57,6 @@
                 Grid.Row="2"
                 Click="btnDelete_Click"
                 Height="25"
-                ToolTip="Den ausgewählten Lehrer löschen" />
+                ToolTip="Den ausgewählten Lehrer löschen (Delete)" />
     </Grid>
 </Window>

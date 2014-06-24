@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
@@ -65,6 +66,8 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private void UpdateSubjects() {
             // Get business objects
+            // ASK
+            // TODO: Fix bug with new entities loading their dependencies as null
             var businessObjects = subjectProcessor.Get(ApplicationPropertyManager.Workspace.School);
 
             // Display business objects
@@ -217,6 +220,41 @@ namespace VrankenBischof.Docxes.UserInterface {
                 }
                 if (CheckForSubjectCreation()) {
                     UpdateSubjects();
+                    UpdateUpcommingEvents();
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
+        }
+
+        private void wSchoolOverview_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {
+            try {
+                // TODO: Shurtcut conditionS
+                if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.F
+                    && false) {
+                    OpenManageSubjects();
+
+                    UpdateSubjects();
+                    UpdateUpcommingEvents();
+                }
+                else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.L) {
+                    OpenManageTeachers();
+
+                    UpdateSubjects();
+                    UpdateUpcommingEvents();
+                }
+                else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.S) {
+                    ApplicationPropertyManager.Workspace = null;
+
+                    OpenManageSchools();
+                }
+                else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.E
+                         && false) {
+                    OpenManageEvents();
+
                     UpdateUpcommingEvents();
                 }
             }

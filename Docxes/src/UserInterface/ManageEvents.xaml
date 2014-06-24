@@ -11,7 +11,8 @@
         Width="750"
         Loaded="wManageEvents_Loaded"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterOwner"
+        KeyDown="wManageEvents_KeyDown">
     <Grid x:Name="gRoot">
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -73,7 +74,7 @@
                     Width="179"
                     Click="btnToday_Click"
                     Height="22"
-                    ToolTip="Zum heutigen Datum springen" />
+                    ToolTip="Zum heutigen Datum springen (Strg + T)" />
         </Grid>
 
         <Button x:Name="btnAdd"
@@ -85,7 +86,7 @@
                 Click="btnAdd_Click"
                 HorizontalAlignment="Right"
                 Width="75"
-                ToolTip="Ein neues Ereignis hinzufügen" />
+                ToolTip="Ein neues Ereignis hinzufügen (Strg + H)" />
         <Button x:Name="btnEdit"
                 Content="Bearbeiten"
                 Margin="0,5,90,0"
@@ -95,7 +96,7 @@
                 Height="25"
                 HorizontalAlignment="Right"
                 Width="75"
-                ToolTip="Das ausgewählte Ereignis bearbeiten" />
+                ToolTip="Das ausgewählte Ereignis bearbeiten (Strg + B)" />
         <Button x:Name="btnDelete"
                 Content="Löschen"
                 HorizontalAlignment="Right"
@@ -105,6 +106,6 @@
                 Grid.Row="2"
                 Click="btnDelete_Click"
                 Height="25"
-                ToolTip="Das ausgewählte Ereignis löschen" />
+                ToolTip="Das ausgewählte Ereignis löschen (Delete)" />
     </Grid>
 </Window>

@@ -13,7 +13,8 @@
         WindowStartupLocation="CenterScreen"
         Loaded="wSchoolOverview_Loaded"
         MinHeight="500"
-        MinWidth="750">
+        MinWidth="750"
+        KeyDown="wSchoolOverview_KeyDown">
 
     <Grid x:Name="gRoot">
         <Grid x:Name="gContent"
@@ -63,27 +64,6 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </ScrollViewer>
-
-                <Button x:Name="btnChangeSchool"
-                        Margin="0,15,10,0"
-                        Content="Schule wechseln"
-                        Height="25"
-                        VerticalAlignment="Top"
-                        Click="btnChangeSchool_Click"
-                        Grid.Row="2"
-                        HorizontalAlignment="Right"
-                        Width="120"
-                        ToolTip="Eine andere Schule verwalten" />
-                <Button x:Name="btnManageTeachers"
-                        Content="Lehrer verwalten"
-                        Margin="0,15,135,0"
-                        Click="btnManageTeachers_Click"
-                        Height="25"
-                        VerticalAlignment="Top"
-                        Grid.Row="2"
-                        HorizontalAlignment="Right"
-                        Width="120"
-                        ToolTip="Die Lehrer an dieser Schule verwalten" />
                 <Button x:Name="btnManageSubjects"
                         Content="Fächer verwalten"
                         Margin="0,15,260,0"
@@ -93,7 +73,27 @@
                         Grid.Row="2"
                         HorizontalAlignment="Right"
                         Width="120"
-                        ToolTip="Die Fächer an dieser Schule verwalten" />
+                        ToolTip="Die Fächer an dieser Schule verwalten (Strg + F)" />
+                <Button x:Name="btnManageTeachers"
+                        Content="Lehrer verwalten"
+                        Margin="0,15,135,0"
+                        Click="btnManageTeachers_Click"
+                        Height="25"
+                        VerticalAlignment="Top"
+                        Grid.Row="2"
+                        HorizontalAlignment="Right"
+                        Width="120"
+                        ToolTip="Die Lehrer an dieser Schule verwalten (Strg + L)" />
+                <Button x:Name="btnChangeSchool"
+                        Margin="0,15,10,0"
+                        Content="Schule wechseln"
+                        Height="25"
+                        VerticalAlignment="Top"
+                        Click="btnChangeSchool_Click"
+                        Grid.Row="2"
+                        HorizontalAlignment="Right"
+                        Width="120"
+                        ToolTip="Eine andere Schule verwalten (Strg + S)" />
             </Grid>
 
             <Canvas Grid.Column="1"
@@ -196,7 +196,7 @@
                         Height="25"
                         Grid.Column="2"
                         Margin="0,15,10,0"
-                        ToolTip="Die Ereignisse an dieser Schule verwalten" />
+                        ToolTip="Die Ereignisse an dieser Schule verwalten (Strg + E)" />
             </Grid>
         </Grid>
     </Grid>

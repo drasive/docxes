@@ -130,6 +130,36 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
         }
 
+        private void wManageEvents_KeyDown(object sender, KeyEventArgs e) {
+            try {
+                if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.T) {
+                    SetCalendarToToday();
+                }
+                else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.H) {
+                    if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                        UpdateBusinessObjects();
+                    }
+                }
+                else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.B
+                         && SelectedBusinessObject != null) {
+                    if (OpenEditBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
+                        UpdateBusinessObjects();
+                    }
+                }
+                else if (e.Key == Key.Delete
+                         && SelectedBusinessObject != null) {
+                    if (CheckForElementDeletion()) {
+                        UpdateBusinessObjects();
+                    }
+                }
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
+        }
+
 
         private void cEvents_SelectedDatesChanged(object sender, SelectionChangedEventArgs e) {
             try {
