@@ -151,8 +151,9 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             if (existingGrades == null) {
                 throw new ArgumentNullException("existingGrades");
             }
+
             if (existingGrades.Count == 0) {
-                throw new ArgumentException("\"existingGrades\" does not contain any elements");
+                return targetGrade;
             }
 
             decimal totalValue = 0;

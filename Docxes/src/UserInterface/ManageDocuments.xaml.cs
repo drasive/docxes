@@ -94,7 +94,10 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private void wManageDocuments_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {
             try {
-                if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.H) {
+                if (e.Key == Key.Escape) {
+                    Close();
+                }
+                else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.H) {
                     if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
                         UpdateBusinessObjects();
                     }
@@ -103,7 +106,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                          && SelectedBusinessObject != null) {
                     Process.Start(SelectedBusinessObject.FilePath);
                 }
-                else if (Keyboard.Modifiers == ModifierKeys.Control && Keyboard.Modifiers == ModifierKeys.Shift && e.Key == Key.O
+                else if (Keyboard.Modifiers == ModifierKeys.Shift && e.Key == Key.O
                          && SelectedBusinessObject != null) {
                     Process.Start("explorer.exe", "/select," + SelectedBusinessObject.FilePath);
                 }

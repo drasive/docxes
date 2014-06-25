@@ -102,7 +102,7 @@
                 Click="btnOpenFolder_Click"
                 HorizontalAlignment="Right"
                 Width="100"
-                ToolTip="Den Ordner öffnen, in dem sich das ausgewählte Dokument befindet (Strg + Shift + O)" />
+                ToolTip="Den Ordner öffnen, in dem sich das ausgewählte Dokument befindet (Shift + O)" />
         <Button x:Name="btnEdit"
                 Content="Bearbeiten"
                 HorizontalAlignment="Right"

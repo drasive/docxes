@@ -12,6 +12,8 @@ namespace VrankenBischof.Docxes.UserInterface {
     /// </summary>
     internal sealed partial class ManageGrades : Window {
 
+        // TODO: __Save desired average at subject scope
+
         private BusinessLogic.SubjectProcessor businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
         private BusinessLogic.GradeProcessor businessObjectProcessor = new BusinessLogic.GradeProcessor();
 
@@ -90,22 +92,15 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             // Calculate required grade
             var subjectGrades = businessObjectProcessor.Get(SelectedBusinessObjectParent);
+            var requiredGrade = businessObjectProcessor.CalculateRequiredGrade(subjectGrades, Decimal.Parse(Common.EscapeNumber(tbDesiredAverage.Text)));
 
-            if (subjectGrades.Count > 0) {
-                var requiredGrade = businessObjectProcessor.CalculateRequiredGrade(subjectGrades, Decimal.Parse(Common.EscapeNumber(tbDesiredAverage.Text)));
-
-                if (requiredGrade != null) {
-                    tblRequiredGrade.Text = Math.Round(requiredGrade.Value, 2).ToString("0.00");
-                    tblRequiredGrade.ToolTip = String.Empty;
-                }
-                else {
-                    tblRequiredGrade.Text = "-";
-                    tblRequiredGrade.ToolTip = "Die gewünschte Note kann mit nur einer zusätzlichen Note nicht erreicht werden!";
-                }
+            if (requiredGrade != null) {
+                tblRequiredGrade.Text = Math.Round(requiredGrade.Value, 2).ToString("0.00");
+                tblRequiredGrade.ToolTip = String.Empty;
             }
             else {
                 tblRequiredGrade.Text = "-";
-                tblRequiredGrade.ToolTip = String.Empty;
+                tblRequiredGrade.ToolTip = "Die gewünschte Note kann mit nur einer zusätzlichen Note nicht erreicht werden!";
             }
         }
 
@@ -161,7 +156,10 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private void wManageGrades_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {
             try {
-                if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.H) {
+                if (e.Key == Key.Escape) {
+                    Close();
+                }
+                else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.H) {
                     if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
                         UpdateBusinessObjects();
                     }

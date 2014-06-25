@@ -85,7 +85,10 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private void wManageTeachers_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {
             try {
-                if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.H) {
+                if (e.Key == Key.Escape) {
+                    Close();
+                }
+                else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.H) {
                     if (OpenAddBusinessObjectManager() == BusinessObjectManagerAction.Saved) {
                         UpdateBusinessObjects();
                     }

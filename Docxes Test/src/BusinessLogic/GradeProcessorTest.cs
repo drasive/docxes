@@ -18,7 +18,7 @@ namespace VrankenBischof.Docxes.Test {
 
 
         [TestMethod]
-        public void CalculateAverageGrade_SimilarWeights() {
+        public void CalculateAverageGrade_SameWeight() {
             // Arrange
             var weight = 64;
             var subject = new Subject();

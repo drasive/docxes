@@ -132,7 +132,10 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private void wManageEvents_KeyDown(object sender, KeyEventArgs e) {
             try {
-                if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.T) {
+                if (e.Key == Key.Escape) {
+                    Close();
+                }
+                else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.T) {
                     SetCalendarToToday();
                 }
                 else if (Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.H) {
