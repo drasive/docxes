@@ -138,9 +138,37 @@ namespace VrankenBischof.Docxes.BusinessLogic {
             return average;
         }
 
-        public decimal CalculateRequiredGrade(IEnumerable<Grade> existingGrades, decimal targetGrade) {
-            // TODO: Implement calculation of required grade
-            return 0;
+        /// <summary>
+        /// Calculates the required grade to archieve a certain average, taking existing grades into account.
+        /// </summary>
+        /// <param name="existingGrades">The existing grades that contribute to the average.</param>
+        /// <param name="targetGrade">The grade that wants to be archieved.</param>
+        /// <returns>
+        /// The required grade to reach the specified target, taking the existing grades into account.
+        /// Null if the specified target can't be reached with a single additional grade.
+        /// </returns>
+        public decimal? CalculateRequiredGrade(List<Grade> existingGrades, decimal targetGrade) {
+            if (existingGrades == null) {
+                throw new ArgumentNullException("existingGrades");
+            }
+            if (existingGrades.Count == 0) {
+                throw new ArgumentException("\"existingGrades\" does not contain any elements");
+            }
+
+            decimal totalValue = 0;
+            decimal denominator = 0;
+            foreach (var grade in existingGrades) {
+                totalValue += grade.Value * (grade.Weight / 100M);
+                denominator += (grade.Weight / 100M);
+            }
+
+            var requiredGrade = (denominator + 1) * targetGrade - totalValue;
+            if (requiredGrade >= 1 && requiredGrade <= 6) {
+                return requiredGrade;
+            }
+            else {
+                return null;
+            }
         }
 
     }

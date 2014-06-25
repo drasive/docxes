@@ -7,9 +7,9 @@ using System.Windows.Input;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
-    // TODO: Test usability
-    // TODO: Test displaying
-    // TODO: Test input validation
+    // TODO: _Test usability
+    // TODO: _Test displaying
+    // TODO: _Test input validation
 
     /// <summary>
     /// Interaction logic for <see cref="SchoolOverview.xaml"/>.
@@ -67,7 +67,6 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private void UpdateSubjects() {
             // Get business objects
-            // TODO: Fix bug with new entities loading their dependencies as null
             var businessObjects = subjectProcessor.Get(ApplicationPropertyManager.Workspace.School);
 
             // Display business objects

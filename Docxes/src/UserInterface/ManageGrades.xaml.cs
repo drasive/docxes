@@ -7,8 +7,6 @@ using System.Windows.Input;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
-    // TODO: Add feature to calculate required grade
-
     /// <summary>
     /// Interaction logic for <see cref="ManageGrades.xaml"/>.
     /// </summary>
@@ -71,6 +69,47 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
 
+        private void UpdateRequiredGrade() {
+            if (tbDesiredAverage.Text.Length == 0) {
+                InputValidation.MarkControlAsValid(tbDesiredAverage);
+                tblRequiredGrade.Text = "-";
+                tblRequiredGrade.ToolTip = String.Empty;
+
+                return;
+            }
+
+            // Validate desired grade
+            var isDesiredGradeValid = InputValidation.Validate(tbDesiredAverage, 1M, 6M);
+
+            if (!isDesiredGradeValid) {
+                tblRequiredGrade.Text = "-";
+                tblRequiredGrade.ToolTip = String.Empty;
+
+                return;
+            }
+
+            // Calculate required grade
+            var subjectGrades = businessObjectProcessor.Get(SelectedBusinessObjectParent);
+
+            if (subjectGrades.Count > 0) {
+                var requiredGrade = businessObjectProcessor.CalculateRequiredGrade(subjectGrades, Decimal.Parse(Common.EscapeNumber(tbDesiredAverage.Text)));
+
+                if (requiredGrade != null) {
+                    tblRequiredGrade.Text = Math.Round(requiredGrade.Value, 2).ToString("0.00");
+                    tblRequiredGrade.ToolTip = String.Empty;
+                }
+                else {
+                    tblRequiredGrade.Text = "-";
+                    tblRequiredGrade.ToolTip = "Die gewünschte Note kann mit nur einer zusätzlichen Note nicht erreicht werden!";
+                }
+            }
+            else {
+                tblRequiredGrade.Text = "-";
+                tblRequiredGrade.ToolTip = String.Empty;
+            }
+        }
+
+
         private BusinessObjectManagerAction OpenAddBusinessObjectManager() {
             Window addBusinessObjectManager = new ManageGrade(SelectedBusinessObjectParent) { Owner = this };
             addBusinessObjectManager.ShowDialog();
@@ -111,6 +150,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                 UpdateOverallAverage();
 
                 UpdateControlsAvailability();
+                UpdateRequiredGrade();
             }
             catch (Exception ex) {
                 Logger.Log(ex);
@@ -164,6 +204,19 @@ namespace VrankenBischof.Docxes.UserInterface {
                 UpdateBusinessObjects();
 
                 UpdateSubjectAverage();
+                UpdateRequiredGrade();
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
+        }
+
+
+        private void tbDesiredAverage_TextChanged(object sender, TextChangedEventArgs e) {
+            try {
+                UpdateRequiredGrade();
             }
             catch (Exception ex) {
                 Logger.Log(ex);
@@ -180,6 +233,8 @@ namespace VrankenBischof.Docxes.UserInterface {
 
                     UpdateSubjectAverage();
                     UpdateOverallAverage();
+
+                    UpdateRequiredGrade();
                 }
             }
             catch (Exception ex) {
@@ -196,6 +251,8 @@ namespace VrankenBischof.Docxes.UserInterface {
 
                     UpdateSubjectAverage();
                     UpdateOverallAverage();
+
+                    UpdateRequiredGrade();
                 }
             }
             catch (Exception ex) {
@@ -212,6 +269,8 @@ namespace VrankenBischof.Docxes.UserInterface {
 
                     UpdateSubjectAverage();
                     UpdateOverallAverage();
+
+                    UpdateRequiredGrade();
                 }
             }
             catch (Exception ex) {

@@ -6,8 +6,8 @@
         x:ClassModifier="internal"
         Title="Noten"
         Icon="/Docxes;component/Resources/Images/Icon.ico"
-        Height="430"
-        Width="320"
+        Height="460"
+        Width="380"
         Loaded="wManageGrades_Loaded"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"
@@ -60,7 +60,7 @@
                    Height="16"
                    VerticalAlignment="Top" />
         <ListView x:Name="lvGrades"
-                  Margin="10,26,10,62"
+                  Margin="10,26,10,130"
                   Grid.Row="1"
                   SelectionChanged="lvEvents_SelectionChanged">
             <ListView.DataContext>
@@ -69,10 +69,10 @@
 
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="120"
+                    <GridViewColumn Width="140"
                                     Header="Gewichtung (%)"
                                     DisplayMemberBinding="{Binding Weight}" />
-                    <GridViewColumn Width="120"
+                    <GridViewColumn Width="140"
                                     Header="Note"
                                     DisplayMemberBinding="{Binding Value}" />
                 </GridView>
@@ -80,7 +80,7 @@
         </ListView>
 
         <TextBlock Text="Durchschnitt:"
-                   Margin="10,0,0,36"
+                   Margin="10,0,0,104"
                    Grid.Row="1"
                    HorizontalAlignment="Left"
                    Padding="0,5,5,0"
@@ -88,14 +88,14 @@
                    VerticalAlignment="Bottom" />
         <TextBlock x:Name="tblSubjectAverage"
                    Text="[Note]"
-                   Margin="0,0,10,33"
+                   Margin="0,0,10,104"
                    Grid.Row="1"
                    HorizontalAlignment="Right"
                    Padding="0,5,5,0"
                    Height="21"
                    VerticalAlignment="Bottom" />
         <TextBlock Text="Gesamtdurchschnitt:"
-                   Margin="10,0,0,10"
+                   Margin="10,0,0,78"
                    Grid.Row="1"
                    VerticalAlignment="Bottom"
                    HorizontalAlignment="Left"
@@ -104,13 +104,43 @@
                    FontWeight="Bold" />
         <TextBlock x:Name="tblOverallAverage"
                    Text="[Note]"
-                   Margin="0,0,10,10"
+                   Margin="0,0,10,78"
                    Grid.Row="1"
                    HorizontalAlignment="Right"
                    Padding="0,5,5,0"
                    RenderTransformOrigin="0.489,0.404"
                    FontWeight="Bold"
                    Height="21"
+                   VerticalAlignment="Bottom" />
+        
+        <TextBlock Text="Gewünschter Durchschnitt:"
+                   Margin="10,0,0,37"
+                   Grid.Row="1"
+                   HorizontalAlignment="Left"
+                   Padding="0,20.3,5,0"
+                   VerticalAlignment="Bottom" />
+        <TextBox x:Name="tbDesiredAverage"
+                 Margin="0,0,10,36"
+                 Grid.Row="1"
+                 TextWrapping="NoWrap"
+                 HorizontalAlignment="Right"
+                 Width="50"
+                 MaxLength="4"
+                 VerticalAlignment="Bottom"
+                 HorizontalContentAlignment="Right"
+                 TextChanged="tbDesiredAverage_TextChanged" />
+        <TextBlock Text="Benötigte Note für Wunschdurchschnitt:"
+                   Margin="10,0,0,10"
+                   Grid.Row="1"
+                   HorizontalAlignment="Left"
+                   Padding="0,5,5,0"
+                   VerticalAlignment="Bottom" />
+        <TextBlock x:Name="tblRequiredGrade"
+                   Text="[Note]"
+                   Margin="0,0,10,10"
+                   Grid.Row="1"
+                   HorizontalAlignment="Right"
+                   Padding="0,5,5,0"
                    VerticalAlignment="Bottom" />
 
         <Button x:Name="btnAdd"
