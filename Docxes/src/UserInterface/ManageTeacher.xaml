@@ -34,8 +34,8 @@
                    VerticalAlignment="Top"
                    HorizontalAlignment="Right"
                    Padding="5,5,2,5" />
-            <Label x:Name="lblMale"
-                   Content="Männlich:"
+            <Label x:Name="lblGender"
+                   Content="Geschlecht:"
                    Margin="0,72,5,0"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Right"
@@ -53,11 +53,20 @@
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
                      MaxLength="32" />
-            <CheckBox x:Name="cbIsMale"
-                      Grid.Column="1"
-                      HorizontalAlignment="Left"
-                      Margin="5,79,0,0"
-                      VerticalAlignment="Top" />
+            <RadioButton x:Name="rbMale"
+                         Content="Männlich"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Margin="5,79,0,0"
+                         VerticalAlignment="Top"
+                         Padding="4,-1,5,0"
+                         IsChecked="True" />
+            <RadioButton x:Name="rbFemale"
+                         Content="Weiblich"
+                         Grid.Column="1"
+                         HorizontalAlignment="Left"
+                         Margin="83,79,0,0"
+                         VerticalAlignment="Top" />
         </Grid>
 
         <Button x:Name="btnSave"

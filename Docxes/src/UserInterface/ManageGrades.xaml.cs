@@ -29,7 +29,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         private Subject SelectedBusinessObjectParent { get { return (Subject)cbSubjects.SelectedItem; } }
 
         private void UpdateBusinessObjectParents() {
-            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get();
+            IEnumerable<Subject> businessObjectParents = businessObjectParentProcessor.Get(ApplicationPropertyManager.Workspace.School);
 
             cbSubjects.ItemsSource = businessObjectParents;
             if (ApplicationPropertyManager.Workspace.Subject != null) {

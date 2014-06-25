@@ -1,4 +1,5 @@
-﻿namespace VrankenBischof.Docxes {
+﻿using System.Collections.Generic;
+namespace VrankenBischof.Docxes {
 
     /// <summary>
     /// Represents a subject.
@@ -12,6 +13,13 @@
         /// <param name="name">The name of the subject.</param>
         /// <param name="teacher">The teacher of the subject.</param>
         public Subject(string name, Teacher teacher) {
+            // Initialize relations
+            Documents = new List<Document>();
+            Notes = new List<Note>();
+            Grades = new List<Grade>();
+            Events = new List<Event>();
+
+            // Assign properties
             Name = name;
 
             TeacherId = teacher.Id;
@@ -34,7 +42,6 @@
         public string NotesAsString { get { return "Notizen (" + Notes.Count + ")"; } }
         public string GradesAsString { get { return "Noten (" + Grades.Count + ")"; } }
         public string EventsAsString { get { return "Ereignisse (" + Events.Count + ")"; } }
-
 
 
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace VrankenBischof.Docxes {
 
@@ -16,6 +17,10 @@ namespace VrankenBischof.Docxes {
         /// <param name="isMale">The gender of the teacher.</param>
         /// <param name="school">The school of the teacher.</param>
         public Teacher(string firstName, string lastName, bool isMale, School school) {
+            // Initialize relations
+            Subjects = new List<Subject>();
+
+            // Assign properties
             FirstName = firstName;
             LastName = lastName;
             IsMale = isMale;

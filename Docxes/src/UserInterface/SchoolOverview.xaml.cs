@@ -67,7 +67,6 @@ namespace VrankenBischof.Docxes.UserInterface {
 
         private void UpdateSubjects() {
             // Get business objects
-            // ASK
             // TODO: Fix bug with new entities loading their dependencies as null
             var businessObjects = subjectProcessor.Get(ApplicationPropertyManager.Workspace.School);
 

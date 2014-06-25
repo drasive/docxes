@@ -80,13 +80,6 @@ namespace VrankenBischof.Docxes.BusinessLogic {
                 throw new ArgumentNullException("objectToDelete");
             }
 
-            // Delete dependencies
-            //var subjects = objectToDelete.Subjects;
-            //var subjectProcessor = new SubjectProcessor();
-            //foreach (Subject dependencyToDelete in subjects) {
-            //    subjectProcessor.Delete(dependencyToDelete);
-            //}
-
             // Delete object
             dataManager.Delete(objectToDelete);
         }

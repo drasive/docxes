@@ -83,11 +83,12 @@ namespace VrankenBischof.Docxes.Data {
         /// </summary>
         /// <param name="entityToDelete">The entity to delete.</param>
         internal override void Delete(Document entityToDelete) {
+            // TODO: Fix the bug when deleting a newly creted document without a restart
+
             if (entityToDelete == null) {
                 throw new ArgumentNullException("entityToDelete");
             }
 
-            // TODO: Fix bug when deleting document
             var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
 
             var databaseObjectToDelete = databaseContainer.Documents.Find(entityToDelete.Id);

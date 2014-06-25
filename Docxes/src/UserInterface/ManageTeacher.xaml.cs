@@ -80,13 +80,14 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             tbFirstName.Text = businessObjectToMap.FirstName;
             tbLastName.Text = businessObjectToMap.LastName;
-            cbIsMale.IsChecked = businessObjectToMap.IsMale;
+            rbMale.IsChecked = businessObjectToMap.IsMale;
+            rbFemale.IsChecked = !businessObjectToMap.IsMale;
         }
 
         private Teacher MapInterfaceToElement() {
             var firstName = tbFirstName.Text;
             var lastName = tbLastName.Text;
-            var isMale = cbIsMale.IsChecked.GetValueOrDefault();
+            var isMale = rbMale.IsChecked.GetValueOrDefault();
 
             if (IsEditing) {
                 return new Teacher(firstName, lastName, isMale, businessObjectParent, businessObjectEditing);

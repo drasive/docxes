@@ -109,31 +109,6 @@ namespace VrankenBischof.Docxes.BusinessLogic {
                 throw new ArgumentNullException("objectToDelete");
             }
 
-            // Delete dependencies
-            //var documents = objectToDelete.Documents;
-            //var documentProcessor = new DocumentProcessor();
-            //foreach (Document dependencyToDelete in documents) {
-            //    documentProcessor.Delete(dependencyToDelete);
-            //}
-            //
-            //var notes = objectToDelete.Notes;
-            //var noteProcessor = new NoteProcessor();
-            //foreach (Note dependencyToDelete in notes) {
-            //    noteProcessor.Delete(dependencyToDelete);
-            //}
-            //
-            //var grades = objectToDelete.Grades;
-            //var gradeProcessor = new GradeProcessor();
-            //foreach (Grade dependencyToDelete in grades) {
-            //    gradeProcessor.Delete(dependencyToDelete);
-            //}
-            //
-            //var events = objectToDelete.Events;
-            //var eventProcessor = new EventProcessor();
-            //foreach (Event dependencyToDelete in events) {
-            //    eventProcessor.Delete(dependencyToDelete);
-            //}
-
             // Delete object
             dataManager.Delete(objectToDelete);
         }

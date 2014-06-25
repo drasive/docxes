@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace VrankenBischof.Docxes {
 
@@ -14,6 +15,10 @@ namespace VrankenBischof.Docxes {
         /// <param name="name">The name of the school.</param>
         /// <param name="comment">The comment of the school.</param>
         public School(string name, string comment) {
+            // Initialize relations
+            Teachers = new List<Teacher>();
+
+            // Assign properties
             Name = name;
             Comment = comment;
         }
