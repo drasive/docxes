@@ -18,27 +18,6 @@ namespace VrankenBischof.Docxes.Test {
 
 
         [TestMethod]
-        public void CalculateAverageGrade_MixedWeights() {
-            // ASK: Do i even need to finish this?
-            // TODO: Finish unit test
-
-            // Arrange
-            var subject = new Subject();
-            var grades = new List<Grade>() { new Grade(4.52M, 1, null, subject),
-                                             new Grade(5.37M, 300, null, subject),
-                                             new Grade(4.26M, 100, null, subject),
-                                             new Grade(4.33M, 123, null, subject),
-                                             new Grade(2.14M, 2, null, subject),
-                                             new Grade(4.88M, 299, null, subject) };
-
-            // Act
-            var result = entityProcessor.CalculateAverageGrade(grades);
-
-            // Assert
-            Assert.AreEqual(4.25M, result);
-        }
-
-        [TestMethod]
         public void CalculateAverageGrade_SimilarWeights() {
             // Arrange
             var weight = 64;

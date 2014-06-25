@@ -12,7 +12,6 @@ namespace VrankenBischof.Docxes.Test {
             return Guid.NewGuid().ToString().Substring(0, 32);
         }
 
-
         [TestInitialize]
         public void InitializeTests() {
             App.Initialize();
@@ -21,8 +20,6 @@ namespace VrankenBischof.Docxes.Test {
 
         [TestMethod]
         public void DatabaseOperations() {
-            // ASK: Is a check of the item count good enough?
-
             // Arrange
             var entityProcessor = new SchoolProcessor();
             var initialEntityCount = entityProcessor.Get().Count;
@@ -45,7 +42,6 @@ namespace VrankenBischof.Docxes.Test {
             entityProcessor.Update(updatedEntity);
 
             Assert.AreEqual(initialEntityCount + 1, entityProcessor.Get().Count);
-
 
             // -- Delete
             entityProcessor.Delete(initialEntity);
