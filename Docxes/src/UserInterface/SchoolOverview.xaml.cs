@@ -7,8 +7,7 @@ using System.Windows.Input;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
-    // TODO: _Test input validation
-    // TODO: _Test edge cases for displaying
+    // TODO: _Improve input validation
 
     /// <summary>
     /// Interaction logic for <see cref="SchoolOverview.xaml"/>.

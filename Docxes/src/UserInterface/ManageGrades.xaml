@@ -6,7 +6,7 @@
         x:ClassModifier="internal"
         Title="Noten verwalten"
         Icon="/Docxes;component/Resources/Images/Icon.ico"
-        Height="460"
+        Height="480"
         Width="380"
         Loaded="wManageGrades_Loaded"
         ResizeMode="NoResize"
@@ -47,7 +47,7 @@
                   Margin="42,12,0,0"
                   Height="23"
                   HorizontalAlignment="Left"
-                  Width="200"
+                  Width="250"
                   SelectedValuePath="Id"
                   SelectionChanged="cbSubjects_SelectionChanged"
                   VerticalAlignment="Top" />

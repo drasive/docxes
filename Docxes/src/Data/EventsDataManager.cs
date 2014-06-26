@@ -4,8 +4,6 @@ using System.Linq;
 
 namespace VrankenBischof.Docxes.Data {
 
-    // TODO: Fix event updating
-
     /// <summary>
     /// Provides functionality to manage events in nonvolatile memory.
     /// </summary>
@@ -112,7 +110,7 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToDelete");
             }
 
-            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer(false);
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
 
             var databaseObjectToDelete = databaseContainer.Events.Find(entityToDelete.Id);
             databaseContainer.Events.Remove(databaseObjectToDelete);

@@ -87,7 +87,7 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToDelete");
             }
 
-            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer(false);
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
 
             var databaseObjectToDelete = databaseContainer.Documents.Find(entityToDelete.Id);
             databaseContainer.Documents.Remove(databaseObjectToDelete);

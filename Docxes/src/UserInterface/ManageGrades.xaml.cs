@@ -46,6 +46,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             IEnumerable<Grade> businessObjects = businessObjectProcessor.Get(SelectedBusinessObjectParent);
 
             lvGrades.ItemsSource = businessObjects;
+            Common.UpdateSelectedItem(lvGrades);
         }
 
 

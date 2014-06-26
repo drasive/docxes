@@ -121,7 +121,7 @@
                 <StackPanel x:Name="gUpcommingEventsOverview"
                             Grid.Row="1">
                     <Grid x:Name="gUpcommingEventsThisWeek"
-                          MaxHeight="250">
+                          MaxHeight="260">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30" />
                             <RowDefinition />
@@ -151,7 +151,7 @@
                     </Grid>
 
                     <Grid x:Name="gUpcommingEventsNextWeek"
-                          MaxHeight="250"
+                          MaxHeight="260"
                           Margin="0,10,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30" />

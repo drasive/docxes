@@ -46,6 +46,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             if (businessObjects.Count() > 0) {
                 lbNotes.ItemsSource = businessObjects;
+                Common.UpdateSelectedItem(lbNotes);
             }
             else {
                 var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Es sind noch keine Notizen für dieses Fach vorhanden.\nKlicken Sie auf \"Hinzufügen\" um eine neue Notiz zu erstellen.");

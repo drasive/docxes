@@ -23,9 +23,9 @@ namespace VrankenBischof.Docxes {
 
 
         // UI formatting
-        public string LastWriteTimeAsString { get { return LastWriteTime.ToString("HH:mm:ss dd:MM:yyyy"); } }
-        public string CreationTimeAsString { get { return CreationTime.ToString("HH:mm:ss dd:MM:yyyy"); } }
-        public string LastAccessTimeAsString { get { return LastAccessTime.ToString("HH:mm:ss dd:MM:yyyy"); } }
+        public string LastWriteTimeAsString { get { return LastWriteTime.ToString("HH:mm:ss dd.MM.yyyy"); } }
+        public string CreationTimeAsString { get { return CreationTime.ToString("HH:mm:ss dd.MM.yyyy"); } }
+        public string LastAccessTimeAsString { get { return LastAccessTime.ToString("HH:mm:ss dd.MM.yyyy"); } }
 
 
         /// <summary>

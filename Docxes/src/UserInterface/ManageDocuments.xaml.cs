@@ -45,6 +45,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             IEnumerable<Document> businessObjects = businessObjectProcessor.Get(SelectedBusinessObjectParent);
 
             lvDocuments.ItemsSource = businessObjects;
+            Common.UpdateSelectedItem(lvDocuments);
         }
 
 

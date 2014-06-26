@@ -83,6 +83,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             // Update list
             lvEvents.ItemsSource = businessObjects;
+            Common.UpdateSelectedItem(lvEvents);
         }
 
 

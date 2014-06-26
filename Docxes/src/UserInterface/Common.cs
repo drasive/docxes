@@ -26,6 +26,10 @@ namespace VrankenBischof.Docxes.UserInterface {
         /// </summary>
         /// <param name="message">The message to put inside of the placeholder.</param>
         internal static ListBoxItem GeneratePlaceholderListBoxItem(String message) {
+            if (String.IsNullOrEmpty(message)) {
+                throw new ArgumentNullException("message");
+            }
+
             var placeholder = new ListBoxItem() {
                 Content = message,
                 FontSize = 10,
@@ -34,6 +38,35 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             return placeholder;
         }
+
+        /// <summary>
+        /// Updates the selected item of a list box.
+        /// </summary>
+        /// <param name="listBox">The list box of which the selected item should be updated.</param>
+        internal static void UpdateSelectedItem(ListBox listBox) {
+            if (listBox == null) {
+                throw new ArgumentNullException("listBox");
+            }
+
+            if (listBox.SelectedIndex == -1) {
+                return;
+            }
+
+            var selectedIndex = listBox.SelectedIndex;
+            listBox.SelectedIndex = -1;
+            listBox.SelectedIndex = selectedIndex;
+        }
+
+
+        /// <summary>
+        /// Escapes invalid characters from a string that represents a number.
+        /// </summary>
+        /// <param name="number">The number, which represents a string, to escape.</param>
+        /// <returns>The specified string with the invalid characters escaped.</returns>
+        internal static string EscapeNumber(string number) {
+            return number.Replace('.', ',');
+        }
+
 
         /// <summary>
         /// Asks the user if he really wants do delete a certain object.
@@ -54,16 +87,6 @@ namespace VrankenBischof.Docxes.UserInterface {
                                                       objectType + " wirklich löschen?", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
             return result == MessageBoxResult.Yes;
         }
-
-        /// <summary>
-        /// Escapes invalid characters from a string that represents a number.
-        /// </summary>
-        /// <param name="number">The number, which represents a string, to escape.</param>
-        /// <returns>The specified string with the invalid characters escaped.</returns>
-        internal static string EscapeNumber(string number) {
-            return number.Replace('.', ',');
-        }
-
 
         /// <summary>
         /// Shows a generic error message to the user.

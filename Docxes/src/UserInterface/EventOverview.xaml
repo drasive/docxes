@@ -21,7 +21,7 @@
 
         <StackPanel Margin="0,0,0,8">
             <Label x:Name="lblName"
-                   Content="{Binding Name, Mode=OneWay}"
+                   Content="{Binding NameAndType, Mode=OneWay}"
                    FontSize="16" />
             <Label x:Name="lblAdditionalInformation"
                    Content="{Binding DateAndSubject, Mode=OneWay}" />
