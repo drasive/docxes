@@ -33,11 +33,9 @@ namespace VrankenBischof.Docxes.Data {
                         Document entity
                     in
                         databaseContainer.Documents
-                    orderby
-                        entity.Name ascending
                     select
                         entity
-                    ).ToList().Where(entity => entity.DoesExist == true && predicate(entity)).ToList();
+                    ).ToList().Where(entity => entity.DoesExist == true && predicate(entity)).OrderBy(entity => entity.Name).ToList();
         }
 
         /// <summary>

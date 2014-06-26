@@ -111,7 +111,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                 Note duplicate;
                 if (IsEditing) {
                     duplicate = businessObjectProcessor.Get(businessObjectParent).Find(entity => entity.Name.ToUpper() == tbName.Text.ToUpper()
-                                                                                           && entity.Id != businessObjectEditing.Id);
+                                                                                       && entity.Id != businessObjectEditing.Id);
                 }
                 else {
                     duplicate = businessObjectProcessor.Get(businessObjectParent).Find(entity => entity.Name.ToUpper() == tbName.Text.ToUpper());

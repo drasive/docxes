@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace VrankenBischof.Docxes.Data {
 
-    // TODO: Fix update grade without reastart bug
+    // TODO: Fix event updating
 
     /// <summary>
     /// Provides functionality to manage events in nonvolatile memory.
