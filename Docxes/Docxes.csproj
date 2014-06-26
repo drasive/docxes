@@ -263,11 +263,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Project Management\Sequence Diagrams\ManageDocuments_btnAdd_Click.sequencediagram.layout">
-      <DependentUpon>ManageDocuments_btnAdd_Click.sequencediagram</DependentUpon>
+    <EmbeddedResource Include="Project Management\Sequence Diagrams\ManageEvents_btnDelete_Click.sequencediagram.layout">
+      <DependentUpon>ManageEvents_btnDelete_Click.sequencediagram</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Project Management\Sequence Diagrams\ManageNotes_btnAdd_Click.sequencediagram.layout">
-      <DependentUpon>ManageNotes_btnAdd_Click.sequencediagram</DependentUpon>
+    <EmbeddedResource Include="Project Management\Sequence Diagrams\ManageTeacher_btnSave_Click.sequencediagram.layout">
+      <DependentUpon>ManageTeacher_btnSave_Click.sequencediagram</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -277,12 +277,8 @@
     <None Include="packages.config" />
     <None Include="Project Management\FDS.docx" />
     <None Include="Project Management\FDS.pdf" />
-    <None Include="Project Management\Sequence Diagrams\Exported\ManageDocuments_btnAdd_Click.oxps" />
-    <None Include="Project Management\Sequence Diagrams\Exported\ManageDocuments_btnAdd_Click.pdf" />
-    <None Include="Project Management\Sequence Diagrams\Exported\ManageNotes_btnAdd_Click.oxps" />
-    <None Include="Project Management\Sequence Diagrams\Exported\ManageNotes_btnAdd_Click.pdf" />
-    <None Include="Project Management\Sequence Diagrams\ManageDocuments_btnAdd_Click.sequencediagram" />
-    <None Include="Project Management\Sequence Diagrams\ManageNotes_btnAdd_Click.sequencediagram" />
+    <None Include="Project Management\Sequence Diagrams\ManageEvents_btnDelete_Click.sequencediagram" />
+    <None Include="Project Management\Sequence Diagrams\ManageTeacher_btnSave_Click.sequencediagram" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -396,10 +392,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Docxes.mdf</DependentUpon>
     </Content>
+    <Resource Include="Project Management\Deployment Instructions.txt" />
     <Resource Include="Resources\Images\Icon.png" />
     <Resource Include="Resources\Images\Logo.png" />
     <Resource Include="Resources\Images\Icon.ico" />
-    <Resource Include="Project Management\Deployment Instructions.txt" />
     <Content Include="Resources\SQL Scripts\Select all entities.sql" />
     <SplashScreen Include="Resources\Images\SplashScreen.png" />
     <Content Include="src\Data\LocalDatabase.edmx.sql" />
@@ -431,7 +427,9 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Project Management\Sequence Diagrams\Export\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
