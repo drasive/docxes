@@ -9,6 +9,10 @@
     <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
     <Name>Docxes.Modelling</Name>
     <RootNamespace>Modelling</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -22,6 +26,13 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
+    <Content Include="Docxes 2014.06.03.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Docxes 2014.06.03.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Docxes 2014.06.03.classdiagram</DependentUpon>
+    </Content>
     <Content Include="ModelDefinition\Package1_2226.uml">
       <SubType>Content</SubType>
     </Content>
@@ -97,37 +108,10 @@
     <Content Include="ModelDefinition\Package_2331.uml">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Docxes 2014.06.03.classdiagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Docxes 2014.06.03.classdiagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>Docxes 2014.06.03.classdiagram</DependentUpon>
-    </Content>
     <Folder Include="ModelDefinition\" />
-    <Content Include="Docxes.classdiagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Docxes.classdiagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>Docxes.classdiagram</DependentUpon>
-    </Content>
     <Content Include="ModelDefinition\Modelling.uml">
       <SubType>Content</SubType>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Validate Include="Docxes.layerdiagram">
-      <SubType>Content</SubType>
-    </Validate>
-    <Validate Include="Docxes.layerdiagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>Docxes.layerdiagram</DependentUpon>
-    </Validate>
-    <Validate Include="Docxes.layerdiagram.suppressions">
-      <SubType>Content</SubType>
-      <DependentUpon>Docxes.layerdiagram</DependentUpon>
-    </Validate>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Docxes\Docxes.csproj">
