@@ -3,15 +3,14 @@
     /// <summary>
     /// Contains the business objects that are currently managed by the user.
     /// </summary>
-    public class Workspace {
+    internal class Workspace {
 
         protected Teacher teacher;
-        protected Subject subject;
 
 
-        public School School { get; private set; }
+        internal School School { get; private set; }
 
-        public Teacher Teacher {
+        internal Teacher Teacher {
             get {
                 return teacher;
             }
@@ -24,10 +23,10 @@
             }
         }
 
-        public Subject Subject { get; set; }
+        internal Subject Subject { get; set; }
 
 
-        public Workspace(School school) {
+        internal Workspace(School school) {
             School = school;
         }
 

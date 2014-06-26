@@ -38,14 +38,12 @@
 
             <TextBox x:Name="tbName"
                      Grid.Column="1"
-                     Margin="5,16,0,0"
+                     Margin="5,16,10,0"
                      VerticalAlignment="Top"
-                     MaxLength="64"
-                     HorizontalAlignment="Left"
-                     Width="349" />
+                     MaxLength="64" />
             <TextBox x:Name="tbComment"
                      Grid.Column="1"
-                     Margin="5,47,10,10"
+                     Margin="5,46,10,10"
                      MaxLength="512"
                      TextWrapping="Wrap"
                      AcceptsReturn="True" />

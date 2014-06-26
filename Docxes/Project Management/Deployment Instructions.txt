@@ -8,7 +8,7 @@ Files
 
 Folders
 - /Data
-    - Docxes.mdf (empty)/ Docxes_log.ldf
+    - Docxes.mdf/ Docxes_log.ldf
 
 // --------------------------------------------------
 // Configuration

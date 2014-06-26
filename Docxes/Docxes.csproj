@@ -275,9 +275,6 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Project Management\Assembly Dependencies.dgml" />
-    <None Include="Project Management\Class Diagram.cd" />
-    <None Include="Project Management\Class Diagram 2014.06.03.oxps" />
     <None Include="Project Management\FDS.docx" />
     <None Include="Project Management\FDS.pdf" />
     <None Include="Project Management\Sequence Diagrams\Exported\ManageDocuments_btnAdd_Click.oxps" />
@@ -399,13 +396,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Docxes.mdf</DependentUpon>
     </Content>
-    <Resource Include="Project Management\Class Diagram.png" />
-    <Resource Include="Project Management\Priority ToDos.txt" />
-    <Resource Include="Project Management\Deployment.txt" />
     <Resource Include="Resources\Images\Icon.png" />
     <Resource Include="Resources\Images\Logo.png" />
     <Resource Include="Resources\Images\Icon.ico" />
+    <Resource Include="Project Management\Deployment Instructions.txt" />
     <Content Include="Resources\SQL Scripts\Select all entities.sql" />
+    <SplashScreen Include="Resources\Images\SplashScreen.png" />
     <Content Include="src\Data\LocalDatabase.edmx.sql" />
   </ItemGroup>
   <ItemGroup>

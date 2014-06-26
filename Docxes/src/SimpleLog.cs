@@ -124,7 +124,7 @@ namespace JochenScharr
     /// }
     /// </code>
     /// </example>
-    public static class SimpleLog
+    internal static class SimpleLog
     {
         #region Enum Severity
 

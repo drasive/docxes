@@ -4,6 +4,8 @@ using System.Linq;
 
 namespace VrankenBischof.Docxes.Data {
 
+    // TODO: Fix update grade without reastart bug
+
     /// <summary>
     /// Provides functionality to manage events in nonvolatile memory.
     /// </summary>
@@ -33,6 +35,8 @@ namespace VrankenBischof.Docxes.Data {
                         Event entity
                     in
                         databaseContainer.Events
+                    orderby
+                        entity.Name ascending
                     select
                         entity
                     ).ToList().Where(entity => predicate(entity)).ToList();
@@ -108,7 +112,7 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToDelete");
             }
 
-            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer(false);
 
             var databaseObjectToDelete = databaseContainer.Events.Find(entityToDelete.Id);
             databaseContainer.Events.Remove(databaseObjectToDelete);

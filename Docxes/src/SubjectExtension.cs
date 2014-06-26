@@ -43,8 +43,6 @@ namespace VrankenBischof.Docxes {
         public string GradesAsString { get { return "Noten (" + Grades.Count + ")"; } }
         public string EventsAsString { get { return "Ereignisse (" + Events.Count + ")"; } }
 
-        // TODO: __Add formatting for displaying the amount of children in dropdowns
-
 
         /// <summary>
         /// Returns a string that represents the current object.

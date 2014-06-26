@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 using System.Windows;
 
 namespace VrankenBischof.Docxes {
@@ -12,6 +13,7 @@ namespace VrankenBischof.Docxes {
     public partial class App : Application {
 
         protected override void OnStartup(StartupEventArgs e) {
+            SplashScreen splashScreen = null;
             Window windowToShow = null;
 
             try {
@@ -24,13 +26,25 @@ namespace VrankenBischof.Docxes {
                     Shutdown(0);
                 }
 
-                // Set the application context
+                // Show the splash screen
+                splashScreen = new SplashScreen("Resources/Images/SplashScreen.png");
+                splashScreen.Show(false);
+
+                // Initialize
+                // -- Set the application context
                 ApplicationPropertyManager.Application = Application.Current;
 
-                // Set the data directory
+                // -- Set the data directory
                 var dataDirectory = ConfigurationReader.GetDataDirectoryPath();
                 AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectory);
 
+                // -- Initialize the database connection
+                var schoolProcessor = new BusinessLogic.SchoolProcessor();
+                schoolProcessor.Get(); // A database query forces the Entity Framework initialization
+
+                // Close the splash screen
+                splashScreen.Close(new TimeSpan(0));
+                
                 // Show the initial window
                 windowToShow = new UserInterface.ManageSchools();
                 windowToShow.Show();
@@ -38,6 +52,9 @@ namespace VrankenBischof.Docxes {
             catch (Exception ex) {
                 Logger.Log(ex);
 
+                if (splashScreen != null) {
+                    splashScreen.Close(new TimeSpan(0));
+                }
                 if (windowToShow != null) {
                     windowToShow.Close();
                 }

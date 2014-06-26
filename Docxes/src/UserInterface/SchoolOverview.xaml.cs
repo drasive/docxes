@@ -7,9 +7,8 @@ using System.Windows.Input;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
-    // TODO: _Test usability
-    // TODO: _Test displaying
     // TODO: _Test input validation
+    // TODO: _Test edge cases for displaying
 
     /// <summary>
     /// Interaction logic for <see cref="SchoolOverview.xaml"/>.
@@ -53,9 +52,11 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         private bool CheckForSubjectCreation() {
+            var canCreate = subjectProcessor.CanCreate(ApplicationPropertyManager.Workspace.School);
             var subjects = subjectProcessor.Get(ApplicationPropertyManager.Workspace.School);
 
-            return (subjects.Count == 0
+            return (canCreate
+                    && subjects.Count == 0
                     && AskForElementCreation("Sie haben noch keine Fächer eingetragen. Möchten Sie jetzt ein Fach hinzufügen?", "Fach hinzufügen?") == MessageBoxResult.Yes
                     && OpenAddSubject() == BusinessObjectManagerAction.Saved);
         }

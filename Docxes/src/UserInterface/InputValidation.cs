@@ -12,13 +12,14 @@ namespace VrankenBischof.Docxes.UserInterface {
         /// <summary>
         /// Marks a control as valid by restoring the default border color and removing the tooltip.
         /// </summary>
-        /// <param name="control">The control to mark as valid.</param>
+        /// <param name="control">The control to mark as valid.</param> 
         internal static void MarkControlAsValid(Control control) {
             if (control == null) {
                 throw new ArgumentNullException("control");
             }
 
-            control.BorderBrush = Brushes.DimGray; // Pretty similar to the default border brush of a TextBox
+            control.Foreground = Brushes.Black;
+            control.BorderBrush = Brushes.DimGray; // Pretty similar to the default border brush of a TextBox; 
             control.ToolTip = string.Empty;
         }
 
@@ -27,12 +28,17 @@ namespace VrankenBischof.Docxes.UserInterface {
         /// </summary>
         /// <param name="control">The control to mark as invalid.</param>
         /// <param name="toolTip">The tooltip to use for the specified control.</param>
-        internal static void MarkControlAsInvalid(Control control, string toolTip) {
+        internal static void MarkControlAsInvalid(Control control, string toolTip, bool styleBorderInsteadOfText = false) {
             if (control == null) {
                 throw new ArgumentNullException("control");
             }
 
-            control.BorderBrush = Brushes.Red;
+            if (styleBorderInsteadOfText) {
+                control.BorderBrush = Brushes.Red; 
+            }
+            else {
+                control.Foreground = Brushes.Red; 
+            }            
             control.ToolTip = toolTip ?? String.Empty;
         }
 
@@ -48,7 +54,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
 
             if (String.IsNullOrEmpty(textBox.Text.Trim())) {
-                MarkControlAsInvalid(textBox, "Dies ist ein Pflichtfeld. Bitte geben Sie einen Wert ein.");
+                MarkControlAsInvalid(textBox, "Dies ist ein Pflichtfeld. Bitte geben Sie einen Wert ein.", true);
                 return false;
             }
             else {
@@ -158,7 +164,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
 
             if (datePicker.SelectedDate == null) {
-                MarkControlAsInvalid(datePicker, "Dies ist ein Pflichtfeld. Bitte geben Sie einen Wert ein.");
+                MarkControlAsInvalid(datePicker, "Dies ist ein Pflichtfeld. Bitte geben Sie einen Wert ein.", true);
                 return false;
             }
             else {

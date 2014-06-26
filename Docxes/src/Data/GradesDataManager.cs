@@ -33,6 +33,9 @@ namespace VrankenBischof.Docxes.Data {
                         Grade entity
                     in
                         databaseContainer.Grades
+                    orderby
+                        entity.Value descending,
+                        entity.Weight descending
                     select
                         entity
                     ).ToList().Where(entity => predicate(entity)).ToList();
@@ -87,7 +90,7 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToDelete");
             }
 
-            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer(false);
 
             var databaseObjectToDelete = databaseContainer.Grades.Find(entityToDelete.Id);
             databaseContainer.Grades.Remove(databaseObjectToDelete);

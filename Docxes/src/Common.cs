@@ -14,7 +14,7 @@ namespace VrankenBischof.Docxes {
         /// </summary>
         /// <param name="value">The enum value to get the description for.</param>
         /// <returns>The description of the specified enum value or the value itself as a string, if no description is available.</returns>
-        public static string GetEnumDescription(Enum value) {
+        internal static string GetEnumDescription(Enum value) {
             FieldInfo fieldInfo = value.GetType().GetField(value.ToString());
 
             DescriptionAttribute[] attributes = (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);

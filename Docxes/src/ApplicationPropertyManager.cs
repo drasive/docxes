@@ -5,7 +5,7 @@ namespace VrankenBischof.Docxes {
     /// <summary>
     /// Manages the properties that are used throughout the application.
     /// </summary>
-    public static class ApplicationPropertyManager {
+    internal static class ApplicationPropertyManager {
 
         private static string workspaceKey = "workspace";
 

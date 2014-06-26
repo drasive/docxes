@@ -4,7 +4,7 @@
         x:Name="wManageGrades"
         x:Class="VrankenBischof.Docxes.UserInterface.ManageGrades"
         x:ClassModifier="internal"
-        Title="Noten"
+        Title="Noten verwalten"
         Icon="/Docxes;component/Resources/Images/Icon.ico"
         Height="460"
         Width="380"

@@ -33,6 +33,8 @@ namespace VrankenBischof.Docxes.Data {
                         School entity
                     in
                         databaseContainer.Schools
+                    orderby
+                        entity.Name ascending
                     select
                         entity
                     ).ToList().Where(entity => predicate(entity)).ToList();
@@ -74,7 +76,7 @@ namespace VrankenBischof.Docxes.Data {
                 throw new ArgumentNullException("entityToDelete");
             }
 
-            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer(false);
 
             var databaseObjectToDelete = databaseContainer.Schools.Find(entityToDelete.Id);
             databaseContainer.Schools.Remove(databaseObjectToDelete);

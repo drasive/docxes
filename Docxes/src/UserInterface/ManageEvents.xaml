@@ -6,7 +6,7 @@
         Icon="/Docxes;component/Resources/Images/Icon.ico"
         x:Class="VrankenBischof.Docxes.UserInterface.ManageEvents"
         x:ClassModifier="internal"
-        Title="Ereignisse"
+        Title="Ereignisse verwalten"
         Height="360"
         Width="750"
         Loaded="wManageEvents_Loaded"

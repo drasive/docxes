@@ -97,7 +97,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                 School duplicate;
                 if (IsEditing) {
                     duplicate = businessObjectProcessor.Get().Find(entity => entity.Name.ToUpper() == tbName.Text.ToUpper()
-                                                                                 && entity.Id != businessObjectEditing.Id);
+                                                                   && entity.Id != businessObjectEditing.Id);
                 }
                 else {
                     duplicate = businessObjectProcessor.Get().Find(entity => entity.Name.ToUpper() == tbName.Text.ToUpper());

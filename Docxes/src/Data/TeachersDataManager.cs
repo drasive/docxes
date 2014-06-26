@@ -33,6 +33,9 @@ namespace VrankenBischof.Docxes.Data {
                         Teacher entity
                     in
                         databaseContainer.Teachers
+                    orderby
+                        entity.LastName ascending,
+                        entity.FirstName ascending                        
                     select
                         entity
                     ).ToList().Where(entity => predicate(entity)).ToList();
@@ -83,13 +86,11 @@ namespace VrankenBischof.Docxes.Data {
         /// </summary>
         /// <param name="entityToDelete">The entity to delete.</param>
         internal override void Delete(Teacher entityToDelete) {
-            // TODO: Fix the bug when deleting a newly created teacher without a restart
-
             if (entityToDelete == null) {
                 throw new ArgumentNullException("entityToDelete");
             }
 
-            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer(false);
 
             var databaseObjectToDelete = databaseContainer.Teachers.Find(entityToDelete.Id);
             databaseContainer.Teachers.Remove(databaseObjectToDelete);

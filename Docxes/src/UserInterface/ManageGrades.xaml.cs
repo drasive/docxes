@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
@@ -11,8 +12,6 @@ namespace VrankenBischof.Docxes.UserInterface {
     /// Interaction logic for <see cref="ManageGrades.xaml"/>.
     /// </summary>
     internal sealed partial class ManageGrades : Window {
-
-        // TODO: __Save desired average at subject scope
 
         private BusinessLogic.SubjectProcessor businessObjectParentProcessor = new BusinessLogic.SubjectProcessor();
         private BusinessLogic.GradeProcessor businessObjectProcessor = new BusinessLogic.GradeProcessor();
@@ -72,6 +71,8 @@ namespace VrankenBischof.Docxes.UserInterface {
 
 
         private void UpdateRequiredGrade() {
+            tblRequiredGrade.Foreground = new SolidColorBrush(Colors.Black);
+
             if (tbDesiredAverage.Text.Length == 0) {
                 InputValidation.MarkControlAsValid(tbDesiredAverage);
                 tblRequiredGrade.Text = "-";
@@ -100,6 +101,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
             else {
                 tblRequiredGrade.Text = "-";
+                tblRequiredGrade.Foreground = new SolidColorBrush(Colors.Red);
                 tblRequiredGrade.ToolTip = "Die gewünschte Note kann mit nur einer zusätzlichen Note nicht erreicht werden!";
             }
         }

@@ -33,6 +33,8 @@ namespace VrankenBischof.Docxes.Data {
                         Document entity
                     in
                         databaseContainer.Documents
+                    orderby
+                        entity.Name ascending
                     select
                         entity
                     ).ToList().Where(entity => entity.DoesExist == true && predicate(entity)).ToList();
@@ -83,13 +85,11 @@ namespace VrankenBischof.Docxes.Data {
         /// </summary>
         /// <param name="entityToDelete">The entity to delete.</param>
         internal override void Delete(Document entityToDelete) {
-            // TODO: Fix the bug when deleting a newly creted document without a restart
-
             if (entityToDelete == null) {
                 throw new ArgumentNullException("entityToDelete");
             }
 
-            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer();
+            var databaseContainer = DatabaseContainerManager.GetLocalDatabaseContainer(false);
 
             var databaseObjectToDelete = databaseContainer.Documents.Find(entityToDelete.Id);
             databaseContainer.Documents.Remove(databaseObjectToDelete);

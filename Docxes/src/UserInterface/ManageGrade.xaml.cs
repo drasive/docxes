@@ -69,11 +69,6 @@ namespace VrankenBischof.Docxes.UserInterface {
             if (ValidateInput()) {
                 var businessObjectToSave = MapInterfaceToElement();
 
-                // EASTER_EGG: Bad grade
-                if (businessObjectToSave.Value < 2) {
-                    MessageBox.Show("Haha, du bist scheisse!", "Du bist scheisse", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-
                 if (IsEditing) {
                     businessObjectProcessor.Update(businessObjectToSave);
                 }

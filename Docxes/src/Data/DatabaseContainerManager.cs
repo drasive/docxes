@@ -3,7 +3,7 @@
     /// <summary>
     /// Manages the installation and disposition of all the database containers used throughout the application.
     /// </summary>
-    public sealed class DatabaseContainerManager {
+    internal sealed class DatabaseContainerManager {
 
         private static LocalDatabaseContainer localDatabaseContainer;
 
@@ -11,8 +11,8 @@
         /// Returns a database container for the use with the local application database.
         /// </summary>
         /// <returns>A database container for the use with the local application database.</returns>
-        public static LocalDatabaseContainer GetLocalDatabaseContainer() {
-            if (localDatabaseContainer == null) {
+        internal static LocalDatabaseContainer GetLocalDatabaseContainer(bool useCache = true) {
+            if (localDatabaseContainer == null || !useCache) {
                 localDatabaseContainer = new LocalDatabaseContainer();
             }
 
