@@ -397,7 +397,7 @@
     <Resource Include="Resources\Images\Logo.png" />
     <Resource Include="Resources\Images\Icon.ico" />
     <Content Include="Resources\SQL Scripts\Select all entities.sql" />
-    <SplashScreen Include="Resources\Images\SplashScreen.png" />
+    <SplashScreen Include="Resources\Images\Splash Screen.png" />
     <Content Include="src\Data\LocalDatabase.edmx.sql" />
   </ItemGroup>
   <ItemGroup>

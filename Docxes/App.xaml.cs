@@ -27,7 +27,7 @@ namespace VrankenBischof.Docxes {
                 }
 
                 // Show the splash screen
-                splashScreen = new SplashScreen("Resources/Images/SplashScreen.png");
+                splashScreen = new SplashScreen("Resources/Images/Splash Screen.png");
                 splashScreen.Show(false);
 
                 // Initialize
@@ -44,7 +44,7 @@ namespace VrankenBischof.Docxes {
 
                 // Close the splash screen
                 splashScreen.Close(new TimeSpan(0));
-                
+
                 // Show the initial window
                 windowToShow = new UserInterface.ManageSchools();
                 windowToShow.Show();
