@@ -282,6 +282,8 @@
     <None Include="packages.config" />
     <None Include="_Builds\Docxes 1.0.5291.21813.zip" />
     <None Include="_Builds\Docxes 1.0.5291.28527.zip" />
+    <None Include="_Builds\Docxes 1.0.5291.40143.zip" />
+    <None Include="_Project Management\Class diagram.pdf" />
     <None Include="_Project Management\FDS.docx" />
     <None Include="_Project Management\FDS.pdf" />
     <None Include="_Project Management\Sequence Diagrams\Export\ManageEvents_btnDelete_Click.pdf" />
