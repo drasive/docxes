@@ -19,38 +19,38 @@ namespace VrankenBischof.Docxes {
             try {
                 base.OnStartup(e);
 
-                // Check for multiple running instances
-                if (Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName).Length > 1) {
-                    MessageBox.Show("Eine andere Instanz von Docxes wird bereits ausgeführt!",
-                                    "Andere Instanz wird bereits ausgeführt", MessageBoxButton.OK, MessageBoxImage.Information);
+                // Check for already running instance
+                if (ApplicationRunningHelper.CheckAlreadyRunning()) {
                     Shutdown(0);
                 }
+                else {
+                    // Show the splash screen
+                    splashScreen = new SplashScreen("Resources/Images/Splash Screen.png");
+                    splashScreen.Show(false);
 
 
-                // Show the splash screen
-                splashScreen = new SplashScreen("Resources/Images/Splash Screen.png");
-                splashScreen.Show(false);
+
+                    // Initialize
+                    // -- Set the application context
+                    ApplicationPropertyManager.Application = Application.Current;
+
+                    // -- Set the data directory
+                    var dataDirectory = ConfigurationReader.GetDataDirectoryPath();
+                    AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectory);
+
+                    // -- Initialize the database connection
+                    var schoolProcessor = new BusinessLogic.SchoolProcessor();
+                    schoolProcessor.Get(); // A database query forces the Entity Framework initialization
+
+                    // Close the splash screen
+                    splashScreen.Close(new TimeSpan(0));
 
 
-                // Initialize
-                // -- Set the application context
-                ApplicationPropertyManager.Application = Application.Current;
 
-                // -- Set the data directory
-                var dataDirectory = ConfigurationReader.GetDataDirectoryPath();
-                AppDomain.CurrentDomain.SetData("DataDirectory", dataDirectory);
-
-                // -- Initialize the database connection
-                var schoolProcessor = new BusinessLogic.SchoolProcessor();
-                schoolProcessor.Get(); // A database query forces the Entity Framework initialization
-
-                // Close the splash screen
-                splashScreen.Close(new TimeSpan(0));
-
-
-                // Show the first window
-                windowToShow = new UserInterface.ManageSchools();
-                windowToShow.Show();
+                    // Show the first window
+                    windowToShow = new UserInterface.ManageSchools();
+                    windowToShow.Show();
+                }
             }
             catch (Exception ex) {
                 Logger.Log(ex);

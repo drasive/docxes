@@ -127,6 +127,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="src\ApplicationRunningHelper.cs" />
     <Compile Include="src\BusinessLogic\BusinessObjectProcessor.cs" />
     <Compile Include="src\BusinessLogic\EventProcessor.cs" />
     <Compile Include="src\BusinessLogic\NoteProcessor.cs" />
