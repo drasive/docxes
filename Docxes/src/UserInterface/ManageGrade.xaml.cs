@@ -5,8 +5,6 @@ using System.Windows.Controls;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
-    // TODO: Fix updating of grade value to decimal value
-
     /// <summary>
     /// Interaction logic for <see cref="ManageGrade.xaml"/>.
     /// </summary>

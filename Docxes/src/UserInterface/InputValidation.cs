@@ -4,8 +4,6 @@ using System.Windows.Media;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
-    // TODO: Fix empty tooltip
-
     /// <summary>
     /// Provides functionality to validate user input.
     /// </summary>

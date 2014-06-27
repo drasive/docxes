@@ -10,9 +10,9 @@ namespace VrankenBischof.Docxes {
         private static string workspaceKey = "workspace";
 
 
-        public static Application Application { get; set; }
+        internal static Application Application { get; set; }
 
-        public static Workspace Workspace {
+        internal static Workspace Workspace {
             get {
                 return (Workspace)Application.Properties[workspaceKey];
             }

@@ -7,8 +7,6 @@ using System.Windows.Input;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
-    // TODO: _Improve input validation
-
     /// <summary>
     /// Interaction logic for <see cref="SchoolOverview.xaml"/>.
     /// </summary>
