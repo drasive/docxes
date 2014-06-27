@@ -111,7 +111,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
         private Grade MapInterfaceToElement() {
-            var gradeAsDecimal = Decimal.Parse(Common.EscapeNumber(tbGrade.Text));
+            var gradeAsDecimal = Common.ParseDecimal(tbGrade.Text);
             var weightAsInteger = Int32.Parse(tbWeight.Text);
             var comment = tbComment.Text;
             var subject = (Subject)cbSubject.SelectedItem;

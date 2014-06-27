@@ -94,7 +94,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             // Calculate required grade
             var subjectGrades = businessObjectProcessor.Get(SelectedBusinessObjectParent);
-            var requiredGrade = businessObjectProcessor.CalculateRequiredGrade(subjectGrades, Decimal.Parse(Common.EscapeNumber(tbDesiredAverage.Text)));
+            var requiredGrade = businessObjectProcessor.CalculateRequiredGrade(subjectGrades, Common.ParseDecimal(tbDesiredAverage.Text));
 
             if (requiredGrade != null) {
                 tblRequiredGrade.Text = Math.Round(requiredGrade.Value, 2).ToString("0.00");

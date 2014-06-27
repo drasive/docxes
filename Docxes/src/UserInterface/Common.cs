@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -59,13 +60,22 @@ namespace VrankenBischof.Docxes.UserInterface {
         }
 
 
+        private static string ConvertNumberToInvariantCulture(string number) {
+            return number.Replace(',', '.');
+        }
+
         /// <summary>
-        /// Escapes invalid characters from a string that represents a number.
+        /// Similar to Decimal.Parse, but accepts "." and "," as the decimal point.
         /// </summary>
-        /// <param name="number">The number, which represents a string, to escape.</param>
-        /// <returns>The specified string with the invalid characters escaped.</returns>
-        internal static string EscapeNumber(string number) {
-            return number.Replace('.', ',');
+        internal static decimal ParseDecimal(string number) {
+            return Decimal.Parse(ConvertNumberToInvariantCulture(number), CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// Similar to Decimal.TryParse, but accepts "." and "," as the decimal point.
+        /// </summary>
+        internal static bool TryParseDecimal(string number, out decimal result) {
+            return Decimal.TryParse(ConvertNumberToInvariantCulture(number), NumberStyles.Number, CultureInfo.InvariantCulture, out result);
         }
 
 

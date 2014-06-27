@@ -82,7 +82,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             if (Validate(textBox)) {
                 // Data type validation
                 decimal inputAsDecimal;
-                var isDataTypeValid = Decimal.TryParse(Common.EscapeNumber(textBox.Text), out inputAsDecimal);
+                var isDataTypeValid = Common.TryParseDecimal(textBox.Text, out inputAsDecimal);
                 if (isDataTypeValid) {
                     InputValidation.MarkControlAsValid(textBox);
                 }
