@@ -5,8 +5,6 @@
     /// </summary>
     internal sealed class DatabaseContainerManager {
 
-        private static LocalDatabaseContainer localDatabaseContainer;
-
         /// <summary>
         /// Returns a database container for the local application database.
         /// </summary>
