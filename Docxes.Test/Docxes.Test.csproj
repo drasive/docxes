@@ -80,10 +80,13 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Data\Docxes.Test.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Docxes.Test_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Docxes.Test.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <Choose>
