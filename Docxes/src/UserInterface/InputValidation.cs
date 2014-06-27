@@ -4,6 +4,8 @@ using System.Windows.Media;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
+    // TODO: Fix empty tooltip
+
     /// <summary>
     /// Provides functionality to validate user input.
     /// </summary>
@@ -34,11 +36,11 @@ namespace VrankenBischof.Docxes.UserInterface {
             }
 
             if (styleBorderInsteadOfText) {
-                control.BorderBrush = Brushes.Red; 
+                control.BorderBrush = Brushes.Red;
             }
             else {
-                control.Foreground = Brushes.Red; 
-            }            
+                control.Foreground = Brushes.Red;
+            }
             control.ToolTip = toolTip ?? String.Empty;
         }
 
@@ -87,7 +89,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                     InputValidation.MarkControlAsValid(textBox);
                 }
                 else {
-                    InputValidation.MarkControlAsInvalid(textBox, "Dieser Wert ist keine gültige Zahl. Bitte geben Sie eine Zahl im Format \"0,##\" ein (z.B.: 4 oder 5,87).");
+                    InputValidation.MarkControlAsInvalid(textBox, "Dieser Wert ist keine gültige Dezimalzahl. Bitte geben Sie eine Dezimalzahl im Format \"0,##\" ein (z.B.: 4 oder 5,87).");
                     return false;
                 }
 
@@ -132,7 +134,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                     InputValidation.MarkControlAsValid(textBox);
                 }
                 else {
-                    InputValidation.MarkControlAsInvalid(textBox, "Dieser Wert ist keine gültige Zahl. Bitte geben Sie eine Zahl im Format \"0\" ein (z.B.: 4 oder 86).");
+                    InputValidation.MarkControlAsInvalid(textBox, "Dieser Wert ist keine gültige Ganzzahl. Bitte geben Sie eine Ganzzahl im Format \"0\" ein (z.B.: 4 oder 86).");
                     return false;
                 }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace VrankenBischof.Docxes.UserInterface {
 
@@ -135,6 +136,20 @@ namespace VrankenBischof.Docxes.UserInterface {
         #endregion
 
         #region Event wiring
+
+        private void validatedControl_InputChanged(object sender, System.Windows.Controls.TextChangedEventArgs e) {
+            try {
+                var control = (Control)sender;
+
+                InputValidation.MarkControlAsValid(control);
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
+        }
+
 
         private void btnSave_Click(object sender, RoutedEventArgs e) {
             try {

@@ -39,7 +39,8 @@
                      Grid.Column="1"
                      Margin="5,16,10,0"
                      VerticalAlignment="Top"
-                     MaxLength="64" />
+                     MaxLength="64"
+                     TextChanged="validatedControl_InputChanged" />
             <ComboBox x:Name="cbTeacher"
                       Grid.Column="1"
                       Margin="5,44,10,0"

@@ -40,7 +40,8 @@
                      Grid.Column="1"
                      Margin="5,16,10,0"
                      VerticalAlignment="Top"
-                     MaxLength="64" />
+                     MaxLength="64"
+                     TextChanged="validatedControl_InputChanged" />
             <TextBox x:Name="tbComment"
                      Grid.Column="1"
                      Margin="5,46,10,10"

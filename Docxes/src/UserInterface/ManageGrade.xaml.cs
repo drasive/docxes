@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace VrankenBischof.Docxes.UserInterface {
+
+    // TODO: Fix updating of grade value to decimal value
 
     /// <summary>
     /// Interaction logic for <see cref="ManageGrade.xaml"/>.
@@ -134,6 +137,20 @@ namespace VrankenBischof.Docxes.UserInterface {
         #endregion
 
         #region Event wiring
+
+        private void validatedControl_InputChanged(object sender, System.Windows.Controls.TextChangedEventArgs e) {
+            try {
+                var control = (Control)sender;
+
+                InputValidation.MarkControlAsValid(control);
+            }
+            catch (Exception ex) {
+                Logger.Log(ex);
+
+                Common.ShowGenericErrorMessage();
+            }
+        }
+
 
         private void btnSave_Click(object sender, RoutedEventArgs e) {
             try {

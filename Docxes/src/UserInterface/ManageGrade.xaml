@@ -55,7 +55,8 @@
                      HorizontalAlignment="Left"
                      Width="50"
                      HorizontalContentAlignment="Right"
-                     MaxLength="4" />
+                     MaxLength="4"
+                     TextChanged="validatedControl_InputChanged" />
             <TextBox x:Name="tbWeight"
                      Margin="5,47,0,0"
                      VerticalAlignment="Top"
@@ -64,7 +65,8 @@
                      Grid.Column="1"
                      HorizontalContentAlignment="Right"
                      Text="100"
-                     MaxLength="3" />
+                     MaxLength="3"
+                     TextChanged="validatedControl_InputChanged" />
             <TextBlock Grid.Column="1"
                        HorizontalAlignment="Left"
                        Margin="56,48,0,0"

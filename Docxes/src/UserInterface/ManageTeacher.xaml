@@ -46,13 +46,15 @@
                      Margin="5,15,10,0"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
-                     MaxLength="32" />
+                     MaxLength="32"
+                     TextChanged="entityIdentifyingControl_InputChanged" />
             <TextBox x:Name="tbLastName"
                      Grid.Column="1"
                      Margin="5,46,10,0"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
-                     MaxLength="32" />
+                     MaxLength="32"
+                     TextChanged="entityIdentifyingControl_InputChanged" />
             <RadioButton x:Name="rbMale"
                          Content="Männlich"
                          Grid.Column="1"
