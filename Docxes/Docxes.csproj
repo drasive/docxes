@@ -286,6 +286,7 @@
     <None Include="_Project Management\Class diagram.pdf" />
     <None Include="_Project Management\FDS.docx" />
     <None Include="_Project Management\FDS.pdf" />
+    <None Include="_Project Management\Sequence Diagrams\Export\Combined.pdf" />
     <None Include="_Project Management\Sequence Diagrams\Export\ManageEvents_btnDelete_Click.pdf" />
     <None Include="_Project Management\Sequence Diagrams\Export\ManageTeacher_btnSave_Click.pdf" />
     <None Include="_Project Management\Sequence Diagrams\ManageEvents_btnDelete_Click.sequencediagram" />
