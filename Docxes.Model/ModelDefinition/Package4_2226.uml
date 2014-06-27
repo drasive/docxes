@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="26263073-83c0-4d98-988d-7c119c42143e"
   name="Generic"
@@ -1558,7 +1558,7 @@
                   Id="9f4a08c8-3748-4288-800c-d962c4d59587">
                   <actuals>
                     <classMoniker
-                      Id="a4ca9995-4aa1-49c9-9914-4913c5cbfb69"
+                      Id="e68a7a17-7e8b-4170-a379-8a85ecbe8b9a"
                       LastKnownName="Entity"
                       LastKnownLocation="Package_2331.uml" />
                   </actuals>
@@ -1636,9 +1636,9 @@
                   Id="5f868d6f-b8eb-4cdb-a5a2-793851e9c478">
                   <actuals>
                     <classMoniker
-                      Id="b824adf2-72e6-4d4d-83fe-dfbb044fc708"
+                      Id="ada7e25f-f08d-4d05-ae26-29fcfa638bf1"
                       LastKnownName="BusinessObject"
-                      LastKnownLocation="Package_0047.uml" />
+                      LastKnownLocation="Package5_2226.uml" />
                   </actuals>
                   <formal>
                     <classifierTemplateParameterMoniker

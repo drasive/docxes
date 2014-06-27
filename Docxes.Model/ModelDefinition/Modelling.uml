@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="0f8520db-aa5b-4e58-9ce1-9447229fd3b5"
   name="Modelling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="82084c6a-6ada-448e-9010-1a4f9af01671"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3D::"
+      tag="ViewCode" />
+  </referencesInternal>
   <profileInstances>
     <packageHasProfileInstances
       Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
@@ -408,7 +414,7 @@
                     <classMoniker
                       Id="08f52834-d713-408d-bc08-f94f9b9b4146"
                       LastKnownName="Event"
-                      LastKnownLocation="Package1_2226.uml" />
+                      LastKnownLocation="Package_2325.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -506,7 +512,7 @@
                     <classMoniker
                       Id="cc576410-8765-4d19-bf16-2cc2ef547759"
                       LastKnownName="Subject"
-                      LastKnownLocation="Package1_2226.uml" />
+                      LastKnownLocation="Package_2325.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -671,7 +677,7 @@
                     <classMoniker
                       Id="08f52834-d713-408d-bc08-f94f9b9b4146"
                       LastKnownName="Event"
-                      LastKnownLocation="Package1_2226.uml" />
+                      LastKnownLocation="Package_2325.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -757,7 +763,7 @@
                     <classMoniker
                       Id="08f52834-d713-408d-bc08-f94f9b9b4146"
                       LastKnownName="Event"
-                      LastKnownLocation="Package1_2226.uml" />
+                      LastKnownLocation="Package_2325.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -964,8 +970,14 @@
     <packageHasNamedElement>
       <packageMoniker
         Id="870c885d-8801-4df8-8bcb-6b80715e8948"
-        LastKnownName="Docxes.Interface"
+        LastKnownName="Docxes.UserInterface"
         LastKnownLocation="Package_0058.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="277fdde9-b934-4597-a59d-db218417af47"
+        LastKnownName="Microsoft"
+        LastKnownLocation="Package_2229.uml" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

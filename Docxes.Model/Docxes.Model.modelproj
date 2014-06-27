@@ -26,14 +26,17 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
-    <Content Include="Docxes 2014.06.03.classdiagram">
+    <Content Include="Docxes.classdiagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Docxes 2014.06.03.classdiagram.layout">
+    <Content Include="Docxes.classdiagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>Docxes 2014.06.03.classdiagram</DependentUpon>
+      <DependentUpon>Docxes.classdiagram</DependentUpon>
     </Content>
     <Content Include="ModelDefinition\Package1_2226.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package1_2229.uml">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\Package1_2315.uml">
@@ -75,6 +78,9 @@
     <Content Include="ModelDefinition\Package_2137.uml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ModelDefinition\Package_2211.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ModelDefinition\Package_2225.uml">
       <SubType>Content</SubType>
     </Content>
@@ -82,6 +88,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\Package_2228.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_2229.uml">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\Package_2233.uml">
