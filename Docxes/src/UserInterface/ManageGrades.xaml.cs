@@ -101,9 +101,9 @@ namespace VrankenBischof.Docxes.UserInterface {
                 tblRequiredGrade.ToolTip = String.Empty;
             }
             else {
-                tblRequiredGrade.Text = "-";
+                tblRequiredGrade.Text = "N/A";
                 tblRequiredGrade.Foreground = new SolidColorBrush(Colors.Red);
-                tblRequiredGrade.ToolTip = "Die gewünschte Note kann mit nur einer zusätzlichen Note nicht erreicht werden!";
+                tblRequiredGrade.ToolTip = "Der gewünschte Durchschnitt kann nicht mit nur einer zusätzlichen Note erreicht werden!";
             }
         }
 
