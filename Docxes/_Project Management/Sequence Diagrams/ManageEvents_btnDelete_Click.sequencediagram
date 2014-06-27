@@ -1005,86 +1005,6 @@
               </interactionOperand>
             </operands>
           </combinedFragment>
-          <operandOccurrenceSpecification Id="ea6fdb82-efec-471a-af52-60ff7aa42168" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="7b892c6e-ff16-4c30-b928-f40ea17f9741" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="596e4e92-7cb2-4680-80be-5c22525d754d" LastKnownName="Logger" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="2429a319-8b40-4199-b7a9-ea676ace2ce1" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="0cb053f0-9f7a-4733-917b-a3a6e611f9d4" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="5a51c515-8656-4b95-b320-8385173b25e9" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="314459e7-0fd8-4e4b-a632-6090c0ff7793" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="9cc1f4fe-1290-4e23-9519-4d9e1589dc99" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="8d8af538-97d3-40e3-9e2c-ac42064a26fd" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="bddbb68a-d242-4631-816a-164f1d25cd40" LastKnownName="subjects : List&lt;Subject&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="77847c69-fe13-45ba-a6be-dc86e64fbcfd" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="a37cef39-7c25-4bd9-937a-09f34859d647" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="20ea3008-f70e-4bd2-900f-f6d24560c91b" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="97844daf-5e4c-4e86-8914-4728842dce99" LastKnownName="Common" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="f8a184fe-e98f-43bf-9ded-4ea797f37c40" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="c34f2ed0-2581-4e61-b205-01a2c361565e" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="0d7619bd-a00b-41d9-bfe6-996ca7062384" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="c9a51527-911f-480b-9064-5eaded58b6a9" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="fb35b29d-c952-43dd-8520-3baec69525c6" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="233f695c-2212-4c51-83ee-1974c7a9d789" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="069240f4-bdc9-4255-b635-be30a4be3ec7" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="d0ed7b2c-524b-4ccf-b0cc-08566108cc23" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="a882b3b5-86d8-4b10-bf2e-9c5c3f64f523" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
@@ -1115,14 +1035,14 @@
               <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="9773d428-cc10-4466-bef5-35c3c765f506" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="a218f66f-27fb-4e40-be9b-3897f0126b36" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="7d6f8e24-3a3d-478e-8531-4799a1fa4fa8" LastKnownName="source : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="069240f4-bdc9-4255-b635-be30a4be3ec7" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="e2f6c005-4993-42b4-913c-300012d1c13d" name="OperandOccurrenceSpecification">
@@ -1143,6 +1063,86 @@
           <operandOccurrenceSpecification Id="54426793-7d50-41a3-97c3-9f2536a663bd" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="9773d428-cc10-4466-bef5-35c3c765f506" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="233f695c-2212-4c51-83ee-1974c7a9d789" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="c9a51527-911f-480b-9064-5eaded58b6a9" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="fb35b29d-c952-43dd-8520-3baec69525c6" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="0d7619bd-a00b-41d9-bfe6-996ca7062384" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="ea6fdb82-efec-471a-af52-60ff7aa42168" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="7b892c6e-ff16-4c30-b928-f40ea17f9741" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="596e4e92-7cb2-4680-80be-5c22525d754d" LastKnownName="Logger" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="2429a319-8b40-4199-b7a9-ea676ace2ce1" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="0cb053f0-9f7a-4733-917b-a3a6e611f9d4" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="5a51c515-8656-4b95-b320-8385173b25e9" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="9cc1f4fe-1290-4e23-9519-4d9e1589dc99" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="314459e7-0fd8-4e4b-a632-6090c0ff7793" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="77847c69-fe13-45ba-a6be-dc86e64fbcfd" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="a37cef39-7c25-4bd9-937a-09f34859d647" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="20ea3008-f70e-4bd2-900f-f6d24560c91b" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="97844daf-5e4c-4e86-8914-4728842dce99" LastKnownName="Common" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="f8a184fe-e98f-43bf-9ded-4ea797f37c40" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="c34f2ed0-2581-4e61-b205-01a2c361565e" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="8d8af538-97d3-40e3-9e2c-ac42064a26fd" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="bddbb68a-d242-4631-816a-164f1d25cd40" LastKnownName="subjects : List&lt;Subject&gt;" />
             </covered>
           </operandOccurrenceSpecification>
           <messageOccurrenceSpecification Id="9eceff36-07af-486b-931f-a8106a9be638" name="MessageOccurrenceSpecification">
@@ -1324,14 +1324,14 @@
               <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="c93e0d50-a1a5-44c8-a5e0-10ab51a2e3a5" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="aab0500a-abbc-4bae-b40c-5411f801e40f" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="c93e0d50-a1a5-44c8-a5e0-10ab51a2e3a5" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="2008ed99-f942-44ab-aec3-9d216423e583" name="ExecutionOccurrenceSpecification">
@@ -1370,6 +1370,76 @@
               <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
             </covered>
           </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="7a172fc1-3535-47b1-ae26-0385ee350835" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="deb1e510-bdad-47a8-bffd-1da5040fa11f" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="1e8ff3f5-329a-429f-b9a7-fb217bc8461c" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="940d08dc-47aa-47f2-aaf9-41c0a0a38dcf" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="bddbb68a-d242-4631-816a-164f1d25cd40" LastKnownName="subjects : List&lt;Subject&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="cfee168f-b705-400e-866e-6940ab582775" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="2fa742b2-9e07-477b-9359-3c9d38ca3c54" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="0cb053f0-9f7a-4733-917b-a3a6e611f9d4" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="bc7f096c-0c8a-41fd-941b-91657b2e6643" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="2d6283f5-f354-4cf7-91ec-b687411e9680" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="8bf1c536-9435-4d9c-943e-9c61d5714044" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="a882b3b5-86d8-4b10-bf2e-9c5c3f64f523" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="fb51eab3-aeda-48e6-a3d5-36f54fa16f73" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="70c25f72-a335-4c1e-81a3-fc8b2708061f" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="d2b38114-4d19-400b-a19a-e5225f060faa" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="cae1f64b-a130-423c-91f6-c73c63ba3ea1" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="6769b8c4-2041-434d-b5e9-3466673333f7" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="636fe38a-b5ed-46b2-9c48-0efb541df1bb" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="21b067fb-5394-4575-bc43-7cdf19ca1f54" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="3d46497e-e236-4531-b616-74f6f676e7f5" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
@@ -1385,11 +1455,6 @@
               <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="683c9cb8-a7fa-499a-a7e4-b86f6d0b826d" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="b1234334-26e0-4dd9-881c-3d0d3e317add" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
@@ -1400,9 +1465,9 @@
               <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="08eb18a7-14a2-43b6-934a-2c3fab9cbaae" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="683c9cb8-a7fa-499a-a7e4-b86f6d0b826d" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
+              <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="c8fce788-5faa-42c6-bc6f-01e56a721a25" name="OperandOccurrenceSpecification">
@@ -1430,74 +1495,9 @@
               <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="21b067fb-5394-4575-bc43-7cdf19ca1f54" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="08eb18a7-14a2-43b6-934a-2c3fab9cbaae" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="636fe38a-b5ed-46b2-9c48-0efb541df1bb" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="6769b8c4-2041-434d-b5e9-3466673333f7" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="8bf1c536-9435-4d9c-943e-9c61d5714044" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="a882b3b5-86d8-4b10-bf2e-9c5c3f64f523" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="7a172fc1-3535-47b1-ae26-0385ee350835" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="deb1e510-bdad-47a8-bffd-1da5040fa11f" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="1e8ff3f5-329a-429f-b9a7-fb217bc8461c" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="940d08dc-47aa-47f2-aaf9-41c0a0a38dcf" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="bddbb68a-d242-4631-816a-164f1d25cd40" LastKnownName="subjects : List&lt;Subject&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="cfee168f-b705-400e-866e-6940ab582775" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="2fa742b2-9e07-477b-9359-3c9d38ca3c54" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="0cb053f0-9f7a-4733-917b-a3a6e611f9d4" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="d2b38114-4d19-400b-a19a-e5225f060faa" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="cae1f64b-a130-423c-91f6-c73c63ba3ea1" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="2d6283f5-f354-4cf7-91ec-b687411e9680" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="bc7f096c-0c8a-41fd-941b-91657b2e6643" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="fb51eab3-aeda-48e6-a3d5-36f54fa16f73" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="70c25f72-a335-4c1e-81a3-fc8b2708061f" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
+              <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
             </covered>
           </operandOccurrenceSpecification>
           <messageOccurrenceSpecification Id="0ed9b019-2d99-456f-b7df-d1e511792cd4" name="MessageOccurrenceSpecification">
@@ -1579,14 +1579,14 @@
               <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="206f1be8-12b0-4d5c-9575-c5b9689fb31e" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="9103028d-49a2-4347-84c7-0d8b45977bca" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="206f1be8-12b0-4d5c-9575-c5b9689fb31e" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
             </covered>
           </messageOccurrenceSpecification>
           <behaviorExecutionSpecification Id="2cf23dd3-409c-4635-9b4e-451be63f7cca" name="BehaviorExecutionSpecification">
@@ -1910,14 +1910,14 @@
               <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="f1795832-0230-4e52-a550-bf434750129a" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="deb1e510-bdad-47a8-bffd-1da5040fa11f" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="90e6bdad-4b2f-4425-8851-6b07877a0a08" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="f1795832-0230-4e52-a550-bf434750129a" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="deb1e510-bdad-47a8-bffd-1da5040fa11f" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="e51d43f7-4ac5-40f0-8afe-8c0a204cfea6" name="ExecutionOccurrenceSpecification">
@@ -1975,17 +1975,12 @@
               <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="1664af9d-b2e6-49d1-b3b8-c3a95f854bd5" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="8af762c9-9223-4a5b-a4f3-c552830735c9" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="a6c1218f-25fa-4100-aee9-d740dfc57a6d" name="MessageOccurrenceSpecification">
+          <messageOccurrenceSpecification Id="1664af9d-b2e6-49d1-b3b8-c3a95f854bd5" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
             </covered>
@@ -1993,6 +1988,11 @@
           <messageOccurrenceSpecification Id="ed515571-cae7-4508-a72a-a982ab8ce56b" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="a6c1218f-25fa-4100-aee9-d740dfc57a6d" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="9677f80d-08a7-4e3e-b813-6e9faa43c3a9" name="ExecutionOccurrenceSpecification">
@@ -2070,14 +2070,14 @@
               <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
             </covered>
           </executionOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="527cf9c5-92f0-4101-adf4-638911e9310e" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="f8f56cc6-cb72-4188-a927-0695ad046118" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="527cf9c5-92f0-4101-adf4-638911e9310e" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
             </covered>
           </operandOccurrenceSpecification>
           <messageOccurrenceSpecification Id="3381066b-af9e-476b-84f2-10b87f818478" name="MessageOccurrenceSpecification">
@@ -2155,39 +2155,9 @@
               <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
             </covered>
           </executionOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="aff1ddd6-d144-4103-9ba7-a70b597baeb8" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="56c92393-7763-4598-a2bb-cf18927829b3" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="cc52efa9-c97d-4f3b-be2a-37e88e7acbbc" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="75142c29-eed6-43cf-9afd-4602985d78a1" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="542a5bfd-8eb6-4ddc-ae3a-ef907ad445fb" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="a2b5bc77-5d32-4d5c-b45d-fd5dd23b7d08" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="18b9838d-47cf-45b1-b4a8-c6758d978a14" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="9b787293-629e-4b60-a50f-9c4f230e7496" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
+              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="bd28a0b3-e3f7-40e9-bca3-e6b0deb1c4df" name="OperandOccurrenceSpecification">
@@ -2195,14 +2165,44 @@
               <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
             </covered>
           </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="9b787293-629e-4b60-a50f-9c4f230e7496" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="18b9838d-47cf-45b1-b4a8-c6758d978a14" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="fd517eea-1508-46dd-b8e5-56ad6948d9d7" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="0cb053f0-9f7a-4733-917b-a3a6e611f9d4" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="56c92393-7763-4598-a2bb-cf18927829b3" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="542a5bfd-8eb6-4ddc-ae3a-ef907ad445fb" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
+              <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="75142c29-eed6-43cf-9afd-4602985d78a1" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="cc52efa9-c97d-4f3b-be2a-37e88e7acbbc" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="a2b5bc77-5d32-4d5c-b45d-fd5dd23b7d08" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="aff1ddd6-d144-4103-9ba7-a70b597baeb8" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
             </covered>
           </operandOccurrenceSpecification>
           <behaviorExecutionSpecification Id="ba44afd0-20de-4638-b06f-b5ffd9c203c0" name="BehaviorExecutionSpecification">
@@ -2446,14 +2446,14 @@
               <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="58b398e4-e614-42c4-ac87-9f4187fbfe9d" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="115b2ce4-39fe-43b0-8480-c8d60461816a" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="58b398e4-e614-42c4-ac87-9f4187fbfe9d" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="a2de9a64-ecfa-4881-b0fe-a55eb5c593bc" name="OperandOccurrenceSpecification">
@@ -2592,6 +2592,11 @@
               <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
             </covered>
           </messageOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="92b58bd4-3554-412d-b23f-e694aeb23cd9" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="31b47be0-d9bd-41b7-aa76-ded69f4d2b7c" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
@@ -2600,11 +2605,6 @@
           <operandOccurrenceSpecification Id="61a39f8e-ebd4-41fd-a8e0-afd438165c65" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="92b58bd4-3554-412d-b23f-e694aeb23cd9" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
           <behaviorExecutionSpecification Id="e07b87f0-cf02-4dae-9b26-36abbe353340" name="BehaviorExecutionSpecification">
@@ -2646,14 +2646,14 @@
               <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
             </covered>
           </messageOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="31b3e6a7-159e-4ccc-a315-b8e251c77bf1" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="d3850180-2dba-4247-a026-bf35417d313e" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="31b3e6a7-159e-4ccc-a315-b8e251c77bf1" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
             </covered>
           </operandOccurrenceSpecification>
           <behaviorExecutionSpecification Id="e9e73fdc-7508-4362-93fb-0a5d21078850" name="BehaviorExecutionSpecification">
@@ -2721,14 +2721,14 @@
               <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="7b5a5b3c-a9a8-4c98-af08-3a8aaa87edaa" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="a2319d3a-351a-4dff-863c-bdb03d9726e0" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="7b5a5b3c-a9a8-4c98-af08-3a8aaa87edaa" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="8390cb7c-8fab-4756-99d9-cf9ab22c4c4e" name="ExecutionOccurrenceSpecification">
@@ -2756,22 +2756,17 @@
               <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="7911b994-2210-43aa-8977-3aecbac28855" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="23635d89-1ff7-4a1a-ae6d-4b52d8e410b3" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="98e44c79-aa70-4340-b7c1-b8651a308d00" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="7911b994-2210-43aa-8977-3aecbac28855" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="a058adf9-5efc-40f7-a79d-2db6c7439681" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
             </covered>
@@ -2784,6 +2779,11 @@
           <operandOccurrenceSpecification Id="5d9b894b-3672-45ef-8a12-af6a4fa72fea" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="a058adf9-5efc-40f7-a79d-2db6c7439681" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
           <messageOccurrenceSpecification Id="4e08a702-6f7e-48de-9143-07dd13692523" name="MessageOccurrenceSpecification">
@@ -2891,29 +2891,19 @@
               <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
             </covered>
           </executionOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="d638b498-ad9a-447d-9502-d8f3a294c6de" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="753edd14-0d1a-46ec-85d5-972132b5f98f" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
+              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="f9f6962c-843a-4a31-8079-cc6d060b990d" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="ebd360ff-0f22-49c1-8fa8-92b80c14488c" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
+              <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="419f3d90-59b1-4207-92a1-1647009c8374" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="19d44c59-5cf3-4969-9a64-812b8ac12adc" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="2103dbc5-ed5d-4944-acb2-0727242cae86" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="0cb053f0-9f7a-4733-917b-a3a6e611f9d4" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="a51b2f21-4a16-43af-a561-e8751dba2197" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
+              <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="e6072e77-686c-48c3-9192-c71106c2601a" name="OperandOccurrenceSpecification">
@@ -2926,19 +2916,29 @@
               <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="ebd360ff-0f22-49c1-8fa8-92b80c14488c" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="2103dbc5-ed5d-4944-acb2-0727242cae86" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
+              <lifelineMoniker Id="0cb053f0-9f7a-4733-917b-a3a6e611f9d4" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="753edd14-0d1a-46ec-85d5-972132b5f98f" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="d638b498-ad9a-447d-9502-d8f3a294c6de" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
+              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="19d44c59-5cf3-4969-9a64-812b8ac12adc" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="f9f6962c-843a-4a31-8079-cc6d060b990d" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
+              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="a51b2f21-4a16-43af-a561-e8751dba2197" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="419f3d90-59b1-4207-92a1-1647009c8374" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
           <messageOccurrenceSpecification Id="41b6f0af-9d98-42ba-b622-9daf7dee80b6" name="MessageOccurrenceSpecification">
@@ -3040,14 +3040,14 @@
               <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="150b71a3-126a-4c61-baeb-3b8312ba15f4" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="e6c56653-6148-4a30-afb2-27816476b9f5" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="150b71a3-126a-4c61-baeb-3b8312ba15f4" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="f95c71c0-bffc-49ec-b8cd-1f0433e4cc06" name="ExecutionOccurrenceSpecification">
@@ -3405,14 +3405,14 @@
               <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="a5d9c363-029d-4656-9550-59d0998313a8" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="979a42ef-fe28-4ffc-989d-ed3c1ddf5a28" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="a5d9c363-029d-4656-9550-59d0998313a8" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="36aac426-e3d8-4477-968a-308f78446288" name="MessageOccurrenceSpecification">
@@ -3484,14 +3484,14 @@
               <lifelineMoniker Id="fb35b29d-c952-43dd-8520-3baec69525c6" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="cc317851-3063-4c67-b57c-e24aba95b0c0" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="cab6eb23-e442-452c-a396-2e5cbd0ab8a6" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="fb35b29d-c952-43dd-8520-3baec69525c6" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="cc317851-3063-4c67-b57c-e24aba95b0c0" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="5235d280-af02-438f-a3b2-8b23fcf0f75c" name="MessageOccurrenceSpecification">
@@ -3559,14 +3559,14 @@
               <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="2466c393-4489-481f-9c9d-d4403b35a9f9" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="53d04dcb-bd83-4e10-be37-e368bec070cf" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="2466c393-4489-481f-9c9d-d4403b35a9f9" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="4c3670f1-9617-4ff2-a32b-c6f0f85f6f77" name="MessageOccurrenceSpecification">
@@ -3624,14 +3624,14 @@
               <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="8a813904-dad4-4aa0-b1fb-9cda02a488f5" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="bddbb68a-d242-4631-816a-164f1d25cd40" LastKnownName="subjects : List&lt;Subject&gt;" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="0c299a57-60a5-49bb-a841-679c552c562c" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="8a813904-dad4-4aa0-b1fb-9cda02a488f5" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="bddbb68a-d242-4631-816a-164f1d25cd40" LastKnownName="subjects : List&lt;Subject&gt;" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="1d5a33d3-b050-4a74-ba0e-109cf450e0c4" name="ExecutionOccurrenceSpecification">
@@ -3694,14 +3694,14 @@
               <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="106d6d29-d220-4ef6-8354-baedc2d63162" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="cae1f64b-a130-423c-91f6-c73c63ba3ea1" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="fcd10584-63d5-40c3-8b2e-fb8ea8df3713" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="106d6d29-d220-4ef6-8354-baedc2d63162" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="cae1f64b-a130-423c-91f6-c73c63ba3ea1" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="6f992546-604d-401b-9a01-0665869fe7ef" name="ExecutionOccurrenceSpecification">
@@ -3804,14 +3804,29 @@
               <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
             </covered>
           </executionOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="0f035a53-e186-41c9-a3f8-a6230e064926" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="e2a76810-4b7b-417c-becc-75f45b69afd3" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
+              <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="b2b367c1-277f-484e-9d0b-10391620f4fa" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="56f68e9e-fe61-42db-af24-880a538fe2fd" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
+              <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="2f42c8de-f962-4b7f-8a35-85953b49f924" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="542ae60f-1716-4e61-afb6-51e5111129ff" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="70d7f16e-8143-4d4d-9bd0-1d07ab32a00e" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="6c43b8fc-d971-4712-9202-31c09303de2a" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="a882b3b5-86d8-4b10-bf2e-9c5c3f64f523" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="13010f43-6f6a-47dd-a877-3b1a0a759840" name="OperandOccurrenceSpecification">
@@ -3824,29 +3839,14 @@
               <lifelineMoniker Id="7d6f8e24-3a3d-478e-8531-4799a1fa4fa8" LastKnownName="source : List&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="70d7f16e-8143-4d4d-9bd0-1d07ab32a00e" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="b2b367c1-277f-484e-9d0b-10391620f4fa" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
+              <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="56f68e9e-fe61-42db-af24-880a538fe2fd" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="0f035a53-e186-41c9-a3f8-a6230e064926" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="6c43b8fc-d971-4712-9202-31c09303de2a" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="a882b3b5-86d8-4b10-bf2e-9c5c3f64f523" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="e2a76810-4b7b-417c-becc-75f45b69afd3" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="2f42c8de-f962-4b7f-8a35-85953b49f924" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="542ae60f-1716-4e61-afb6-51e5111129ff" LastKnownName="Subject : Subject" />
+              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
             </covered>
           </operandOccurrenceSpecification>
           <behaviorExecutionSpecification Id="f7685ff7-a8c1-46b9-86f3-625fd260033f" name="BehaviorExecutionSpecification">
@@ -4197,14 +4197,14 @@
               <lifelineMoniker Id="542ae60f-1716-4e61-afb6-51e5111129ff" LastKnownName="Subject : Subject" />
             </covered>
           </operandOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="b3592ec6-963e-4ffe-b269-cef3e203753b" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="a369889c-cafa-4625-b2e4-e803518e17c7" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="b3592ec6-963e-4ffe-b269-cef3e203753b" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="2d5b3938-e68a-4a0a-a8e6-b4cbb2854d5d" name="ExecutionOccurrenceSpecification">
@@ -4258,6 +4258,11 @@
               <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
             </covered>
           </messageOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="9570b976-f6c3-44d0-b860-d929ffea1835" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7d6f8e24-3a3d-478e-8531-4799a1fa4fa8" LastKnownName="source : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="f80fa998-3d6b-413d-b60b-30bc2cbfd13a" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
@@ -4266,11 +4271,6 @@
           <operandOccurrenceSpecification Id="2da88392-800b-4275-aa0b-6f98efa27bb2" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="9570b976-f6c3-44d0-b860-d929ffea1835" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="7d6f8e24-3a3d-478e-8531-4799a1fa4fa8" LastKnownName="source : List&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
           <behaviorExecutionSpecification Id="717dad43-38ce-406f-960a-2bd5b5bef8e9" name="BehaviorExecutionSpecification">
@@ -4357,14 +4357,14 @@
               <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="ff9ef8bc-4135-44d2-9647-64b7d969c23a" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="97ad7ee1-9c92-4026-9218-a122c7cad390" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="ff9ef8bc-4135-44d2-9647-64b7d969c23a" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="874115fc-156f-488f-9703-7167ad9ab65b" name="ExecutionOccurrenceSpecification">
@@ -4407,6 +4407,11 @@
               <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
             </covered>
           </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="d48aceaf-9a1e-4766-8603-68dd1a629dfa" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7d6f8e24-3a3d-478e-8531-4799a1fa4fa8" LastKnownName="source : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="bf543d0c-f6c7-4a66-8242-d13768963f58" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
@@ -4417,9 +4422,9 @@
               <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="d48aceaf-9a1e-4766-8603-68dd1a629dfa" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="4ed99415-50d6-4ec0-8045-5bece44fb15d" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="7d6f8e24-3a3d-478e-8531-4799a1fa4fa8" LastKnownName="source : List&lt;Event&gt;" />
+              <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="0929af32-df5e-4526-a415-4f9c2878993f" name="OperandOccurrenceSpecification">
@@ -4430,11 +4435,6 @@
           <operandOccurrenceSpecification Id="1fc5ae08-f799-4ef3-a9ef-be8ee301653c" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="7d6f8e24-3a3d-478e-8531-4799a1fa4fa8" LastKnownName="source : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="4ed99415-50d6-4ec0-8045-5bece44fb15d" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="1562fc06-a69c-4c81-9c53-4ab9cead3c83" name="OperandOccurrenceSpecification">
@@ -4502,34 +4502,9 @@
               <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
             </covered>
           </executionOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="c4473d67-8e32-4404-8b75-c50d5128e6bf" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="771897d6-3918-44ef-8f89-7d8dc10e5617" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="d83f0395-95b4-44b8-b183-dd12b044cdc4" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="a7f0b904-154c-4fdf-afd8-0e0c72d66ca9" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="a882b3b5-86d8-4b10-bf2e-9c5c3f64f523" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="c6ea223b-f6ba-41b9-9cfc-66ca9e06b5d0" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="d9aca9e1-51f7-4795-98b6-764bb4050a2d" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="5787ed74-9eae-4fce-9cd4-d74355bc0409" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
+              <lifelineMoniker Id="542ae60f-1716-4e61-afb6-51e5111129ff" LastKnownName="Subject : Subject" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="973b7f2b-3f21-4e62-9fab-b57847003958" name="OperandOccurrenceSpecification">
@@ -4537,14 +4512,39 @@
               <lifelineMoniker Id="7d6f8e24-3a3d-478e-8531-4799a1fa4fa8" LastKnownName="source : List&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="5787ed74-9eae-4fce-9cd4-d74355bc0409" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="d9aca9e1-51f7-4795-98b6-764bb4050a2d" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="c6ea223b-f6ba-41b9-9cfc-66ca9e06b5d0" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="a7f0b904-154c-4fdf-afd8-0e0c72d66ca9" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="a882b3b5-86d8-4b10-bf2e-9c5c3f64f523" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="d83f0395-95b4-44b8-b183-dd12b044cdc4" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="c4473d67-8e32-4404-8b75-c50d5128e6bf" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="c9bc74b8-222c-488a-9c89-8e138c820d8f" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="771897d6-3918-44ef-8f89-7d8dc10e5617" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="542ae60f-1716-4e61-afb6-51e5111129ff" LastKnownName="Subject : Subject" />
             </covered>
           </operandOccurrenceSpecification>
           <messageOccurrenceSpecification Id="0a430926-ccbb-44b8-87cf-f8adf8141e41" name="MessageOccurrenceSpecification">
@@ -4577,81 +4577,6 @@
               <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
             </covered>
           </executionOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="2d5b82db-490d-4e73-a51d-54e48c72902d" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="2154d3d1-efb8-453c-8f6d-b461d1d352b6" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="deb1e510-bdad-47a8-bffd-1da5040fa11f" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="f3cbd9cf-f0ec-45b1-8e9c-75d7f4b12c7f" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="10786703-c706-4240-96b1-2296c54979cb" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="bdecd42d-e3fb-461e-af2a-8c9e64a7e34e" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="a882b3b5-86d8-4b10-bf2e-9c5c3f64f523" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="85d15686-7daa-438d-92e9-08b384d35135" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="911b1101-918e-485f-8b5e-164b9f9d28e6" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="fb35b29d-c952-43dd-8520-3baec69525c6" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="1471fbce-5ab2-4782-98c1-81ee2929e6bd" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="78bf27b2-cc01-4416-b5f8-21921c080abe" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="bddbb68a-d242-4631-816a-164f1d25cd40" LastKnownName="subjects : List&lt;Subject&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="5bb3ad33-c8e8-4abe-a14b-e334b6579c17" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="cae1f64b-a130-423c-91f6-c73c63ba3ea1" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="da1265f4-a2f9-423a-9352-a5f8a180a5f1" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="b5d52bfe-2ac8-498c-8c8d-be01bef10b2f" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="7d6f8e24-3a3d-478e-8531-4799a1fa4fa8" LastKnownName="source : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="11fc6d58-3b97-4f59-adc2-bf033e75341e" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="3958cf2b-a9b2-4782-b873-743002dee3fc" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="33606195-7fdc-452a-bca2-14e5e01bcbad" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="5ed90764-2546-4f50-834b-e16109273bff" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="0cb053f0-9f7a-4733-917b-a3a6e611f9d4" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
@@ -4675,11 +4600,6 @@
           <operandOccurrenceSpecification Id="5454a07d-4feb-431e-a0dd-811141091097" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="fcca65eb-010c-4116-b3d4-e97fd1028482" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="4a28b208-2de6-4df6-a7ba-9c9b4c874938" name="OperandOccurrenceSpecification">
@@ -4707,9 +4627,164 @@
               <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="974a7c13-5a3c-4a33-83a0-26273e9316c0" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="33606195-7fdc-452a-bca2-14e5e01bcbad" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
+              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="fcca65eb-010c-4116-b3d4-e97fd1028482" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="3958cf2b-a9b2-4782-b873-743002dee3fc" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="1471fbce-5ab2-4782-98c1-81ee2929e6bd" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="b5d52bfe-2ac8-498c-8c8d-be01bef10b2f" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7d6f8e24-3a3d-478e-8531-4799a1fa4fa8" LastKnownName="source : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="11fc6d58-3b97-4f59-adc2-bf033e75341e" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="2d5b82db-490d-4e73-a51d-54e48c72902d" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="2154d3d1-efb8-453c-8f6d-b461d1d352b6" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="deb1e510-bdad-47a8-bffd-1da5040fa11f" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="f3cbd9cf-f0ec-45b1-8e9c-75d7f4b12c7f" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="bdecd42d-e3fb-461e-af2a-8c9e64a7e34e" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="a882b3b5-86d8-4b10-bf2e-9c5c3f64f523" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="10786703-c706-4240-96b1-2296c54979cb" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="911b1101-918e-485f-8b5e-164b9f9d28e6" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="fb35b29d-c952-43dd-8520-3baec69525c6" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="78bf27b2-cc01-4416-b5f8-21921c080abe" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="bddbb68a-d242-4631-816a-164f1d25cd40" LastKnownName="subjects : List&lt;Subject&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="5bb3ad33-c8e8-4abe-a14b-e334b6579c17" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="cae1f64b-a130-423c-91f6-c73c63ba3ea1" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="da1265f4-a2f9-423a-9352-a5f8a180a5f1" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="85d15686-7daa-438d-92e9-08b384d35135" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="e28e166e-2b63-4882-ae3f-16d89272363b" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="101407aa-2cbe-4c03-8a46-e7b11f50d43b" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="55234ea1-e9c9-497c-aaa0-405d04c8ad78" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="a0d5172f-ca24-4b0a-bee6-4681f0ee37b2" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="596e4e92-7cb2-4680-80be-5c22525d754d" LastKnownName="Logger" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="103dddbb-3c6a-41e5-978d-c57bd0af2603" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="00d6148c-fcd5-41c9-9f51-ba9605a9262b" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="cae1f64b-a130-423c-91f6-c73c63ba3ea1" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="2ccc5775-377f-44ef-839f-fac726914d0c" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="0075719a-9c29-4866-8b87-127834186d9b" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="bddbb68a-d242-4631-816a-164f1d25cd40" LastKnownName="subjects : List&lt;Subject&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="8a2777c8-cfd6-4b61-95c1-0fecc450d7e2" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="59eeeb14-2f49-4ac4-a958-fc26641b6ea2" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="175667f4-227e-465e-a04d-9c341f51e1ef" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="542ae60f-1716-4e61-afb6-51e5111129ff" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="89687edf-cabb-42f6-9a73-3bf6d2eea350" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="97844daf-5e4c-4e86-8914-4728842dce99" LastKnownName="Common" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="15834273-9c05-4d15-81d8-98c06c1fec8c" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="bec13804-28c7-4cb3-8267-522083cef31b" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="5806d113-177d-401b-9cc1-c41ed8c77613" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="b4ade5a7-27fc-4ad5-8c9c-dd1b12fa96c9" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="deb1e510-bdad-47a8-bffd-1da5040fa11f" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="be9fbb54-d11e-4608-9c07-02b66c20dc88" name="OperandOccurrenceSpecification">
@@ -4737,9 +4812,9 @@
               <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="6885b5ae-23b1-4ab0-ad9a-3c53cce64026" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="974a7c13-5a3c-4a33-83a0-26273e9316c0" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
+              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="4be82839-1eeb-46aa-9ff0-3a945d838e95" name="OperandOccurrenceSpecification">
@@ -4767,164 +4842,14 @@
               <lifelineMoniker Id="7d6f8e24-3a3d-478e-8531-4799a1fa4fa8" LastKnownName="source : List&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="5806d113-177d-401b-9cc1-c41ed8c77613" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="6885b5ae-23b1-4ab0-ad9a-3c53cce64026" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
+              <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="b4ade5a7-27fc-4ad5-8c9c-dd1b12fa96c9" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="0c10d2b4-6b67-46b8-8e23-b97c96aff0bd" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="deb1e510-bdad-47a8-bffd-1da5040fa11f" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="15834273-9c05-4d15-81d8-98c06c1fec8c" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="175667f4-227e-465e-a04d-9c341f51e1ef" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="542ae60f-1716-4e61-afb6-51e5111129ff" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="101407aa-2cbe-4c03-8a46-e7b11f50d43b" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="55234ea1-e9c9-497c-aaa0-405d04c8ad78" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="a0d5172f-ca24-4b0a-bee6-4681f0ee37b2" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="596e4e92-7cb2-4680-80be-5c22525d754d" LastKnownName="Logger" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="e28e166e-2b63-4882-ae3f-16d89272363b" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="bec13804-28c7-4cb3-8267-522083cef31b" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="103dddbb-3c6a-41e5-978d-c57bd0af2603" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="89687edf-cabb-42f6-9a73-3bf6d2eea350" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="97844daf-5e4c-4e86-8914-4728842dce99" LastKnownName="Common" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="2ccc5775-377f-44ef-839f-fac726914d0c" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="0075719a-9c29-4866-8b87-127834186d9b" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="bddbb68a-d242-4631-816a-164f1d25cd40" LastKnownName="subjects : List&lt;Subject&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="8a2777c8-cfd6-4b61-95c1-0fecc450d7e2" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="59eeeb14-2f49-4ac4-a958-fc26641b6ea2" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="00d6148c-fcd5-41c9-9f51-ba9605a9262b" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="cae1f64b-a130-423c-91f6-c73c63ba3ea1" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="a8a22c1c-7290-4706-ac6e-be53a1bb248f" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="223e8de4-554d-42b0-953a-8c78874af837" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="596e4e92-7cb2-4680-80be-5c22525d754d" LastKnownName="Logger" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="273ddcd7-6fe3-44cf-999b-951fa2a59096" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="b79fdb73-d3da-430a-b6da-3c0eb451558a" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="4e41d673-9760-4228-9097-96a282c726ae" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="97844daf-5e4c-4e86-8914-4728842dce99" LastKnownName="Common" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="29f5f06f-739e-46c4-ad38-c223324bbf68" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="deb1e510-bdad-47a8-bffd-1da5040fa11f" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="7ff6d094-a2bd-406b-9421-8da0993f2291" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="a6d644eb-0f52-413b-b823-7dac3291a8cc" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="210bdb6a-b171-4a5f-bc5d-831f822b4d8e" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="43016922-92ac-4d5e-8a80-39c939cd729a" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="fbf864ab-2eb2-490c-a74c-0aacc6ff3626" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="af0ce0d3-c5a2-4ac1-99a7-b8524efb9fe4" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="5ed7b109-2418-4a83-8efa-6a2cdb71631c" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="7dc866e5-68c8-4ebe-a7f0-2d353b18922d" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="0cb053f0-9f7a-4733-917b-a3a6e611f9d4" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="56fe393f-8fa8-41ab-a316-a4a8c2d6ad88" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="e1de91de-af7f-4fcf-850f-cf2c06f32dad" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
+              <lifelineMoniker Id="a882b3b5-86d8-4b10-bf2e-9c5c3f64f523" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="c4b68642-3222-4270-9cc9-f8494005fcfd" name="OperandOccurrenceSpecification">
@@ -4952,9 +4877,9 @@
               <lifelineMoniker Id="db22dc90-9d5b-4e53-9ea8-3df08b0a7a70" LastKnownName="predicate : Predicate&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="2b43b240-0a05-4961-998f-a695a45d2a74" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="f8de7dc7-9a38-4ce6-b457-d143405c4927" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
+              <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="557e6962-9663-4806-b0c9-75635096dc0c" name="OperandOccurrenceSpecification">
@@ -4967,11 +4892,6 @@
               <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="f8de7dc7-9a38-4ce6-b457-d143405c4927" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="46a8f740-8347-477d-b09e-da7d6512fc43" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
@@ -4982,9 +4902,89 @@
               <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="0c10d2b4-6b67-46b8-8e23-b97c96aff0bd" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="e1de91de-af7f-4fcf-850f-cf2c06f32dad" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="a882b3b5-86d8-4b10-bf2e-9c5c3f64f523" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
+              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="2b43b240-0a05-4961-998f-a695a45d2a74" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="56fe393f-8fa8-41ab-a316-a4a8c2d6ad88" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="a8a22c1c-7290-4706-ac6e-be53a1bb248f" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="5ed7b109-2418-4a83-8efa-6a2cdb71631c" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="7dc866e5-68c8-4ebe-a7f0-2d353b18922d" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="0cb053f0-9f7a-4733-917b-a3a6e611f9d4" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="273ddcd7-6fe3-44cf-999b-951fa2a59096" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="b79fdb73-d3da-430a-b6da-3c0eb451558a" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="4e41d673-9760-4228-9097-96a282c726ae" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="97844daf-5e4c-4e86-8914-4728842dce99" LastKnownName="Common" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="29f5f06f-739e-46c4-ad38-c223324bbf68" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="deb1e510-bdad-47a8-bffd-1da5040fa11f" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="223e8de4-554d-42b0-953a-8c78874af837" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="596e4e92-7cb2-4680-80be-5c22525d754d" LastKnownName="Logger" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="a6d644eb-0f52-413b-b823-7dac3291a8cc" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="210bdb6a-b171-4a5f-bc5d-831f822b4d8e" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="43016922-92ac-4d5e-8a80-39c939cd729a" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="fbf864ab-2eb2-490c-a74c-0aacc6ff3626" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="af0ce0d3-c5a2-4ac1-99a7-b8524efb9fe4" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="7ff6d094-a2bd-406b-9421-8da0993f2291" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
             </covered>
           </operandOccurrenceSpecification>
           <behaviorExecutionSpecification Id="8d34b744-8291-4ee4-8af6-539720fdce6e" name="BehaviorExecutionSpecification">
@@ -5019,14 +5019,14 @@
               <lifelineMoniker Id="596e4e92-7cb2-4680-80be-5c22525d754d" LastKnownName="Logger" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="511b3d4d-0c8c-4422-9793-4c2376b4fb58" name="MessageOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="596e4e92-7cb2-4680-80be-5c22525d754d" LastKnownName="Logger" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="298bcd8f-0d62-48fe-8065-eca6d18060d0" name="MessageOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="7656e13d-1ab3-4646-80cc-350da254adbb" LastKnownName="this : ManageEvents" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="511b3d4d-0c8c-4422-9793-4c2376b4fb58" name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="596e4e92-7cb2-4680-80be-5c22525d754d" LastKnownName="Logger" />
             </covered>
           </messageOccurrenceSpecification>
           <operandOccurrenceSpecification Id="7c671b20-43d4-4073-b8cb-a939d1d0ac9c" name="OperandOccurrenceSpecification">
@@ -5168,86 +5168,6 @@
               <lifelineMoniker Id="97844daf-5e4c-4e86-8914-4728842dce99" LastKnownName="Common" />
             </covered>
           </executionOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="5d5b1716-122e-4aed-9447-29bbbe434477" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="deb1e510-bdad-47a8-bffd-1da5040fa11f" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="37dd28c6-040f-4dfc-a5cf-efe87099a6a2" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="789c25cb-7d8a-4a47-81ec-cb81803e3ef7" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="b1eb7d0f-1f48-4775-aea0-37c5cc4b8671" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="6945bc32-050f-4a21-a559-974f64615acd" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="c9470056-e630-4eba-b227-34b624464c2f" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="e2471109-40d8-40e0-8577-084daaba9a66" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="a7efca79-1ea8-488e-863e-c85b8c50a505" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="cae1f64b-a130-423c-91f6-c73c63ba3ea1" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="cb872d5d-0ef3-4882-83d4-f614bab092bc" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="1d962599-db08-4ceb-a1bc-8da4e12b3cc0" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="31a31e93-7cf2-4d3a-9833-e24db272aad0" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="119b9250-0ede-40aa-8382-a075a2b3088f" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="5d6fcaba-e785-4aef-9649-0de2172e7c05" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="63c948f0-107f-4b4f-a665-c4146853eb12" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="afb39fc5-fcd2-4da0-b721-88371ddc9c20" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="33d11aec-8981-4a78-b82d-76d10f389b8c" name="OperandOccurrenceSpecification">
-            <covered>
-              <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="386597f0-01e8-4560-afe0-4e2db0139ecd" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="fb35b29d-c952-43dd-8520-3baec69525c6" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
@@ -5273,9 +5193,9 @@
               <lifelineMoniker Id="5ca54b1f-2234-4ab2-bc54-e789492d4864" LastKnownName="Subject : Subject" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="94a64a9f-7bad-40c5-993d-ef834a9138eb" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="42d1ae85-225a-42c2-894b-9ff486aa8359" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="a882b3b5-86d8-4b10-bf2e-9c5c3f64f523" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
+              <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="38705e5b-ad4d-4f73-9e40-64d693e2e3c5" name="OperandOccurrenceSpecification">
@@ -5298,14 +5218,94 @@
               <lifelineMoniker Id="bddbb68a-d242-4631-816a-164f1d25cd40" LastKnownName="subjects : List&lt;Subject&gt;" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="42d1ae85-225a-42c2-894b-9ff486aa8359" name="OperandOccurrenceSpecification">
+          <operandOccurrenceSpecification Id="33d11aec-8981-4a78-b82d-76d10f389b8c" name="OperandOccurrenceSpecification">
             <covered>
-              <lifelineMoniker Id="6335c2b5-d5b9-45aa-88bd-05cd3b9ba134" LastKnownName="source : DbSet&lt;Event&gt;" />
+              <lifelineMoniker Id="53c3c0f4-5b23-45da-a105-dd6556405ecb" LastKnownName="DatabaseContainerManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="94a64a9f-7bad-40c5-993d-ef834a9138eb" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="a882b3b5-86d8-4b10-bf2e-9c5c3f64f523" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="afb39fc5-fcd2-4da0-b721-88371ddc9c20" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4adc191d-b4e1-431c-b0f3-12d3dc849fe5" LastKnownName="this.businessObjectProcessor : EventProcessor" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="6c1aa81c-0da3-4b01-8ae5-a4c914ce965e" name="OperandOccurrenceSpecification">
             <covered>
               <lifelineMoniker Id="0cb053f0-9f7a-4733-917b-a3a6e611f9d4" LastKnownName="DatabaseContainerManager.localDatabaseContainer : LocalDatabaseContainer" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="5d6fcaba-e785-4aef-9649-0de2172e7c05" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="01502216-0d9f-4fa0-b60f-e924dd480a8d" LastKnownName="teacherProcessor : TeacherProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="119b9250-0ede-40aa-8382-a075a2b3088f" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="5e07e5b7-4d7d-4abf-a1a2-d0abf890698a" LastKnownName="subjectProcessor : SubjectProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="31a31e93-7cf2-4d3a-9833-e24db272aad0" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="caa872bf-8d5c-4f79-adc5-20d1b442a101" LastKnownName="source : DbSet&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="1d962599-db08-4ceb-a1bc-8da4e12b3cc0" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="86c5a4b9-c9b2-4fc2-bf21-754458c8c27a" LastKnownName="events : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="cb872d5d-0ef3-4882-83d4-f614bab092bc" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="94cc4622-aacc-4a2e-b43e-4911190f8507" LastKnownName="teacherProcessor : TeacherProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="a7efca79-1ea8-488e-863e-c85b8c50a505" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="cae1f64b-a130-423c-91f6-c73c63ba3ea1" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="e2471109-40d8-40e0-8577-084daaba9a66" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="139bfcd2-d49e-4909-849f-56e911c3d880" LastKnownName="source : List&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="c9470056-e630-4eba-b227-34b624464c2f" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="4dc4faf0-ca29-4257-a3fa-c958d610e206" LastKnownName="this.businessObjectProcessor.dataManager : EventsDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="6945bc32-050f-4a21-a559-974f64615acd" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="cfcfb40f-8a0c-4646-bc0e-fc872e296229" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="b1eb7d0f-1f48-4775-aea0-37c5cc4b8671" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="35d28ad7-9357-4899-98b5-45dbe562679f" LastKnownName="predicate : Predicate&lt;Event&gt;" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="789c25cb-7d8a-4a47-81ec-cb81803e3ef7" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="a87b7fc7-2e29-44e4-9542-e894ffecab5f" LastKnownName="subjectProcessor : SubjectProcessor" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="37dd28c6-040f-4dfc-a5cf-efe87099a6a2" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d8d0b53f-e519-4ab7-914f-88c0e5cf105a" LastKnownName="Subject : Subject" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="5d5b1716-122e-4aed-9447-29bbbe434477" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="deb1e510-bdad-47a8-bffd-1da5040fa11f" LastKnownName="teacherProcessor.dataManager : TeachersDataManager" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="63c948f0-107f-4b4f-a665-c4146853eb12" name="OperandOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker Id="d9117795-d53a-4305-bac6-ff1b7042bd94" LastKnownName="subjectProcessor.dataManager : SubjectsDataManager" />
             </covered>
           </operandOccurrenceSpecification>
           <executionOccurrenceSpecification Id="a3e129c9-efae-4bc0-b1a6-b2047cf8d61b" name="ExecutionOccurrenceSpecification">
