@@ -64,7 +64,7 @@
     </StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>98794ADF4A2725F0F224A936937A01B189670DA5</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>51D62202D907A9D9B42D84272C6CE7B40BF374EA</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>Docxes_TemporaryKey.pfx</ManifestKeyFile>
@@ -79,7 +79,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Docxes_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\Images\Icon.ico</ApplicationIcon>
@@ -279,8 +280,12 @@
     </EmbeddedResource>
     <None Include="Docxes_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="_Builds\Docxes 1.0.5291.21813.zip" />
+    <None Include="_Builds\Docxes 1.0.5291.28527.zip" />
     <None Include="_Project Management\FDS.docx" />
     <None Include="_Project Management\FDS.pdf" />
+    <None Include="_Project Management\Sequence Diagrams\Export\ManageEvents_btnDelete_Click.pdf" />
+    <None Include="_Project Management\Sequence Diagrams\Export\ManageTeacher_btnSave_Click.pdf" />
     <None Include="_Project Management\Sequence Diagrams\ManageEvents_btnDelete_Click.sequencediagram" />
     <None Include="_Project Management\Sequence Diagrams\ManageTeacher_btnSave_Click.sequencediagram" />
     <None Include="Properties\Settings.settings">
@@ -431,9 +436,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="_Project Management\Sequence Diagrams\Export\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
