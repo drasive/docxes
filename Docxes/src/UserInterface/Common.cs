@@ -25,6 +25,7 @@ namespace VrankenBischof.Docxes.UserInterface {
         /// Generates a ListBoxItem that can be used as a placeholder.
         /// </summary>
         /// <param name="message">The message to put inside of the placeholder.</param>
+        /// <returns>A ListBoxItem that can be used as a placeholder.</returns>
         internal static ListBoxItem GeneratePlaceholderListBoxItem(String message) {
             if (String.IsNullOrEmpty(message)) {
                 throw new ArgumentNullException("message");

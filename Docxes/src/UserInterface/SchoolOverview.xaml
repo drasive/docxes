@@ -116,7 +116,10 @@
                 <TextBlock x:Name="lblNoUpcommingEvents"
                            Grid.Row="1"
                            Text="Keine bevorstehenden Ereignisse in dieser oder der nächsten Woche."
-                           TextWrapping="Wrap" />
+                           TextWrapping="Wrap"
+                           FontSize="10"
+                           IsEnabled="False"
+                           Margin="0,5,0,0" />
 
                 <StackPanel x:Name="gUpcommingEventsOverview"
                             Grid.Row="1">

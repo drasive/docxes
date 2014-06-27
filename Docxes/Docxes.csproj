@@ -388,15 +388,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\Docxes.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Data\Docxes.mdf" />
     <Resource Include="_Project Management\Deployment Instructions.txt" />
     <Resource Include="Resources\Images\Icon.png" />
     <Resource Include="Resources\Images\Logo.png" />
     <Resource Include="Resources\Images\Icon.ico" />
     <Content Include="Data\Docxes_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Docxes.mdf</DependentUpon>
     </Content>
     <Content Include="Resources\SQL Scripts\Select all entities.sql" />

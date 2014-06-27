@@ -72,7 +72,7 @@ namespace VrankenBischof.Docxes.UserInterface {
                 icSubjects.ItemsSource = businessObjects;
             }
             else {
-                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Es sind noch keine Fächer vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Fach zu erstellen.");
+                var noBusinessObjectsPlaceholder = Common.GeneratePlaceholderListBoxItem("Es sind noch keine Fächer für diese Schule vorhanden.\nKlicken Sie auf \"Hinzufügen\" um ein neues Fach zu erstellen.");
                 icSubjects.ItemsSource = new List<ListBoxItem>() { noBusinessObjectsPlaceholder };
             }
 
