@@ -34,15 +34,14 @@ namespace VrankenBischof.Docxes {
         /// </summary>
         /// <returns>The path to the data directory, which is either set in the application configuration (absolute) or auto generated (relative to the executing assembly).</returns>
         internal static string GetDataDirectoryPath() {
-            if (GetUseAutoDataDirectoryPath()) {
-                var applicationDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                var autoDataDirectory = @"Data\";
+            var applicationDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string dataDirectory = GetUseAutoDataDirectoryPath() ? @"Data\" : GetCustomDataDirectoryPath();
 
-                return Path.Combine(applicationDirectory, autoDataDirectory);
+            if (GetUseAutoDataDirectoryPath()) {
+                return Path.Combine(applicationDirectory, dataDirectory);
             }
-            else {
-                return GetCustomDataDirectoryPath();
-            }
+
+            return Path.GetFullPath(applicationDirectory + dataDirectory);
         }
 
         #endregion
