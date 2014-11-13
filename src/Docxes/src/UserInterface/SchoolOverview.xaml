@@ -7,7 +7,7 @@
         x:Class="VrankenBischof.Docxes.UserInterface.SchoolOverview"
         x:ClassModifier="internal"
         Title="[Schulname]"
-        Icon="/Docxes;component/Resources/Images/Icon.ico"
+        Icon="/Assets/Images/Icon.ico"
         Height="600"
         Width="900"
         WindowStartupLocation="CenterScreen"

@@ -25,7 +25,7 @@ namespace VrankenBischof.Docxes {
                 }
                 else {
                     // Show the splash screen
-                    splashScreen = new SplashScreen("Resources/Images/Splash Screen.png");
+                    splashScreen = new SplashScreen("Assets/Images/Splash Screen.png");
                     splashScreen.Show(false);
 
 

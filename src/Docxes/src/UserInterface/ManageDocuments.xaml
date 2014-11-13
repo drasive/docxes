@@ -5,7 +5,7 @@
         x:Class="VrankenBischof.Docxes.UserInterface.ManageDocuments"
         x:ClassModifier="internal"
         Title="Dokumente verwalten"
-        Icon="/Docxes;component/Resources/Images/Icon.ico"
+        Icon="/Assets/Images/Icon.ico"
         Height="450"
         Width="800"
         Loaded="wManageDocuments_Loaded"

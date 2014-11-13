@@ -83,7 +83,7 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Images\Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\Images\Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
@@ -267,10 +267,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Diagrams\ManageEvents_btnDelete_Click.sequencediagram.layout">
+    <EmbeddedResource Include="Assets\Diagrams\ManageEvents_btnDelete_Click.sequencediagram.layout">
       <DependentUpon>ManageEvents_btnDelete_Click.sequencediagram</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Diagrams\ManageTeacher_btnSave_Click.sequencediagram.layout">
+    <EmbeddedResource Include="Assets\Diagrams\ManageTeacher_btnSave_Click.sequencediagram.layout">
       <DependentUpon>ManageTeacher_btnSave_Click.sequencediagram</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -280,8 +280,8 @@
     </EmbeddedResource>
     <None Include="Docxes_TemporaryKey.pfx" />
     <None Include="packages.config" />
-    <None Include="Diagrams\ManageEvents_btnDelete_Click.sequencediagram" />
-    <None Include="Diagrams\ManageTeacher_btnSave_Click.sequencediagram" />
+    <None Include="Assets\Diagrams\ManageEvents_btnDelete_Click.sequencediagram" />
+    <None Include="Assets\Diagrams\ManageTeacher_btnSave_Click.sequencediagram" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -391,15 +391,15 @@
     <Content Include="Data\Docxes.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\Images\Icon.png" />
-    <Resource Include="Resources\Images\Logo.png" />
-    <Resource Include="Resources\Images\Icon.ico" />
+    <Resource Include="Assets\Images\Icon.png" />
+    <Resource Include="Assets\Images\Logo.png" />
+    <Resource Include="Assets\Images\Icon.ico" />
     <Content Include="Data\Docxes_log.ldf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Docxes.mdf</DependentUpon>
     </Content>
-    <Content Include="Resources\SQL Scripts\Select all entities.sql" />
-    <SplashScreen Include="Resources\Images\Splash Screen.png" />
+    <Content Include="Data\Select all entities.sql" />
+    <SplashScreen Include="Assets\Images\Splash Screen.png" />
     <Content Include="src\Data\LocalDatabase.edmx.sql" />
   </ItemGroup>
   <ItemGroup>

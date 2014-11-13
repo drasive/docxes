@@ -4,7 +4,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Schule hinzufügen/ bearbeiten"
-        Icon="/Docxes;component/Resources/Images/Icon.ico"
+        Icon="/Assets/Images/Icon.ico"
         Height="300"
         Width="500"
         ResizeMode="NoResize"
