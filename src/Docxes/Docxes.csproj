@@ -64,7 +64,7 @@
     </StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>51D62202D907A9D9B42D84272C6CE7B40BF374EA</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>7E7E29903F87D9A43CC135E16A29F243D6B4C037</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>Docxes_TemporaryKey.pfx</ManifestKeyFile>
@@ -405,8 +405,8 @@
     <Resource Include="Resources\Images\Logo.png" />
     <Resource Include="Resources\Images\Icon.ico" />
     <Content Include="Data\Docxes_log.ldf">
-      <DependentUpon>Docxes.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>Docxes.mdf</DependentUpon>
     </Content>
     <Content Include="Resources\SQL Scripts\Select all entities.sql" />
     <SplashScreen Include="Resources\Images\Splash Screen.png" />
