@@ -77,7 +77,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             if (tbDesiredAverage.Text.Length == 0) {
                 InputValidation.MarkControlAsValid(tbDesiredAverage);
                 tblRequiredGrade.Text = "-";
-                tblRequiredGrade.ToolTip = String.Empty;
+                tblRequiredGrade.ToolTip = null;
 
                 return;
             }
@@ -87,7 +87,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             if (!isDesiredGradeValid) {
                 tblRequiredGrade.Text = "-";
-                tblRequiredGrade.ToolTip = String.Empty;
+                tblRequiredGrade.ToolTip = null;
 
                 return;
             }
@@ -98,7 +98,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             if (requiredGrade != null) {
                 tblRequiredGrade.Text = Math.Round(requiredGrade.Value, 2).ToString("0.00");
-                tblRequiredGrade.ToolTip = String.Empty;
+                tblRequiredGrade.ToolTip = null;
             }
             else {
                 tblRequiredGrade.Text = "N/A";

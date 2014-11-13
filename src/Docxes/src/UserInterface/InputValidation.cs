@@ -20,7 +20,7 @@ namespace VrankenBischof.Docxes.UserInterface {
 
             control.Foreground = Brushes.Black;
             control.BorderBrush = Brushes.DimGray; // Pretty similar to the default border brush of a TextBox; 
-            control.ToolTip = string.Empty;
+            control.ToolTip = null;
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace VrankenBischof.Docxes.UserInterface {
             else {
                 control.Foreground = Brushes.Red;
             }
-            control.ToolTip = toolTip ?? String.Empty;
+            control.ToolTip = toolTip;
         }
 
 
