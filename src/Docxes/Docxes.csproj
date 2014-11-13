@@ -267,10 +267,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="_Project Management\Sequence Diagrams\ManageEvents_btnDelete_Click.sequencediagram.layout">
+    <EmbeddedResource Include="Diagrams\ManageEvents_btnDelete_Click.sequencediagram.layout">
       <DependentUpon>ManageEvents_btnDelete_Click.sequencediagram</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="_Project Management\Sequence Diagrams\ManageTeacher_btnSave_Click.sequencediagram.layout">
+    <EmbeddedResource Include="Diagrams\ManageTeacher_btnSave_Click.sequencediagram.layout">
       <DependentUpon>ManageTeacher_btnSave_Click.sequencediagram</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -280,17 +280,8 @@
     </EmbeddedResource>
     <None Include="Docxes_TemporaryKey.pfx" />
     <None Include="packages.config" />
-    <None Include="_Builds\Docxes 1.0.5291.21813.zip" />
-    <None Include="_Builds\Docxes 1.0.5291.28527.zip" />
-    <None Include="_Builds\Docxes 1.0.5291.40143.zip" />
-    <None Include="_Project Management\Class diagram.pdf" />
-    <None Include="_Project Management\FDS.docx" />
-    <None Include="_Project Management\FDS.pdf" />
-    <None Include="_Project Management\Sequence Diagrams\Export\Combined.pdf" />
-    <None Include="_Project Management\Sequence Diagrams\Export\ManageEvents_btnDelete_Click.pdf" />
-    <None Include="_Project Management\Sequence Diagrams\Export\ManageTeacher_btnSave_Click.pdf" />
-    <None Include="_Project Management\Sequence Diagrams\ManageEvents_btnDelete_Click.sequencediagram" />
-    <None Include="_Project Management\Sequence Diagrams\ManageTeacher_btnSave_Click.sequencediagram" />
+    <None Include="Diagrams\ManageEvents_btnDelete_Click.sequencediagram" />
+    <None Include="Diagrams\ManageTeacher_btnSave_Click.sequencediagram" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -400,7 +391,6 @@
     <Content Include="Data\Docxes.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="_Project Management\Deployment Instructions.txt" />
     <Resource Include="Resources\Images\Icon.png" />
     <Resource Include="Resources\Images\Logo.png" />
     <Resource Include="Resources\Images\Icon.ico" />
