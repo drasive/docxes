@@ -3,9 +3,9 @@
 Software for managing school data like notes, grades, documents, homework etc.  
 This was a school project for module #226 at the [GIB Muttenz](http://www.gibm.ch) (Switzerland).
 
-*Attention:
-- The user interface and the documentation are in __German__, even though the code itself is in English
-- The grade management is using the __swiss grading system__*
+Attention:
+- The user __interface and the documentation are in German__, even though the code is in English
+- The grade management is using the __swiss grading system__
 
 ## Features
 - Manage notes, grades, documents, events like tests and homework, subjects and teachers for different schools
@@ -20,7 +20,7 @@ This was a school project for module #226 at the [GIB Muttenz](http://www.gibm.c
 ### 2. Managing Events
 ![Managing Events](/docs/_source/managing-events.png "Managing Events")
 
-### 2. Managing Grades
+### 3. Managing Grades
 ![Managing Grades](/docs/_source/managing-grades.png "Managing Grades")
 
 ## Installation
@@ -49,8 +49,8 @@ Please take care to maintain the existing coding style.
 The documentation is available in the [/docs folder](docs).
 
 ## Team Members
-Nicola Bischof, Lead designer and developer
-Dimitri Vranken, Lead developer
+- Nicola Bischof, Lead designer and developer
+- Dimitri Vranken, Lead developer
 
 ## License
 This project is release under the [GNU GPL v3.0](LICENSE).
