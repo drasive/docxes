@@ -49,8 +49,8 @@ Please take care to maintain the existing coding style.
 The documentation is available in the [/docs folder](docs).
 
 ## Team Members
-- Nicola Bischof, Lead designer and developer
-- Dimitri Vranken, Lead developer
+- Nicola Bischof ([Lord-Modesty](https://github.com/Lord-Modesty)), Lead designer and developer
+- Dimitri Vranken ([drasive](https://github.com/drasive)), Lead developer
 
 ## License
 This project is release under the [GNU GPL v3.0](LICENSE).
